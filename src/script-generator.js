@@ -1,30 +1,19 @@
-const axios = require('axios');
-
-function parseJSON(text) {
-  if (!text) throw new Error(`Empty content from model`);
-  console.log('[parseJSON] raw content:', text);
-  const match = text.match(/\{[\s\S]*\}/);
-  if (!match) throw new Error(`No JSON object found in model response: ${text.slice(0, 300)}`);
-  return JSON.parse(match[0]);
-}
+const { chatCompletion, parseJSON } = require('./openrouter');
 
 async function generateScriptAndCaption(story) {
-  const response = await axios.post(
-    'https://openrouter.ai/api/v1/chat/completions',
-    {
-      model: 'mistralai/mistral-small-3.1-24b-instruct',
-      max_tokens: 600,
-      messages: [
-        {
-          role: 'system',
-          content: `You write short UGC video scripts and Instagram captions for Rally News,
+  const content = await chatCompletion({
+    max_tokens: 600,
+    messages: [
+      {
+        role: 'system',
+        content: `You write short UGC video scripts and Instagram captions for Rally News,
 a positive news aggregator. Tone: warm, genuine, straight-to-camera —
 like a real woman in her early 50s sharing great news with a friend.
 No intro phrases like Hi, Hey, or Hello. and then continue to a description of the positive news. Return valid JSON only, no extra text.`
-        },
-        {
-          role: 'user',
-          content: `Story headline: "${story.headline}"
+      },
+      {
+        role: 'user',
+        content: `Story headline: "${story.headline}"
 Story summary: "${story.summary}"
 Publisher: ${story.publisher}
 
@@ -33,27 +22,11 @@ Return a JSON object with exactly these two fields:
   "script": "A natural spoken script for a 10–15 second straight-to-camera video. Maximum 40 words. Always start with an excited "Good News!" End with: link in the comments.",
   "caption": "An Instagram caption. Two sentences maximum. Warm and conversational, written for women in their 50s and 60s. Ends with: Full story in comments 👇 #goodnews #rallynews #positivenews"
 }`
-        }
-      ]
-    },
-    {
-      headers: {
-        'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://rallynews.com',
-        'X-Title': 'Rally News Pipeline'
       }
-    }
-  );
+    ]
+  });
 
-  if (!response.data.choices?.length) {
-    throw new Error(`OpenRouter error: ${JSON.stringify(response.data)}`);
-  }
-  const choice = response.data.choices[0];
-  if (choice.error) {
-    throw new Error(`Provider error: ${choice.error.code} ${choice.error.message}`);
-  }
-  return parseJSON(choice.message.content);
+  return parseJSON(content);
 }
 
 module.exports = { generateScriptAndCaption };
