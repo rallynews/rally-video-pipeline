@@ -2,8 +2,8 @@ name: Rally News Video Pipeline
 
 on:
   schedule:
-    - cron: '30 7 * * *'   # 7:30am UTC = 8:30am CET (9:30am CEST in summer)
-  workflow_dispatch:         # Also lets you trigger it manually for testing
+    - cron: '30 7 * * *'
+  workflow_dispatch:
 
 jobs:
   generate-and-deliver:
@@ -13,8 +13,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
-- name: Set up Node.js
+
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
