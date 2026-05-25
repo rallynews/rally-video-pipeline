@@ -41,17 +41,17 @@ async function run() {
     console.log(`   Selected: "${story.headline}"`);
 
     console.log('\n✍️  Writing script and caption...');
-    const { script, caption } = await generateScriptAndCaption(story);
+    const { script, caption, tweet } = await generateScriptAndCaption(story);
     console.log(`   Script: ${script}`);
 
-    console.log('\n🎬 Generating video via Wan 2.6...');
+    console.log('\n🎬 Generating video...');
     const videoUrl = await generateVideo(script);
     console.log(`   Video ready: ${videoUrl}`);
 
     console.log('\n📱 Sending to Telegram...');
-    await sendDailyVideo(videoUrl, caption, story);
+    await sendDailyVideo(videoUrl, caption, tweet, story);
 
-    console.log('\n✅ Done! Video and caption delivered to Telegram.\n');
+    console.log('\n✅ Done! Video, caption, and tweet delivered to Telegram.\n');
 
   } catch (error) {
     console.error('\n❌ Pipeline failed:', error.message);
