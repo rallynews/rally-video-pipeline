@@ -4,8 +4,6 @@ const VIDEO_MODELS = [
   'alibaba/wan-2.7',
   'kwaivgi/kling-video-o1',
   'kwaivgi/kling-v3.0-std',
-  'minimax/hailuo-2.3',
-  'bytedance/seedance-2.0',
 ];
 
 const headers = {
