@@ -66,7 +66,7 @@ async function generateVideo(script) {
     const { status, video_url } = statusResponse.data;
     console.log(`  Poll ${i + 1}: ${status}`);
 
-    if (status === 'succeeded' && video_url) return video_url;
+    if ((status === 'completed' || status === 'succeeded') && video_url) return video_url;
     if (status === 'failed') throw new Error(`Video generation failed: ${jobId}`);
   }
 

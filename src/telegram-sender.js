@@ -4,7 +4,7 @@ const FormData = require('form-data');
 const TG_BASE = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-async function sendDailyVideo(videoUrl, caption, story) {
+async function sendDailyVideo(videoUrl, caption, tweet, story) {
   const today = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long'
   });
@@ -31,6 +31,18 @@ async function sendDailyVideo(videoUrl, caption, story) {
     chat_id: CHAT_ID,
     video: videoUrl,
     caption: '⬆️ Save this video to your camera roll, then post to Instagram with the caption above.'
+  });
+
+  // Message 3: Twitter/X copy
+  const tweetMessage =
+    `🐦 *TWEET TO COPY:*\n\n` +
+    `${tweet}\n\n` +
+    `🔗 ${story.url}`;
+
+  await axios.post(`${TG_BASE}/sendMessage`, {
+    chat_id: CHAT_ID,
+    text: tweetMessage,
+    parse_mode: 'Markdown'
   });
 
   console.log('  Telegram messages sent ✓');
