@@ -37,7 +37,6 @@ async function getMostViralStory() {
     {
       model: 'mistralai/mistral-small-3.1-24b-instruct-2503',
       max_tokens: 200,
-      response_format: { type: 'json_object' },
       messages: [
         {
           role: 'system',
@@ -64,11 +63,14 @@ ${JSON.stringify(storySummaries, null, 2)}`
     }
   );
 
-  console.log('[scoringResponse] full choice:', JSON.stringify(scoringResponse.data.choices?.[0]));
   if (!scoringResponse.data.choices?.length) {
     throw new Error(`OpenRouter error: ${JSON.stringify(scoringResponse.data)}`);
   }
-  const result = parseJSON(scoringResponse.data.choices[0].message.content);
+  const choice = scoringResponse.data.choices[0];
+  if (choice.error) {
+    throw new Error(`Provider error: ${choice.error.code} ${choice.error.message}`);
+  }
+  const result = parseJSON(choice.message.content);
   const selected = stories[result.index];
 
   return {
