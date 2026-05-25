@@ -4,7 +4,7 @@ const FormData = require('form-data');
 const TG_BASE = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-async function sendDailyVideo(videoUrl, caption, tweet, story) {
+async function sendDailyVideo(videoBuffer, caption, tweet, story) {
   const today = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long'
   });
@@ -27,11 +27,11 @@ async function sendDailyVideo(videoUrl, caption, tweet, story) {
   });
 
   // Message 2: the video file (save to camera roll, then post to Instagram)
-  await axios.post(`${TG_BASE}/sendVideo`, {
-    chat_id: CHAT_ID,
-    video: videoUrl,
-    caption: '⬆️ Save this video to your camera roll, then post to Instagram with the caption above.'
-  });
+  const videoForm = new FormData();
+  videoForm.append('chat_id', CHAT_ID);
+  videoForm.append('video', videoBuffer, { filename: 'rally-news.mp4', contentType: 'video/mp4' });
+  videoForm.append('caption', '⬆️ Save this video to your camera roll, then post to Instagram with the caption above.');
+  await axios.post(`${TG_BASE}/sendVideo`, videoForm, { headers: videoForm.getHeaders() });
 
   // Message 3: Twitter/X copy
   const tweetMessage =
