@@ -1,6 +1,11 @@
 const axios = require('axios');
 const { XMLParser } = require('fast-xml-parser');
 
+function parseJSON(text) {
+  const stripped = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+  return JSON.parse(stripped);
+}
+
 async function getMostViralStory() {
   // Step 1: Fetch and parse the RSS feed
   const response = await axios.get(process.env.RALLY_RSS_URL, {
@@ -55,9 +60,7 @@ ${JSON.stringify(storySummaries, null, 2)}`
     }
   );
 
-  const result = JSON.parse(
-    scoringResponse.data.choices[0].message.content
-  );
+  const result = parseJSON(scoringResponse.data.choices[0].message.content);
   const selected = stories[result.index];
 
   return {
