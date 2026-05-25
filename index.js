@@ -45,11 +45,11 @@ async function run() {
     console.log(`   Script: ${script}`);
 
     console.log('\n🎬 Generating video...');
-    const videoUrl = await generateVideo(script);
-    console.log(`   Video ready: ${videoUrl}`);
+    const videoBuffer = await generateVideo();
+    console.log(`   Video downloaded (${(videoBuffer.length / 1024).toFixed(0)} KB)`);
 
     console.log('\n📱 Sending to Telegram...');
-    await sendDailyVideo(videoUrl, caption, tweet, story);
+    await sendDailyVideo(videoBuffer, caption, tweet, story);
 
     console.log('\n✅ Done! Video, caption, and tweet delivered to Telegram.\n');
 

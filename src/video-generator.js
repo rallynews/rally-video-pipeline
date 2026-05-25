@@ -13,6 +13,11 @@ const headers = {
   'X-Title': 'Rally News Pipeline'
 };
 
+const UGC_PROMPT =
+  'A woman in her early 50s speaking directly to camera with a warm, excited smile. ' +
+  'Authentic talking-head UGC style, natural head and facial movements, English language. ' +
+  'Vertical 9:16 portrait, realistic, well-lit indoor setting.';
+
 function pickAvatar() {
   const avatars = [
     process.env.AVATAR_1,
@@ -24,7 +29,7 @@ function pickAvatar() {
   return avatars[dayOfYear % avatars.length];
 }
 
-async function generateVideo(script) {
+async function generateVideo() {
   const avatar = pickAvatar();
   let jobId = null;
   let lastError;
@@ -36,7 +41,7 @@ async function generateVideo(script) {
         'https://openrouter.ai/api/v1/videos',
         {
           model,
-          prompt: script,
+          prompt: UGC_PROMPT,
           image_url: avatar,
           duration: 5,
           aspect_ratio: '9:16',
@@ -64,14 +69,19 @@ async function generateVideo(script) {
     );
 
     const { status, unsigned_urls } = statusResponse.data;
-    const videoUrl = unsigned_urls?.[0];
     console.log(`  Poll ${i + 1}: ${status}`);
-    if (status !== 'pending' && status !== 'processing' && status !== 'queued') {
-      console.log('  Full response:', JSON.stringify(statusResponse.data, null, 2));
-    }
 
-    if ((status === 'completed' || status === 'succeeded') && videoUrl) return videoUrl;
     if (status === 'failed') throw new Error(`Video generation failed: ${jobId}`);
+
+    if ((status === 'completed' || status === 'succeeded') && unsigned_urls?.[0]) {
+      const videoUrl = unsigned_urls[0];
+      console.log(`  Downloading video...`);
+      const download = await axios.get(videoUrl, {
+        headers: { 'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}` },
+        responseType: 'arraybuffer'
+      });
+      return Buffer.from(download.data);
+    }
   }
 
   throw new Error('Video generation timed out after 15 minutes');
