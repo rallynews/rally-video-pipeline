@@ -14,7 +14,6 @@ async function generateScriptAndCaption(story) {
     {
       model: 'mistralai/mistral-small-3.1-24b-instruct-2503',
       max_tokens: 600,
-      response_format: { type: 'json_object' },
       messages: [
         {
           role: 'system',
@@ -50,7 +49,11 @@ Return a JSON object with exactly these two fields:
   if (!response.data.choices?.length) {
     throw new Error(`OpenRouter error: ${JSON.stringify(response.data)}`);
   }
-  return parseJSON(response.data.choices[0].message.content);
+  const choice = response.data.choices[0];
+  if (choice.error) {
+    throw new Error(`Provider error: ${choice.error.code} ${choice.error.message}`);
+  }
+  return parseJSON(choice.message.content);
 }
 
 module.exports = { generateScriptAndCaption };
