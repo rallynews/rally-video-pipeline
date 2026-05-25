@@ -64,6 +64,7 @@ ${JSON.stringify(storySummaries, null, 2)}`
     }
   );
 
+  console.log('[scoringResponse] full choice:', JSON.stringify(scoringResponse.data.choices?.[0]));
   if (!scoringResponse.data.choices?.length) {
     throw new Error(`OpenRouter error: ${JSON.stringify(scoringResponse.data)}`);
   }
