@@ -12,7 +12,7 @@ async function generateScriptAndCaption(story) {
   const response = await axios.post(
     'https://openrouter.ai/api/v1/chat/completions',
     {
-      model: 'mistralai/mistral-small-3.1-24b-instruct-2503',
+      model: 'mistralai/mistral-small-3.1-24b-instruct',
       max_tokens: 600,
       messages: [
         {

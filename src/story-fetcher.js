@@ -35,7 +35,7 @@ async function getMostViralStory() {
   const scoringResponse = await axios.post(
     'https://openrouter.ai/api/v1/chat/completions',
     {
-      model: 'mistralai/mistral-small-3.1-24b-instruct-2503',
+      model: 'mistralai/mistral-small-3.1-24b-instruct',
       max_tokens: 200,
       messages: [
         {
