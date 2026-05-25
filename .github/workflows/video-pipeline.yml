@@ -1,1 +1,38 @@
+name: Rally News Video Pipeline
 
+on:
+  schedule:
+    - cron: '30 7 * * *'   # 7:30am UTC = 8:30am CET (9:30am CEST in summer)
+  workflow_dispatch:         # Also lets you trigger it manually for testing
+
+jobs:
+  generate-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run pipeline
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RALLY_RSS_URL: ${{ secrets.RALLY_RSS_URL }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          AVATAR_1: ${{ secrets.AVATAR_1 }}
+          AVATAR_2: ${{ secrets.AVATAR_2 }}
+          AVATAR_3: ${{ secrets.AVATAR_3 }}
+          AVATAR_4: ${{ secrets.AVATAR_4 }}
+        run: node index.js
