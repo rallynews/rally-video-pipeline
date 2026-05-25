@@ -63,13 +63,14 @@ async function generateVideo(script) {
       { headers }
     );
 
-    const { status, video_url } = statusResponse.data;
+    const { status, unsigned_urls } = statusResponse.data;
+    const videoUrl = unsigned_urls?.[0];
     console.log(`  Poll ${i + 1}: ${status}`);
     if (status !== 'pending' && status !== 'processing' && status !== 'queued') {
       console.log('  Full response:', JSON.stringify(statusResponse.data, null, 2));
     }
 
-    if ((status === 'completed' || status === 'succeeded') && video_url) return video_url;
+    if ((status === 'completed' || status === 'succeeded') && videoUrl) return videoUrl;
     if (status === 'failed') throw new Error(`Video generation failed: ${jobId}`);
   }
 
