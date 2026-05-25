@@ -2,8 +2,11 @@ const axios = require('axios');
 const { XMLParser } = require('fast-xml-parser');
 
 function parseJSON(text) {
-  const stripped = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
-  return JSON.parse(stripped);
+  if (!text) throw new Error(`Empty content from model`);
+  console.log('[parseJSON] raw content:', text);
+  const match = text.match(/\{[\s\S]*\}/);
+  if (!match) throw new Error(`No JSON object found in model response: ${text.slice(0, 300)}`);
+  return JSON.parse(match[0]);
 }
 
 async function getMostViralStory() {
@@ -60,6 +63,9 @@ ${JSON.stringify(storySummaries, null, 2)}`
     }
   );
 
+  if (!scoringResponse.data.choices?.length) {
+    throw new Error(`OpenRouter error: ${JSON.stringify(scoringResponse.data)}`);
+  }
   const result = parseJSON(scoringResponse.data.choices[0].message.content);
   const selected = stories[result.index];
 
