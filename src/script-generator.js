@@ -13,7 +13,8 @@ async function generateScriptAndCaption(story) {
     'https://openrouter.ai/api/v1/chat/completions',
     {
       model: 'mistralai/mistral-small-3.1-24b-instruct-2503',
-      max_tokens: 300,
+      max_tokens: 600,
+      response_format: { type: 'json_object' },
       messages: [
         {
           role: 'system',
