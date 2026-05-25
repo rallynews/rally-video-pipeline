@@ -1,5 +1,13 @@
 const axios = require('axios');
 
+const VIDEO_MODELS = [
+  'alibaba/wan-2.7',
+  'kwaivgi/kling-video-o1',
+  'kwaivgi/kling-v3.0-std',
+  'minimax/hailuo-2.3',
+  'bytedance/seedance-2.0',
+];
+
 const headers = {
   'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
   'Content-Type': 'application/json',
@@ -19,27 +27,41 @@ function pickAvatar() {
 }
 
 async function generateVideo(script) {
-  const submitResponse = await axios.post(
-    'https://openrouter.ai/api/v1/videos/generations',
-    {
-      model: 'alibaba/wan-2.6',
-      prompt: script,
-      image_url: pickAvatar(),
-      duration: 15,
-      aspect_ratio: '9:16',
-      resolution: '720p'
-    },
-    { headers }
-  );
+  const avatar = pickAvatar();
+  let jobId = null;
+  let lastError;
 
-  const jobId = submitResponse.data.id;
-  console.log(`  Video job submitted: ${jobId}`);
+  for (const model of VIDEO_MODELS) {
+    try {
+      console.log(`  Trying video model: ${model}`);
+      const submitResponse = await axios.post(
+        'https://openrouter.ai/api/v1/videos',
+        {
+          model,
+          prompt: script,
+          image_url: avatar,
+          duration: 5,
+          aspect_ratio: '9:16',
+          resolution: '720p'
+        },
+        { headers }
+      );
+      jobId = submitResponse.data.id;
+      console.log(`  Video job submitted with ${model}: ${jobId}`);
+      break;
+    } catch (err) {
+      lastError = err;
+      console.warn(`  ${model} failed (${err.response?.status ?? err.message}), trying next...`);
+    }
+  }
+
+  if (!jobId) throw lastError || new Error('All video models failed to submit');
 
   for (let i = 0; i < 60; i++) {
     await new Promise(r => setTimeout(r, 15000));
 
     const statusResponse = await axios.get(
-      `https://openrouter.ai/api/v1/videos/generations/${jobId}`,
+      `https://openrouter.ai/api/v1/videos/${jobId}`,
       { headers }
     );
 
