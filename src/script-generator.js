@@ -1,5 +1,10 @@
 const axios = require('axios');
 
+function parseJSON(text) {
+  const stripped = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/, '').trim();
+  return JSON.parse(stripped);
+}
+
 async function generateScriptAndCaption(story) {
   const response = await axios.post(
     'https://openrouter.ai/api/v1/chat/completions',
@@ -38,7 +43,7 @@ Return a JSON object with exactly these two fields:
     }
   );
 
-  return JSON.parse(response.data.choices[0].message.content);
+  return parseJSON(response.data.choices[0].message.content);
 }
 
 module.exports = { generateScriptAndCaption };
