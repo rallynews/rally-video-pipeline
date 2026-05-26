@@ -31,12 +31,15 @@ async function getMostViralStory() {
       {
         role: 'system',
         content: `You select the most shareable, uplifting, positive news story from a list.
+Prioritise stories of worldwide or broad international interest — science, environment, health, humanity, space, animals, global policy.
+Reject stories that are specific to a single city, town, local community, or country unless the impact is clearly global.
 Consider: emotional impact, broad appeal, feel-good factor, and shareability.
 Return only a JSON object like: {"index": 3}`
       },
       {
         role: 'user',
-        content: `Which of these stories would go most viral as positive news on Instagram?
+        content: `Which of these stories would go most viral as positive news on Instagram with a global audience?
+Avoid stories that are only relevant to one specific place or country.
 Return the index of the best one.
 
 ${JSON.stringify(storySummaries, null, 2)}`
