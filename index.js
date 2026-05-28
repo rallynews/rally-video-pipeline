@@ -2,6 +2,7 @@ const { getMostViralStory } = require('./src/story-fetcher');
 const { generateScriptAndCaption } = require('./src/script-generator');
 const { generateVideo } = require('./src/video-generator');
 const { sendDailyVideo } = require('./src/telegram-sender');
+const { updateRSSFeed } = require('./src/rss-updater');
 const axios = require('axios');
 
 async function sendErrorAlert(error) {
@@ -50,6 +51,9 @@ async function run() {
 
     console.log('\n📱 Sending to Telegram...');
     await sendDailyVideo(videoBuffer, caption, tweet, story);
+
+    console.log('\n📡 Updating RSS feed...');
+    updateRSSFeed(story);
 
     console.log('\n✅ Done! Video, caption, and tweet delivered to Telegram.\n');
 

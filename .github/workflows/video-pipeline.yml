@@ -33,3 +33,11 @@ jobs:
           AVATAR_3: ${{ secrets.AVATAR_3 }}
           AVATAR_4: ${{ secrets.AVATAR_4 }}
         run: node index.js
+
+      - name: Commit and push updated RSS feed
+        run: |
+          git config user.name "Rally News Bot"
+          git config user.email "pipeline@rallynews.com"
+          git add feed.rss
+          git diff --cached --quiet || git commit -m "chore: update RSS feed [skip ci]"
+          git push origin main
