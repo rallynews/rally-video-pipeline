@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rally News — Featured Stories</title>
+    <link>https://rallynews.com</link>
+    <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Jan 2026 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.xml" rel="self" type="application/rss+xml"/>
+
+  </channel>
+</rss>

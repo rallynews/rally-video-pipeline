@@ -50,13 +50,20 @@ ${JSON.stringify(storySummaries, null, 2)}`
   const result = parseJSON(content);
   const selected = stories[result.index];
 
+  const thumbnail =
+    selected['media:content']?.['@_url'] ||
+    selected['media:thumbnail']?.['@_url'] ||
+    selected['enclosure']?.['@_url'] ||
+    null;
+
   return {
     headline: selected.title,
     summary: selected.description
       ? selected.description.replace(/<[^>]*>/g, '').slice(0, 300)
       : selected.title,
     publisher: selected['dc:creator'] || selected.author || 'Rally News',
-    url: selected.link
+    url: selected.link,
+    thumbnail
   };
 }
 
