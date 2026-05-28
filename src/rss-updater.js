@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { XMLParser } = require('fast-xml-parser');
 
-const FEED_PATH = path.join(__dirname, '..', 'feed.xml');
+const FEED_PATH = path.join(__dirname, '..', 'feed.rss');
 
 const FEED_TITLE = 'Rally News — Featured Stories';
 const FEED_LINK = 'https://rallynews.com';
@@ -66,7 +66,7 @@ function updateRSSFeed(story) {
     `    <description>${escapeXml(FEED_DESCRIPTION)}</description>`,
     '    <language>en-us</language>',
     `    <lastBuildDate>${pubDate}</lastBuildDate>`,
-    '    <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.xml" rel="self" type="application/rss+xml"/>',
+    '    <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>',
     '',
     items.join('\n\n'),
     '  </channel>',

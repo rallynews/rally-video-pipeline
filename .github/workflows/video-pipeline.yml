@@ -38,6 +38,6 @@ jobs:
         run: |
           git config user.name "Rally News Bot"
           git config user.email "pipeline@rallynews.com"
-          git add feed.xml
+          git add feed.rss
           git diff --cached --quiet || git commit -m "chore: update RSS feed [skip ci]"
           git push origin main
