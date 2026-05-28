@@ -59,7 +59,7 @@ ${JSON.stringify(storySummaries, null, 2)}`
   return {
     headline: selected.title,
     summary: selected.description
-      ? selected.description.replace(/<[^>]*>/g, '').slice(0, 300)
+      ? selected.description.replace(/<[^>]*>/g, '').slice(0, 600)
       : selected.title,
     publisher: selected['dc:creator'] || selected.author || 'Rally News',
     url: selected.link,
