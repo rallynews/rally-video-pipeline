@@ -41,8 +41,7 @@ async function generateVideo(script) {
         'https://openrouter.ai/api/v1/videos',
         {
           model,
-          prompt: UGC_PROMPT,
-          text: script,
+          prompt: `${UGC_PROMPT} The woman says exactly: "${script}"`,
           image_url: avatar,
           duration: 5,
           aspect_ratio: '9:16',
