@@ -13,11 +13,6 @@ const headers = {
   'X-Title': 'Rally News Pipeline'
 };
 
-const UGC_PROMPT =
-  'A woman in her early 50s speaking directly to camera with a warm, excited smile. ' +
-  'Authentic talking-head UGC style, natural head and facial movements, English language. ' +
-  'Vertical 9:16 portrait, realistic, well-lit indoor setting.';
-
 function pickAvatar() {
   const avatars = [
     process.env.AVATAR_1,
@@ -29,8 +24,34 @@ function pickAvatar() {
   return avatars[dayOfYear % avatars.length];
 }
 
+function buildPrompt(script) {
+  const r = Math.random();
+  const gender = r < 0.7 ? 'woman' : 'man';
+  const genderAdj = gender === 'woman' ? 'female' : 'male';
+
+  const a = Math.random();
+  const age = a < 0.5 ? 'in their early 50s' : a < 0.8 ? 'in their mid-20s' : 'in their late 30s';
+
+  const backgrounds = [
+    'sitting at a tidy home desk with a monitor softly glowing behind them',
+    'sitting in the driver\'s seat of a parked car',
+    'sitting up in a cosy bed with pillows behind them',
+    'sitting in a sunny park with soft greenery in the background',
+  ];
+  const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+
+  return (
+    `A ${genderAdj} ${gender} ${age}, ${background}, speaking directly to camera with a warm, excited smile. ` +
+    `Authentic talking-head UGC style, natural head and facial movements, English language. ` +
+    `Vertical 9:16 portrait, realistic, well-lit. ` +
+    `They say exactly: "${script}"`
+  );
+}
+
 async function generateVideo(script) {
   const avatar = pickAvatar();
+  const prompt = buildPrompt(script);
+  console.log(`  Video prompt: ${prompt}`);
   let jobId = null;
   let lastError;
 
@@ -41,7 +62,7 @@ async function generateVideo(script) {
         'https://openrouter.ai/api/v1/videos',
         {
           model,
-          prompt: `${UGC_PROMPT} The woman says exactly: "${script}"`,
+          prompt,
           image_url: avatar,
           duration: 5,
           aspect_ratio: '9:16',
