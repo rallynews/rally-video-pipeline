@@ -29,7 +29,7 @@ function pickAvatar() {
   return avatars[dayOfYear % avatars.length];
 }
 
-async function generateVideo() {
+async function generateVideo(script) {
   const avatar = pickAvatar();
   let jobId = null;
   let lastError;
@@ -42,6 +42,7 @@ async function generateVideo() {
         {
           model,
           prompt: UGC_PROMPT,
+          text: script,
           image_url: avatar,
           duration: 5,
           aspect_ratio: '9:16',

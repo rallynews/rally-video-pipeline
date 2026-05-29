@@ -46,7 +46,7 @@ async function run() {
     console.log(`   Script: ${script}`);
 
     console.log('\n🎬 Generating video...');
-    const videoBuffer = await generateVideo();
+    const videoBuffer = await generateVideo(script);
     console.log(`   Video downloaded (${(videoBuffer.length / 1024).toFixed(0)} KB)`);
 
     console.log('\n📱 Sending to Telegram...');
