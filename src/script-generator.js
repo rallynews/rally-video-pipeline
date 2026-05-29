@@ -16,12 +16,12 @@ SCRIPT RULES:
 - NEVER write a generic statement that could apply to any news story — every sentence must only make sense for THIS specific story
 - Never use vague openers like "I have to tell you about this", "You won't believe this", "I'm so excited", "Something amazing happened"
 - End with: "Check out the comments for more!"
-- Maximum 40 words
+- Maximum 12 words total (must fit within 5 seconds of speech)
 
-GOOD examples (notice how each one names the specific thing):
-- "Good News! Scientists have discovered a brand-new species of giant reef shark off the coast of New Zealand. Check out the comments for more!"
-- "Good News! Canada just passed a law guaranteeing paid mental health days for every full-time worker. Check out the comments for more!"
-- "Good News! Solar panels now power over 50% of Australia's electricity grid for the first time ever. Check out the comments for more!"
+GOOD examples (notice how each one names the specific thing, and is under 12 words):
+- "Good News! New Zealand just discovered a brand-new giant reef shark! Check out the comments for more!"
+- "Good News! Canada now guarantees paid mental health days for workers! Check out the comments for more!"
+- "Good News! Solar now powers over half of Australia's grid! Check out the comments for more!"
 
 BAD examples — these are generic and could describe ANY story, never write like this:
 - "Good News! Something incredible just happened that's going to make your day. Check out the comments for more!"
@@ -40,7 +40,7 @@ Publisher: ${story.publisher}
 
 Using ONLY the specific facts, names, numbers, and details from the headline and summary above, return a JSON object with exactly these three fields:
 {
-  "script": "Spoken script. MUST name the specific subject/number/place/achievement from THIS story. Maximum 40 words.",
+  "script": "Spoken script. MUST name the specific subject/number/place/achievement from THIS story. Maximum 12 words. Must be speakable in 5 seconds.",
   "caption": "An Instagram caption. Two sentences maximum. Warm and conversational, written for women in their 50s and 60s. Ends with: Full story in comments 👇 #goodnews #rallynews #positivenews",
   "tweet": "A post for X/Twitter. Maximum 240 characters (URL will be appended separately). Punchy and uplifting. 1–2 hashtags max. No URL."
 }`
