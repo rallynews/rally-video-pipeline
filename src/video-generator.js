@@ -25,13 +25,6 @@ function pickAvatar() {
 }
 
 function buildPrompt(script) {
-  const r = Math.random();
-  const gender = r < 0.7 ? 'woman' : 'man';
-  const genderAdj = gender === 'woman' ? 'female' : 'male';
-
-  const a = Math.random();
-  const age = a < 0.5 ? 'in their early 50s' : a < 0.8 ? 'in their mid-20s' : 'in their late 30s';
-
   const backgrounds = [
     'sitting at a tidy home desk with a monitor softly glowing behind them',
     'sitting in the driver\'s seat of a parked car',
@@ -41,7 +34,7 @@ function buildPrompt(script) {
   const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
 
   return (
-    `A ${genderAdj} ${gender} ${age}, ${background}, speaking directly to camera with a warm, excited smile. ` +
+    `A woman in her early 50s, ${background}, speaking directly to camera with a warm, excited smile. ` +
     `Authentic talking-head UGC style, natural head and facial movements, English language. ` +
     `Vertical 9:16 portrait, realistic, well-lit. ` +
     `They say exactly: "${script}"`
