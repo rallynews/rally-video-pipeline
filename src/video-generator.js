@@ -35,8 +35,10 @@ function buildPrompt(script) {
 
   return (
     `A woman in her early 50s, ${background}, speaking directly to camera with a warm, excited smile. ` +
-    `Authentic talking-head UGC style, natural head and facial movements, English language. ` +
+    `Authentic talking-head UGC selfie-cam style, natural head and facial movements, English language. ` +
+    `Single continuous uncut shot, no cuts, no multiple angles, no scene changes. ` +
     `Vertical 9:16 portrait, realistic, well-lit. ` +
+    `Audio: only the character's spoken dialogue and quiet ambient background noise. No music, no background score, no soundtrack. ` +
     `They say exactly: "${script}"`
   );
 }
