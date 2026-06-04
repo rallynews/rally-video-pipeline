@@ -2,6 +2,13 @@ const axios = require('axios');
 const { XMLParser } = require('fast-xml-parser');
 const { chatCompletion, parseJSON } = require('./openrouter');
 
+// Edit this list to boost stories about specific subjects during selection.
+// Stories matching any of these subjects will be prioritised over others.
+const PRIORITY_SUBJECTS = [
+  'celebrities',
+  'space',
+];
+
 async function getMostViralStory() {
   // Step 1: Fetch and parse the RSS feed
   const response = await axios.get(process.env.RALLY_RSS_URL, {
@@ -25,12 +32,17 @@ async function getMostViralStory() {
       : item.title
   }));
 
+  const priorityNote = PRIORITY_SUBJECTS.length > 0
+    ? `PRIORITY: If any story is about one of these subjects, strongly prefer it over others: ${PRIORITY_SUBJECTS.join(', ')}.`
+    : '';
+
   const content = await chatCompletion({
     max_tokens: 200,
     messages: [
       {
         role: 'system',
         content: `You select the most shareable, uplifting, positive news story from a list.
+${priorityNote}
 Prioritise stories of worldwide or broad international interest — science, environment, health, humanity, space, animals, global policy.
 Reject stories that are specific to a single city, town, local community, or country unless the impact is clearly global.
 Consider: emotional impact, broad appeal, feel-good factor, and shareability.
@@ -40,6 +52,7 @@ Return only a JSON object like: {"index": 3}`
         role: 'user',
         content: `Which of these stories would go most viral as positive news on Instagram with a global audience?
 Avoid stories that are only relevant to one specific place or country.
+${priorityNote}
 Return the index of the best one.
 
 ${JSON.stringify(storySummaries, null, 2)}`
