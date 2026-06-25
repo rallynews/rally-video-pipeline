@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 24 Jun 2026 05:02:41 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 25 Jun 2026 05:04:00 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Cristiano Ronaldo becomes first player to score in six World Cups</title>
+      <link>https://rally.news/categories/entertainment/?article=Cristiano%2BRonaldo%2Bbecomes%2Bfirst%2Bplayer%2Bto%2Bscore%2Bin%2Bsix%2BWorld%2BCups</link>
+      <description>Cristiano Ronaldo scored twice in Portugal’s 5-0 win over Uzbekistan</description>
+      <pubDate>Thu, 25 Jun 2026 05:04:00 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Cristiano%2BRonaldo%2Bbecomes%2Bfirst%2Bplayer%2Bto%2Bscore%2Bin%2Bsix%2BWorld%2BCups</guid>
+    </item>
+
+<item>
       <title>Iran leaves note about peace in dressing room after Belgium draw</title>
       <link>https://rally.news/categories/world/?article=Iran%2Bleaves%2Bnote%2Babout%2Bpeace%2Bin%2Bdressing%2Broom%2Bafter%2BBelgium%2Bdraw</link>
       <description>Iran leave a message saying &quot;may peace, respect and friendship prevail among all nations&quot; following their World Cup group game with Belgium.</description>
