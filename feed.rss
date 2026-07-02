@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jul 2026 05:03:04 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jul 2026 05:02:35 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>NASA astronauts spacewalk to fix robotic arm</title>
+      <link>https://rally.news/categories/ai/?article=NASA%2Bastronauts%2Bspacewalk%2Bto%2Bfix%2Brobotic%2Barm</link>
+      <description>Two NASA astronauts stepping outside the International Space Station to fix robotic arm.</description>
+      <pubDate>Thu, 02 Jul 2026 05:02:35 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=NASA%2Bastronauts%2Bspacewalk%2Bto%2Bfix%2Brobotic%2Barm</guid>
+    </item>
+
+<item>
       <title>Remote-controlled cockroach swarm can now breathe underwater</title>
       <link>https://rally.news/categories/ai/?article=Remote-controlled%2Bcockroach%2Bswarm%2Bcan%2Bnow%2Bbreathe%2Bunderwater</link>
       <description>Tiny 3D-printed diving suits allow cockroaches to walk underwater for up to 3 hours with no ill effects, which could enable a cyborg insect swarm to explore disaster zones and perhaps even Mars</description>
