@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { describeBackground } = require('./backgrounds');
 
 const VIDEO_MODELS = [
   'alibaba/wan-2.7',
@@ -13,28 +14,42 @@ const headers = {
   'X-Title': 'Rally News Pipeline'
 };
 
-function pickAvatar() {
-  const avatars = [
-    process.env.AVATAR_1,
-    process.env.AVATAR_2,
-    process.env.AVATAR_3,
-    process.env.AVATAR_4
-  ];
+// The character presenting the news rotates every day. Each entry is a full
+// physical description so the video can be generated from scratch, prompt-only,
+// with no reference image.
+const CHARACTERS = [
+  'a white woman in her early 50s with a friendly face',
+  'a Latina woman in her 30s, a warm soccer mom',
+  'a chubby Black woman around 45 years old with a bright smile',
+  'a Chinese American woman in her mid-20s, a grad student with glasses',
+  'a blonde college girl, 19 years old',
+  'an Indian American grandmother, 68 years old, with silver hair',
+  'an Arabic woman around 55 years old with an elegant look',
+];
+
+// Occasional splashes of extra color. An empty entry keeps the natural look so
+// videos don't all look the same — colour is added "sometimes", not always.
+const COLOR_VARIATIONS = [
+  '',
+  '',
+  'The whole scene is vibrant and colorful with bright, saturated tones. ',
+  'They wear a bright, colorful outfit that pops against the background. ',
+  'Warm golden-hour lighting fills the frame with rich, colorful tones. ',
+];
+
+function pickCharacter() {
   const dayOfYear = Math.floor(Date.now() / 86400000);
-  return avatars[dayOfYear % avatars.length];
+  return CHARACTERS[dayOfYear % CHARACTERS.length];
 }
 
-function buildPrompt(script) {
-  const backgrounds = [
-    'sitting at a tidy home desk with a monitor softly glowing behind them',
-    'sitting in the driver\'s seat of a parked car',
-    'sitting up in a cosy bed with pillows behind them',
-    'sitting in a sunny park with soft greenery in the background',
-  ];
-  const background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+function buildPrompt(script, backgroundKey) {
+  const character = pickCharacter();
+  const background = describeBackground(backgroundKey);
+  const color = COLOR_VARIATIONS[Math.floor(Math.random() * COLOR_VARIATIONS.length)];
 
   return (
-    `A woman in her early 50s, ${background}, speaking directly to camera with a warm, excited smile. ` +
+    `${character}, ${background}, speaking directly to camera with a warm, excited smile. ` +
+    color +
     `Authentic talking-head UGC selfie-cam style, natural head and facial movements, English language. ` +
     `Single continuous uncut shot, no cuts, no multiple angles, no scene changes. ` +
     `Vertical 9:16 portrait, realistic, well-lit. ` +
@@ -43,9 +58,8 @@ function buildPrompt(script) {
   );
 }
 
-async function generateVideo(script) {
-  const avatar = pickAvatar();
-  const prompt = buildPrompt(script);
+async function generateVideo(script, backgroundKey) {
+  const prompt = buildPrompt(script, backgroundKey);
   console.log(`  Video prompt: ${prompt}`);
   let jobId = null;
   let lastError;
@@ -58,8 +72,7 @@ async function generateVideo(script) {
         {
           model,
           prompt,
-          image_url: avatar,
-          duration: 5,
+          duration: 10,
           aspect_ratio: '9:16',
           resolution: '720p'
         },
