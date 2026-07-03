@@ -32,10 +32,6 @@ jobs:
           RALLY_RSS_URL: ${{ secrets.RALLY_RSS_URL }}
           BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
           ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
-          AVATAR_1: ${{ secrets.AVATAR_1 }}
-          AVATAR_2: ${{ secrets.AVATAR_2 }}
-          AVATAR_3: ${{ secrets.AVATAR_3 }}
-          AVATAR_4: ${{ secrets.AVATAR_4 }}
         run: node index.js
 
       - name: Commit and push updated RSS feed

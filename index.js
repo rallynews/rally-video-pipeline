@@ -42,11 +42,12 @@ async function run() {
     console.log(`   Selected: "${story.headline}"`);
 
     console.log('\n✍️  Writing script and caption...');
-    const { script, caption, tweet } = await generateScriptAndCaption(story);
+    const { script, caption, tweet, background } = await generateScriptAndCaption(story);
     console.log(`   Script: ${script}`);
+    console.log(`   Background: ${background}`);
 
     console.log('\n🎬 Generating video...');
-    const videoBuffer = await generateVideo(script);
+    const videoBuffer = await generateVideo(script, background);
     console.log(`   Video downloaded (${(videoBuffer.length / 1024).toFixed(0)} KB)`);
 
     console.log('\n📱 Sending to Telegram...');
