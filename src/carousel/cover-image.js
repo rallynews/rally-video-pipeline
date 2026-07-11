@@ -47,12 +47,30 @@ async function toDataUri(url) {
   }
 }
 
+// rally.news article pages serve the Rally brand card as their og:image, so
+// scraping og:image from them yields the logo, not the story photo. The real
+// article image is the one carried in the feed item (story.thumbnail).
+function isRallyUrl(url) {
+  try {
+    return /(^|\.)rally\.news$/i.test(new URL(url).hostname);
+  } catch {
+    return false;
+  }
+}
+
 // Resolve a cover photo for the story as a data: URI.
-// Order: the article's og:image (the "image from the article, pulled from the
-// original source"), then the RSS thumbnail, then a brand fallback.
+// Order: the image included in the feed item for this article
+// (story.thumbnail), then — only for non-rally.news links — the article's
+// og:image, then a brand fallback.
 async function getCoverImage(story) {
-  let ogUrl = null;
-  if (story.url) {
+  const fromFeed = await toDataUri(story.thumbnail);
+  if (fromFeed) {
+    console.log('  [cover] using feed image');
+    return fromFeed;
+  }
+
+  if (story.url && !isRallyUrl(story.url)) {
+    let ogUrl = null;
     try {
       const res = await axios.get(story.url, {
         timeout: 20000,
@@ -62,27 +80,18 @@ async function getCoverImage(story) {
       });
       ogUrl = extractOgImage(res.data);
       if (ogUrl && ogUrl.startsWith('//')) ogUrl = 'https:' + ogUrl;
-      if (ogUrl && ogUrl.startsWith('/')) {
-        ogUrl = new URL(ogUrl, story.url).href;
-      }
+      if (ogUrl && ogUrl.startsWith('/')) ogUrl = new URL(ogUrl, story.url).href;
     } catch (err) {
       console.warn(`  [cover] could not fetch article page: ${err.message}`);
     }
+    const fromArticle = await toDataUri(ogUrl);
+    if (fromArticle) {
+      console.log('  [cover] using article og:image');
+      return fromArticle;
+    }
   }
 
-  const fromArticle = await toDataUri(ogUrl);
-  if (fromArticle) {
-    console.log('  [cover] using article og:image');
-    return fromArticle;
-  }
-
-  const fromThumb = await toDataUri(story.thumbnail);
-  if (fromThumb) {
-    console.log('  [cover] using RSS thumbnail');
-    return fromThumb;
-  }
-
-  console.warn('  [cover] no photo found — using brand fallback');
+  console.warn('  [cover] no feed image found — using brand fallback');
   return FALLBACK;
 }
 
