@@ -1,0 +1,53 @@
+name: Rally News Carousel Pipeline
+
+# Fully independent of the video pipeline — enable or disable this one on its
+# own. Manual trigger only (mirrors the video workflow). To run it daily,
+# uncomment the schedule block below.
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: '0 14 * * *'   # 14:00 UTC daily
+
+jobs:
+  generate-and-deliver:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run carousel pipeline
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          RALLY_RSS_URL: ${{ secrets.RALLY_RSS_URL }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_BUCKET: ${{ secrets.R2_BUCKET }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+        run: node carousel.js
+
+      - name: Commit and push updated RSS feed
+        run: |
+          git config user.name "Rally News Bot"
+          git config user.email "pipeline@rallynews.com"
+          git add feed.rss
+          git diff --cached --quiet || git commit -m "chore: update RSS feed (carousel) [skip ci]"
+          git push origin main
