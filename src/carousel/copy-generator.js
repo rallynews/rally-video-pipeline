@@ -23,6 +23,14 @@ function normalizePillar(value) {
   return partial || value;
 }
 
+// Strip surrounding straight/curly quotes a model sometimes wraps a field in.
+function unquote(value) {
+  return String(value == null ? '' : value)
+    .trim()
+    .replace(/^["'“”‘’]+|["'“”‘’]+$/g, '')
+    .trim();
+}
+
 function normalizeHashtag(value) {
   const cleaned = String(value || '')
     .replace(/^#/, '')
@@ -102,7 +110,7 @@ Research and corroborate this story with the web results, then return the JSON d
     resultHeading: raw.resultHeading,
     resultLine: raw.resultLine,
     // Final slide ends on the engagement question.
-    whyMatters: `${String(raw.whyMatters || '').trim()} ${String(raw.engagementQuestion || '').trim()}`.trim(),
+    whyMatters: `${unquote(raw.whyMatters)} ${unquote(raw.engagementQuestion)}`.trim(),
   };
 
   const captions = buildCaptions(raw, story);
