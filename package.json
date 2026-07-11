@@ -4,8 +4,10 @@
   "description": "Rally News daily video pipeline",
   "main": "index.js",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.600.0",
     "axios": "^1.6.0",
     "fast-xml-parser": "^4.3.0",
-    "form-data": "^4.0.0"
+    "form-data": "^4.0.0",
+    "puppeteer": "^22.0.0"
   }
 }
