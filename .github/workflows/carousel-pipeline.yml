@@ -1,12 +1,11 @@
 name: Rally News Carousel Pipeline
 
 # Fully independent of the video pipeline — enable or disable this one on its
-# own. Manual trigger only (mirrors the video workflow). To run it daily,
-# uncomment the schedule block below.
+# own. Runs daily and can also be triggered manually.
 on:
   workflow_dispatch:
-  # schedule:
-  #   - cron: '0 14 * * *'   # 14:00 UTC daily
+  schedule:
+    - cron: '0 14 * * *'   # 14:00 UTC daily (adjust to your preferred time)
 
 jobs:
   generate-and-deliver:
@@ -42,6 +41,8 @@ jobs:
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           R2_BUCKET: ${{ secrets.R2_BUCKET }}
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
         run: node carousel.js
 
       - name: Commit and push updated RSS feed

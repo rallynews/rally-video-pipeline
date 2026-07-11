@@ -4,6 +4,7 @@ const { getCoverImage } = require('./src/carousel/cover-image');
 const { renderCarousel } = require('./src/carousel/renderer');
 const { uploadCarousel } = require('./src/carousel/r2-uploader');
 const { sendCarousel } = require('./src/carousel/carousel-telegram');
+const slack = require('./src/carousel/slack-sender');
 const { updateRSSFeed } = require('./src/rss-updater');
 const axios = require('axios');
 
@@ -71,8 +72,21 @@ async function run() {
       console.warn(`   R2 upload failed (${e.message}) — continuing with Telegram delivery only.`);
     }
 
+    const delivery = { story, pillar, style, images, captions, imageUrls, sources };
+
     console.log('\n📱 Sending carousel to Telegram...');
-    await sendCarousel({ story, pillar, style, images, captions, imageUrls, sources });
+    await sendCarousel(delivery);
+
+    if (slack.isConfigured()) {
+      console.log('\n💬 Sending carousel to Slack...');
+      try {
+        await slack.sendCarousel(delivery);
+      } catch (e) {
+        console.warn(`   Slack delivery failed (${e.message}) — Telegram already delivered.`);
+      }
+    } else {
+      console.log('\n💬 Slack not configured (SLACK_BOT_TOKEN / SLACK_CHANNEL_ID) — skipping.');
+    }
 
     console.log('\n📡 Updating RSS feed...');
     updateRSSFeed(story);

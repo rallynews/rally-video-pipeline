@@ -16,25 +16,28 @@ generates a talking-head video → delivers it to Telegram. Workflow:
 Picks the **same-logic** story → **researches and corroborates it on the web**
 → writes a 5-part carousel with Mistral → renders 5 branded PNG slides
 (1080×1350, @2x) in one of four randomly chosen styles (1a–1d) → uploads them
-to Cloudflare R2 → delivers everything to Telegram. Workflow:
-`.github/workflows/carousel-pipeline.yml` (manual `workflow_dispatch`; a daily
-`schedule` is included but commented out).
+to Cloudflare R2 → delivers everything to **Telegram and Slack**. Workflow:
+`.github/workflows/carousel-pipeline.yml` (runs daily at 14:00 UTC and can be
+triggered manually).
 
 The five slides map to: **1** Intro (cover photo + content pillar + grippy
 headline) · **2** The Challenge · **3** The Solution · **4** Results & Impact ·
 **5** Why It Matters (closes on an engagement question).
 
-Telegram delivery (so captions paste cleanly on a phone):
+Delivery to both Telegram and Slack (so captions paste cleanly on a phone or
+desktop). On each platform:
 
-1. An info/header message (story, source, pillar, style, R2 links, sources).
-2. The 5 slides as a single album.
-3. The **Facebook** caption — its own message, plain text, nothing else (ends
+1. The 5 slides with an info/header (story, source, pillar, style, R2 links,
+   sources) — on Telegram a header message then the album; on Slack the images
+   shared with the header as their comment.
+2. The **Facebook** caption — its own message, plain text, nothing else (ends
    in the engagement question, includes the story link, 3 hashtags).
-4. The **Instagram** caption — its own message, plain text, nothing else (same
+3. The **Instagram** caption — its own message, plain text, nothing else (same
    question, "link in bio", same 3 hashtags).
 
 Both captions end on the same question and carry `#goodnews #positivenews` plus
-one popular story-specific hashtag.
+one popular story-specific hashtag. Slack delivery is skipped gracefully if its
+secrets aren't set.
 
 ## Setup
 
@@ -62,10 +65,21 @@ New, carousel-only (Cloudflare R2):
 If the R2 secrets are missing the run still completes and delivers via
 Telegram — it just skips the upload and logs a warning.
 
+Slack (optional — carousel posts to Slack too when set):
+
+| Secret | Where to find it |
+| --- | --- |
+| `SLACK_BOT_TOKEN` | a Slack app Bot User OAuth Token (`xoxb-…`) with `chat:write` + `files:write` scopes |
+| `SLACK_CHANNEL_ID` | the target channel's ID (the bot must be invited to it) |
+
+If the Slack secrets are missing, Slack delivery is skipped and the run still
+completes on Telegram.
+
 ### Run it
 
-GitHub → Actions → **Rally News Carousel Pipeline** → Run workflow. To run it
-daily, uncomment the `schedule` block in the workflow.
+Runs automatically every day at **14:00 UTC** (change the `schedule` cron in
+the workflow to your preferred time). To run on demand: GitHub → Actions →
+**Rally News Carousel Pipeline** → Run workflow.
 
 ## Cost per run (approx.)
 
