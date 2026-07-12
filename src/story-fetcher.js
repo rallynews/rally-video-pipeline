@@ -9,6 +9,39 @@ const PRIORITY_SUBJECTS = [
   'space',
 ];
 
+// Pull a URL out of an RSS image node that may be a single object or an array
+// of them. Prefers entries that look like images.
+function urlFromMediaNode(node) {
+  if (!node) return null;
+  const list = Array.isArray(node) ? node : [node];
+  const isImage = (n) => {
+    const type = n['@_type'] || '';
+    const medium = n['@_medium'] || '';
+    return medium === 'image' || type.startsWith('image') || (!type && !medium);
+  };
+  const pick = list.find((n) => n && n['@_url'] && isImage(n)) ||
+    list.find((n) => n && n['@_url']);
+  return pick ? pick['@_url'] : null;
+}
+
+// Find the article's image across the tag shapes RSS feeds use for it:
+// media:content, media:thumbnail, media:group, enclosure, or the first <img>
+// embedded in the description / content:encoded.
+function extractThumbnail(item) {
+  const group = item['media:group'] || {};
+  const candidate =
+    urlFromMediaNode(item['media:content']) ||
+    urlFromMediaNode(group['media:content']) ||
+    urlFromMediaNode(item['media:thumbnail']) ||
+    urlFromMediaNode(group['media:thumbnail']) ||
+    urlFromMediaNode(item['enclosure']);
+  if (candidate) return candidate;
+
+  const html = item['content:encoded'] || item.description || '';
+  const img = String(html).match(/<img[^>]+src=["']([^"']+)["']/i);
+  return img ? img[1] : null;
+}
+
 async function getMostViralStory() {
   // Step 1: Fetch and parse the RSS feed
   const response = await axios.get(process.env.RALLY_RSS_URL, {
@@ -63,11 +96,7 @@ ${JSON.stringify(storySummaries, null, 2)}`
   const result = parseJSON(content);
   const selected = stories[result.index];
 
-  const thumbnail =
-    selected['media:content']?.['@_url'] ||
-    selected['media:thumbnail']?.['@_url'] ||
-    selected['enclosure']?.['@_url'] ||
-    null;
+  const thumbnail = extractThumbnail(selected);
 
   return {
     headline: selected.title,
@@ -80,4 +109,4 @@ ${JSON.stringify(storySummaries, null, 2)}`
   };
 }
 
-module.exports = { getMostViralStory };
+module.exports = { getMostViralStory, extractThumbnail };

@@ -23,6 +23,14 @@ function normalizePillar(value) {
   return partial || value;
 }
 
+// Strip surrounding straight/curly quotes a model sometimes wraps a field in.
+function unquote(value) {
+  return String(value == null ? '' : value)
+    .trim()
+    .replace(/^["'“”‘’]+|["'“”‘’]+$/g, '')
+    .trim();
+}
+
 function normalizeHashtag(value) {
   const cleaned = String(value || '')
     .replace(/^#/, '')
@@ -42,6 +50,31 @@ function buildCaptions(fields, story) {
   const facebook = `${lead}\n\n${question}\n\n📖 Read the full story: ${story.url}\n\n${hashtags}`;
   const instagram = `${lead}\n\n${question}\n\n🔗 Full story — link in bio\n\n${hashtags}`;
   return { facebook, instagram, hashtags };
+}
+
+// Turn a raw model field object into the pillar, slide copy, and captions the
+// pipeline renders/sends. Shared by the first-round generator and the
+// fact-check pass so both produce identical structure.
+function buildFromRaw(raw, story) {
+  const pillar = normalizePillar(raw.pillar);
+  const slideCopy = {
+    pillar,
+    headline: unquote(raw.headline),
+    challenge: unquote(raw.challenge),
+    solution: unquote(raw.solution),
+    resultHeading: unquote(raw.resultHeading),
+    resultLine: unquote(raw.resultLine),
+    // Final slide ends on the engagement question.
+    whyMatters: `${unquote(raw.whyMatters)} ${unquote(raw.engagementQuestion)}`.trim(),
+  };
+  const captions = buildCaptions(raw, story);
+  return {
+    pillar,
+    slideCopy,
+    captions,
+    sources: Array.isArray(raw.sources) ? raw.sources : [],
+    raw,
+  };
 }
 
 async function generateCarouselCopy(story) {
@@ -92,28 +125,7 @@ Research and corroborate this story with the web results, then return the JSON d
   });
 
   const raw = parseJSON(content);
-  const pillar = normalizePillar(raw.pillar);
-
-  const slideCopy = {
-    pillar,
-    headline: raw.headline,
-    challenge: raw.challenge,
-    solution: raw.solution,
-    resultHeading: raw.resultHeading,
-    resultLine: raw.resultLine,
-    // Final slide ends on the engagement question.
-    whyMatters: `${String(raw.whyMatters || '').trim()} ${String(raw.engagementQuestion || '').trim()}`.trim(),
-  };
-
-  const captions = buildCaptions(raw, story);
-
-  return {
-    pillar,
-    slideCopy,
-    captions,
-    sources: Array.isArray(raw.sources) ? raw.sources : [],
-    raw,
-  };
+  return buildFromRaw(raw, story);
 }
 
-module.exports = { generateCarouselCopy, CONTENT_PILLARS };
+module.exports = { generateCarouselCopy, buildFromRaw, CONTENT_PILLARS };

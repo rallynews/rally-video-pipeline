@@ -75,7 +75,7 @@ function style1a(c, coverUri, logo) {
     // 5 · Why It Matters
     `<section class="slide pad" style="background:#EBE3D3;">
       <div class="kicker" style="color:#4A4942; font-size:20px; margin-bottom:28px;">05 · Why It Matters</div>
-      <div style="font-family:'Lora',serif; font-size:38px; line-height:1.4; color:#1B1A17; font-style:italic; font-weight:500;">"${esc(c.whyMatters)}"</div>
+      <div style="font-family:'Lora',serif; font-size:38px; line-height:1.4; color:#1B1A17; font-style:italic; font-weight:500;">${esc(c.whyMatters)}</div>
       ${footer(logo, '#4A4942', false)}
     </section>`,
   ];
@@ -112,7 +112,7 @@ function style1b(c, coverUri, logo) {
     </section>`,
     `<section class="slide pad" style="background:#5A775E;">
       <div class="kicker" style="color:#EBE3D3; font-size:20px; margin-bottom:28px;">05 · Why It Matters</div>
-      <div style="font-family:'Lora',serif; font-size:36px; line-height:1.4; color:#F7F4EE; font-style:italic; font-weight:500;">"${esc(c.whyMatters)}"</div>
+      <div style="font-family:'Lora',serif; font-size:36px; line-height:1.4; color:#F7F4EE; font-style:italic; font-weight:500;">${esc(c.whyMatters)}</div>
       ${footer(logo, '#F7F4EE', true)}
     </section>`,
   ];
@@ -147,7 +147,7 @@ function style1c(c, coverUri, logo) {
     </section>`,
     `<section class="slide pad" style="background:#F7F4EE;">
       <div class="kicker" style="color:#5A775E; font-size:20px; margin-bottom:28px;">05 · Why It Matters</div>
-      <div style="font-family:'Lora',serif; font-size:36px; line-height:1.4; color:#1B1A17; font-style:italic; font-weight:500;">"${esc(c.whyMatters)}"</div>
+      <div style="font-family:'Lora',serif; font-size:36px; line-height:1.4; color:#1B1A17; font-style:italic; font-weight:500;">${esc(c.whyMatters)}</div>
       ${footer(logo, '#1B1A17', false)}
     </section>`,
   ];
@@ -184,7 +184,7 @@ function style1d(c, coverUri, logo) {
     </section>`,
     `<section class="slide pad" style="background:#1B1A17;">
       <div class="kicker" style="color:#7AAB7F; font-size:20px; margin-bottom:28px;">05 · Why It Matters</div>
-      <div style="font-family:'Lora',serif; font-size:36px; line-height:1.4; color:#F7F4EE; font-style:italic; font-weight:500;">"${esc(c.whyMatters)}"</div>
+      <div style="font-family:'Lora',serif; font-size:36px; line-height:1.4; color:#F7F4EE; font-style:italic; font-weight:500;">${esc(c.whyMatters)}</div>
       ${footer(logo, '#F7F4EE', true)}
     </section>`,
   ];

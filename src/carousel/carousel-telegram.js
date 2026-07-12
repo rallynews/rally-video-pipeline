@@ -33,11 +33,14 @@ async function sendAlbum(images) {
 //   2. The 5 images as an album
 //   3. Facebook caption ALONE (plain text, nothing else — copy/paste ready)
 //   4. Instagram caption ALONE (plain text, nothing else — copy/paste ready)
-async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources }) {
+async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification }) {
   const today = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long',
   });
 
+  const checkLine = verification && verification.ran
+    ? `\n✅ *Fact-checked* — ${verification.report.filter(r => r.verdict === 'corrected').length} field(s) rewritten after cross-referencing.`
+    : '';
   const srcLines = (sources && sources.length)
     ? `\n*Corroborated with:*\n${sources.map(s => `• ${s}`).join('\n')}`
     : '';
@@ -52,6 +55,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     `*Pillar:* ${pillar}\n` +
     `*Style:* ${style}\n` +
     `*Link:* ${story.url}` +
+    checkLine +
     urlLines +
     srcLines +
     `\n\n⬇️ Save the 5 images below, then paste the Facebook and Instagram captions (sent as separate messages) straight into each app.`;
