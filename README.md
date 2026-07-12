@@ -16,7 +16,7 @@ generates a talking-head video → delivers it to Telegram. Workflow:
 Picks the **same-logic** story → **researches and corroborates it on the web**
 → writes a 5-part carousel with Mistral → **fact-checks that copy in a second
 pass** (cross-references every claim against the article and other sources,
-demands positive proof, rewrites anything unproven) → renders 5 branded PNG
+demands positive proof, rewrites anything unproven) → renders 6 branded PNG
 slides (1080×1350, @2x) in one of four randomly chosen styles (1a–1d) → uploads
 them to Cloudflare R2 → delivers everything to **Telegram and Slack**. The
 cover photo is the article's featured image (`<img class="rv-figure-img">` on
@@ -24,14 +24,16 @@ the story's rally.news page). Workflow:
 `.github/workflows/carousel-pipeline.yml` (runs daily at 14:00 UTC and can be
 triggered manually).
 
-The five slides map to: **1** Intro (cover photo + content pillar + grippy
+The six slides map to: **1** Intro (cover photo + content pillar + grippy
 headline) · **2** The Challenge · **3** The Solution · **4** Results & Impact ·
-**5** Why It Matters (closes on an engagement question).
+**5** Why It Matters (closes on an engagement question) · **6** Follow Rally
+News closer. Every slide carries Rally branding: the mark top-right on the
+cover, and the mark + `rally.news` wordmark bottom-left on the rest.
 
 Delivery to both Telegram and Slack (so captions paste cleanly on a phone or
 desktop). On each platform:
 
-1. The 5 slides with an info/header (story, source, pillar, style, R2 links,
+1. The 6 slides with an info/header (story, source, pillar, style, R2 links,
    sources) — on Telegram a header message then the album; on Slack the images
    shared with the header as their comment.
 2. The **Facebook** caption — its own message, plain text, nothing else (ends
