@@ -9,9 +9,24 @@ function pickStyle() {
   return STYLE_KEYS[Math.floor(Math.random() * STYLE_KEYS.length)];
 }
 
+// Inline SVG mark used only if the logo PNG can't be read, so branding never
+// silently disappears.
+const LOGO_FALLBACK =
+  'data:image/svg+xml;base64,' +
+  Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">` +
+    `<text x="60" y="82" font-family="Georgia,serif" font-size="90" font-style="italic" ` +
+    `font-weight="700" fill="#5A775E" text-anchor="middle">R</text></svg>`
+  ).toString('base64');
+
 function logoDataUri() {
-  const buf = fs.readFileSync(LOGO_PATH);
-  return `data:image/png;base64,${buf.toString('base64')}`;
+  try {
+    const buf = fs.readFileSync(LOGO_PATH);
+    if (buf && buf.length) return `data:image/png;base64,${buf.toString('base64')}`;
+  } catch (err) {
+    console.warn(`  [renderer] logo asset unreadable (${err.message}) — using SVG fallback`);
+  }
+  return LOGO_FALLBACK;
 }
 
 // Render the 5 carousel slides for `copy` in the given style to PNG buffers.
@@ -45,15 +60,15 @@ async function renderCarousel(copy, coverUri, style = pickStyle()) {
     await new Promise(r => setTimeout(r, 300));
 
     const slides = await page.$$('.slide');
-    if (slides.length !== 5) {
-      throw new Error(`Expected 5 slides, rendered ${slides.length}`);
+    if (slides.length !== 6) {
+      throw new Error(`Expected 6 slides, rendered ${slides.length}`);
     }
 
     const images = [];
     for (let i = 0; i < slides.length; i++) {
       const buf = await slides[i].screenshot({ type: 'png' });
       images.push(buf);
-      console.log(`  [renderer] slide ${i + 1}/5 captured (${(buf.length / 1024).toFixed(0)} KB)`);
+      console.log(`  [renderer] slide ${i + 1}/6 captured (${(buf.length / 1024).toFixed(0)} KB)`);
     }
 
     return { style, images };

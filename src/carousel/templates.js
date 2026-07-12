@@ -29,13 +29,24 @@ function footer(logo, color, light) {
     `</div>`;
 }
 
-// Cover slide (slide 1) photo block. `light` flips the top-right logo white.
-function cover(cover, logo, height, light) {
-  const filter = light ? 'filter:brightness(0) invert(1);' : '';
+// Cover slide (slide 1) photo block. The top-right mark sits over the article
+// photo (any colour), so it is always rendered white with a soft drop-shadow
+// to stay legible regardless of the image behind it.
+function cover(cover, logo, height) {
   return `<div style="height:${height}px; width:100%; position:relative; background:#0000000a;">` +
     `<div style="position:absolute; inset:0; background-image:url('${cover}'); background-size:cover; background-position:center;"></div>` +
     `</div>` +
-    `<img src="${logo}" style="position:absolute; top:32px; right:32px; width:48px; height:48px;${filter}">`;
+    `<img src="${logo}" style="position:absolute; top:32px; right:32px; width:48px; height:48px; filter:brightness(0) invert(1) drop-shadow(0 2px 5px rgba(0,0,0,0.5));">`;
+}
+
+// Slide 6 · "Follow Rally News" closer. Centered mark + title + subtitle.
+function followSlide(logo, bg, logoLight, titleColor, subColor) {
+  const filter = logoLight ? 'filter:brightness(0) invert(1);' : '';
+  return `<section class="slide follow" style="background:${bg};">
+      <img src="${logo}" style="width:96px; height:96px; margin-bottom:40px; ${filter}">
+      <div style="font-family:'Lora',serif; font-size:44px; color:${titleColor}; font-weight:600; margin-bottom:16px;">Follow Rally News</div>
+      <div style="font-family:'Outfit',sans-serif; font-size:24px; color:${subColor};">for more good news, every day</div>
+    </section>`;
 }
 
 // ── 1a · Editorial Cream ──────────────────────────────────────────────────
@@ -43,7 +54,7 @@ function style1a(c, coverUri, logo) {
   return [
     // 1 · Headline
     `<section class="slide" style="background:#F7F4EE; flex-direction:column;">
-      ${cover(coverUri, logo, 820, false)}
+      ${cover(coverUri, logo, 820)}
       <div style="padding:56px 64px; flex:1; display:flex; flex-direction:column; justify-content:center;">
         <div class="kicker" style="color:#5A775E; font-size:22px; margin-bottom:18px;">${esc(c.pillar)}</div>
         <div style="font-family:'Lora',serif; font-size:52px; line-height:1.15; color:#1B1A17; font-weight:600;">${esc(c.headline)}</div>
@@ -85,7 +96,7 @@ function style1a(c, coverUri, logo) {
 function style1b(c, coverUri, logo) {
   return [
     `<section class="slide" style="background:#5A775E; flex-direction:column;">
-      ${cover(coverUri, logo, 820, true)}
+      ${cover(coverUri, logo, 820)}
       <div style="padding:56px 64px; flex:1; display:flex; flex-direction:column; justify-content:center;">
         <div class="kicker" style="color:#EBE3D3; font-size:22px; margin-bottom:18px;">${esc(c.pillar)}</div>
         <div style="font-family:'Lora',serif; font-size:50px; line-height:1.15; color:#F7F4EE; font-weight:600;">${esc(c.headline)}</div>
@@ -122,7 +133,7 @@ function style1b(c, coverUri, logo) {
 function style1c(c, coverUri, logo) {
   return [
     `<section class="slide" style="background:#F7F4EE; flex-direction:column;">
-      ${cover(coverUri, logo, 750, false)}
+      ${cover(coverUri, logo, 750)}
       <div style="background:#EBE3D3; padding:56px 64px; flex:1; display:flex; flex-direction:column; justify-content:center;">
         <div class="kicker" style="color:#4A4942; font-size:20px; margin-bottom:18px;">${esc(c.pillar)}</div>
         <div style="font-family:'Lora',serif; font-size:48px; line-height:1.18; color:#1B1A17; font-weight:600;">${esc(c.headline)}</div>
@@ -157,7 +168,7 @@ function style1c(c, coverUri, logo) {
 function style1d(c, coverUri, logo) {
   return [
     `<section class="slide" style="background:#1B1A17; flex-direction:column;">
-      ${cover(coverUri, logo, 820, true)}
+      ${cover(coverUri, logo, 820)}
       <div style="padding:56px 64px; flex:1; display:flex; flex-direction:column; justify-content:center;">
         <div class="kicker" style="color:#7AAB7F; font-size:22px; margin-bottom:18px;">${esc(c.pillar)}</div>
         <div style="font-family:'Lora',serif; font-size:50px; line-height:1.15; color:#F7F4EE; font-weight:600;">${esc(c.headline)}</div>
@@ -192,12 +203,24 @@ function style1d(c, coverUri, logo) {
 
 const BUILDERS = { '1a': style1a, '1b': style1b, '1c': style1c, '1d': style1d };
 
-// Build a single HTML document holding the 5 slides for the chosen style.
-// The renderer screenshots each `<section class="slide">` individually.
+// Per-style "Follow Rally News" closer (slide 6), colours from the deck.
+const FOLLOW = {
+  '1a': (logo) => followSlide(logo, '#5A775E', true, '#F7F4EE', '#EBE3D3'),
+  '1b': (logo) => followSlide(logo, '#1B1A17', true, '#F7F4EE', '#9A9D94'),
+  '1c': (logo) => followSlide(logo, '#EBE3D3', false, '#1B1A17', '#4A4942'),
+  '1d': (logo) => followSlide(logo, '#7AAB7F', true, '#1B1A17', '#1B1A17'),
+};
+
+// Build a single HTML document holding the 6 slides for the chosen style (the
+// 5 content slides plus the Follow closer). The renderer screenshots each
+// `<section class="slide">` individually.
 function buildDeck(styleKey, copy, coverUri, logoUri) {
   const builder = BUILDERS[styleKey];
   if (!builder) throw new Error(`Unknown carousel style: ${styleKey}`);
-  const slides = builder(copy, coverUri, logoUri).join('\n');
+  const slides = [
+    ...builder(copy, coverUri, logoUri),
+    FOLLOW[styleKey](logoUri),
+  ].join('\n');
 
   return `<!DOCTYPE html>
 <html><head>
@@ -210,6 +233,7 @@ function buildDeck(styleKey, copy, coverUri, logoUri) {
   body { background:#ffffff; }
   .slide { width:1080px; height:1350px; position:relative; display:flex; box-sizing:border-box; overflow:hidden; }
   .slide.pad { flex-direction:column; justify-content:center; padding:80px 64px; }
+  .slide.follow { flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:80px; }
   .kicker { text-transform:uppercase; letter-spacing:0.16em; font-weight:600; font-family:'Outfit',sans-serif; }
 </style>
 </head><body>
