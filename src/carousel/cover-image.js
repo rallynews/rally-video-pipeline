@@ -1,4 +1,5 @@
 const axios = require('axios');
+const puppeteer = require('puppeteer');
 
 const UA =
   'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 ' +
@@ -17,7 +18,7 @@ const FALLBACK =
 // Resolve a possibly-relative image URL against the page it came from.
 function absolutize(url, base) {
   if (!url) return null;
-  let u = url.trim();
+  const u = url.trim();
   if (u.startsWith('//')) return 'https:' + u;
   try {
     return new URL(u, base).href;
@@ -26,58 +27,42 @@ function absolutize(url, base) {
   }
 }
 
-// Pull the featured image out of the article page — the <img> tagged with the
-// class "rv-figure-img". Handles class lists in any order and lazy-loaded
-// images (src / data-src / srcset). This is the authoritative cover source.
-function extractFigureImage(html, base) {
-  // Find each <img ...> and keep the one whose class list contains the token.
-  const imgTags = html.match(/<img\b[^>]*>/gi) || [];
-  for (const tag of imgTags) {
-    const cls = tag.match(/\bclass\s*=\s*["']([^"']*)["']/i);
-    if (!cls || !/\brv-figure-img\b/.test(cls[1])) continue;
-
-    // Candidate URLs in priority order. Lazy-loaded images often carry a tiny
-    // data: placeholder in src and the real URL in data-src/srcset, so skip
-    // data: URIs and take the first real one.
-    const srcsetFirst = (attr) => {
-      const v = (tag.match(new RegExp(`\\b${attr}\\s*=\\s*["']([^"']+)["']`, 'i')) || [])[1];
-      return v ? v.split(',')[0].trim().split(/\s+/)[0] : null;
-    };
-    const candidates = [
-      (tag.match(/\bsrc\s*=\s*["']([^"']+)["']/i) || [])[1],
-      (tag.match(/\bdata-src\s*=\s*["']([^"']+)["']/i) || [])[1],
-      (tag.match(/\bdata-lazy-src\s*=\s*["']([^"']+)["']/i) || [])[1],
-      srcsetFirst('srcset'),
-      srcsetFirst('data-srcset'),
-    ];
-    const pick = candidates.find(u => u && !u.startsWith('data:'));
-    if (pick) return absolutize(pick, base);
-  }
-  return null;
-}
-
-async function fetchArticleHtml(url) {
-  const res = await axios.get(url, {
-    timeout: 20000,
-    maxContentLength: 10 * 1024 * 1024,
-    headers: { 'User-Agent': UA, Accept: 'text/html' },
-    responseType: 'text',
+// The rally.news article pages are a client-rendered SPA: /script.js reads the
+// ?article= param and injects the article (and its featured <img class=
+// "rv-figure-img">) into the DOM after load. A plain HTTP GET only sees the
+// empty shell, so we render the page in a headless browser, wait for the
+// featured image, and read its resolved URL.
+async function figureUrlViaBrowser(url) {
+  const browser = await puppeteer.launch({
+    headless: 'new',
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
   });
-  return res.data;
-}
+  try {
+    const page = await browser.newPage();
+    await page.setUserAgent(UA);
+    await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 });
+    await page.waitForSelector('.rv-figure-img', { timeout: 20000 });
 
-function extractOgImage(html) {
-  const patterns = [
-    /<meta[^>]+property=["']og:image(?::url)?["'][^>]+content=["']([^"']+)["']/i,
-    /<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image(?::url)?["']/i,
-    /<meta[^>]+name=["']twitter:image(?::src)?["'][^>]+content=["']([^"']+)["']/i,
-    /<meta[^>]+content=["']([^"']+)["'][^>]+name=["']twitter:image(?::src)?["']/i,
-  ];
-  for (const re of patterns) {
-    const m = html.match(re);
-    if (m && m[1]) return m[1].trim();
+    return await page.evaluate(() => {
+      const fromEl = (el) => {
+        if (!el) return null;
+        if (el.tagName === 'IMG') {
+          return el.currentSrc || el.src || el.getAttribute('data-src') || null;
+        }
+        const bg = getComputedStyle(el).backgroundImage;
+        const m = bg && bg.match(/url\(["']?([^"')]+)["']?\)/);
+        if (m) return m[1];
+        const img = el.querySelector('img');
+        return img ? (img.currentSrc || img.src) : null;
+      };
+      return fromEl(
+        document.querySelector('img.rv-figure-img') ||
+        document.querySelector('.rv-figure-img')
+      );
+    });
+  } finally {
+    await browser.close();
   }
-  return null;
 }
 
 async function toDataUri(url) {
@@ -100,40 +85,24 @@ async function toDataUri(url) {
 }
 
 // Resolve the cover photo for the story as a data: URI.
-// Primary (and intended) source: the article page's featured image, i.e. the
-// <img class="rv-figure-img"> on the story's rally.news URL. Falls back to the
-// feed image, then the page's og:image, then a brand card — only if the tagged
-// image genuinely can't be found or downloaded.
+// Primary source: the article's featured image (<img class="rv-figure-img">)
+// on the story's rally.news page, read after the SPA renders it. Falls back to
+// the feed image, then a brand card — only if the featured image genuinely
+// can't be found or downloaded.
 async function getCoverImage(story) {
   if (story.url) {
-    let html = null;
+    let figUrl = null;
     try {
-      html = await fetchArticleHtml(story.url);
+      figUrl = await figureUrlViaBrowser(story.url);
     } catch (err) {
-      console.warn(`  [cover] could not fetch article page: ${err.message}`);
+      console.warn(`  [cover] rv-figure-img lookup failed: ${err.message}`);
     }
-
-    if (html) {
-      const figureUrl = extractFigureImage(html, story.url);
-      const fromFigure = await toDataUri(figureUrl);
-      if (fromFigure) {
-        console.log(`  [cover] using article rv-figure-img (${figureUrl})`);
-        return fromFigure;
-      }
-      console.warn('  [cover] rv-figure-img not found/downloadable — trying fallbacks');
-
-      // og:image is only meaningful on non-rally pages (rally.news serves the
-      // brand card as og:image).
-      let ogUrl = extractOgImage(html);
-      ogUrl = ogUrl ? absolutize(ogUrl, story.url) : null;
-      if (ogUrl && !/(^|\.)rally\.news$/i.test(new URL(story.url).hostname)) {
-        const fromOg = await toDataUri(ogUrl);
-        if (fromOg) {
-          console.log('  [cover] using article og:image');
-          return fromOg;
-        }
-      }
+    const fromFigure = await toDataUri(absolutize(figUrl, story.url));
+    if (fromFigure) {
+      console.log(`  [cover] using article rv-figure-img (${figUrl})`);
+      return fromFigure;
     }
+    console.warn('  [cover] rv-figure-img not found/downloadable — trying feed image');
   }
 
   const fromFeed = await toDataUri(story.thumbnail);
@@ -146,4 +115,4 @@ async function getCoverImage(story) {
   return FALLBACK;
 }
 
-module.exports = { getCoverImage, extractFigureImage };
+module.exports = { getCoverImage, figureUrlViaBrowser };
