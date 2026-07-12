@@ -1,5 +1,6 @@
 const { getMostViralStory } = require('./src/story-fetcher');
-const { generateCarouselCopy } = require('./src/carousel/copy-generator');
+const { generateCarouselCopy, buildFromRaw } = require('./src/carousel/copy-generator');
+const { verifyCarouselCopy } = require('./src/carousel/fact-checker');
 const { getCoverImage } = require('./src/carousel/cover-image');
 const { renderCarousel } = require('./src/carousel/renderer');
 const { uploadCarousel } = require('./src/carousel/r2-uploader');
@@ -52,9 +53,22 @@ async function run() {
     console.log(`   Selected: "${story.headline}"`);
 
     console.log('\n✍️  Researching story and writing carousel copy...');
-    const { pillar, slideCopy, captions, sources } = await generateCarouselCopy(story);
-    console.log(`   Pillar: ${pillar}`);
-    console.log(`   Headline: ${slideCopy.headline}`);
+    const round1 = await generateCarouselCopy(story);
+    console.log(`   Pillar: ${round1.pillar}`);
+    console.log(`   Headline: ${round1.slideCopy.headline}`);
+
+    console.log('\n🔎 Fact-checking copy against the article before production...');
+    const verified = await verifyCarouselCopy(story, round1.raw);
+    if (verified.ran) {
+      const corrected = verified.report.filter(r => r.verdict === 'corrected');
+      console.log(`   Checked ${verified.report.length} field(s); ${corrected.length} rewritten.`);
+      for (const r of verified.report) {
+        console.log(`     • ${r.field}: ${r.verdict}${r.note ? ' — ' + r.note : ''}`);
+      }
+    }
+    const { pillar, slideCopy, captions } = buildFromRaw(verified.raw, story);
+    const sources = verified.sources;
+    const verification = { ran: verified.ran, report: verified.report };
     console.log(`   Sources: ${sources.length ? sources.join(', ') : '(none returned)'}`);
 
     console.log('\n🖼️  Fetching cover image...');
@@ -72,7 +86,7 @@ async function run() {
       console.warn(`   R2 upload failed (${e.message}) — continuing with Telegram delivery only.`);
     }
 
-    const delivery = { story, pillar, style, images, captions, imageUrls, sources };
+    const delivery = { story, pillar, style, images, captions, imageUrls, sources, verification };
 
     console.log('\n📱 Sending carousel to Telegram...');
     await sendCarousel(delivery);

@@ -14,9 +14,13 @@ generates a talking-head video → delivers it to Telegram. Workflow:
 ## 2. Carousel pipeline (`carousel.js`)
 
 Picks the **same-logic** story → **researches and corroborates it on the web**
-→ writes a 5-part carousel with Mistral → renders 5 branded PNG slides
-(1080×1350, @2x) in one of four randomly chosen styles (1a–1d) → uploads them
-to Cloudflare R2 → delivers everything to **Telegram and Slack**. Workflow:
+→ writes a 5-part carousel with Mistral → **fact-checks that copy in a second
+pass** (cross-references every claim against the article and other sources,
+demands positive proof, rewrites anything unproven) → renders 5 branded PNG
+slides (1080×1350, @2x) in one of four randomly chosen styles (1a–1d) → uploads
+them to Cloudflare R2 → delivers everything to **Telegram and Slack**. The
+cover photo is the article's featured image (`<img class="rv-figure-img">` on
+the story's rally.news page). Workflow:
 `.github/workflows/carousel-pipeline.yml` (runs daily at 14:00 UTC and can be
 triggered manually).
 
@@ -85,13 +89,16 @@ the workflow to your preferred time). To run on demand: GitHub → Actions →
 
 | | Video | Carousel |
 | --- | --- | --- |
-| Text (Mistral) | ~$0.001 | ~$0.002–0.005 |
-| Web research | – | ~$0.01–0.04 |
+| Text (Mistral) | ~$0.001 | ~$0.003–0.007 |
+| Web research (write) | – | ~$0.01–0.04 |
+| Web research (fact-check pass) | – | ~$0.01–0.02 |
 | Media | video model ~$0.20–0.50 | HTML→PNG on Actions: $0 |
 | Storage | – | R2 ~$0 (free tier) |
-| **Total** | **~$0.20–0.50** | **~$0.02–0.05** |
+| **Total** | **~$0.20–0.50** | **~$0.03–0.07** |
 
-The carousel runs roughly 1/10th the cost of a video.
+The carousel still runs roughly 1/10th the cost of a video. The fact-check pass
+adds one more web-search-enabled Mistral call (~$0.01–0.02, dominated by web
+search); text tokens are a fraction of a cent.
 
 ## Local development
 

@@ -12,13 +12,16 @@ function isConfigured() {
 //   1. The 5 images, shared with an info/header comment (story, links, sources)
 //   2. Facebook caption ALONE (plain text — copy/paste ready)
 //   3. Instagram caption ALONE (plain text — copy/paste ready)
-async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources }) {
+async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification }) {
   const client = new WebClient(process.env.SLACK_BOT_TOKEN);
   const channel = process.env.SLACK_CHANNEL_ID;
 
   const today = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long',
   });
+  const checkLine = verification && verification.ran
+    ? `\n✅ *Fact-checked* — ${verification.report.filter(r => r.verdict === 'corrected').length} field(s) rewritten after cross-referencing.`
+    : '';
   const srcLines = (sources && sources.length)
     ? `\n*Corroborated with:*\n${sources.map(s => `• ${s}`).join('\n')}`
     : '';
@@ -32,6 +35,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     `*Source:* ${story.publisher}\n` +
     `*Pillar:* ${pillar}   *Style:* ${style}\n` +
     `*Link:* ${story.url}` +
+    checkLine +
     urlLines +
     srcLines +
     `\n\n⬇️ Save the 5 images, then paste the Facebook and Instagram captions (the next two messages) straight into each app.`;
