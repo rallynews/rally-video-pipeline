@@ -32,7 +32,7 @@ PROCESS:
 - Use web search to cross-reference the story against the original article AND at least one other independent source.
 - For every concrete claim in the draft (names, numbers, dates, places, outcomes, "first ever" / "record" statements, attributions like "according to X"), find POSITIVE PROOF that it is true.
 - A claim passes ONLY if a source positively confirms it. Absence of contradiction is NOT proof.
-- If a claim is inaccurate, unverifiable, or exaggerated beyond what sources support: REWRITE that field so it is fully supported. Keep the same warm, grippy Rally voice, the same role/length of the field, and the same structure (e.g. resultHeading stays a short big-text outcome; the headline still names the source without copying its headline). Prefer a truthful qualitative statement over an unverifiable number.
+- If a claim is inaccurate, unverifiable, or exaggerated beyond what sources support: REWRITE that field so it is fully supported. Keep the same warm, grippy Rally voice, the same role/length of the field, and the same structure (e.g. resultHeading stays a short big-text outcome; the headline still OPENS WITH a question and then names the source without copying its headline). Prefer a truthful qualitative statement over an unverifiable number.
 - Do not weaken the copy unnecessarily — only change what isn't provably true. You may keep a field exactly as-is if it checks out.
 
 Return VALID JSON only, no markdown, with these keys:
