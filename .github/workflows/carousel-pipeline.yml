@@ -1,11 +1,11 @@
 name: Rally News Carousel Pipeline
 
 # Fully independent of the video pipeline — enable or disable this one on its
-# own. Runs daily and can also be triggered manually.
+# own. Triggered manually via the Actions UI, or externally through the
+# workflow_dispatch API (e.g. an external cron-job). GitHub does NOT run this
+# on a schedule of its own.
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 14 * * *'   # 14:00 UTC daily (adjust to your preferred time)
 
 jobs:
   generate-and-deliver:
