@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jul 2026 15:27:00 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 16 Jul 2026 05:01:41 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Spain blanks favored France to advance to FIFA World Cup final</title>
+      <link>https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</link>
+      <description>Mikel Oyarzabal and Pedro Porro score as Spain reaches the FIFA World Cup title match for only the second time and denies 2018 champion France a third straight final appearance</description>
+      <pubDate>Thu, 16 Jul 2026 05:01:41 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</guid>
+    </item>
+
+<item>
       <title>Spain blanks favored France to advance to FIFA World Cup final</title>
       <link>https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</link>
       <description>Mikel Oyarzabal and Pedro Porro score as Spain reaches the FIFA World Cup title match for only the second time and denies 2018 champion France a third straight final appearance</description>
@@ -400,14 +408,6 @@
       <description>Cognition makes Devin, the first and arguably most successful AI coding agent. But famed coder Wu says it isn&apos;t designed to supplant human programmers.</description>
       <pubDate>Sat, 30 May 2026 11:58:46 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=Cognition%E2%80%99s%2BScott%2BWu%2Bsays%2BAI%2Bcoding%2Bagents%2Bshouldn%E2%80%99t%2Breplace%2Bhumans</guid>
-    </item>
-
-<item>
-      <title>Rare baby otter pups begin swimming lessons at U.K.&apos;s Chester Zoo</title>
-      <link>https://rally.news/categories/entertainment/?article=Rare%2Bbaby%2Botter%2Bpups%2Bbegin%2Bswimming%2Blessons%2Bat%2BU.K.%27s%2BChester%2BZoo</link>
-      <description>Three rare giant otter pups have begun swimming lessons at the U.K.&apos;s Chester Zoo. Led by mum Bonita and dad Manu, the rare pups were picked up by the scruff of their necks and popped straight in at the ‘deep end.&apos;</description>
-      <pubDate>Fri, 29 May 2026 17:57:11 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Rare%2Bbaby%2Botter%2Bpups%2Bbegin%2Bswimming%2Blessons%2Bat%2BU.K.%27s%2BChester%2BZoo</guid>
     </item>
   </channel>
 </rss>
