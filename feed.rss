@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Jul 2026 05:01:50 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2026 05:01:40 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Buzz Aldrin Used This Humble Felt-Tip Pen to Save the Apollo II Astronauts. It Just Sold for More Than $850,000</title>
+      <link>https://rally.news/categories/ai/?article=Buzz%2BAldrin%2BUsed%2BThis%2BHumble%2BFelt-Tip%2BPen%2Bto%2BSave%2Bthe%2BApollo%2BII%2BAstronauts.%2BIt%2BJust%2BSold%2Bfor%2BMore%2BThan%2B%24850%2C000</link>
+      <description>In July 1969, a quick-thinking Aldrin used the writing instrument to rearm the engine arm circuit of the lunar module &quot;Eagle&quot; after the switch broke off during the  moon landing</description>
+      <pubDate>Sat, 18 Jul 2026 05:01:40 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Buzz%2BAldrin%2BUsed%2BThis%2BHumble%2BFelt-Tip%2BPen%2Bto%2BSave%2Bthe%2BApollo%2BII%2BAstronauts.%2BIt%2BJust%2BSold%2Bfor%2BMore%2BThan%2B%24850%2C000</guid>
+    </item>
+
+<item>
       <title>Argentina beat England 2-1 to reach World Cup 2026 final</title>
       <link>https://rally.news/categories/entertainment/?article=Argentina%2Bbeat%2BEngland%2B2-1%2Bto%2Breach%2BWorld%2BCup%2B2026%2Bfinal</link>
       <description>Argentina will have a chance to become the first team since Brazil in 1962 to win back-to-back World Cups after Lionel Messi, 39, once again dragged his team to victory.</description>
@@ -400,14 +408,6 @@
       <description>Molly Lewis has performed on the Barbie soundtrack album, opened for Beck on tour and has her own brand of chapstick.</description>
       <pubDate>Mon, 01 Jun 2026 05:02:55 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=%E2%80%98A%2Bvery%2Bfun%2C%2Bstrange%2Bjob%E2%80%99%3A%2BThe%2BAustralian%2Bwho%2Bhas%2Bturned%2Bwhistling%2Binto%2Ba%2Bcareer</guid>
-    </item>
-
-<item>
-      <title>Cognition’s Scott Wu says AI coding agents shouldn’t replace humans</title>
-      <link>https://rally.news/categories/ai/?article=Cognition%E2%80%99s%2BScott%2BWu%2Bsays%2BAI%2Bcoding%2Bagents%2Bshouldn%E2%80%99t%2Breplace%2Bhumans</link>
-      <description>Cognition makes Devin, the first and arguably most successful AI coding agent. But famed coder Wu says it isn&apos;t designed to supplant human programmers.</description>
-      <pubDate>Sun, 31 May 2026 05:02:29 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Cognition%E2%80%99s%2BScott%2BWu%2Bsays%2BAI%2Bcoding%2Bagents%2Bshouldn%E2%80%99t%2Breplace%2Bhumans</guid>
     </item>
   </channel>
 </rss>
