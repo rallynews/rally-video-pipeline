@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Jul 2026 05:01:40 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 05:01:23 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Rocket Report: India&apos;s Vikram-1 nears debut flight; AST to become rocket company?</title>
+      <link>https://rally.news/categories/ai/?article=Rocket%2BReport%3A%2BIndia%27s%2BVikram-1%2Bnears%2Bdebut%2Bflight%3B%2BAST%2Bto%2Bbecome%2Brocket%2Bcompany%3F</link>
+      <description>&quot;We have done everything that could be done to test Vikram-1 on ground.&quot;</description>
+      <pubDate>Sun, 19 Jul 2026 05:01:23 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Rocket%2BReport%3A%2BIndia%27s%2BVikram-1%2Bnears%2Bdebut%2Bflight%3B%2BAST%2Bto%2Bbecome%2Brocket%2Bcompany%3F</guid>
+    </item>
+
+<item>
       <title>Buzz Aldrin Used This Humble Felt-Tip Pen to Save the Apollo II Astronauts. It Just Sold for More Than $850,000</title>
       <link>https://rally.news/categories/ai/?article=Buzz%2BAldrin%2BUsed%2BThis%2BHumble%2BFelt-Tip%2BPen%2Bto%2BSave%2Bthe%2BApollo%2BII%2BAstronauts.%2BIt%2BJust%2BSold%2Bfor%2BMore%2BThan%2B%24850%2C000</link>
       <description>In July 1969, a quick-thinking Aldrin used the writing instrument to rearm the engine arm circuit of the lunar module &quot;Eagle&quot; after the switch broke off during the  moon landing</description>
@@ -400,14 +408,6 @@
       <description>The 23-time grand slam singles champion will make her long-anticipated return to competitive tennis at this month’s Queen’s Club Championships.</description>
       <pubDate>Tue, 02 Jun 2026 08:09:59 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Serena%2BWilliams%2Bto%2Bmake%2Btennis%2Bcomeback%2Bat%2B44</guid>
-    </item>
-
-<item>
-      <title>‘A very fun, strange job’: The Australian who has turned whistling into a career</title>
-      <link>https://rally.news/categories/entertainment/?article=%E2%80%98A%2Bvery%2Bfun%2C%2Bstrange%2Bjob%E2%80%99%3A%2BThe%2BAustralian%2Bwho%2Bhas%2Bturned%2Bwhistling%2Binto%2Ba%2Bcareer</link>
-      <description>Molly Lewis has performed on the Barbie soundtrack album, opened for Beck on tour and has her own brand of chapstick.</description>
-      <pubDate>Mon, 01 Jun 2026 05:02:55 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=%E2%80%98A%2Bvery%2Bfun%2C%2Bstrange%2Bjob%E2%80%99%3A%2BThe%2BAustralian%2Bwho%2Bhas%2Bturned%2Bwhistling%2Binto%2Ba%2Bcareer</guid>
     </item>
   </channel>
 </rss>
