@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2026 05:02:03 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2026 05:01:22 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>In a Paris café, terror attack survivors find community: &apos;People want to tell each other: I am alive&apos;</title>
+      <link>https://rally.news/categories/world/?article=In%2Ba%2BParis%2Bcaf%C3%A9%2C%2Bterror%2Battack%2Bsurvivors%2Bfind%2Bcommunity%3A%2B%27People%2Bwant%2Bto%2Btell%2Beach%2Bother%3A%2BI%2Bam%2Balive%27</link>
+      <description>After long days attending the trial concerning the Paris attacks of November 13, 2015, survivors and relatives of victims would meet in a bar to comfort one other. They have continued to gather every month, joined by victims of other attacks, to share experiences, advice and, above all, laughter and</description>
+      <pubDate>Tue, 21 Jul 2026 05:01:22 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/world/?article=In%2Ba%2BParis%2Bcaf%C3%A9%2C%2Bterror%2Battack%2Bsurvivors%2Bfind%2Bcommunity%3A%2B%27People%2Bwant%2Bto%2Btell%2Beach%2Bother%3A%2BI%2Bam%2Balive%27</guid>
+    </item>
+
+<item>
       <title>The device detecting the world’s deadliest creature</title>
       <link>https://rally.news/categories/ai/?article=The%2Bdevice%2Bdetecting%2Bthe%2Bworld%E2%80%99s%2Bdeadliest%2Bcreature</link>
       <description>Humans miss this subtle sound of danger approaching – but this cheap gadget can sound the mosquito alarm.</description>
@@ -400,14 +408,6 @@
       <description>&quot;It’s a reminder of how human activity is changing the natural world in unanticipated ways.”</description>
       <pubDate>Thu, 04 Jun 2026 06:30:58 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/climate/?article=Male%2Bbowerbirds%2Bhope%2Bto%2Bdazzle%2Bfemales%2Bwith%2Bbright%2Bhuman-made%2Bitems</guid>
-    </item>
-
-<item>
-      <title>BTS to release limited-edition vinyl of Arirang album with bonus tracks to mark 13th anniversary</title>
-      <link>https://rally.news/categories/entertainment/?article=BTS%2Bto%2Brelease%2Blimited-edition%2Bvinyl%2Bof%2BArirang%2Balbum%2Bwith%2Bbonus%2Btracks%2Bto%2Bmark%2B13th%2Banniversary</link>
-      <description>It will include voice messages of the members&apos; conversations and a Korean version of the song Normal.</description>
-      <pubDate>Wed, 03 Jun 2026 05:02:26 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=BTS%2Bto%2Brelease%2Blimited-edition%2Bvinyl%2Bof%2BArirang%2Balbum%2Bwith%2Bbonus%2Btracks%2Bto%2Bmark%2B13th%2Banniversary</guid>
     </item>
   </channel>
 </rss>
