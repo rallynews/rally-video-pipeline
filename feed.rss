@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2026 05:01:22 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 05:01:37 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Monkeys Have Geometric Skills On Par With Human Preschoolers, Study Suggests</title>
+      <link>https://rally.news/categories/ai/?article=Monkeys%2BHave%2BGeometric%2BSkills%2BOn%2BPar%2BWith%2BHuman%2BPreschoolers%2C%2BStudy%2BSuggests</link>
+      <description>If you&apos;ve ever gone hiking and reached a fork in the trail, you may be confronted with two triangles: one pointing right, one pointing left.</description>
+      <pubDate>Wed, 22 Jul 2026 05:01:37 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Monkeys%2BHave%2BGeometric%2BSkills%2BOn%2BPar%2BWith%2BHuman%2BPreschoolers%2C%2BStudy%2BSuggests</guid>
+    </item>
+
+<item>
       <title>In a Paris café, terror attack survivors find community: &apos;People want to tell each other: I am alive&apos;</title>
       <link>https://rally.news/categories/world/?article=In%2Ba%2BParis%2Bcaf%C3%A9%2C%2Bterror%2Battack%2Bsurvivors%2Bfind%2Bcommunity%3A%2B%27People%2Bwant%2Bto%2Btell%2Beach%2Bother%3A%2BI%2Bam%2Balive%27</link>
       <description>After long days attending the trial concerning the Paris attacks of November 13, 2015, survivors and relatives of victims would meet in a bar to comfort one other. They have continued to gather every month, joined by victims of other attacks, to share experiences, advice and, above all, laughter and</description>
@@ -400,14 +408,6 @@
       <description>Tehran says it wants an end to fighting between Israel and Lebanon before negotiating a deal with the U.S.</description>
       <pubDate>Fri, 05 Jun 2026 05:02:25 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=Hopes%2Bfor%2BU.S.-Iran%2Bpeace%2Bdeal%2Bboosted%2Bby%2Bceasefire%2Bagreement%2Bin%2BLebanon</guid>
-    </item>
-
-<item>
-      <title>Male bowerbirds hope to dazzle females with bright human-made items</title>
-      <link>https://rally.news/categories/climate/?article=Male%2Bbowerbirds%2Bhope%2Bto%2Bdazzle%2Bfemales%2Bwith%2Bbright%2Bhuman-made%2Bitems</link>
-      <description>&quot;It’s a reminder of how human activity is changing the natural world in unanticipated ways.”</description>
-      <pubDate>Thu, 04 Jun 2026 06:30:58 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/climate/?article=Male%2Bbowerbirds%2Bhope%2Bto%2Bdazzle%2Bfemales%2Bwith%2Bbright%2Bhuman-made%2Bitems</guid>
     </item>
   </channel>
 </rss>
