@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jul 2026 05:01:37 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 06:12:12 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Naked Mole-Rat Queens Emit a Special Scent to Stop Their Rivals From Reproducing, a New Study Suggests</title>
+      <link>https://rally.news/categories/world/?article=Naked%2BMole-Rat%2BQueens%2BEmit%2Ba%2BSpecial%2BScent%2Bto%2BStop%2BTheir%2BRivals%2BFrom%2BReproducing%2C%2Ba%2BNew%2BStudy%2BSuggests</link>
+      <description>The strange-looking creatures are one of two known mammals that use a social structure like that of bees and ants. A ruling rodent maintains power over her colony via one key chemical compound, according to new research</description>
+      <pubDate>Thu, 23 Jul 2026 06:12:12 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/world/?article=Naked%2BMole-Rat%2BQueens%2BEmit%2Ba%2BSpecial%2BScent%2Bto%2BStop%2BTheir%2BRivals%2BFrom%2BReproducing%2C%2Ba%2BNew%2BStudy%2BSuggests</guid>
+    </item>
+
+<item>
       <title>Monkeys Have Geometric Skills On Par With Human Preschoolers, Study Suggests</title>
       <link>https://rally.news/categories/ai/?article=Monkeys%2BHave%2BGeometric%2BSkills%2BOn%2BPar%2BWith%2BHuman%2BPreschoolers%2C%2BStudy%2BSuggests</link>
       <description>If you&apos;ve ever gone hiking and reached a fork in the trail, you may be confronted with two triangles: one pointing right, one pointing left.</description>
@@ -400,14 +408,6 @@
       <description>Swampy mangrove forests are staging a surprise comeback - which is good news for coastal communities and the climate.</description>
       <pubDate>Sat, 06 Jun 2026 05:02:38 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/climate/?article=Mangrove%2Bforests%2Bare%2Bhealing%2Bafter%2Bdecades%2Bof%2Bhuman%2Bdestruction</guid>
-    </item>
-
-<item>
-      <title>Hopes for U.S.-Iran peace deal boosted by ceasefire agreement in Lebanon</title>
-      <link>https://rally.news/categories/world/?article=Hopes%2Bfor%2BU.S.-Iran%2Bpeace%2Bdeal%2Bboosted%2Bby%2Bceasefire%2Bagreement%2Bin%2BLebanon</link>
-      <description>Tehran says it wants an end to fighting between Israel and Lebanon before negotiating a deal with the U.S.</description>
-      <pubDate>Fri, 05 Jun 2026 05:02:25 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/world/?article=Hopes%2Bfor%2BU.S.-Iran%2Bpeace%2Bdeal%2Bboosted%2Bby%2Bceasefire%2Bagreement%2Bin%2BLebanon</guid>
     </item>
   </channel>
 </rss>
