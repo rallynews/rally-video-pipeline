@@ -59,6 +59,8 @@ function buildFromRaw(raw, story) {
   const pillar = normalizePillar(raw.pillar);
   const slideCopy = {
     pillar,
+    // Original source for the cover photo credit (falls back to none).
+    source: story && story.publisher ? story.publisher : '',
     headline: unquote(raw.headline),
     challenge: unquote(raw.challenge),
     solution: unquote(raw.solution),
