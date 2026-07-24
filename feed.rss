@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jul 2026 20:56:27 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 21:04:04 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Health: Solar-powered ambulances soon heading to Kenya</title>
+      <link>https://rally.news/categories/transportation/?article=Health%3A%2BSolar-powered%2Bambulances%2Bsoon%2Bheading%2Bto%2BKenya</link>
+      <description>The two-seater ambulance can reach a top speed of 120 kilometres per hour and is designed for inaccessible off-road terrain.</description>
+      <pubDate>Fri, 24 Jul 2026 21:04:04 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/transportation/?article=Health%3A%2BSolar-powered%2Bambulances%2Bsoon%2Bheading%2Bto%2BKenya</guid>
+    </item>
+
+<item>
       <title>Health: Solar-powered ambulances soon heading to Kenya</title>
       <link>https://rally.news/categories/transportation/?article=Health%3A%2BSolar-powered%2Bambulances%2Bsoon%2Bheading%2Bto%2BKenya</link>
       <description>The two-seater ambulance can reach a top speed of 120 kilometres per hour and is designed for inaccessible off-road terrain.</description>
@@ -400,14 +408,6 @@
       <description>The planetary conjunction will be visible to the naked eye, if weather permits.</description>
       <pubDate>Tue, 09 Jun 2026 07:39:27 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=Venus%2C%2BJupiter%2Bgather%2Bfor%2B%E2%80%98cosmic%2Bkiss%E2%80%99%2Bin%2Brare%2Bcelestial%2Bphenomenon</guid>
-    </item>
-
-<item>
-      <title>Olivia Rodrigo Debuts New Song Featuring Robert Smith at Primavera Sound</title>
-      <link>https://rally.news/categories/entertainment/?article=Olivia%2BRodrigo%2BDebuts%2BNew%2BSong%2BFeaturing%2BRobert%2BSmith%2Bat%2BPrimavera%2BSound</link>
-      <description>Olivia Rodrigo performed her new song &amp;quot;What&amp;#039;s Wrong with Me&amp;quot; with Robert Smith at the Primavera Sound festival.</description>
-      <pubDate>Mon, 08 Jun 2026 05:02:29 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Olivia%2BRodrigo%2BDebuts%2BNew%2BSong%2BFeaturing%2BRobert%2BSmith%2Bat%2BPrimavera%2BSound</guid>
     </item>
   </channel>
 </rss>
