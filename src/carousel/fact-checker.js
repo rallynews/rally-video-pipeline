@@ -14,7 +14,7 @@ const CHECKED_FIELDS = [
 // the corrected raw fields plus a per-field report.
 async function verifyCarouselCopy(story, raw) {
   const draft = {};
-  for (const k of [...CHECKED_FIELDS, 'pillar', 'engagementQuestion', 'storyHashtag']) {
+  for (const k of [...CHECKED_FIELDS, 'pillar', 'engagementQuestion', 'storyHashtag', 'originalSource']) {
     draft[k] = raw[k];
   }
 
@@ -38,10 +38,11 @@ PROCESS:
 Return VALID JSON only, no markdown, with these keys:
 - All of these corrected fields: headline, challenge, solution, resultHeading, resultLine, whyMatters, captionLead. (Return the final, production-ready text — corrected where needed, unchanged where already accurate.)
 - pillar, engagementQuestion, storyHashtag: return them unchanged.
+- originalSource: the name of the outlet that first published the story and its photo. Verify it credits the correct outlet; correct it if wrong, and never return "Rally News" (that's only the aggregator).
 - sources: array of the URLs you used to verify (1–4).
 - report: an array of {"field","verdict","note"} where verdict is "verified" (kept as-is, confirmed) or "corrected" (rewritten), and note briefly says what was confirmed or what was wrong and fixed.
 
-{"headline","challenge","solution","resultHeading","resultLine","whyMatters","captionLead","pillar","engagementQuestion","storyHashtag","sources","report"}`,
+{"headline","challenge","solution","resultHeading","resultLine","whyMatters","captionLead","pillar","engagementQuestion","storyHashtag","originalSource","sources","report"}`,
         },
         {
           role: 'user',
@@ -75,7 +76,7 @@ Verify every factual claim with web search, correct anything not positively prov
   // Merge: take corrected checked fields, fall back to the draft for anything
   // the checker omitted.
   const corrected = { ...raw };
-  for (const k of [...CHECKED_FIELDS, 'pillar', 'engagementQuestion', 'storyHashtag']) {
+  for (const k of [...CHECKED_FIELDS, 'pillar', 'engagementQuestion', 'storyHashtag', 'originalSource']) {
     if (checked[k] != null && String(checked[k]).trim()) corrected[k] = checked[k];
   }
   if (Array.isArray(checked.sources) && checked.sources.length) corrected.sources = checked.sources;
