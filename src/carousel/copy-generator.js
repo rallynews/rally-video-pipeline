@@ -31,6 +31,19 @@ function unquote(value) {
     .trim();
 }
 
+// Pick the outlet to credit the cover photo to. Prefer the original source the
+// writer identified; fall back to the story's publisher. Never credit "Rally
+// News" (the curating feed, not the photo's source) — better no credit than a
+// wrong one, so return '' and let the template omit the caption.
+function pickPhotoSource(raw, story) {
+  const candidates = [raw && raw.originalSource, story && story.publisher];
+  for (const c of candidates) {
+    const name = unquote(c);
+    if (name && name.toLowerCase() !== 'rally news') return name;
+  }
+  return '';
+}
+
 function normalizeHashtag(value) {
   const cleaned = String(value || '')
     .replace(/^#/, '')
@@ -59,8 +72,8 @@ function buildFromRaw(raw, story) {
   const pillar = normalizePillar(raw.pillar);
   const slideCopy = {
     pillar,
-    // Original source for the cover photo credit (falls back to none).
-    source: story && story.publisher ? story.publisher : '',
+    // Original source for the cover photo credit (empty ⇒ no caption shown).
+    source: pickPhotoSource(raw, story),
     headline: unquote(raw.headline),
     challenge: unquote(raw.challenge),
     solution: unquote(raw.solution),
@@ -109,9 +122,10 @@ Write these fields:
 8. captionLead — 1–2 warm sentences summarizing the good news, used as the lead of the social captions.
 9. storyHashtag — ONE popular, real, story-specific hashtag word (no spaces, no # symbol), e.g. ClimateAction, CancerResearch, CleanEnergy.
 10. sources — an array of 1–3 URLs you actually used to corroborate the story.
+11. originalSource — the NAME of the original news outlet that first published this story and its photo (e.g. "Smithsonian Magazine", "BBC", "The Guardian", "Le Monde"). This credits the cover photo, so use the outlet's clean display name — not a URL, and never "Rally News" (that's only the aggregator).
 
 Return VALID JSON only, no markdown, with exactly these keys:
-{"pillar","headline","challenge","solution","resultHeading","resultLine","whyMatters","engagementQuestion","captionLead","storyHashtag","sources"}`,
+{"pillar","headline","challenge","solution","resultHeading","resultLine","whyMatters","engagementQuestion","captionLead","storyHashtag","sources","originalSource"}`,
       },
       {
         role: 'user',
