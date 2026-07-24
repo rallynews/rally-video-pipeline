@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2026 06:12:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 05:02:20 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>On the trail of a new dinosaur species in Spain’s premier wine region</title>
+      <link>https://rally.news/categories/ai/?article=On%2Bthe%2Btrail%2Bof%2Ba%2Bnew%2Bdinosaur%2Bspecies%2Bin%2BSpain%E2%80%99s%2Bpremier%2Bwine%2Bregion</link>
+      <description>The remains found in the village of Igea, in La Rioja, support the hypothesis that a large herbivorous specimen lived there 120 million years ago</description>
+      <pubDate>Fri, 24 Jul 2026 05:02:20 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=On%2Bthe%2Btrail%2Bof%2Ba%2Bnew%2Bdinosaur%2Bspecies%2Bin%2BSpain%E2%80%99s%2Bpremier%2Bwine%2Bregion</guid>
+    </item>
+
+<item>
       <title>Naked Mole-Rat Queens Emit a Special Scent to Stop Their Rivals From Reproducing, a New Study Suggests</title>
       <link>https://rally.news/categories/world/?article=Naked%2BMole-Rat%2BQueens%2BEmit%2Ba%2BSpecial%2BScent%2Bto%2BStop%2BTheir%2BRivals%2BFrom%2BReproducing%2C%2Ba%2BNew%2BStudy%2BSuggests</link>
       <description>The strange-looking creatures are one of two known mammals that use a social structure like that of bees and ants. A ruling rodent maintains power over her colony via one key chemical compound, according to new research</description>
@@ -400,14 +408,6 @@
       <description>In a statement, a Google representative described the deal as a result of unexpected demand for its recently launched AI products.</description>
       <pubDate>Sun, 07 Jun 2026 05:03:49 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=Google%2Bwill%2Bpay%2BSpaceX%2B%24920M%2Bper%2Bmonth%2Bfor%2Bcompute</guid>
-    </item>
-
-<item>
-      <title>Mangrove forests are healing after decades of human destruction</title>
-      <link>https://rally.news/categories/climate/?article=Mangrove%2Bforests%2Bare%2Bhealing%2Bafter%2Bdecades%2Bof%2Bhuman%2Bdestruction</link>
-      <description>Swampy mangrove forests are staging a surprise comeback - which is good news for coastal communities and the climate.</description>
-      <pubDate>Sat, 06 Jun 2026 05:02:38 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/climate/?article=Mangrove%2Bforests%2Bare%2Bhealing%2Bafter%2Bdecades%2Bof%2Bhuman%2Bdestruction</guid>
     </item>
   </channel>
 </rss>
