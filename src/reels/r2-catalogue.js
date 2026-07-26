@@ -1,13 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 const { S3Client, ListObjectsV2Command, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/client-s3');
-const { filterToBank, KEYWORD_SET } = require('./keywords');
+const { filterToBank, siblingsOf, KEYWORD_SET } = require('./keywords');
 
 // Reel assets live in their own bucket (default `rally-news-videos`), flat, in
-// three folders:
+// four folders:
 //
-//   images/   every keyworded still, no sub-folders. The FILENAME carries the
-//             keywords: solar-panels-01.jpg → solar, panels. Words must come
+//   images/   one still per keyword, no sub-folders. The FILENAME *is* the
+//             keyword: forest.jpg, river.jpg, volunteers.jpg. Words must come
 //             from the keyword bank (./keywords.js); anything else is ignored.
 //   generic/  happy-planet stills with no particular subject, used whenever a
 //             requested keyword has nothing better to offer.
@@ -118,60 +118,91 @@ async function loadCatalogue() {
     );
   }
 
-  // Which bank words actually have images behind them — used to tell the
+  // Which bank words actually have a photo behind them — used to tell the
   // planner what it can realistically ask for.
   const stocked = new Set();
-  for (const img of images) for (const k of img.keywords) stocked.add(k);
+  const claimedBy = new Map();
+  for (const img of images) {
+    for (const k of img.keywords) {
+      stocked.add(k);
+      // One photo per keyword is the convention; a second file claiming the
+      // same word isn't fatal, but it's almost always an accident.
+      if (claimedBy.has(k)) {
+        console.warn(
+          `  [reel] keyword "${k}" is claimed by two files ` +
+          `(${path.basename(claimedBy.get(k))}, ${path.basename(img.key)})`
+        );
+      } else {
+        claimedBy.set(k, img.key);
+      }
+    }
+  }
 
   return { images, generic, tracks, outros, stocked };
 }
 
-// How well an image answers a set of requested keywords. Only exact bank
-// matches count — there is no fuzzy matching to go wrong, because both sides
-// of the comparison are drawn from the same fixed vocabulary.
+// How many of the requested keywords an image answers. Both sides come from
+// the same fixed vocabulary, so this is an exact-match count with no fuzzy
+// matching to go wrong.
 function scoreImage(image, keywords) {
   let score = 0;
   for (const kw of keywords) {
-    if (image.keywords.includes(kw)) score += 3;
+    if (image.keywords.includes(kw)) score += 1;
   }
-  // A photo of exactly the thing asked for beats one that merely includes it.
-  if (score > 0) score += 1 / image.keywords.length;
   return score;
 }
 
+// Best unused image answering any of `keywords`, or null.
+function bestMatch(images, keywords, used, previous) {
+  if (!keywords.length) return null;
+  const scored = images
+    .filter(img => img.key !== previous && !used.has(img.key) && scoreImage(img, keywords) > 0)
+    .map(img => ({ key: img.key, score: scoreImage(img, keywords) + Math.random() * 0.5 }))
+    .sort((a, b) => b.score - a.score);
+  return scored.length ? scored[0].key : null;
+}
+
+function randomFrom(pool, used, previous) {
+  const eligible = pool.filter(k => k !== previous);
+  if (!eligible.length) return null;
+  const fresh = eligible.filter(k => !used.has(k));
+  const from = fresh.length ? fresh : eligible;
+  return from[Math.floor(Math.random() * from.length)];
+}
+
 // Resolve a shot's keywords to an object key.
-//   1. best keyworded image that isn't already on screen
-//   2. generic pool, if nothing in the library matches
-//   3. any keyworded image, if there is no generic pool either
-// `used` holds keys already spent in this reel so the same photo doesn't come
-// round twice while unused ones are still available.
+//
+// The library is one photo per keyword, so a keyword can only be spent once
+// per reel. That makes the ladder below matter: when the exact photo is gone,
+// the next best thing is another photo from the SAME theme group, which is
+// still on-topic, rather than a generic filler.
+//
+//   1. exact keyword match, not yet used
+//   2. a sibling keyword from the same bank group, not yet used
+//   3. the generic pool
+//   4. the exact match again, even though it's been used
+//   5. anything at all
+//
+// `previous` is the key on screen right now, and is excluded at every rung so
+// two consecutive shots are never the same photo.
 function pickImage(catalogue, keywords, used, previous) {
   const wanted = filterToBank(keywords);
 
-  if (wanted.length) {
-    const scored = catalogue.images
-      .filter(img => img.key !== previous && scoreImage(img, wanted) > 0)
-      .map(img => ({
-        key: img.key,
-        score: scoreImage(img, wanted) - (used.has(img.key) ? 2.5 : 0) + Math.random() * 0.3,
-      }))
-      .sort((a, b) => b.score - a.score);
+  const exact = bestMatch(catalogue.images, wanted, used, previous);
+  if (exact) return exact;
 
-    if (scored.length) return scored[0].key;
-  }
+  const sibling = bestMatch(catalogue.images, siblingsOf(wanted), used, previous);
+  if (sibling) return sibling;
 
-  const genericPool = catalogue.generic.filter(k => k !== previous);
-  if (genericPool.length) {
-    const fresh = genericPool.filter(k => !used.has(k));
-    const pool = fresh.length ? fresh : genericPool;
-    return pool[Math.floor(Math.random() * pool.length)];
-  }
+  const generic = randomFrom(catalogue.generic, used, previous);
+  if (generic) return generic;
 
-  const anyPool = catalogue.images.filter(img => img.key !== previous);
-  if (!anyPool.length) return null;
-  const fresh = anyPool.filter(img => !used.has(img.key));
-  const pool = fresh.length ? fresh : anyPool;
-  return pool[Math.floor(Math.random() * pool.length)].key;
+  const repeat = catalogue.images
+    .filter(img => img.key !== previous && scoreImage(img, wanted) > 0)
+    .map(img => img.key);
+  if (repeat.length) return repeat[Math.floor(Math.random() * repeat.length)];
+
+  return randomFrom(catalogue.images.map(img => img.key), used, previous);
 }
 
 function pickTrack(tracks) {

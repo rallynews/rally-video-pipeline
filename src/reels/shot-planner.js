@@ -135,15 +135,16 @@ PACING — this is the whole point:
 - Aim for ${SHOT_BOUNDS.min}–${SHOT_BOUNDS.max} shots across the whole video.
 
 KEYWORDS — the only thing that picks the image:
-- For each shot give 2–4 keywords describing what should be on screen at that exact moment.
+- For each shot give 1–3 keywords describing what should be on screen at that exact moment.
 - You MUST choose from the keyword bank below. Any word outside it is discarded and the shot falls back to a generic filler image, so an off-bank word is a wasted shot.
 
 KEYWORD BANK:
 ${bankPrompt()}
 
-- These bank keywords have images in the library RIGHT NOW — prefer them wherever they fit: ${stocked.length ? stocked.join(', ') : '(library is empty)'}
+- These bank keywords have a photo in the library RIGHT NOW — prefer them wherever they fit: ${stocked.length ? stocked.join(', ') : '(library is empty)'}
+- There is exactly ONE photo behind each keyword. Asking for the same keyword twice does NOT get you that photo twice — the second shot is quietly substituted with something else. So use each keyword AT MOST ONCE in the whole video, and reach for a different one every shot.
 - Match the picture to what is being SAID at that moment, not to the story in general. If the line is about a river, ask for river. If the line names a result, ask for something that reads as success or scale.
-- Do not repeat keywords on two shots in a row.
+- When a line has no obvious subject, cut to a keyword from the "Light & texture" or "People & emotion" groups rather than reusing an earlier one.
 
 MOTION — every shot moves, never a still frame. One of: ${MOTIONS.join(', ')}.
 - push-in / pull-out for emotional or reflective lines.

@@ -62,9 +62,10 @@ The five steps, once the carousel copy has been written and fact-checked:
 2. **Cuts** (`src/reels/shot-planner.js`) — Mistral reads the script back and
    decides where the picture cuts, aiming for **15–25 shots** across the video.
    It picks keywords from a fixed **keyword bank** (`src/reels/keywords.js`),
-   and is shown which of those words currently have images behind them, so
-   cuts land on real subjects. Anything off-bank is discarded and falls through
-   to the generic pool. Each shot carries a camera move (`push-in`,
+   and is shown which of those words currently have a photo behind them, so
+   cuts land on real subjects. Since there is exactly one photo per keyword, it
+   is told to use each keyword at most once per video. Anything off-bank is
+   discarded. Each shot carries a camera move (`push-in`,
    `pull-out`, `pan-left/right/up/down`) and a transition (`cut`, `whip-left`,
    `whip-right`, `dissolve`, `flash`, `zoom-punch`).
 3. **Voice** (`src/reels/voice.js`) — each line is recorded on its own, so the
@@ -92,35 +93,47 @@ library grows without a deploy. Four flat folders, no nesting:
 
 ```
 rally-news-videos/
-├── images/     ← keyworded b-roll. THE FILENAME IS THE KEYWORD.
+├── images/     ← ONE photo per keyword. THE FILENAME *IS* THE KEYWORD.
 ├── generic/    ← happy-planet stills, the fallback when nothing matches
 ├── audio/      ← Creative Commons music beds
 ├── outro/      ← the "Follow Us" Rally card, as an MP4
 └── out/        ← written by the pipeline: out/<date>/<slug>.mp4
 ```
 
-**`images/`** — `.jpg`, `.jpeg`, `.png` or `.webp`, all in the one folder. The
-filename carries the keywords, and they must come from the **keyword bank** in
-`src/reels/keywords.js` (212 words across 11 themes). One to three bank words
-plus a counter:
+**`images/`** — `.jpg`, `.jpeg`, `.png` or `.webp`, all in the one folder,
+**one photo per keyword**. The filename is the keyword and nothing else, taken
+from the **keyword bank** in `src/reels/keywords.js` (212 words across 11
+themes):
 
 ```
-solar-panels-01.jpg        → solar, panels
-volunteers-hands-03.jpg    → volunteers, hands
-river-sunrise-02.jpg       → river, sunrise
+forest.jpg
+volunteers.jpg
+river.jpg
 ```
 
-Words outside the bank are ignored, and an image matching no bank word is
-logged as unpickable on the next run — so typos surface instead of silently
-costing you a shot. Shoot for **at least 1080×1920**, or 1440px on the short
-side if landscape; they're cover-cropped to 9:16, so keep the subject centred.
-**3–5 images per keyword you care about** gives the picker room; it penalises
-re-use, so a thin library repeats itself inside one reel.
+Words outside the bank are ignored, an image matching no bank word is logged as
+unpickable, and two files claiming the same keyword are logged as a probable
+mistake — so naming errors surface on the next run instead of silently costing
+you a shot. Shoot for **at least 1080×1920**, or 1440px on the short side if
+landscape; they're cover-cropped to 9:16, so keep the subject centred.
 
-**`generic/`** — the fallback pool. Any filename; no keywords needed. Used
-whenever a requested keyword has nothing behind it, so these should be pretty,
-uplifting, subject-agnostic frames that sit under any sentence: landscapes,
-light through trees, hands, crowds, skies. **20–40** is plenty.
+Because the library is one-to-one, a keyword can only be spent once per reel.
+The planner is told this and asked to reach for a different keyword every shot,
+but when it does repeat one, the picker walks a ladder rather than giving up:
+
+1. the exact keyword's photo, if it hasn't been used yet
+2. an unused photo from the **same bank group** — still on-theme
+3. the generic pool
+4. the exact photo again, or anything at all
+
+Two consecutive shots are never the same photo at any rung. So a partial
+library still produces a watchable reel; it just leans harder on `generic/`.
+
+**`generic/`** — the fallback pool, and the thing that carries the reel while
+the keyworded library is still filling up. Any filename; no keywords needed.
+These should be pretty, uplifting, subject-agnostic frames that sit under any
+sentence: landscapes, light through trees, hands, crowds, skies. **20–40** is
+plenty.
 
 **`audio/`** — `.mp3`, `.m4a`, `.wav`, `.ogg`, `.opus` or `.flac`. Instrumental
 only (lyrics fight the narration). Anything 30s+ is fine; shorter tracks are

@@ -4,20 +4,23 @@
 // Images are named after these words, and the planner is only allowed to ask
 // for these words, so a requested shot can never fail to resolve to a file.
 //
-// Naming: every image sits flat in the images folder, named after one to three
-// bank keywords plus a number:
+// Naming: one photo per keyword, sitting flat in the images folder, named
+// after the keyword and nothing else:
 //
-//   solar-panels-01.jpg        → solar, panels
-//   volunteers-hands-03.jpg    → volunteers, hands
-//   river-sunrise-02.jpg       → river, sunrise
+//   forest.jpg
+//   volunteers.jpg
+//   river.jpg
 //
 // Anything in a filename that isn't in this bank is ignored for matching (the
 // catalogue logs it, so typos surface on the next run). Images that fit no
 // keyword go in the generic folder instead and are used as the fallback.
 //
-// The groups exist so the planner sees the vocabulary organised by theme, and
-// so it's obvious which pillars are thin when you're sourcing photos. Adding a
-// keyword here and uploading matching images is all it takes to widen the pool.
+// The groups are load-bearing, not just documentation. Because the library is
+// one-to-one, a keyword can only be spent once per reel — when the planner
+// asks for a keyword whose photo is already on screen, the picker reaches for
+// an unused photo from the SAME group before it falls back to generic, so the
+// substitute is still on-theme. They also make it obvious which pillars are
+// thin when you're sourcing photos.
 
 const KEYWORD_BANK = {
   'Climate & nature': [
@@ -113,4 +116,30 @@ function bankPrompt() {
     .join('\n');
 }
 
-module.exports = { KEYWORD_BANK, ALL_KEYWORDS, KEYWORD_SET, isKeyword, filterToBank, bankPrompt };
+const GROUP_OF = new Map();
+for (const [group, words] of Object.entries(KEYWORD_BANK)) {
+  for (const word of words) GROUP_OF.set(word, group);
+}
+
+function groupOf(keyword) {
+  return GROUP_OF.get(String(keyword || '').toLowerCase().trim()) || null;
+}
+
+// Every other keyword sharing a theme group with the ones given — the pool the
+// picker reaches into when the exact photo is already spent.
+function siblingsOf(keywords) {
+  const wanted = new Set(filterToBank(keywords));
+  const groups = new Set([...wanted].map(groupOf).filter(Boolean));
+  const out = [];
+  for (const group of groups) {
+    for (const word of KEYWORD_BANK[group]) {
+      if (!wanted.has(word)) out.push(word);
+    }
+  }
+  return out;
+}
+
+module.exports = {
+  KEYWORD_BANK, ALL_KEYWORDS, KEYWORD_SET,
+  isKeyword, filterToBank, bankPrompt, groupOf, siblingsOf,
+};
