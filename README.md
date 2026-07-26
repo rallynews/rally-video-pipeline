@@ -37,9 +37,13 @@ desktop). On each platform:
    sources) — on Telegram a header message then the album; on Slack the images
    shared with the header as their comment.
 2. The **Facebook** caption — its own message, plain text, nothing else. This
-   is the long one: the whole carousel as short paragraphs (lead → challenge →
-   solution → result → why it matters → the question), so the post stands on
-   its own for someone who never swipes.
+   is the long one: the whole carousel as short paragraphs (hook question →
+   lead → challenge → solution → result → why it matters → engagement
+   question), so the post stands on its own for someone who never swipes. It
+   opens and closes on a question, the same shape the carousel has — the cover
+   hooks, the last slide asks. The opening question is lifted off the front of
+   the cover headline; the rest of that headline is cover-slide scaffolding and
+   is left on the slide.
 3. The **Instagram** caption — its own message, plain text, nothing else. Short
    on purpose: Instagram collapses a caption behind "more" after a couple of
    lines, and the slides carry the story there. Lead, the same question, "link

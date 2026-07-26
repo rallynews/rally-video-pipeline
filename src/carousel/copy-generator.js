@@ -95,12 +95,23 @@ function sentence(head, tail) {
   return `${h} ${t}`;
 }
 
+// The cover headline is written to OPEN with a short hook question, then carry
+// on into a colloquial line naming the source. In a caption only the question
+// earns its place — the rest of the headline is cover-slide scaffolding for
+// someone who can't see the story yet. Pull the question out on its own.
+function openingQuestion(headline) {
+  const match = unquote(headline).match(/^[^?]{3,140}\?/);
+  return match ? match[0].trim() : '';
+}
+
 // Assemble the copy-paste-ready captions.
 //
-// Facebook gets the WHOLE carousel — lead, challenge, solution, result, why it
-// matters — as short paragraphs, so the post stands on its own for someone who
-// never swipes. Instagram stays short, because its caption is collapsed behind
-// "more" after a couple of lines and the slides carry the story there.
+// Facebook gets the WHOLE carousel — opening question, lead, challenge,
+// solution, result, why it matters — as short paragraphs, so the post stands on
+// its own for someone who never swipes. It opens and closes on a question, the
+// same shape the carousel has: the cover hooks, the last slide asks. Instagram
+// stays short, because its caption is collapsed behind "more" after a couple of
+// lines and the slides carry the story there.
 //
 // Neither caption contains the article link: it goes out as its own message so
 // it can be pasted into the first comment. Instagram still says "link in bio",
@@ -110,7 +121,12 @@ function buildCaptions(fields, story) {
   const lead = unquote(fields.captionLead);
   const question = unquote(fields.engagementQuestion);
 
+  const hook = openingQuestion(fields.headline);
+
   const facebook = [
+    // Guard against the rare case where the writer used the same question to
+    // hook and to close — one of them is enough.
+    hook.toLowerCase() === question.toLowerCase() ? '' : hook,
     lead,
     unquote(fields.challenge),
     unquote(fields.solution),
