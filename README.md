@@ -36,20 +36,33 @@ desktop). On each platform:
 1. The 6 slides with an info/header (story, source, pillar, style, R2 links,
    sources) — on Telegram a header message then the album; on Slack the images
    shared with the header as their comment.
-2. The **Facebook** caption — its own message, plain text, nothing else (ends
-   in the engagement question, includes the story link, 3 hashtags).
-3. The **Instagram** caption — its own message, plain text, nothing else (same
-   question, "link in bio", same 3 hashtags).
+2. The **Facebook** caption — its own message, plain text, nothing else. This
+   is the long one: the whole carousel as short paragraphs (lead → challenge →
+   solution → result → why it matters → the question), so the post stands on
+   its own for someone who never swipes.
+3. The **Instagram** caption — its own message, plain text, nothing else. Short
+   on purpose: Instagram collapses a caption behind "more" after a couple of
+   lines, and the slides carry the story there. Lead, the same question, "link
+   in bio", hashtags.
+4. The **article link** — its own message, the bare URL and nothing else, for
+   pasting as the **first comment**. Neither caption contains the link, so a
+   reach-throttled link never sits in the post body. Instagram still says "link
+   in bio", which is where its link genuinely lives.
 
 Both captions end on the same question and carry `#goodnews #positivenews` plus
-one popular story-specific hashtag. Slack delivery is skipped gracefully if its
-secrets aren't set.
+one popular story-specific hashtag. Any "read more at the link in bio" call to
+action the writer put in the slide copy is stripped out of the Facebook
+caption, so it never points somewhere the link isn't. Slack delivery is skipped
+gracefully if its secrets aren't set.
 
 ### 2b. The 9:16 reel (part of the same run)
 
 The carousel run also cuts a **Reels / Shorts video** telling the same story,
 and posts it to Telegram and Slack alongside the slides. Output is a
-**1080×1920 MP4**, 25–35 seconds, written back to `rally-news-videos/out/`.
+**1080×1920 MP4**, 25–35 seconds, archived daily to
+`rally-news-videos/reels/<date>/<slug>.mp4` — one file per run, mirroring how
+the carousel archives its slides to `carousels/<date>/<slug>/`, so the back
+catalogue is browsable by date and yesterday's is never overwritten.
 
 The five steps, once the carousel copy has been written and fact-checked:
 
@@ -97,7 +110,7 @@ rally-news-videos/
 ├── generic/    ← happy-planet stills, the fallback when nothing matches
 ├── audio/      ← Creative Commons music beds
 ├── outro/      ← the "Follow Us" Rally card, as an MP4
-└── out/        ← written by the pipeline: out/<date>/<slug>.mp4
+└── reels/      ← written by the pipeline: reels/<date>/<slug>.mp4
 ```
 
 **`images/`** — `.jpg`, `.jpeg`, `.png` or `.webp`, all in the one folder,

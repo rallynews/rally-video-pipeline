@@ -70,6 +70,7 @@ function reelSummary(reel) {
 //   3. The 9:16 reel, if one was built
 //   4. Facebook caption ALONE (plain text, nothing else — copy/paste ready)
 //   5. Instagram caption ALONE (plain text, nothing else — copy/paste ready)
+//   6. The article link ALONE, for pasting as the first comment
 async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel }) {
   const today = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long',
@@ -96,7 +97,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     urlLines +
     srcLines +
     reelSummary(reel) +
-    `\n\n⬇️ Save the 5 images below, then paste the Facebook and Instagram captions (sent as separate messages) straight into each app.`;
+    `\n\n⬇️ Save the images below, then paste the Facebook and Instagram captions (the next two messages) straight into each app. The message after those is the article link on its own — post it as the FIRST COMMENT, not in the caption.`;
 
   await sendMessage(header, 'Markdown');
   await sendAlbum(images);
@@ -109,10 +110,11 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     }
   }
 
-  // The two captions are sent as their OWN messages, plain text, with no title
-  // or extra characters, so they can be copied verbatim on a phone.
+  // The captions and the link are sent as their OWN messages, plain text, with
+  // no title or extra characters, so each can be copied verbatim on a phone.
   await sendMessage(captions.facebook);
   await sendMessage(captions.instagram);
+  await sendMessage(captions.link || story.url);
 
   console.log('  [telegram] carousel delivered ✓');
 }

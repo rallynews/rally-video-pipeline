@@ -51,18 +51,78 @@ function normalizeHashtag(value) {
   return cleaned || 'InTheNews';
 }
 
-// Assemble the two copy-paste-ready captions. Both share the same closing
-// engagement question and the same three hashtags (#goodnews #positivenews +
-// one popular story-specific tag). Facebook carries the link; Instagram points
-// to the bio.
+// Slide copy closes on a "read more at the link in bio" call to action. That's
+// right on a carousel slide and right on Instagram, but wrong in the Facebook
+// caption, where the link is posted as the first comment instead. Strip it
+// rather than leave the caption pointing somewhere the link isn't.
+const LINK_CTA = /\b(link in (?:my |the )?bio|in my bio|in bio|at the link|link below|swipe up|check out .{0,40}\bstory\b)\b/i;
+
+function stripLinkCta(text) {
+  const s = String(text || '').trim();
+  if (!LINK_CTA.test(s)) return s;
+
+  const kept = s
+    .split(/(?<=[.!?])\s+|\s+[—–-]\s+/)
+    .map(part => {
+      if (!LINK_CTA.test(part)) return part;
+      // The CTA is sometimes tacked on after a comma inside an otherwise
+      // usable sentence ("A stunning turnaround, and you can read it at the
+      // link"), so fall back to keeping just the part before it.
+      const head = part.split(/,\s+/)[0];
+      return LINK_CTA.test(head) ? '' : head;
+    })
+    .filter(Boolean)
+    .join(' ')
+    .trim();
+
+  // A line that was nothing but a call to action leaves nothing worth keeping.
+  if (!kept) return '';
+  return /[.!?]$/.test(kept) ? kept : `${kept.replace(/[,;:]$/, '')}.`;
+}
+
+function terminate(text) {
+  const t = String(text || '').trim();
+  return !t || /[.!?]$/.test(t) ? t : `${t}.`;
+}
+
+// Join a heading and its supporting line into one paragraph without doubling
+// the punctuation between them.
+function sentence(head, tail) {
+  const h = terminate(head);
+  const t = String(tail || '').trim();
+  if (!h) return t;
+  if (!t) return h;
+  return `${h} ${t}`;
+}
+
+// Assemble the copy-paste-ready captions.
+//
+// Facebook gets the WHOLE carousel — lead, challenge, solution, result, why it
+// matters — as short paragraphs, so the post stands on its own for someone who
+// never swipes. Instagram stays short, because its caption is collapsed behind
+// "more" after a couple of lines and the slides carry the story there.
+//
+// Neither caption contains the article link: it goes out as its own message so
+// it can be pasted into the first comment. Instagram still says "link in bio",
+// which is where its link genuinely lives.
 function buildCaptions(fields, story) {
   const hashtags = `#goodnews #positivenews #${normalizeHashtag(fields.storyHashtag)}`;
-  const lead = String(fields.captionLead || '').trim();
-  const question = String(fields.engagementQuestion || '').trim();
+  const lead = unquote(fields.captionLead);
+  const question = unquote(fields.engagementQuestion);
 
-  const facebook = `${lead}\n\n${question}\n\n📖 Read the full story: ${story.url}\n\n${hashtags}`;
+  const facebook = [
+    lead,
+    unquote(fields.challenge),
+    unquote(fields.solution),
+    sentence(unquote(fields.resultHeading), stripLinkCta(unquote(fields.resultLine))),
+    unquote(fields.whyMatters),
+    question,
+    hashtags,
+  ].filter(Boolean).join('\n\n');
+
   const instagram = `${lead}\n\n${question}\n\n🔗 Full story — link in bio\n\n${hashtags}`;
-  return { facebook, instagram, hashtags };
+
+  return { facebook, instagram, hashtags, link: story.url };
 }
 
 // Turn a raw model field object into the pillar, slide copy, and captions the

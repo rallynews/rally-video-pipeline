@@ -218,11 +218,17 @@ function pickOutro(outros) {
   return [...outros].sort().pop();
 }
 
-// Finished reels go back into the same bucket under out/<date>/<slug>.mp4.
+// Every day's finished reel is archived back into the same bucket, mirroring
+// how the carousel archives its slides (carousels/<date>/<slug>/slide-N.png):
+//
+//   reels/<date>/<slug>.mp4
+//
+// One file per run, dated and named after the story, so the whole back
+// catalogue is browsable by date without ever overwriting yesterday's.
 async function uploadReel(buffer, slug) {
   const client = getClient();
   const stamp = new Date().toISOString().slice(0, 10);
-  const key = `out/${stamp}/${slug}.mp4`;
+  const key = `reels/${stamp}/${slug}.mp4`;
 
   await client.send(new PutObjectCommand({
     Bucket: VIDEO_BUCKET(),
