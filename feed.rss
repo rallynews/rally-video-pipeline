@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jul 2026 05:01:53 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2026 05:02:14 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>With &apos;Music, Fashion, Film,&apos; Charli XCX channels the raw energy of rock &apos;n&apos; roll</title>
+      <link>https://rally.news/categories/entertainment/?article=With%2B%27Music%2C%2BFashion%2C%2BFilm%2C%27%2BCharli%2BXCX%2Bchannels%2Bthe%2Braw%2Benergy%2Bof%2Brock%2B%27n%27%2Broll</link>
+      <description>After shaking up the world of pop with &apos;Brat,&apos; the British musician takes a nostalgic turn, without abandoning her inventiveness.</description>
+      <pubDate>Sun, 26 Jul 2026 05:02:14 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=With%2B%27Music%2C%2BFashion%2C%2BFilm%2C%27%2BCharli%2BXCX%2Bchannels%2Bthe%2Braw%2Benergy%2Bof%2Brock%2B%27n%27%2Broll</guid>
+    </item>
+
+<item>
       <title>Health: Solar-powered ambulances soon heading to Kenya</title>
       <link>https://rally.news/categories/transportation/?article=Health%3A%2BSolar-powered%2Bambulances%2Bsoon%2Bheading%2Bto%2BKenya</link>
       <description>The two-seater ambulance can reach a top speed of 120 kilometres per hour and is designed for inaccessible off-road terrain.</description>
@@ -400,14 +408,6 @@
       <description>Elyse Burns started selling her art on Etsy when she turned 18. Now she&apos;s paid off her student loans and did nearly $5 million last year.</description>
       <pubDate>Mon, 15 Jun 2026 05:45:55 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/business/?article=This%2B28-year-old%2Bpaid%2Boff%2Bher%2Blaw%2Bschool%2Bloans%2Bselling%2Bstickers%2Band%2Bcoloring%2Bbooks</guid>
-    </item>
-
-<item>
-      <title>BTS-mania poised to boost South Korea&apos;s economy well into the future</title>
-      <link>https://rally.news/categories/business/?article=BTS-mania%2Bpoised%2Bto%2Bboost%2BSouth%2BKorea%27s%2Beconomy%2Bwell%2Binto%2Bthe%2Bfuture</link>
-      <description>BTS-mania, with all the fan spending and travel, is poised to boost South Korea&apos;s economy well into the future</description>
-      <pubDate>Fri, 12 Jun 2026 12:03:32 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/business/?article=BTS-mania%2Bpoised%2Bto%2Bboost%2BSouth%2BKorea%27s%2Beconomy%2Bwell%2Binto%2Bthe%2Bfuture</guid>
     </item>
   </channel>
 </rss>
