@@ -13,6 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 const { generateReel, missingPrerequisite } = require('../src/reels');
+const { getCoverImage } = require('../src/carousel/cover-image');
 
 // Stands in for a fact-checked carousel: same shape, same fields.
 const STORY = {
@@ -46,7 +47,17 @@ const RAW = {
   }
 
   const out = path.resolve(process.argv[2] || 'reel-check.mp4');
-  const reel = await generateReel(STORY, SLIDE_COPY, RAW);
+
+  // The example story has no real article behind it, so there's no featured
+  // photo to open on — pass undefined and the reel opens on library footage.
+  // Point REEL_CHECK_STORY_URL at a real rally.news article to exercise the
+  // cover-photo path too.
+  let coverUri;
+  if (process.env.REEL_CHECK_STORY_URL) {
+    coverUri = await getCoverImage({ url: process.env.REEL_CHECK_STORY_URL });
+  }
+
+  const reel = await generateReel(STORY, SLIDE_COPY, RAW, coverUri);
   fs.writeFileSync(out, reel.buffer);
 
   console.log(`\nScript (${reel.wordCount} words):\n  ${reel.script}\n`);

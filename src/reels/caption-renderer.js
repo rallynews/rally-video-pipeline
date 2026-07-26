@@ -56,6 +56,15 @@ function captionFrame(text) {
   </div>`;
 }
 
+// Photo credit for the opening shot. The reel opens on the article's own
+// featured image, so the outlet that published it is credited on screen —
+// bottom-right, opposite the rally.news mark.
+function creditFrame(source) {
+  return `<div class="frame">
+    <div class="credit">Photo: ${esc(source)}</div>
+  </div>`;
+}
+
 function brandFrame(logo) {
   const mark = logo
     ? `<img src="${logo}" style="width:34px;height:34px;filter:brightness(0) invert(1) drop-shadow(0 2px 6px rgba(0,0,0,0.55));">`
@@ -68,8 +77,12 @@ function brandFrame(logo) {
   </div>`;
 }
 
-function buildDocument(captions, logo) {
-  const frames = [...captions.map(captionFrame), brandFrame(logo)].join('\n');
+function buildDocument(captions, logo, credit) {
+  const frames = [
+    ...captions.map(captionFrame),
+    brandFrame(logo),
+    ...(credit ? [creditFrame(credit)] : []),
+  ].join('\n');
   return `<!DOCTYPE html>
 <html><head>
 <meta charset="utf-8">
@@ -102,17 +115,24 @@ function buildDocument(captions, logo) {
     font-family:'Outfit', sans-serif; font-weight:700; font-style:italic; font-size:26px;
     color:${CREAM}; text-shadow:0 2px 6px rgba(0,0,0,0.55);
   }
+  .credit {
+    position:absolute; right:56px; bottom:156px;
+    font-family:'Outfit', sans-serif; font-weight:500; font-size:24px;
+    letter-spacing:0.02em; color:rgba(247,244,238,0.9);
+    text-shadow:0 2px 6px rgba(0,0,0,0.6);
+  }
 </style>
 </head><body>
 ${frames}
 </body></html>`;
 }
 
-// Render one transparent PNG per caption, plus the brand mark overlay that
-// stays on screen for the whole reel.
-// Returns { captions: Buffer[], brand: Buffer } — captions in the order given.
-async function renderOverlays(captions) {
-  const html = buildDocument(captions, logoDataUri());
+// Render one transparent PNG per caption, plus the brand mark that stays on
+// screen for the whole reel and (when the opening shot is the article's own
+// photo) the credit for the outlet that published it.
+// Returns { captions: Buffer[], brand: Buffer, credit: Buffer|null }.
+async function renderOverlays(captions, credit) {
+  const html = buildDocument(captions, logoDataUri(), credit);
 
   const browser = await puppeteer.launch({
     headless: 'new',
@@ -135,9 +155,10 @@ async function renderOverlays(captions) {
     }
     await new Promise(r => setTimeout(r, 250));
 
+    const expected = captions.length + 1 + (credit ? 1 : 0);
     const frames = await page.$$('.frame');
-    if (frames.length !== captions.length + 1) {
-      throw new Error(`Expected ${captions.length + 1} overlay frames, rendered ${frames.length}`);
+    if (frames.length !== expected) {
+      throw new Error(`Expected ${expected} overlay frames, rendered ${frames.length}`);
     }
 
     const images = [];
@@ -145,9 +166,14 @@ async function renderOverlays(captions) {
       images.push(await frame.screenshot({ type: 'png', omitBackground: true }));
     }
 
+    // Popped in reverse of the order they were appended in buildDocument.
+    const creditImage = credit ? images.pop() : null;
     const brand = images.pop();
-    console.log(`  [reel] rendered ${images.length} caption overlays + brand mark`);
-    return { captions: images, brand };
+    console.log(
+      `  [reel] rendered ${images.length} caption overlays + brand mark` +
+      (credit ? ' + photo credit' : '')
+    );
+    return { captions: images, brand, credit: creditImage };
   } finally {
     await browser.close();
   }

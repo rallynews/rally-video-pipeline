@@ -1,5 +1,6 @@
 const { chatCompletion, parseJSON } = require('../openrouter');
 const { pickImage } = require('./r2-catalogue');
+const { bankPrompt, filterToBank } = require('./keywords');
 
 // Step 2 of the reel flow. Mistral reads the script back and decides where the
 // picture cuts — every second or two — then names the keywords for the image
@@ -14,10 +15,6 @@ const MOTIONS = ['push-in', 'pull-out', 'pan-left', 'pan-right', 'pan-up', 'pan-
 const TRANSITIONS = ['cut', 'whip-left', 'whip-right', 'dissolve', 'flash', 'zoom-punch'];
 
 const SHOT_BOUNDS = { min: 15, max: 25 };
-
-// Keep the model's menu short enough to stay in the prompt but wide enough to
-// cover the library.
-const VOCAB_LIMIT = 220;
 
 function clampMotion(value, i) {
   const v = String(value || '').toLowerCase().trim();
@@ -90,11 +87,11 @@ function resolveShots(plan, lines, catalogue, storyKeywords) {
     const planned = byLine.get(i) || [];
     for (let s = 0; s < counts[i]; s++) {
       const spec = planned[s] || planned[planned.length - 1] || {};
-      // Fall back to the story's own keywords when the model gives us nothing
-      // usable, so a shot is never picked at random from the whole library.
-      const keywords = (Array.isArray(spec.keywords) && spec.keywords.length)
-        ? spec.keywords.map(k => String(k).toLowerCase().trim()).filter(Boolean)
-        : storyKeywords;
+      // Anything off the bank is dropped here rather than at match time, so a
+      // shot always carries keywords the library could actually answer. With
+      // nothing left, fall back to the story's own keywords.
+      const asked = filterToBank(spec.keywords);
+      const keywords = asked.length ? asked : storyKeywords;
 
       const key = pickImage(catalogue, keywords, used, previous);
       if (!key) throw new Error('R2 image library is empty — nothing to cut to');
@@ -116,7 +113,10 @@ function resolveShots(plan, lines, catalogue, storyKeywords) {
 }
 
 async function planShots(story, slideCopy, script, lines, catalogue, storyKeywords) {
-  const vocabulary = catalogue.vocabulary.slice(0, VOCAB_LIMIT);
+  // Words the library can answer today. Keywords with no image behind them are
+  // still legal — they fall through to the generic pool — but the planner is
+  // pointed at the stocked ones first so most cuts land on a real subject.
+  const stocked = [...catalogue.stocked].sort();
 
   let plan = [];
   try {
@@ -136,10 +136,14 @@ PACING — this is the whole point:
 
 KEYWORDS — the only thing that picks the image:
 - For each shot give 2–4 keywords describing what should be on screen at that exact moment.
-- You MUST choose keywords from this library list. Anything else will not resolve to a picture:
-${vocabulary.join(', ')}
-- Match the picture to what is being SAID at that moment, not to the story in general. If the line is about a river, cut to river. If the line names a result, cut to something that reads as success or scale.
-- Do not use the same keywords on two shots in a row.
+- You MUST choose from the keyword bank below. Any word outside it is discarded and the shot falls back to a generic filler image, so an off-bank word is a wasted shot.
+
+KEYWORD BANK:
+${bankPrompt()}
+
+- These bank keywords have images in the library RIGHT NOW — prefer them wherever they fit: ${stocked.length ? stocked.join(', ') : '(library is empty)'}
+- Match the picture to what is being SAID at that moment, not to the story in general. If the line is about a river, ask for river. If the line names a result, ask for something that reads as success or scale.
+- Do not repeat keywords on two shots in a row.
 
 MOTION — every shot moves, never a still frame. One of: ${MOTIONS.join(', ')}.
 - push-in / pull-out for emotional or reflective lines.

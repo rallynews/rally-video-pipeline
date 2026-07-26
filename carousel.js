@@ -3,7 +3,8 @@ const { generateCarouselCopy, buildFromRaw } = require('./src/carousel/copy-gene
 const { verifyCarouselCopy } = require('./src/carousel/fact-checker');
 const { getCoverImage } = require('./src/carousel/cover-image');
 const { renderCarousel } = require('./src/carousel/renderer');
-const { uploadCarousel, uploadReel } = require('./src/carousel/r2-uploader');
+const { uploadCarousel } = require('./src/carousel/r2-uploader');
+const { uploadReel } = require('./src/reels/r2-catalogue');
 const { sendCarousel } = require('./src/carousel/carousel-telegram');
 const slack = require('./src/carousel/slack-sender');
 const reels = require('./src/reels');
@@ -94,7 +95,9 @@ async function run() {
     if (reels.isConfigured()) {
       console.log('\n🎬 Building the 9:16 reel...');
       try {
-        reel = await reels.generateReel(story, slideCopy, verified.raw);
+        // coverUri is the article's own featured photo — the reel opens on it,
+        // credited to slideCopy.source, exactly like the carousel cover.
+        reel = await reels.generateReel(story, slideCopy, verified.raw, coverUri);
         try {
           reel.url = await uploadReel(reel.buffer, slugify(story.headline));
         } catch (e) {

@@ -49,7 +49,7 @@ secrets aren't set.
 
 The carousel run also cuts a **Reels / Shorts video** telling the same story,
 and posts it to Telegram and Slack alongside the slides. Output is a
-**1080×1920 MP4**, 25–35 seconds, uploaded to R2 next to the day's slides.
+**1080×1920 MP4**, 25–35 seconds, written back to `rally-news-videos/out/`.
 
 The five steps, once the carousel copy has been written and fact-checked:
 
@@ -61,72 +61,85 @@ The five steps, once the carousel copy has been written and fact-checked:
    reel inherits the fact-check instead of inventing around it.
 2. **Cuts** (`src/reels/shot-planner.js`) — Mistral reads the script back and
    decides where the picture cuts, aiming for **15–25 shots** across the video.
-   It only gets to pick from the keyword vocabulary actually present in your R2
-   image library, so every shot resolves to a real file. Each shot carries a
-   camera move (`push-in`, `pull-out`, `pan-left/right/up/down`) and a
-   transition (`cut`, `whip-left`, `whip-right`, `dissolve`, `flash`,
-   `zoom-punch`).
+   It picks keywords from a fixed **keyword bank** (`src/reels/keywords.js`),
+   and is shown which of those words currently have images behind them, so
+   cuts land on real subjects. Anything off-bank is discarded and falls through
+   to the generic pool. Each shot carries a camera move (`push-in`,
+   `pull-out`, `pan-left/right/up/down`) and a transition (`cut`, `whip-left`,
+   `whip-right`, `dissolve`, `flash`, `zoom-punch`).
 3. **Voice** (`src/reels/voice.js`) — each line is recorded on its own, so the
    edit is timed against the voice that actually plays rather than a
-   words-per-second estimate. Default is **Azure Speech `en-GB-SoniaNeural`**
-   in `westeurope`: a young British female neural voice, natural but not
-   pretending to be a person, and free at this volume (see costs below).
-   ElevenLabs and OpenAI are supported as alternatives.
+   words-per-second estimate. Default is **OpenRouter's `/audio/speech`**
+   endpoint on the key the pipeline already uses, asking for Mistral's
+   **Voxtral** `casual_female` first (European, casual, unmistakably synthetic
+   without being robotic) and falling back to OpenAI's `gpt-4o-mini-tts`.
+   Azure Speech, ElevenLabs and OpenAI direct are supported as alternatives.
 4. **Music** (`src/reels/r2-catalogue.js`) — one track is drawn at random from
-   your R2 audio folder, looped to length, and ducked under the narration.
+   the `audio/` folder, looped to length, and ducked under the narration.
 5. **Assembly** (`src/reels/assembler.js`) — ffmpeg builds it in passes:
    Ken Burns move per shot → transition chain → Lora captions and the
    `rally.news` mark overlaid → the **Follow Us** card dissolved on the end →
    narration mixed over the music bed (which comes up over the ending) → muxed
    to H.264/AAC with `+faststart`.
 
-The whole thing is a bonus deliverable: if the R2 assets, the voice key or
-ffmpeg are missing, it logs why, skips, and the carousel goes out exactly as
-before.
+The whole thing is a bonus deliverable: if the R2 assets or ffmpeg are missing,
+it logs why, skips, and the carousel goes out exactly as before.
 
 #### Assets you upload to R2
 
-Everything creative lives in the bucket, so the library grows without a deploy.
-Default layout (each prefix is overridable — see the variables table):
+Everything creative lives in its own bucket — **`rally-news-videos`** — so the
+library grows without a deploy. Four flat folders, no nesting:
 
 ```
-<bucket>/
-├── reels/images/<keyword>/<name>.jpg   ← b-roll stills. THE FOLDER AND FILE
-│                                          NAMES ARE THE KEYWORDS.
-├── reels/audio/<name>.mp3              ← Creative Commons music beds
-└── reels/outro/follow-us.mp4           ← the "Follow Us" Rally card
+rally-news-videos/
+├── images/     ← keyworded b-roll. THE FILENAME IS THE KEYWORD.
+├── generic/    ← happy-planet stills, the fallback when nothing matches
+├── audio/      ← Creative Commons music beds
+├── outro/      ← the "Follow Us" Rally card, as an MP4
+└── out/        ← written by the pipeline: out/<date>/<slug>.mp4
 ```
 
-**Images** — `.jpg`, `.jpeg`, `.png` or `.webp`. Shoot for **at least
-1080×1920**, or 1440px on the short side if landscape; anything smaller gets
-upscaled and softens. They're cover-cropped to 9:16, so put the subject near
-the centre. Aim for **80–200+ images** spread over the eight content pillars —
-the picker penalises re-use, so a thin library repeats itself inside one reel.
-
-The path *is* the keyword index. Every folder and filename segment under the
-prefix is tokenised (split on `-`, `_`, `/`; trailing digits dropped; tokens of
-3+ characters kept), and those tokens are the menu the shot planner chooses
-from. So:
+**`images/`** — `.jpg`, `.jpeg`, `.png` or `.webp`, all in the one folder. The
+filename carries the keywords, and they must come from the **keyword bank** in
+`src/reels/keywords.js` (212 words across 11 themes). One to three bank words
+plus a counter:
 
 ```
-reels/images/solar/rooftop-panels-01.jpg   → solar, rooftop, panels
-reels/images/community/volunteers-park.jpg → community, volunteers, park
-reels/images/ocean/coral-reef-diver-03.jpg → ocean, coral, reef, diver
+solar-panels-01.jpg        → solar, panels
+volunteers-hands-03.jpg    → volunteers, hands
+river-sunrise-02.jpg       → river, sunrise
 ```
 
-Name things the way the story would be described out loud — `river`, `forest`,
-`hospital`, `laughing`, `sunrise`, `wind-turbines`, `kids-classroom` — not
-`IMG_4471.jpg`.
+Words outside the bank are ignored, and an image matching no bank word is
+logged as unpickable on the next run — so typos surface instead of silently
+costing you a shot. Shoot for **at least 1080×1920**, or 1440px on the short
+side if landscape; they're cover-cropped to 9:16, so keep the subject centred.
+**3–5 images per keyword you care about** gives the picker room; it penalises
+re-use, so a thin library repeats itself inside one reel.
 
-**Music** — `.mp3`, `.m4a`, `.wav`, `.ogg`, `.opus` or `.flac`. Instrumental
+**`generic/`** — the fallback pool. Any filename; no keywords needed. Used
+whenever a requested keyword has nothing behind it, so these should be pretty,
+uplifting, subject-agnostic frames that sit under any sentence: landscapes,
+light through trees, hands, crowds, skies. **20–40** is plenty.
+
+**`audio/`** — `.mp3`, `.m4a`, `.wav`, `.ogg`, `.opus` or `.flac`. Instrumental
 only (lyrics fight the narration). Anything 30s+ is fine; shorter tracks are
-looped. Keep the licence terms with them; the pipeline picks at random, so only
-upload tracks you're happy to publish. 10–20 is plenty.
+looped. One is picked at random per run, so only upload tracks you're happy to
+publish. 10–20 is plenty.
 
-**The Follow Us card** — one MP4 at `reels/outro/follow-us.mp4`, ideally
-1080×1920 and 3–4 seconds. Its own audio is discarded: the reel's music bed
-carries straight through the ending. If the object is missing, a plain rendered
-"Follow Us" card is used instead, so a run never ends mid-sentence.
+**`outro/`** — the Follow Us card as an MP4, ideally 1080×1920 and 3–4 seconds.
+Its own audio is discarded: the reel's music bed carries straight through the
+ending. If there's more than one file the last by name wins, so
+`follow-us-v2.mp4` supersedes `follow-us.mp4` without deleting anything. If the
+folder is empty a plain rendered card is used, so a run never ends mid-sentence.
+
+#### The opening shot is always the article's own photo
+
+The reel opens on the same featured image the carousel puts on its cover, with
+a **`Photo: <outlet>`** credit in the bottom-right for the first ~2.4 seconds,
+crediting the outlet that published it (the same name the carousel credits).
+Everything after that comes from the library. If the article has no usable
+photo, the reel opens on library footage instead and no credit is shown.
 
 #### Check your assets before switching it on
 
@@ -137,7 +150,14 @@ npm run reel-check          # builds reel-check.mp4 from canned copy
 This runs the whole reel path — catalogue, script, cuts, voice, music, ffmpeg —
 with a fixed story, so it costs a fraction of a cent and doesn't touch the RSS
 feed, Telegram or Slack. It prints the shot list with the R2 key behind every
-cut, which is the fastest way to see whether your keywords are landing.
+cut, which is the fastest way to see whether your keywords are landing. It also
+warns about any image whose filename matches no bank keyword.
+
+To exercise the opening-photo path too, point it at a real article:
+
+```bash
+REEL_CHECK_STORY_URL="https://rally.news/?article=..." npm run reel-check
+```
 
 ## Setup
 
@@ -175,29 +195,35 @@ Slack (optional — carousel posts to Slack too when set):
 If the Slack secrets are missing, Slack delivery is skipped and the run still
 completes on Telegram.
 
-Reel voice (optional — **one** of these turns the 9:16 reel on):
+Reel voice — **no new secret needed**. The default provider is OpenRouter's
+`/audio/speech` endpoint on the `OPENROUTER_API_KEY` you already have. These
+only matter if you want a different provider:
 
 | Secret | Where to find it |
 | --- | --- |
-| `AZURE_SPEECH_KEY` | Azure Portal → create a **Speech** resource (free F0 tier) → Keys and Endpoint. **Recommended** |
-| `AZURE_SPEECH_REGION` | the region you created it in — use `westeurope` (default if unset) |
-| `ELEVENLABS_API_KEY` / `ELEVENLABS_VOICE_ID` | alternative; voice ID defaults to Rachel |
-| `OPENAI_API_KEY` | alternative; uses `gpt-4o-mini-tts` |
+| `AZURE_SPEECH_KEY` | Azure Portal → create a **Speech** resource (free F0 tier) → Keys and Endpoint |
+| `AZURE_SPEECH_REGION` | the region you created it in — defaults to `westeurope` |
+| `ELEVENLABS_API_KEY` / `ELEVENLABS_VOICE_ID` | voice ID defaults to Rachel |
+| `OPENAI_API_KEY` | uses `gpt-4o-mini-tts` directly |
 
-Providers are tried in that order and the first one configured wins. With none
-of them set, the reel is skipped and the carousel run is unchanged.
+Providers are tried OpenRouter → Azure → ElevenLabs → OpenAI, and the first one
+configured wins.
 
 Reel tuning (repository **variables**, not secrets — all optional):
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
-| `REELS_VOICE` | `en-GB-SoniaNeural` | the voice name. Other good young British female options: `en-GB-LibbyNeural`, `en-GB-AdaMultilingualNeural` |
-| `REELS_VOICE_PROVIDER` | (auto) | force `azure`, `elevenlabs` or `openai` |
-| `REELS_VOICE_RATE` | `-4%` | speaking rate (Azure) |
+| `R2_VIDEO_BUCKET` | `rally-news-videos` | the bucket holding reel assets and output |
+| `R2_VIDEO_PUBLIC_URL` | falls back to `R2_PUBLIC_URL` | public base URL for reel links |
+| `R2_REELS_IMAGE_PREFIX` | `images/` | keyworded b-roll |
+| `R2_REELS_GENERIC_PREFIX` | `generic/` | the fallback pool |
+| `R2_REELS_AUDIO_PREFIX` | `audio/` | music beds |
+| `R2_REELS_OUTRO_PREFIX` | `outro/` | the Follow Us card |
+| `REELS_VOICE_PROVIDER` | (auto) | force `openrouter`, `azure`, `elevenlabs` or `openai` |
+| `REELS_TTS_MODEL` | (auto) | pin an OpenRouter speech model instead of the fallback chain |
+| `REELS_VOICE` | per provider | voice name — e.g. `casual_female` (Voxtral), `coral` (OpenAI), `en-GB-SoniaNeural` (Azure) |
+| `REELS_VOICE_RATE` | `-4%` | speaking rate (Azure only) |
 | `REELS_VOICE_STYLE` | `friendly` | Azure express-as style; set empty to disable |
-| `R2_REELS_IMAGE_PREFIX` | `reels/images/` | where the b-roll lives |
-| `R2_REELS_AUDIO_PREFIX` | `reels/audio/` | where the music lives |
-| `R2_REELS_OUTRO_KEY` | `reels/outro/follow-us.mp4` | the Follow Us card |
 
 ### Run it
 
@@ -212,18 +238,17 @@ the workflow to your preferred time). To run on demand: GitHub → Actions →
 | Text (Mistral) | ~$0.001 | ~$0.003–0.007 | ~$0.005–0.010 |
 | Web research (write) | – | ~$0.01–0.04 | ~$0.01–0.04 |
 | Web research (fact-check pass) | – | ~$0.01–0.02 | ~$0.01–0.02 |
-| Text-to-speech | – | – | **$0** on Azure's free tier |
+| Text-to-speech | – | – | ~$0.001–0.003 |
 | Media | video model ~$0.20–0.50 | HTML→PNG on Actions: $0 | + ffmpeg on Actions: $0 |
 | Storage | – | R2 ~$0 (free tier) | R2 ~$0 (free tier) |
 | **Total** | **~$0.20–0.50** | **~$0.03–0.07** | **~$0.03–0.08** |
 
 The reel adds **well under a cent a day**. The two extra Mistral calls (script
 + shot plan) run without web search, so they're a few tenths of a cent of text
-tokens. The narration is ~450–650 characters; Azure's free F0 tier covers
-500,000 characters a month, which is about 25× a daily reel — so text-to-speech
-is genuinely $0 unless you switch providers. On the paid Azure tier it would be
-~$0.008/run; ElevenLabs Flash is roughly $0.02–0.05/run and OpenAI
-`gpt-4o-mini-tts` about $0.01/run.
+tokens. The narration is ~450–650 characters, which is a fraction of a cent on
+any of the OpenRouter speech models. Azure's free F0 tier (500,000
+characters/month, ~25× a daily reel) would make it exactly $0 if you'd rather
+not spend OpenRouter credit at all; ElevenLabs Flash is roughly $0.02–0.05/run.
 
 The compute is free too: everything is ffmpeg on the GitHub Actions runner,
 which adds roughly **3–6 minutes** to the job (well inside the free tier for a

@@ -229,17 +229,19 @@ async function chainShots(workDir, clipFiles, shots) {
 
 // ── 5 · captions + brand ───────────────────────────────────────────────────
 
-// Overlay the Lora headlines on their line's timing, plus the rally.news mark
-// that stays up for the whole reel. Each caption fades its alpha in and out so
-// the words arrive with the cut rather than snapping on.
-async function overlayCaptions(workDir, montagePath, captionFiles, captions, brandFile, duration) {
+// Overlay the timed layers — the Lora headlines on their line's timing, and
+// the photo credit over the opening shot — plus the rally.news mark that stays
+// up for the whole reel. Each timed layer fades its alpha in and out so it
+// arrives with the cut rather than snapping on.
+// `overlays` is [{ file, start, end }] in the order they should stack.
+async function overlayTimedLayers(workDir, montagePath, overlays, brandFile, duration) {
   const out = path.join(workDir, 'main.mp4');
 
   const args = ['-y', '-i', montagePath];
   if (brandFile) args.push('-loop', '1', '-i', brandFile);
-  for (const file of captionFiles) args.push('-loop', '1', '-i', file);
+  for (const layer of overlays) args.push('-loop', '1', '-i', layer.file);
 
-  const captionInputBase = brandFile ? 2 : 1;
+  const overlayInputBase = brandFile ? 2 : 1;
   const parts = [];
   let last = '[0:v]';
 
@@ -248,24 +250,24 @@ async function overlayCaptions(workDir, montagePath, captionFiles, captions, bra
     last = '[b0]';
   }
 
-  captions.forEach((cap, i) => {
-    const input = captionInputBase + i;
-    const fadeOut = Math.max(cap.start + 0.05, cap.end - CAPTION_FADE);
+  overlays.forEach((layer, i) => {
+    const input = overlayInputBase + i;
+    const fadeOut = Math.max(layer.start + 0.05, layer.end - CAPTION_FADE);
     parts.push(
       `[${input}:v]format=rgba,` +
-      `fade=t=in:st=${round(cap.start)}:d=${CAPTION_FADE}:alpha=1,` +
+      `fade=t=in:st=${round(layer.start)}:d=${CAPTION_FADE}:alpha=1,` +
       `fade=t=out:st=${round(fadeOut)}:d=${CAPTION_FADE}:alpha=1[c${i}]`
     );
-    const label = i === captions.length - 1 ? '[vout]' : `[o${i}]`;
+    const label = i === overlays.length - 1 ? '[vout]' : `[o${i}]`;
     parts.push(
       `${last}[c${i}]overlay=0:0:format=auto:` +
-      `enable='between(t,${round(Math.max(0, cap.start - 0.05))},${round(cap.end + 0.05)})'${label}`
+      `enable='between(t,${round(Math.max(0, layer.start - 0.05))},${round(layer.end + 0.05)})'${label}`
     );
     last = label;
   });
 
-  if (!captions.length) {
-    // Nothing to relabel through the caption chain — rename the last link.
+  if (!overlays.length) {
+    // Nothing to relabel through the overlay chain — rename the last link.
     parts.push(`${last}null[vout]`);
   }
 
@@ -395,7 +397,7 @@ module.exports = {
   buildNarration,
   renderShotClip,
   chainShots,
-  overlayCaptions,
+  overlayTimedLayers,
   prepareOutro,
   appendOutro,
   buildAudio,

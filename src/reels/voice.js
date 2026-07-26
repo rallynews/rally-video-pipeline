@@ -9,13 +9,19 @@ const axios = require('axios');
 // guess. Lines are still whole sentences, so the delivery keeps its prosody.
 //
 // Providers are tried in order and the first one with credentials configured
-// wins. Azure is the default: a young British female neural voice, hosted in a
-// European region, and its free tier (500k characters/month) covers a daily
-// ~600-character reel several times over.
+// wins:
 //
-//   AZURE_SPEECH_KEY + AZURE_SPEECH_REGION (default westeurope)
+//   OPENROUTER_API_KEY                      ← default; the key is already set
+//   AZURE_SPEECH_KEY + AZURE_SPEECH_REGION     for the carousel's Mistral calls
 //   ELEVENLABS_API_KEY + ELEVENLABS_VOICE_ID
 //   OPENAI_API_KEY
+//
+// OpenRouter's /audio/speech endpoint is OpenAI-compatible and routes to
+// several speech providers. We ask for Mistral's Voxtral first — a European
+// model, and a young female preset that reads casually without pretending to
+// be a person — and fall through to OpenAI's gpt-4o-mini-tts. Note that Azure
+// AI Speech is NOT one of OpenRouter's providers; the azure entry below talks
+// to Azure directly and needs its own key.
 
 function xmlEscape(text) {
   return String(text || '')
@@ -25,6 +31,86 @@ function xmlEscape(text) {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 }
+
+// Candidate (model, voice) pairs for OpenRouter, best fit first. The chain
+// exists because model IDs and voice names on a routing layer move around —
+// the first pair that answers is remembered for the rest of the run, so the
+// fallback is paid once, not once per line.
+const OPENROUTER_VOICES = [
+  { model: 'mistralai/voxtral-mini-tts-2603', voice: 'casual_female' },
+  { model: 'mistralai/voxtral-mini-tts-2603', voice: 'neutral_female' },
+  { model: 'mistralai/voxtral-mini-tts', voice: 'casual_female' },
+  { model: 'openai/gpt-4o-mini-tts', voice: 'coral' },
+  { model: 'openai/gpt-4o-mini-tts-2025-12-15', voice: 'coral' },
+];
+
+const openrouter = {
+  name: 'openrouter',
+  ext: 'mp3',
+  resolved: null,
+  isConfigured: () => Boolean(process.env.OPENROUTER_API_KEY),
+  describe() {
+    if (this.resolved) return `OpenRouter ${this.resolved.model} / ${this.resolved.voice}`;
+    const model = process.env.REELS_TTS_MODEL || OPENROUTER_VOICES[0].model;
+    return `OpenRouter ${model} / ${process.env.REELS_VOICE || OPENROUTER_VOICES[0].voice}`;
+  },
+  async request(model, voice, text) {
+    const res = await axios.post(
+      'https://openrouter.ai/api/v1/audio/speech',
+      { model, voice, input: text, response_format: 'mp3' },
+      {
+        headers: {
+          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://rallynews.com',
+          'X-Title': 'Rally News Pipeline',
+        },
+        responseType: 'arraybuffer',
+        timeout: 60000,
+      }
+    );
+    return Buffer.from(res.data);
+  },
+  async speak(text) {
+    if (this.resolved) {
+      return this.request(this.resolved.model, this.resolved.voice, text);
+    }
+
+    // An explicit model/voice is taken at face value — no chain, no surprises.
+    if (process.env.REELS_TTS_MODEL) {
+      this.resolved = {
+        model: process.env.REELS_TTS_MODEL,
+        voice: process.env.REELS_VOICE || OPENROUTER_VOICES[0].voice,
+      };
+      return this.request(this.resolved.model, this.resolved.voice, text);
+    }
+
+    // A voice named on its own overrides every candidate's default, so you can
+    // switch to e.g. neutral_female without also pinning a model.
+    const forcedVoice = process.env.REELS_VOICE;
+    const candidates = forcedVoice
+      ? OPENROUTER_VOICES.map(c => ({ model: c.model, voice: forcedVoice }))
+      : OPENROUTER_VOICES;
+
+    let lastError;
+    for (const candidate of candidates) {
+      try {
+        const buf = await this.request(candidate.model, candidate.voice, text);
+        this.resolved = candidate;
+        console.log(`  [reel] voice resolved to ${candidate.model} / ${candidate.voice}`);
+        return buf;
+      } catch (err) {
+        lastError = err;
+        const status = err.response?.status;
+        console.warn(
+          `  [reel] ${candidate.model}/${candidate.voice} unavailable` +
+          `${status ? ` (HTTP ${status})` : ` (${err.message})`}, trying next...`
+        );
+      }
+    }
+    throw lastError || new Error('No OpenRouter speech model accepted the request');
+  },
+};
 
 const azure = {
   name: 'azure',
@@ -123,7 +209,7 @@ const openai = {
   },
 };
 
-const PROVIDERS = [azure, elevenlabs, openai];
+const PROVIDERS = [openrouter, azure, elevenlabs, openai];
 
 function selectProvider() {
   const forced = (process.env.REELS_VOICE_PROVIDER || '').toLowerCase().trim();
@@ -136,8 +222,8 @@ function selectProvider() {
   const available = PROVIDERS.find(p => p.isConfigured());
   if (!available) {
     throw new Error(
-      'No text-to-speech provider configured — set AZURE_SPEECH_KEY (recommended), ' +
-      'ELEVENLABS_API_KEY, or OPENAI_API_KEY'
+      'No text-to-speech provider configured — set OPENROUTER_API_KEY (recommended, ' +
+      'and already used for the copy), or AZURE_SPEECH_KEY / ELEVENLABS_API_KEY / OPENAI_API_KEY'
     );
   }
   return available;
@@ -147,11 +233,20 @@ function isConfigured() {
   return PROVIDERS.some(p => p.isConfigured());
 }
 
+// Which provider a run would use, for logging and the delivery header.
+function describeProvider() {
+  try {
+    return selectProvider().describe();
+  } catch (err) {
+    return `none (${err.message})`;
+  }
+}
+
 // Voice every line, one request each. Returns the provider plus a buffer per
 // line in script order.
 async function narrateLines(lines) {
   const provider = selectProvider();
-  console.log(`  [reel] voicing ${lines.length} lines with ${provider.describe()}`);
+  console.log(`  [reel] voicing ${lines.length} lines via ${provider.name}...`);
 
   const clips = [];
   for (let i = 0; i < lines.length; i++) {
@@ -162,7 +257,11 @@ async function narrateLines(lines) {
     clips.push(buf);
   }
 
-  return { provider: provider.name, label: provider.describe(), ext: provider.ext, clips };
+  // Described after the fact: providers that resolve a model/voice on the first
+  // call only know their real identity once they've spoken.
+  const label = provider.describe();
+  console.log(`  [reel] voiced by ${label}`);
+  return { provider: provider.name, label, ext: provider.ext, clips };
 }
 
-module.exports = { narrateLines, isConfigured, selectProvider };
+module.exports = { narrateLines, isConfigured, selectProvider, describeProvider };
