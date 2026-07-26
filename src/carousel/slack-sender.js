@@ -27,6 +27,7 @@ function reelSummary(reel) {
 //   2. The 9:16 reel, if one was built
 //   3. Facebook caption ALONE (plain text — copy/paste ready)
 //   4. Instagram caption ALONE (plain text — copy/paste ready)
+//   5. The article link ALONE, for pasting as the first comment
 async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel }) {
   const client = new WebClient(process.env.SLACK_BOT_TOKEN);
   const channel = process.env.SLACK_CHANNEL_ID;
@@ -54,7 +55,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     urlLines +
     srcLines +
     reelSummary(reel) +
-    `\n\n⬇️ Save the 5 images, then paste the Facebook and Instagram captions (the next two messages) straight into each app.`;
+    `\n\n⬇️ Save the images, then paste the Facebook and Instagram captions (the next two messages) straight into each app. The message after those is the article link on its own — post it as the FIRST COMMENT, not in the caption.`;
 
   await client.files.uploadV2({
     channel_id: channel,
@@ -73,14 +74,14 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     });
   }
 
-  // The two captions are posted as their own messages with mrkdwn disabled, so
-  // nothing (asterisks, underscores) is reinterpreted and they copy verbatim.
-  await client.chat.postMessage({
-    channel, text: captions.facebook, mrkdwn: false, unfurl_links: false, unfurl_media: false,
-  });
-  await client.chat.postMessage({
-    channel, text: captions.instagram, mrkdwn: false, unfurl_links: false, unfurl_media: false,
-  });
+  // The captions and the link are posted as their own messages with mrkdwn
+  // disabled, so nothing (asterisks, underscores) is reinterpreted and each
+  // copies verbatim.
+  for (const text of [captions.facebook, captions.instagram, captions.link || story.url]) {
+    await client.chat.postMessage({
+      channel, text, mrkdwn: false, unfurl_links: false, unfurl_media: false,
+    });
+  }
 
   console.log('  [slack] carousel delivered ✓');
 }
