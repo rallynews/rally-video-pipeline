@@ -49,4 +49,4 @@ async function uploadCarousel(images, slug) {
   return urls;
 }
 
-module.exports = { uploadCarousel };
+module.exports = { uploadCarousel, getClient, publicUrl };

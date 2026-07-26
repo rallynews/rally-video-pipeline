@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Rally News daily video pipeline",
   "main": "index.js",
+  "scripts": {
+    "carousel": "node carousel.js",
+    "video": "node index.js",
+    "reel-check": "node scripts/reel-check.js"
+  },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",
     "@slack/web-api": "^7.19.0",
