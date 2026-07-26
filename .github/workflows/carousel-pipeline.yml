@@ -10,7 +10,7 @@ on:
 jobs:
   generate-and-deliver:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     permissions:
       contents: write
 
@@ -24,6 +24,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      # The reel is cut with ffmpeg. Installed explicitly rather than relying on
+      # whatever the runner image happens to ship.
+      - name: Install ffmpeg
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffmpeg -version | head -1
 
       - name: Install dependencies
         run: npm install
@@ -43,6 +53,18 @@ jobs:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          # 9:16 Reels/Shorts cut. Without a voice key the reel is skipped and
+          # the carousel runs exactly as before.
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          REELS_VOICE: ${{ vars.REELS_VOICE }}
+          REELS_VOICE_PROVIDER: ${{ vars.REELS_VOICE_PROVIDER }}
+          R2_REELS_IMAGE_PREFIX: ${{ vars.R2_REELS_IMAGE_PREFIX }}
+          R2_REELS_AUDIO_PREFIX: ${{ vars.R2_REELS_AUDIO_PREFIX }}
+          R2_REELS_OUTRO_KEY: ${{ vars.R2_REELS_OUTRO_KEY }}
         run: node carousel.js
 
       - name: Commit and push updated RSS feed

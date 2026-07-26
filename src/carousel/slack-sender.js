@@ -7,12 +7,27 @@ function isConfigured() {
   return Boolean(process.env.SLACK_BOT_TOKEN && process.env.SLACK_CHANNEL_ID);
 }
 
+// Everything about the reel worth reading before posting it.
+function reelSummary(reel) {
+  if (!reel) return '';
+  const link = reel.url ? `\n*Reel (R2):* ${reel.url}` : '';
+  return (
+    `\n\n🎬 *Reels / Shorts cut* — ${reel.duration.toFixed(0)}s · 1080×1920 · ` +
+    `${reel.shots.length} shots · ${reel.captions.length} captions\n` +
+    `*Voice:* ${reel.voice}\n` +
+    `*Music:* ${reel.track || '(none — voice only)'}` +
+    link +
+    `\n*Script:* ${reel.script}`
+  );
+}
+
 // Deliver a finished carousel to Slack.
 // Message order mirrors Telegram:
 //   1. The 5 images, shared with an info/header comment (story, links, sources)
-//   2. Facebook caption ALONE (plain text — copy/paste ready)
-//   3. Instagram caption ALONE (plain text — copy/paste ready)
-async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification }) {
+//   2. The 9:16 reel, if one was built
+//   3. Facebook caption ALONE (plain text — copy/paste ready)
+//   4. Instagram caption ALONE (plain text — copy/paste ready)
+async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel }) {
   const client = new WebClient(process.env.SLACK_BOT_TOKEN);
   const channel = process.env.SLACK_CHANNEL_ID;
 
@@ -38,6 +53,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     checkLine +
     urlLines +
     srcLines +
+    reelSummary(reel) +
     `\n\n⬇️ Save the 5 images, then paste the Facebook and Instagram captions (the next two messages) straight into each app.`;
 
   await client.files.uploadV2({
@@ -48,6 +64,14 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
       filename: `slide-${i + 1}.png`,
     })),
   });
+
+  if (reel) {
+    await client.files.uploadV2({
+      channel_id: channel,
+      initial_comment: `🎬 Reels / Shorts cut — ${reel.duration.toFixed(0)}s, 1080×1920`,
+      file_uploads: [{ file: reel.buffer, filename: 'rally-reel.mp4' }],
+    });
+  }
 
   // The two captions are posted as their own messages with mrkdwn disabled, so
   // nothing (asterisks, underscores) is reinterpreted and they copy verbatim.

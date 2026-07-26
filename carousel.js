@@ -3,9 +3,10 @@ const { generateCarouselCopy, buildFromRaw } = require('./src/carousel/copy-gene
 const { verifyCarouselCopy } = require('./src/carousel/fact-checker');
 const { getCoverImage } = require('./src/carousel/cover-image');
 const { renderCarousel } = require('./src/carousel/renderer');
-const { uploadCarousel } = require('./src/carousel/r2-uploader');
+const { uploadCarousel, uploadReel } = require('./src/carousel/r2-uploader');
 const { sendCarousel } = require('./src/carousel/carousel-telegram');
 const slack = require('./src/carousel/slack-sender');
+const reels = require('./src/reels');
 const { updateRSSFeed } = require('./src/rss-updater');
 const axios = require('axios');
 
@@ -86,7 +87,28 @@ async function run() {
       console.warn(`   R2 upload failed (${e.message}) — continuing with Telegram delivery only.`);
     }
 
-    const delivery = { story, pillar, style, images, captions, imageUrls, sources, verification };
+    // The 9:16 Reels/Shorts cut of the same story. It's a bonus deliverable —
+    // if the assets, the voice provider or ffmpeg aren't there, the carousel
+    // still goes out exactly as before.
+    let reel = null;
+    if (reels.isConfigured()) {
+      console.log('\n🎬 Building the 9:16 reel...');
+      try {
+        reel = await reels.generateReel(story, slideCopy, verified.raw);
+        try {
+          reel.url = await uploadReel(reel.buffer, slugify(story.headline));
+        } catch (e) {
+          console.warn(`   Reel R2 upload failed (${e.message}) — sending the file only.`);
+        }
+      } catch (e) {
+        console.warn(`   Reel generation failed (${e.message}) — carousel unaffected.`);
+        reel = null;
+      }
+    } else {
+      console.log(`\n🎬 Reel skipped — ${reels.missingPrerequisite()}.`);
+    }
+
+    const delivery = { story, pillar, style, images, captions, imageUrls, sources, verification, reel };
 
     console.log('\n📱 Sending carousel to Telegram...');
     await sendCarousel(delivery);
@@ -105,7 +127,9 @@ async function run() {
     console.log('\n📡 Updating RSS feed...');
     updateRSSFeed(story);
 
-    console.log('\n✅ Done! 5 slides, Facebook copy, and Instagram copy delivered to Telegram.\n');
+    console.log(
+      `\n✅ Done! 6 slides${reel ? ', a 9:16 reel' : ''}, Facebook copy, and Instagram copy delivered.\n`
+    );
   } catch (error) {
     console.error('\n❌ Carousel pipeline failed:', error.message);
     await sendErrorAlert(error);

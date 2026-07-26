@@ -49,4 +49,25 @@ async function uploadCarousel(images, slug) {
   return urls;
 }
 
-module.exports = { uploadCarousel };
+// Upload the finished 9:16 reel next to the day's slides. Returns its public URL.
+async function uploadReel(buffer, slug) {
+  const bucket = process.env.R2_BUCKET;
+  if (!bucket) throw new Error('Missing R2_BUCKET');
+
+  const client = getClient();
+  const stamp = new Date().toISOString().slice(0, 10);
+  const key = `reels/out/${stamp}/${slug}.mp4`;
+
+  await client.send(new PutObjectCommand({
+    Bucket: bucket,
+    Key: key,
+    Body: buffer,
+    ContentType: 'video/mp4',
+    CacheControl: 'public, max-age=31536000, immutable',
+  }));
+  console.log(`  [r2] uploaded ${key}`);
+
+  return publicUrl(key);
+}
+
+module.exports = { uploadCarousel, uploadReel, getClient, publicUrl };
