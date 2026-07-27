@@ -114,8 +114,27 @@ rally-news-videos/
 ├── generic/    ← happy-planet stills, the fallback when nothing matches
 ├── audio/      ← Creative Commons music beds
 ├── outro/      ← the "Follow Us" Rally card, as an MP4
+├── carousels/  ← written by the pipeline: carousels/<date>/<slug>/slide-N.png
 └── reels/      ← written by the pipeline: reels/<date>/<slug>.mp4
 ```
+
+**The folder names are only defaults.** If your assets are somewhere else —
+under a `videos/` parent, or sitting loose at the bucket root — point the
+`R2_REELS_*_PREFIX` variables at them instead of re-uploading (a prefix with or
+without a leading/trailing slash is fine):
+
+```
+R2_REELS_IMAGE_PREFIX   = videos/
+R2_REELS_AUDIO_PREFIX   = videos/audio/
+```
+
+And if the image folder is empty, the run doesn't just fail: the catalogue
+scans the bucket, finds the folder that actually holds keyword-named photos,
+uses it for that run and logs the variable that would pin it. Only folders left
+at their default are substituted this way — a prefix you set by hand is
+reported but never overridden — and the pipeline's own `carousels/` and
+`reels/` output is ignored, so yesterday's slides can never be mistaken for
+b-roll.
 
 **`images/`** — `.jpg`, `.jpeg`, `.png` or `.webp`, all in the one folder,
 **one photo per keyword**. The filename is the keyword and nothing else, taken
@@ -174,8 +193,25 @@ photo, the reel opens on library footage instead and no credit is shown.
 #### Check your assets before switching it on
 
 ```bash
+npm run reel-assets         # what's in the bucket and what the builder sees
 npm run reel-check          # builds reel-check.mp4 from canned copy
 ```
+
+`reel-assets` reads the bucket and prints every folder in it, which folder each
+pool resolves to (and the variable that pins it), how many of the 212 bank
+keywords have a photo behind them, which uploads match no keyword, and whether
+music and an outro are present. It's the fastest answer to *"why did the reel
+say 0 images?"*. It writes nothing unless you ask it to:
+
+```bash
+npm run reel-assets -- --tidy           # show the moves into images/, generic/, audio/, outro/
+npm run reel-assets -- --tidy --apply   # perform them
+```
+
+`--tidy` moves assets with server-side copies (no download, no egress) and
+deletes the originals only after every copy has landed. `carousels/` and
+`reels/` are never touched. After tidying, clear any `R2_REELS_*_PREFIX`
+variables so the defaults apply again.
 
 This runs the whole reel path — catalogue, script, cuts, voice, music, ffmpeg —
 with a fixed story, so it costs a fraction of a cent and doesn't touch the RSS
@@ -245,9 +281,9 @@ Reel tuning (repository **variables**, not secrets — all optional):
 | --- | --- | --- |
 | `R2_VIDEO_BUCKET` | `rally-news-videos` | the bucket holding reel assets and output |
 | `R2_VIDEO_PUBLIC_URL` | falls back to `R2_PUBLIC_URL` | public base URL for reel links |
-| `R2_REELS_IMAGE_PREFIX` | `images/` | keyworded b-roll |
+| `R2_REELS_IMAGE_PREFIX` | `images/` | keyworded b-roll — e.g. `videos/` if that's where you uploaded it |
 | `R2_REELS_GENERIC_PREFIX` | `generic/` | the fallback pool |
-| `R2_REELS_AUDIO_PREFIX` | `audio/` | music beds |
+| `R2_REELS_AUDIO_PREFIX` | `audio/` | music beds — e.g. `videos/audio/` |
 | `R2_REELS_OUTRO_PREFIX` | `outro/` | the Follow Us card |
 | `REELS_VOICE_PROVIDER` | (auto) | force `openrouter`, `azure`, `elevenlabs` or `openai` |
 | `REELS_TTS_MODEL` | (auto) | pin an OpenRouter speech model instead of the fallback chain |
