@@ -88,13 +88,16 @@ async function generateReel(story, slideCopy, raw, coverUri) {
     console.log(`  [reel] reading the ${catalogue.VIDEO_BUCKET()} catalogue...`);
     const lib = await catalogue.loadCatalogue();
     console.log(
-      `  [reel] ${lib.images.length} keyworded images (${lib.stocked.size} keywords stocked), ` +
-      `${lib.generic.length} generic, ${lib.tracks.length} tracks, ${lib.outros.length} outro(s)`
+      `  [reel] ${lib.images.length} keyworded images (${lib.stocked.size} keywords stocked) ` +
+      `from ${lib.prefixes.image || '(bucket root)'}, ${lib.generic.length} generic, ` +
+      `${lib.tracks.length} tracks, ${lib.outros.length} outro(s)`
     );
     if (!lib.images.length && !lib.generic.length) {
       throw new Error(
-        `no images under ${catalogue.IMAGE_PREFIX()} or ${catalogue.GENERIC_PREFIX()} ` +
-        `in ${catalogue.VIDEO_BUCKET()} — upload b-roll before enabling reels`
+        `no images under ${lib.prefixes.image || '(bucket root)'} or ` +
+        `${lib.prefixes.generic || '(bucket root)'} in ${catalogue.VIDEO_BUCKET()} — ` +
+        `upload b-roll, or point R2_REELS_IMAGE_PREFIX at the folder it's in ` +
+        `(npm run reel-assets shows what the bucket holds)`
       );
     }
 
@@ -149,7 +152,9 @@ async function generateReel(story, slideCopy, raw, coverUri) {
       );
       console.log(`  [reel] music bed: ${track}`);
     } else {
-      console.warn(`  [reel] no tracks under ${catalogue.AUDIO_PREFIX()} — reel will run voice-only`);
+      console.warn(
+        `  [reel] no tracks under ${lib.prefixes.audio || '(bucket root)'} — reel will run voice-only`
+      );
     }
 
     // 5 · pictures
@@ -216,7 +221,9 @@ async function generateReel(story, slideCopy, raw, coverUri) {
         console.warn(`  [reel] could not fetch ${outroKey} (${e.message}) — rendering a card instead`);
       }
     } else {
-      console.warn(`  [reel] no MP4 under ${catalogue.OUTRO_PREFIX()} — rendering a Follow Us card instead`);
+      console.warn(
+        `  [reel] no MP4 under ${lib.prefixes.outro || '(bucket root)'} — rendering a Follow Us card instead`
+      );
     }
     let outroStill = null;
     if (!outroVideo) {

@@ -6,7 +6,8 @@
   "scripts": {
     "carousel": "node carousel.js",
     "video": "node index.js",
-    "reel-check": "node scripts/reel-check.js"
+    "reel-check": "node scripts/reel-check.js",
+    "reel-assets": "node scripts/reel-assets.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",

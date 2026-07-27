@@ -14,17 +14,36 @@ const { filterToBank, siblingsOf, KEYWORD_SET } = require('./keywords');
 //   audio/    Creative Commons music beds.
 //   outro/    the "Follow Us" card as an MP4.
 //
+// Those four names are only the defaults. The folders can sit anywhere in the
+// bucket — under a `videos/` parent, say — as long as the R2_REELS_*_PREFIX
+// variables point at them. And if the configured image folder turns up empty,
+// the catalogue scans the bucket and adopts whatever folder the b-roll is
+// actually in rather than failing the run (see resolveByScanning below).
+//
 // Credentials are the same R2 account as the carousel; only the bucket differs.
 
 const VIDEO_BUCKET = () => process.env.R2_VIDEO_BUCKET || 'rally-news-videos';
-const IMAGE_PREFIX = () => process.env.R2_REELS_IMAGE_PREFIX || 'images/';
-const GENERIC_PREFIX = () => process.env.R2_REELS_GENERIC_PREFIX || 'generic/';
-const AUDIO_PREFIX = () => process.env.R2_REELS_AUDIO_PREFIX || 'audio/';
-const OUTRO_PREFIX = () => process.env.R2_REELS_OUTRO_PREFIX || 'outro/';
+const IMAGE_PREFIX = () => normalizePrefix(process.env.R2_REELS_IMAGE_PREFIX, 'images/');
+const GENERIC_PREFIX = () => normalizePrefix(process.env.R2_REELS_GENERIC_PREFIX, 'generic/');
+const AUDIO_PREFIX = () => normalizePrefix(process.env.R2_REELS_AUDIO_PREFIX, 'audio/');
+const OUTRO_PREFIX = () => normalizePrefix(process.env.R2_REELS_OUTRO_PREFIX, 'outro/');
+
+// Folders the pipeline WRITES. They're full of images (carousel slides) and
+// MP4s (yesterday's reels), so they'd poison any scan of the bucket.
+const OUTPUT_PREFIXES = ['carousels/', 'reels/'];
 
 const IMAGE_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const AUDIO_EXT = new Set(['.mp3', '.m4a', '.aac', '.wav', '.ogg', '.opus', '.flac']);
 const VIDEO_EXT = new Set(['.mp4', '.mov', '.m4v', '.webm']);
+
+// `videos` and `/videos` and `videos/` are all the same folder as far as the
+// person typing them into a GitHub variable is concerned.
+function normalizePrefix(value, fallback) {
+  const raw = String(value == null ? '' : value).trim();
+  if (!raw) return fallback === undefined ? '' : fallback;
+  const trimmed = raw.replace(/^\/+/, '').replace(/\/+$/, '');
+  return trimmed ? `${trimmed}/` : '';
+}
 
 function getClient() {
   const { R2_ACCOUNT_ID, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY } = process.env;
@@ -74,22 +93,206 @@ async function listAll(prefix) {
   return keys;
 }
 
+const extOf = key => path.extname(String(key || '')).toLowerCase();
+const isImageKey = key => IMAGE_EXT.has(extOf(key));
+const isAudioKey = key => AUDIO_EXT.has(extOf(key));
+const isVideoKey = key => VIDEO_EXT.has(extOf(key));
+
+const isOutputKey = key => OUTPUT_PREFIXES.some(p => String(key || '').startsWith(p));
+
+// The folder a key sits directly in — `videos/aid.jpg` → `videos/`, a key at
+// the bucket root → ''.
+function folderOf(key) {
+  const cut = String(key || '').lastIndexOf('/');
+  return cut === -1 ? '' : key.slice(0, cut + 1);
+}
+
+// Keys under `prefix`, minus anything that belongs to one of the OTHER pools
+// nested beneath it. Without this, an image prefix of `videos/` swallows
+// `videos/generic/` and `videos/outro/` too, and the generic pool gets counted
+// twice — once as fallback, once as unkeyworded b-roll.
+function scopeTo(keys, prefix, siblings) {
+  const nested = (siblings || []).filter(p => p && p !== prefix && p.startsWith(prefix));
+  return keys.filter(key =>
+    key.startsWith(prefix) && !nested.some(p => key.startsWith(p))
+  );
+}
+
+// Split one flat key list into the four pools.
+function partition(keys, prefixes) {
+  const all = Object.values(prefixes);
+  return {
+    image: scopeTo(keys, prefixes.image, all).filter(isImageKey),
+    generic: scopeTo(keys, prefixes.generic, all).filter(isImageKey),
+    audio: scopeTo(keys, prefixes.audio, all).filter(isAudioKey),
+    outro: scopeTo(keys, prefixes.outro, all).filter(isVideoKey),
+  };
+}
+
+// How many images in a folder are named after a bank keyword — the signal that
+// separates a b-roll library from a folder of carousel slides.
+function keywordedCount(keys) {
+  return keys.filter(k => isImageKey(k) && filterToBank(tokenize(path.basename(k))).length).length;
+}
+
+// Every folder in the bucket that could hold reel assets, with the counts that
+// decide what it is. Pipeline output is excluded outright.
+function surveyFolders(keys) {
+  const byFolder = new Map();
+  for (const key of keys) {
+    if (isOutputKey(key)) continue;
+    const folder = folderOf(key);
+    if (!byFolder.has(folder)) byFolder.set(folder, []);
+    byFolder.get(folder).push(key);
+  }
+
+  return [...byFolder.entries()]
+    .map(([folder, ks]) => ({
+      folder,
+      keys: ks,
+      images: ks.filter(isImageKey).length,
+      keyworded: keywordedCount(ks),
+      audio: ks.filter(isAudioKey).length,
+      videos: ks.filter(isVideoKey).length,
+    }))
+    .sort((a, b) => a.folder.localeCompare(b.folder));
+}
+
+const lastSegment = folder => String(folder || '').replace(/\/$/, '').split('/').pop();
+
+// Best guess at each pool from the survey. Names win when they're obvious
+// (`.../audio/`), otherwise it's whichever folder holds the most of the right
+// kind of file.
+function guessPrefixes(survey) {
+  const byName = (names, test) =>
+    survey.filter(f => names.includes(lastSegment(f.folder)) && test(f))[0] || null;
+  const byCount = (test, count) =>
+    survey.filter(test).sort((a, b) => count(b) - count(a))[0] || null;
+
+  const image = byName(['images', 'stills', 'broll', 'b-roll'], f => f.keyworded > 0)
+    || byCount(f => f.keyworded > 0, f => f.keyworded);
+
+  const generic = byName(['generic', 'fallback'], f => f.images > 0)
+    || byCount(f => f.images > 0 && (!image || f.folder !== image.folder) && f.keyworded === 0, f => f.images);
+
+  const audio = byName(['audio', 'music', 'tracks'], f => f.audio > 0)
+    || byCount(f => f.audio > 0, f => f.audio);
+
+  const outro = byName(['outro', 'outros', 'ending'], f => f.videos > 0)
+    || byCount(f => f.videos > 0, f => f.videos);
+
+  return {
+    image: image && image.folder,
+    generic: generic && generic.folder,
+    audio: audio && audio.folder,
+    outro: outro && outro.folder,
+  };
+}
+
+// Read every key in the bucket once, so the survey and the pools come out of a
+// single pass. Only used when something looks misconfigured.
+async function scanBucket() {
+  const keys = await listAll('');
+  return { keys, survey: surveyFolders(keys) };
+}
+
+// The image folder came back empty. Before failing the run, look at what's
+// actually in the bucket: nine times out of ten the library is there under a
+// different prefix (uploaded to `videos/` rather than `images/`, say).
+//
+// A prefix the operator set by hand is never overridden — that's their
+// decision, and silently using a different folder would hide the typo. Defaults
+// are fair game, and every substitution is logged with the variable that makes
+// it permanent.
+async function resolveByScanning(prefixes, explicit) {
+  const { keys, survey } = await scanBucket();
+  const guess = guessPrefixes(survey);
+
+  const resolved = { ...prefixes };
+  const adopted = [];
+  const VARS = {
+    image: 'R2_REELS_IMAGE_PREFIX',
+    generic: 'R2_REELS_GENERIC_PREFIX',
+    audio: 'R2_REELS_AUDIO_PREFIX',
+    outro: 'R2_REELS_OUTRO_PREFIX',
+  };
+
+  const before = partition(keys, prefixes);
+  for (const pool of ['image', 'generic', 'audio', 'outro']) {
+    const found = guess[pool];
+    if (!found || found === prefixes[pool] || before[pool].length) continue;
+    if (explicit[pool]) {
+      console.warn(
+        `  [reel] ${VARS[pool]}=${prefixes[pool]} is empty, but ${describeFolder(survey, found)} ` +
+        `looks like the ${pool} folder — leaving your setting alone`
+      );
+      continue;
+    }
+    resolved[pool] = found;
+    adopted.push({ pool, from: prefixes[pool], to: found });
+  }
+
+  if (adopted.length) {
+    console.warn(`  [reel] the expected folders are empty — using what's in the bucket instead:`);
+    for (const a of adopted) {
+      console.warn(`  [reel]   ${a.pool}: ${a.from || '(bucket root)'} → ${a.to || '(bucket root)'}`);
+    }
+    console.warn(
+      `  [reel] set ${adopted.map(a => `${VARS[a.pool]}=${a.to}`).join(', ')} ` +
+      `(GitHub → Settings → Secrets and variables → Actions → Variables) to make this explicit`
+    );
+  } else {
+    const folders = survey.filter(f => f.keys.length).map(f => `${f.folder || '(root)'} (${f.keys.length})`);
+    console.warn(
+      `  [reel] nothing usable found by scanning either — folders in ${VIDEO_BUCKET()}: ` +
+      `${folders.join(', ') || '(bucket is empty)'}`
+    );
+  }
+
+  return { prefixes: resolved, pools: partition(keys, resolved), survey };
+}
+
+function describeFolder(survey, folder) {
+  const f = survey.find(x => x.folder === folder);
+  const name = folder || '(bucket root)';
+  if (!f) return name;
+  return `${name} (${f.images} image(s), ${f.audio} audio, ${f.videos} video)`;
+}
+
 // Read the whole library: keyworded stills, the generic fallback pool, music,
 // and the Follow Us card.
 async function loadCatalogue() {
-  const [imageKeys, genericKeys, audioKeys, outroKeys] = await Promise.all([
-    listAll(IMAGE_PREFIX()),
-    listAll(GENERIC_PREFIX()),
-    listAll(AUDIO_PREFIX()),
-    listAll(OUTRO_PREFIX()),
-  ]);
+  let prefixes = {
+    image: IMAGE_PREFIX(),
+    generic: GENERIC_PREFIX(),
+    audio: AUDIO_PREFIX(),
+    outro: OUTRO_PREFIX(),
+  };
+  const explicit = {
+    image: Boolean(String(process.env.R2_REELS_IMAGE_PREFIX || '').trim()),
+    generic: Boolean(String(process.env.R2_REELS_GENERIC_PREFIX || '').trim()),
+    audio: Boolean(String(process.env.R2_REELS_AUDIO_PREFIX || '').trim()),
+    outro: Boolean(String(process.env.R2_REELS_OUTRO_PREFIX || '').trim()),
+  };
 
+  const listed = await Promise.all(
+    ['image', 'generic', 'audio', 'outro'].map(pool => listAll(prefixes[pool]))
+  );
+  let pools = partition([...new Set(listed.flat())], prefixes);
+
+  // No b-roll where we looked: find out why before giving up.
+  if (!pools.image.length && !pools.generic.length) {
+    const rescued = await resolveByScanning(prefixes, explicit);
+    prefixes = rescued.prefixes;
+    pools = rescued.pools;
+  }
+
+  const imageKeys = pools.image;
   const images = [];
   const unknownWords = new Set();
   const unkeyworded = [];
 
   for (const key of imageKeys) {
-    if (!IMAGE_EXT.has(path.extname(key).toLowerCase())) continue;
     const words = tokenize(path.basename(key));
     const keywords = filterToBank(words);
     for (const w of words) {
@@ -99,16 +302,17 @@ async function loadCatalogue() {
     else unkeyworded.push(key);
   }
 
-  const generic = genericKeys.filter(k => IMAGE_EXT.has(path.extname(k).toLowerCase()));
-  const tracks = audioKeys.filter(k => AUDIO_EXT.has(path.extname(k).toLowerCase()));
-  const outros = outroKeys.filter(k => VIDEO_EXT.has(path.extname(k).toLowerCase()));
+  const generic = pools.generic;
+  const tracks = pools.audio;
+  const outros = pools.outro;
 
   // Surface naming problems rather than silently dropping the file: an image
   // named off-bank is invisible to the planner, and that's worth knowing.
   if (unkeyworded.length) {
     console.warn(
-      `  [reel] ${unkeyworded.length} image(s) under ${IMAGE_PREFIX()} match no bank keyword ` +
-      `and will never be picked — e.g. ${unkeyworded.slice(0, 3).map(k => path.basename(k)).join(', ')}`
+      `  [reel] ${unkeyworded.length} image(s) under ${prefixes.image || '(bucket root)'} ` +
+      `match no bank keyword and will never be picked — ` +
+      `e.g. ${unkeyworded.slice(0, 3).map(k => path.basename(k)).join(', ')}`
     );
   }
   if (unknownWords.size) {
@@ -138,7 +342,9 @@ async function loadCatalogue() {
     }
   }
 
-  return { images, generic, tracks, outros, stocked };
+  // `prefixes` travels with the catalogue so callers report the folders that
+  // were actually read, not the ones that were configured.
+  return { images, generic, tracks, outros, stocked, prefixes };
 }
 
 // How many of the requested keywords an image answers. Both sides come from
@@ -261,6 +467,18 @@ module.exports = {
   downloadObject,
   tokenize,
   getClient,
+  listAll,
+  scanBucket,
+  surveyFolders,
+  guessPrefixes,
+  partition,
+  normalizePrefix,
+  keywordedCount,
+  isImageKey,
+  isAudioKey,
+  isVideoKey,
+  isOutputKey,
+  OUTPUT_PREFIXES,
   VIDEO_BUCKET,
   IMAGE_PREFIX,
   GENERIC_PREFIX,
