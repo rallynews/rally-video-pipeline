@@ -17,11 +17,23 @@ const axios = require('axios');
 //   OPENAI_API_KEY
 //
 // OpenRouter's /audio/speech endpoint is OpenAI-compatible and routes to
-// several speech providers. We ask for Mistral's Voxtral first — a European
-// model, and a young female preset that reads casually without pretending to
-// be a person — and fall through to OpenAI's gpt-4o-mini-tts. Note that Azure
-// AI Speech is NOT one of OpenRouter's providers; the azure entry below talks
-// to Azure directly and needs its own key.
+// several speech providers. Note that Azure AI Speech is NOT one of them; the
+// azure entry below talks to Azure directly and needs its own key.
+//
+// Model slugs and voice names are NOT guessable. Voices are namespaced per
+// provider and don't transfer between them — OpenAI uses bare names (`alloy`,
+// `coral`), Voxtral encodes language + persona + emotion (`en_paul_happy`),
+// Kokoro prefixes language and gender (`af_bella`) — and a wrong pair is
+// rejected with a bare 400 that says nothing useful. So rather than hardcode a
+// guess, the provider asks OpenRouter which speech models the key can actually
+// reach and which voices each one takes:
+//
+//   GET /api/v1/models?output_modalities=speech  →  [{ id, supported_voices }]
+//
+// and builds its candidate list from the answer, preferring Voxtral (European,
+// and the closest to the young-casual read the reels want) and an English voice
+// with a warm emotion. The static chain below is only the fallback for when
+// that listing itself fails.
 
 function xmlEscape(text) {
   return String(text || '')
@@ -32,17 +44,78 @@ function xmlEscape(text) {
     .replace(/'/g, '&apos;');
 }
 
-// Candidate (model, voice) pairs for OpenRouter, best fit first. The chain
-// exists because model IDs and voice names on a routing layer move around —
-// the first pair that answers is remembered for the rest of the run, so the
-// fallback is paid once, not once per line.
-const OPENROUTER_VOICES = [
-  { model: 'mistralai/voxtral-mini-tts-2603', voice: 'casual_female' },
-  { model: 'mistralai/voxtral-mini-tts-2603', voice: 'neutral_female' },
-  { model: 'mistralai/voxtral-mini-tts', voice: 'casual_female' },
-  { model: 'openai/gpt-4o-mini-tts', voice: 'coral' },
-  { model: 'openai/gpt-4o-mini-tts-2025-12-15', voice: 'coral' },
+// Read whatever an axios error is actually carrying. Speech responses are
+// arraybuffers, so an error body arrives as bytes and prints as "[object
+// Object]" unless it's decoded — which is why the old chain could only report
+// "Request failed with status code 400".
+function errorDetail(err) {
+  let body = err.response && err.response.data;
+  if (body && (Buffer.isBuffer(body) || body instanceof ArrayBuffer)) {
+    body = Buffer.from(body).toString('utf8');
+  }
+  if (typeof body === 'string') {
+    try { body = JSON.parse(body); } catch (_) { /* not JSON, use the text */ }
+  }
+  if (body && typeof body === 'object') {
+    body = (body.error && (body.error.message || body.error)) || body.message || JSON.stringify(body);
+  }
+  const text = String(body == null ? '' : body).replace(/\s+/g, ' ').trim();
+  return text.slice(0, 300);
+}
+
+// Last-resort candidates, used only when the models listing can't be read.
+const OPENROUTER_FALLBACK = [
+  { model: 'openai/gpt-4o-mini-tts-2025-12-15', voice: 'alloy' },
+  { model: 'openai/gpt-4o-mini-tts', voice: 'alloy' },
 ];
+
+// Which speech model to reach for first.
+const MODEL_PREFERENCE = [/voxtral/i, /gpt-4o-mini-tts/i, /tts/i, /speech/i];
+
+// Which voice within a model. Warm English first, then the OpenAI presets that
+// suit a casual read, then any English voice at all.
+const VOICE_PREFERENCE = [
+  /^en[_-].*(happy|friendly|casual|warm|cheerful)/i,
+  /^(coral|nova|shimmer|sage)$/i,
+  /^en[_-]/i,
+  /^[abf][fm][_-]/i,
+  /^(alloy|verse|aria)$/i,
+];
+
+function rank(value, patterns) {
+  const hit = patterns.findIndex(p => p.test(value));
+  return hit === -1 ? patterns.length : hit;
+}
+
+function pickVoice(voices) {
+  const usable = (voices || []).filter(v => typeof v === 'string' && v);
+  if (!usable.length) return null;
+  return [...usable].sort((a, b) => rank(a, VOICE_PREFERENCE) - rank(b, VOICE_PREFERENCE))[0];
+}
+
+// Ask OpenRouter what this key can actually use. Returns [] on any failure —
+// the caller falls back to the static chain rather than failing the run here.
+async function listSpeechModels() {
+  try {
+    const res = await axios.get('https://openrouter.ai/api/v1/models', {
+      params: { output_modalities: 'speech' },
+      headers: { Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}` },
+      timeout: 20000,
+    });
+    const models = (res.data && res.data.data) || [];
+    return models
+      .map(m => ({
+        id: m.id,
+        // The field has lived in both places across API revisions.
+        voices: m.supported_voices || (m.architecture && m.architecture.supported_voices) || [],
+      }))
+      .filter(m => m.id)
+      .sort((a, b) => rank(a.id, MODEL_PREFERENCE) - rank(b.id, MODEL_PREFERENCE));
+  } catch (err) {
+    console.warn(`  [reel] could not list OpenRouter speech models (${errorDetail(err) || err.message})`);
+    return [];
+  }
+}
 
 const openrouter = {
   name: 'openrouter',
@@ -51,8 +124,9 @@ const openrouter = {
   isConfigured: () => Boolean(process.env.OPENROUTER_API_KEY),
   describe() {
     if (this.resolved) return `OpenRouter ${this.resolved.model} / ${this.resolved.voice}`;
-    const model = process.env.REELS_TTS_MODEL || OPENROUTER_VOICES[0].model;
-    return `OpenRouter ${model} / ${process.env.REELS_VOICE || OPENROUTER_VOICES[0].voice}`;
+    const model = process.env.REELS_TTS_MODEL || '(discovered at run time)';
+    const voice = process.env.REELS_VOICE || '(best available)';
+    return `OpenRouter ${model} / ${voice}`;
   },
   async request(model, voice, text) {
     const res = await axios.post(
@@ -71,26 +145,67 @@ const openrouter = {
     );
     return Buffer.from(res.data);
   },
+  // The (model, voice) pairs to try, best first: what the account can actually
+  // reach, with a voice each model has declared support for.
+  async candidates() {
+    const forcedModel = process.env.REELS_TTS_MODEL;
+    const forcedVoice = process.env.REELS_VOICE;
+
+    const models = await listSpeechModels();
+    if (models.length) {
+      console.log(
+        `  [reel] OpenRouter speech models available: ` +
+        `${models.slice(0, 6).map(m => m.id).join(', ')}${models.length > 6 ? ', …' : ''}`
+      );
+    }
+
+    // An explicit model is taken at face value; only its voice is filled in
+    // from the listing when one wasn't named too.
+    if (forcedModel) {
+      const known = models.find(m => m.id === forcedModel);
+      const voice = forcedVoice || (known && pickVoice(known.voices)) || 'alloy';
+      if (known && forcedVoice && known.voices.length && !known.voices.includes(forcedVoice)) {
+        console.warn(
+          `  [reel] REELS_VOICE=${forcedVoice} isn't in ${forcedModel}'s voice list ` +
+          `(${known.voices.slice(0, 8).join(', ')}) — trying it anyway`
+        );
+      }
+      return [{ model: forcedModel, voice }];
+    }
+
+    // A named voice only makes sense on a model that declares it — voices don't
+    // transfer between providers — so models that take it are tried first, and
+    // the rest keep their own best voice as a fallback rather than dropping out.
+    const takesForced = [];
+    const rest = [];
+    for (const model of models) {
+      const supported = forcedVoice && (!model.voices.length || model.voices.includes(forcedVoice));
+      const voice = supported ? forcedVoice : pickVoice(model.voices);
+      if (!voice) continue;
+      (supported ? takesForced : rest).push({ model: model.id, voice });
+    }
+    if (forcedVoice && !takesForced.length && models.length) {
+      console.warn(
+        `  [reel] no available speech model declares the voice REELS_VOICE=${forcedVoice} — ` +
+        `using each model's closest voice instead`
+      );
+    }
+    const discovered = [...takesForced, ...rest];
+
+    if (!discovered.length) return OPENROUTER_FALLBACK;
+
+    // Keep the static pairs on the end: a model can be listed and still refuse
+    // the request, and one of these may yet answer.
+    const seen = new Set(discovered.map(c => `${c.model}/${c.voice}`));
+    return [...discovered, ...OPENROUTER_FALLBACK.filter(c => !seen.has(`${c.model}/${c.voice}`))];
+  },
+
   async speak(text) {
     if (this.resolved) {
       return this.request(this.resolved.model, this.resolved.voice, text);
     }
 
-    // An explicit model/voice is taken at face value — no chain, no surprises.
-    if (process.env.REELS_TTS_MODEL) {
-      this.resolved = {
-        model: process.env.REELS_TTS_MODEL,
-        voice: process.env.REELS_VOICE || OPENROUTER_VOICES[0].voice,
-      };
-      return this.request(this.resolved.model, this.resolved.voice, text);
-    }
-
-    // A voice named on its own overrides every candidate's default, so you can
-    // switch to e.g. neutral_female without also pinning a model.
-    const forcedVoice = process.env.REELS_VOICE;
-    const candidates = forcedVoice
-      ? OPENROUTER_VOICES.map(c => ({ model: c.model, voice: forcedVoice }))
-      : OPENROUTER_VOICES;
+    const candidates = await this.candidates();
 
     let lastError;
     for (const candidate of candidates) {
@@ -101,14 +216,22 @@ const openrouter = {
         return buf;
       } catch (err) {
         lastError = err;
-        const status = err.response?.status;
+        const status = err.response && err.response.status;
+        const detail = errorDetail(err);
         console.warn(
           `  [reel] ${candidate.model}/${candidate.voice} unavailable` +
-          `${status ? ` (HTTP ${status})` : ` (${err.message})`}, trying next...`
+          `${status ? ` (HTTP ${status})` : ''}${detail ? `: ${detail}` : ` (${err.message})`}` +
+          `, trying next...`
         );
       }
     }
-    throw lastError || new Error('No OpenRouter speech model accepted the request');
+
+    const tried = candidates.map(c => `${c.model}/${c.voice}`).join(', ');
+    const why = lastError ? errorDetail(lastError) || lastError.message : 'no candidates';
+    throw new Error(
+      `No OpenRouter speech model accepted the request (tried ${tried || 'nothing'}) — ` +
+      `last error: ${why}. Run npm run voice-check to see what the key can reach.`
+    );
   },
 };
 
@@ -250,7 +373,17 @@ async function narrateLines(lines) {
 
   const clips = [];
   for (let i = 0; i < lines.length; i++) {
-    const buf = await provider.speak(lines[i].text);
+    let buf;
+    try {
+      buf = await provider.speak(lines[i].text);
+    } catch (err) {
+      // Axios reports "Request failed with status code 400" and hides the body,
+      // which is where every provider puts the actual reason.
+      const detail = errorDetail(err);
+      throw new Error(
+        `${provider.name} could not voice line ${i + 1}: ${detail || err.message}`
+      );
+    }
     if (!buf || buf.length < 512) {
       throw new Error(`Voice provider returned an empty clip for line ${i + 1}`);
     }
@@ -264,4 +397,13 @@ async function narrateLines(lines) {
   return { provider: provider.name, label, ext: provider.ext, clips };
 }
 
-module.exports = { narrateLines, isConfigured, selectProvider, describeProvider };
+module.exports = {
+  narrateLines,
+  isConfigured,
+  selectProvider,
+  describeProvider,
+  listSpeechModels,
+  pickVoice,
+  errorDetail,
+  PROVIDERS,
+};
