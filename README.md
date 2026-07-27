@@ -194,6 +194,7 @@ photo, the reel opens on library footage instead and no credit is shown.
 
 ```bash
 npm run reel-assets         # what's in the bucket and what the builder sees
+npm run voice-check         # which speech model/voice the key can actually use
 npm run reel-check          # builds reel-check.mp4 from canned copy
 ```
 
@@ -275,6 +276,26 @@ only matter if you want a different provider:
 Providers are tried OpenRouter → Azure → ElevenLabs → OpenAI, and the first one
 configured wins.
 
+On OpenRouter the model slug and voice name are **not guessable** — voices are
+namespaced per provider and don't transfer between them (OpenAI takes `coral`,
+Voxtral takes `en_paul_happy`, Kokoro takes `af_bella`), and a mismatched pair
+comes back as a bare `400`. So the reel asks OpenRouter what the key can
+actually reach before it speaks:
+
+```
+GET /api/v1/models?output_modalities=speech   →   [{ id, supported_voices }]
+```
+
+and builds its candidate list from that, preferring Voxtral and a warm English
+voice, remembering the first pair that answers for the rest of the run. Pin one
+with `REELS_TTS_MODEL` / `REELS_VOICE` if you'd rather choose. To see the list
+and hear the result:
+
+```bash
+npm run voice-check          # models, voices, the pair the reel would pick, one sample line
+npm run voice-check -- --list   # list only, nothing synthesised
+```
+
 Reel tuning (repository **variables**, not secrets — all optional):
 
 | Variable | Default | Purpose |
@@ -286,8 +307,8 @@ Reel tuning (repository **variables**, not secrets — all optional):
 | `R2_REELS_AUDIO_PREFIX` | `audio/` | music beds — e.g. `videos/audio/` |
 | `R2_REELS_OUTRO_PREFIX` | `outro/` | the Follow Us card |
 | `REELS_VOICE_PROVIDER` | (auto) | force `openrouter`, `azure`, `elevenlabs` or `openai` |
-| `REELS_TTS_MODEL` | (auto) | pin an OpenRouter speech model instead of the fallback chain |
-| `REELS_VOICE` | per provider | voice name — e.g. `casual_female` (Voxtral), `coral` (OpenAI), `en-GB-SoniaNeural` (Azure) |
+| `REELS_TTS_MODEL` | (auto) | pin an OpenRouter speech model slug instead of discovering one — `npm run voice-check` lists them |
+| `REELS_VOICE` | per provider | voice name — must be one the model declares: `en_paul_happy` (Voxtral), `coral` (OpenAI), `en-GB-SoniaNeural` (Azure) |
 | `REELS_VOICE_RATE` | `-4%` | speaking rate (Azure only) |
 | `REELS_VOICE_STYLE` | `friendly` | Azure express-as style; set empty to disable |
 
