@@ -137,7 +137,10 @@ The five steps, once the carousel copy has been written and fact-checked:
    without being robotic) and falling back to OpenAI's `gpt-4o-mini-tts`.
    Azure Speech, ElevenLabs and OpenAI direct are supported as alternatives.
 4. **Music** (`src/reels/r2-catalogue.js`) — one track is drawn at random from
-   the `audio/` folder, looped to length, and ducked under the narration.
+   the `audio/` folder and looped to length. Voice and music are both
+   loudness-normalised, then the bed is held **~7.5 dB under the narrator
+   (about 40% quieter)** while she speaks — so a hot track and a quiet track
+   land at the same place — rising to −3 dB over the Follow Us card.
 5. **Assembly** (`src/reels/assembler.js`) — ffmpeg builds it in passes:
    Ken Burns move per shot → transition chain → Lora captions and the
    `rally.news` mark overlaid → the **Follow Us** card dissolved on the end →
