@@ -191,4 +191,47 @@ Plan the cuts and return the JSON described above.`,
   return shots;
 }
 
-module.exports = { planShots, resolveShots, MOTIONS, TRANSITIONS, SHOT_BOUNDS };
+// Re-resolve a reviewed draft's shot list against today's library. The editor
+// edits keywords, motions and transitions — the concrete object keys are picked
+// fresh here, so an image renamed or added since the draft still resolves, and
+// an edited keyword actually takes effect. Shots whose line no longer exists
+// (the editor blanked the line) are dropped, and any surviving line left with
+// no shots gets one so the timeline never has a hole.
+function resolveDraftShots(draftShots, lineCount, catalogue, storyKeywords) {
+  const used = new Set();
+  let previous = null;
+  const shots = [];
+
+  for (const spec of Array.isArray(draftShots) ? draftShots : []) {
+    const line = Number(spec && spec.line);
+    if (!Number.isInteger(line) || line < 0 || line >= lineCount) continue;
+
+    const asked = filterToBank(spec.keywords);
+    const keywords = asked.length ? asked : storyKeywords;
+    const key = pickImage(catalogue, keywords, used, previous);
+    if (!key) throw new Error('R2 image library is empty — nothing to cut to');
+    used.add(key);
+    previous = key;
+
+    shots.push({
+      line,
+      key,
+      keywords,
+      motion: clampMotion(spec.motion, shots.length),
+      transition: shots.length === 0 ? 'cut' : clampTransition(spec.transition, shots.length),
+    });
+  }
+
+  for (let i = 0; i < lineCount; i++) {
+    if (shots.some(s => s.line === i)) continue;
+    const key = pickImage(catalogue, storyKeywords, used, previous);
+    if (!key) throw new Error('R2 image library is empty — nothing to cut to');
+    used.add(key);
+    shots.push({ line: i, key, keywords: storyKeywords, motion: clampMotion(null, i), transition: 'cut' });
+  }
+
+  shots.sort((a, b) => a.line - b.line);
+  return shots;
+}
+
+module.exports = { planShots, resolveShots, resolveDraftShots, MOTIONS, TRANSITIONS, SHOT_BOUNDS };

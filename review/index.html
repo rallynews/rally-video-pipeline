@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rally News — morning review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=Outfit:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ground:#FBFAF7; --surface:#FFFFFF; --surface-2:#F4F5F1;
+    --ink:#191B18; --muted:#6E736C; --faint:#969B93; --line:#E2E5DE;
+    --accent:#4E6C53; --accent-ink:#FFFFFF; --accent-soft:#E8EFE7;
+    --warn:#8A6D1F; --warn-soft:#F7EFD8; --danger:#8A3B33;
+    --shadow:0 1px 2px rgba(25,27,24,.05), 0 8px 24px -16px rgba(25,27,24,.25);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ground:#121411; --surface:#1A1D19; --surface-2:#212520;
+      --ink:#ECEEE8; --muted:#9AA095; --faint:#757B72; --line:#2B2F29;
+      --accent:#8FBE95; --accent-ink:#121411; --accent-soft:#232C24;
+      --warn:#D9B75A; --warn-soft:#2A2517; --danger:#D98A80;
+      --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.8);
+    }
+  }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; background:var(--ground); color:var(--ink);
+    font-family:'Outfit', system-ui, sans-serif; font-size:16px; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:880px; margin:0 auto; padding:0 20px 120px; }
+  a { color:var(--accent); }
+
+  header.masthead { padding:44px 0 8px; }
+  .eyebrow { font-size:12px; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin:0 0 10px; }
+  h1 { font-family:'Lora', Georgia, serif; font-weight:600; font-size:clamp(26px,4.5vw,38px); line-height:1.15; margin:0 0 6px; text-wrap:balance; }
+  .datesub { color:var(--muted); font-size:15px; margin:0; }
+
+  section.card {
+    background:var(--surface); border:1px solid var(--line); border-radius:14px;
+    padding:22px 22px 24px; margin-top:22px; box-shadow:var(--shadow);
+  }
+  h2 { font-family:'Lora', Georgia, serif; font-weight:600; font-size:19px; margin:0 0 4px; }
+  .sub { color:var(--muted); font-size:13.5px; margin:0 0 16px; }
+
+  .kv { display:grid; grid-template-columns:auto 1fr; gap:4px 16px; font-size:14.5px; margin:0; }
+  .kv dt { color:var(--muted); }
+  .kv dd { margin:0; overflow-wrap:anywhere; }
+
+  .brief { font-size:15px; background:var(--surface-2); border-radius:10px; padding:14px 16px; margin:14px 0 0; white-space:pre-wrap; }
+  .checkline { font-size:13.5px; color:var(--muted); margin:12px 0 0; }
+  .checkline .fixed { color:var(--warn); }
+
+  label.f { display:block; margin-top:16px; }
+  label.f > span { display:block; font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+  textarea, input[type=text], input[type=password], select {
+    width:100%; font:inherit; font-size:15px; color:var(--ink);
+    background:var(--ground); border:1px solid var(--line); border-radius:9px;
+    padding:10px 12px;
+  }
+  textarea { resize:vertical; min-height:64px; }
+  textarea:focus-visible, input:focus-visible, select:focus-visible { outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .charcount { font-size:12px; color:var(--faint); text-align:right; margin-top:3px; }
+
+  .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
+  @media (max-width:640px) { .grid2 { grid-template-columns:1fr; } }
+
+  .coverbox { display:flex; gap:16px; align-items:flex-start; margin-top:14px; flex-wrap:wrap; }
+  .coverbox img { width:150px; border-radius:10px; border:1px solid var(--line); }
+
+  /* reel lines */
+  .rline { border:1px solid var(--line); border-radius:12px; padding:14px 14px 16px; margin-top:14px; background:var(--ground); }
+  .rline-head { display:flex; align-items:baseline; gap:10px; margin-bottom:8px; }
+  .rline-n { font-family:'Lora',serif; font-weight:600; font-size:15px; color:var(--accent); }
+  .rline-hint { font-size:12px; color:var(--faint); }
+  .shots { display:flex; gap:10px; flex-wrap:wrap; margin-top:12px; }
+  .shot {
+    flex:1 1 180px; max-width:240px; background:var(--surface);
+    border:1px solid var(--line); border-radius:10px; padding:8px;
+  }
+  .shot img { width:100%; aspect-ratio:9/16; object-fit:cover; border-radius:7px; background:var(--surface-2); display:block; }
+  .shot .noimg { width:100%; aspect-ratio:9/16; border-radius:7px; background:var(--surface-2); display:grid; place-items:center; color:var(--faint); font-size:12px; }
+  .shot .coverbadge {
+    display:inline-block; font-size:11px; font-weight:600; letter-spacing:.05em;
+    color:var(--accent); background:var(--accent-soft); border-radius:5px; padding:2px 7px; margin-top:8px;
+  }
+  .shot input, .shot select { font-size:13px; padding:7px 9px; margin-top:8px; }
+  .shot .slabel { font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--faint); margin-top:8px; display:block; }
+
+  /* action bar */
+  .bar {
+    position:fixed; left:0; right:0; bottom:0; z-index:30;
+    background:color-mix(in srgb, var(--ground) 90%, transparent);
+    backdrop-filter:blur(12px); border-top:1px solid var(--line);
+  }
+  .bar-inner { max-width:880px; margin:0 auto; padding:12px 20px; display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+  .btn {
+    font:inherit; font-size:15px; font-weight:600; cursor:pointer;
+    border-radius:10px; padding:11px 18px; border:1px solid var(--line);
+    background:var(--surface); color:var(--ink);
+  }
+  .btn.primary { background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .btn:disabled { opacity:.5; cursor:default; }
+  .btn:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+  .status { font-size:13.5px; color:var(--muted); flex:1; min-width:160px; }
+  .status.err { color:var(--danger); }
+  .status.ok { color:var(--accent); }
+
+  /* gate */
+  .gate { max-width:520px; margin:60px auto 0; }
+  .gate p { color:var(--muted); font-size:15px; }
+  .gate code { font-size:.9em; background:var(--surface-2); padding:1px 5px; border-radius:5px; }
+  .hidden { display:none !important; }
+  .logout { font-size:12.5px; color:var(--faint); background:none; border:none; cursor:pointer; text-decoration:underline; padding:0; }
+
+  .donebox { text-align:center; padding:60px 20px; }
+  .donebox .big { font-size:44px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Rally News · Morning review</p>
+    <h1 id="title">Loading draft…</h1>
+    <p class="datesub" id="datesub"></p>
+  </header>
+
+  <!-- token gate -->
+  <section class="card gate" id="gate">
+    <h2>Sign in</h2>
+    <p>This page edits and approves drafts in the <code id="repolabel"></code> repository.
+       Paste a GitHub <strong>fine-grained personal access token</strong> with
+       <em>Contents: read &amp; write</em> on that one repository. It stays in this
+       browser only.</p>
+    <label class="f"><span>Access token</span>
+      <input type="password" id="token" autocomplete="off" placeholder="github_pat_…">
+    </label>
+    <div style="margin-top:16px; display:flex; gap:12px; align-items:center;">
+      <button class="btn primary" id="signin">Open today's draft</button>
+      <span class="status" id="gatestatus"></span>
+    </div>
+  </section>
+
+  <div id="app" class="hidden">
+
+    <section class="card">
+      <h2>The story</h2>
+      <p class="sub">What the pipeline picked and why you can trust the copy below.</p>
+      <dl class="kv">
+        <dt>Headline</dt><dd id="s-headline"></dd>
+        <dt>Publisher</dt><dd id="s-publisher"></dd>
+        <dt>Article</dt><dd><a id="s-url" target="_blank" rel="noopener"></a></dd>
+        <dt>Pillar</dt><dd id="s-pillar"></dd>
+        <dt>Sources</dt><dd id="s-sources"></dd>
+      </dl>
+      <div class="brief" id="s-brief"></div>
+      <p class="checkline" id="s-check"></p>
+      <div class="coverbox" id="coverbox">
+        <img id="coverimg" alt="Article cover photo">
+        <p class="sub" style="max-width:46ch">The article's own photo. It opens the carousel and the reel, credited to the original outlet.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Carousel copy</h2>
+      <p class="sub">Exactly what lands on the six slides and in both captions. Edit anything.</p>
+      <label class="f"><span>Cover headline</span><textarea id="f-headline" rows="2"></textarea></label>
+      <label class="f"><span>Slide 2 · The challenge</span><textarea id="f-challenge" rows="3"></textarea></label>
+      <label class="f"><span>Slide 3 · The solution</span><textarea id="f-solution" rows="3"></textarea></label>
+      <div class="grid2">
+        <label class="f"><span>Slide 4 · Result heading (big text)</span><textarea id="f-resultHeading" rows="2"></textarea></label>
+        <label class="f"><span>Slide 4 · Result line</span><textarea id="f-resultLine" rows="2"></textarea></label>
+      </div>
+      <label class="f"><span>Slide 5 · Why it matters</span><textarea id="f-whyMatters" rows="3"></textarea></label>
+      <div class="grid2">
+        <label class="f"><span>Engagement question (closes slide 5 + both captions)</span><textarea id="f-engagementQuestion" rows="2"></textarea></label>
+        <label class="f"><span>Caption lead</span><textarea id="f-captionLead" rows="2"></textarea></label>
+      </div>
+      <div class="grid2">
+        <label class="f"><span>Story hashtag (one word, no #)</span><input type="text" id="f-storyHashtag"></label>
+        <label class="f"><span>Photo credit — original outlet</span><input type="text" id="f-originalSource"></label>
+      </div>
+      <label class="f"><span>Slide style</span>
+        <select id="f-style">
+          <option value="1a">1a · Editorial cream</option>
+          <option value="1b">1b · Deep green</option>
+          <option value="1c">1c · Tan accent block</option>
+          <option value="1d">1d · Ink dark</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="card" id="reelcard">
+      <h2>Reel — script &amp; shots</h2>
+      <p class="sub">Each line is spoken as written. The photos beneath a line are the cuts that
+         play while it's said — change a keyword to change the photo (options limited to the
+         image library). Blank a line's text to drop it and its shots.</p>
+      <div id="rlines"></div>
+      <datalist id="kwlist"></datalist>
+    </section>
+
+    <div class="donebox card hidden" id="donebox">
+      <div class="big">✅</div>
+      <h2 id="donetitle">Approved</h2>
+      <p class="sub" id="donesub"></p>
+    </div>
+
+  </div>
+</div>
+
+<div class="bar hidden" id="bar">
+  <div class="bar-inner">
+    <span class="status" id="status"></span>
+    <button class="logout" id="logout" type="button">sign out</button>
+    <button class="btn" id="asis" type="button">Approve as-is</button>
+    <button class="btn primary" id="approve" type="button">Approve with my edits →</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+  // ── configuration ────────────────────────────────────────────────────────
+  var OWNER = 'rallynews';
+  var REPO = 'rally-video-pipeline';
+  var BRANCH = 'main';
+  var API = 'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/';
+  var TOKEN_KEY = 'rally-review-token';
+
+  var MOTIONS = ['push-in','pull-out','pan-left','pan-right','pan-up','pan-down'];
+  var TRANSITIONS = ['cut','whip-left','whip-right','dissolve','flash','zoom-punch'];
+  var RAW_FIELDS = ['headline','challenge','solution','resultHeading','resultLine',
+                    'whyMatters','engagementQuestion','captionLead','storyHashtag','originalSource'];
+
+  var draft = null;
+  var date = new URLSearchParams(location.search).get('d') ||
+             new Date().toISOString().slice(0, 10);
+
+  document.getElementById('repolabel').textContent = OWNER + '/' + REPO;
+  document.getElementById('datesub').textContent = 'Draft for ' + date;
+
+  function $(id) { return document.getElementById(id); }
+
+  // localStorage can throw (private browsing, storage disabled) — degrade to a
+  // session-only token in memory rather than a dead page.
+  var memToken = '';
+  function storeToken(t) {
+    memToken = t;
+    try { localStorage.setItem(TOKEN_KEY, t); } catch (e) { /* memory only */ }
+  }
+  function clearToken() {
+    memToken = '';
+    try { localStorage.removeItem(TOKEN_KEY); } catch (e) { /* ignore */ }
+  }
+  function token() {
+    if (memToken) return memToken;
+    try { return localStorage.getItem(TOKEN_KEY) || ''; } catch (e) { return ''; }
+  }
+
+  function gh(path, opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({
+      'Authorization': 'Bearer ' + token(),
+      'Accept': opts.raw ? 'application/vnd.github.raw+json' : 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28'
+    }, opts.headers || {});
+    return fetch(API + path, opts);
+  }
+
+  // UTF-8-safe base64.
+  function b64encode(str) {
+    return btoa(String.fromCharCode.apply(null, new TextEncoder().encode(str)));
+  }
+
+  // ── load ─────────────────────────────────────────────────────────────────
+  function loadDraft() {
+    $('gatestatus').textContent = 'Fetching draft…';
+    gh('review/pending/' + date + '.json?ref=' + BRANCH, { raw: true })
+      .then(function (res) {
+        if (res.status === 401 || res.status === 403) throw new Error('Token rejected — check its scope (Contents: read & write on ' + OWNER + '/' + REPO + ').');
+        if (res.status === 404) throw new Error('No draft found for ' + date + '. Has this morning’s run happened?');
+        if (!res.ok) throw new Error('GitHub API error ' + res.status);
+        return res.json();
+      })
+      .then(function (d) {
+        draft = d;
+        storeToken($('token').value.trim() || token());
+        render();
+      })
+      .catch(function (err) {
+        $('gatestatus').textContent = err.message;
+        $('gatestatus').className = 'status err';
+      });
+  }
+
+  // ── render ───────────────────────────────────────────────────────────────
+  function render() {
+    $('gate').classList.add('hidden');
+    $('app').classList.remove('hidden');
+    $('bar').classList.remove('hidden');
+    $('title').textContent = draft.story.headline;
+    $('datesub').textContent = 'Draft for ' + draft.date + ' · created ' + new Date(draft.createdAt).toLocaleString();
+
+    $('s-headline').textContent = draft.story.headline;
+    $('s-publisher').textContent = draft.story.publisher || '—';
+    var a = $('s-url'); a.textContent = draft.story.url; a.href = draft.story.url;
+    $('s-pillar').textContent = draft.pillar;
+    $('s-sources').textContent = (draft.sources && draft.sources.length) ? draft.sources.join('  ·  ') : '(none returned)';
+    $('s-brief').textContent = draft.researchBrief || '(the model returned no research brief)';
+
+    var v = draft.verification || {};
+    if (v.ran && v.report && v.report.length) {
+      var fixed = v.report.filter(function (r) { return r.verdict === 'corrected'; }).length;
+      $('s-check').innerHTML = '✅ Fact-checked — ' + v.report.length + ' field(s) cross-referenced' +
+        (fixed ? ', <span class="fixed">' + fixed + ' rewritten</span>' : ', none needed rewriting') + '.';
+    } else {
+      $('s-check').textContent = '⚠️ The fact-check pass did not run — review the numbers yourself.';
+    }
+
+    if (draft.cover && draft.cover.url) { $('coverimg').src = draft.cover.url; }
+    else { $('coverbox').classList.add('hidden'); }
+
+    RAW_FIELDS.forEach(function (f) { $('f-' + f).value = draft.raw[f] || ''; });
+    $('f-style').value = draft.style || '1a';
+
+    renderReel();
+  }
+
+  function option(sel, values, chosen) {
+    values.forEach(function (val) {
+      var o = document.createElement('option');
+      o.value = val; o.textContent = val;
+      if (val === chosen) o.selected = true;
+      sel.appendChild(o);
+    });
+  }
+
+  function renderReel() {
+    if (!draft.reel) { $('reelcard').classList.add('hidden'); return; }
+    var kws = draft.reel.stockedKeywords || [];
+    var dl = $('kwlist');
+    kws.forEach(function (k) {
+      var o = document.createElement('option'); o.value = k; dl.appendChild(o);
+    });
+
+    var host = $('rlines');
+    draft.reel.lines.forEach(function (line, i) {
+      var box = document.createElement('div');
+      box.className = 'rline';
+      box.innerHTML = '<div class="rline-head"><span class="rline-n">Line ' + (i + 1) +
+        '</span><span class="rline-hint">spoken as written · blank to drop</span></div>';
+
+      var t = document.createElement('textarea');
+      t.rows = 2; t.value = line.text; t.dataset.line = i; t.dataset.role = 'text';
+      box.appendChild(t);
+
+      var capLabel = document.createElement('label'); capLabel.className = 'f';
+      capLabel.innerHTML = '<span>On-screen headline (blank = none)</span>';
+      var cap = document.createElement('input');
+      cap.type = 'text'; cap.maxLength = 42; cap.value = line.caption || '';
+      cap.dataset.line = i; cap.dataset.role = 'caption';
+      capLabel.appendChild(cap);
+      box.appendChild(capLabel);
+
+      var shotsWrap = document.createElement('div');
+      shotsWrap.className = 'shots';
+      draft.reel.shots.forEach(function (shot, si) {
+        if (shot.line !== i) return;
+        var card = document.createElement('div');
+        card.className = 'shot';
+        card.innerHTML = shot.thumb
+          ? '<img loading="lazy" src="' + shot.thumb + '" alt="">'
+          : '<div class="noimg">no preview</div>';
+        if (shot.cover) {
+          card.insertAdjacentHTML('beforeend', '<span class="coverbadge">Article photo — always first</span>');
+        } else {
+          card.insertAdjacentHTML('beforeend', '<span class="slabel">Keywords</span>');
+          var kw = document.createElement('input');
+          kw.type = 'text'; kw.value = (shot.keywords || []).join(', ');
+          kw.setAttribute('list', 'kwlist');
+          kw.dataset.shot = si; kw.dataset.role = 'keywords';
+          card.appendChild(kw);
+        }
+        card.insertAdjacentHTML('beforeend', '<span class="slabel">Motion</span>');
+        var mo = document.createElement('select');
+        mo.dataset.shot = si; mo.dataset.role = 'motion';
+        option(mo, MOTIONS, shot.motion);
+        card.appendChild(mo);
+        card.insertAdjacentHTML('beforeend', '<span class="slabel">Transition in</span>');
+        var tr = document.createElement('select');
+        tr.dataset.shot = si; tr.dataset.role = 'transition';
+        option(tr, TRANSITIONS, shot.transition);
+        card.appendChild(tr);
+        shotsWrap.appendChild(card);
+      });
+      box.appendChild(shotsWrap);
+      host.appendChild(box);
+    });
+  }
+
+  // ── collect + submit ─────────────────────────────────────────────────────
+  function collect(edited) {
+    var out = JSON.parse(JSON.stringify(draft));
+    if (edited) {
+      RAW_FIELDS.forEach(function (f) { out.raw[f] = $('f-' + f).value.trim(); });
+      out.style = $('f-style').value;
+      if (out.reel) {
+        document.querySelectorAll('[data-role=text]').forEach(function (el) {
+          out.reel.lines[+el.dataset.line].text = el.value.trim();
+        });
+        document.querySelectorAll('[data-role=caption]').forEach(function (el) {
+          out.reel.lines[+el.dataset.line].caption = el.value.trim();
+        });
+        document.querySelectorAll('[data-role=keywords]').forEach(function (el) {
+          out.reel.shots[+el.dataset.shot].keywords = el.value.split(/[,\s]+/).filter(Boolean);
+        });
+        document.querySelectorAll('[data-role=motion]').forEach(function (el) {
+          out.reel.shots[+el.dataset.shot].motion = el.value;
+        });
+        document.querySelectorAll('[data-role=transition]').forEach(function (el) {
+          out.reel.shots[+el.dataset.shot].transition = el.value;
+        });
+      }
+    }
+    out.approvedAt = new Date().toISOString();
+    out.approvedWithEdits = !!edited;
+    return out;
+  }
+
+  function setStatus(msg, cls) {
+    var s = $('status'); s.textContent = msg; s.className = 'status ' + (cls || '');
+  }
+
+  function approve(edited) {
+    var approvedPath = 'review/approved/' + draft.date + '.json';
+    var body = JSON.stringify(collect(edited), null, 2) + '\n';
+    $('approve').disabled = true; $('asis').disabled = true;
+    setStatus('Committing approval…');
+
+    // If a previous approval exists we need its sha to overwrite it.
+    gh(approvedPath + '?ref=' + BRANCH)
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (existing) {
+        return gh(approvedPath, {
+          method: 'PUT',
+          body: JSON.stringify({
+            message: 'Approve ' + draft.date + (edited ? ' (with edits)' : ' (as-is)') + ' via review app',
+            content: b64encode(body),
+            branch: BRANCH,
+            sha: existing && existing.sha ? existing.sha : undefined
+          })
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (e) { throw new Error(e.message || ('GitHub error ' + res.status)); });
+        return res.json();
+      })
+      .then(function () {
+        setStatus('', 'ok');
+        $('app').querySelectorAll('section.card').forEach(function (s) { s.classList.add('hidden'); });
+        $('donebox').classList.remove('hidden');
+        $('donetitle').textContent = edited ? 'Approved with your edits' : 'Approved as-is';
+        $('donesub').innerHTML = 'The produce workflow is starting now — the finished carousel and reel arrive in Telegram and Slack in a few minutes. ' +
+          '<a target="_blank" rel="noopener" href="https://github.com/' + OWNER + '/' + REPO + '/actions">Watch the run</a>.';
+        $('bar').classList.add('hidden');
+        window.scrollTo({ top: 0 });
+      })
+      .catch(function (err) {
+        setStatus(err.message, 'err');
+        $('approve').disabled = false; $('asis').disabled = false;
+      });
+  }
+
+  // ── wiring ───────────────────────────────────────────────────────────────
+  $('signin').addEventListener('click', function () {
+    var t = $('token').value.trim();
+    if (t) storeToken(t);
+    if (!token()) { $('gatestatus').textContent = 'Paste a token first.'; $('gatestatus').className = 'status err'; return; }
+    loadDraft();
+  });
+  $('token').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('signin').click(); });
+  $('approve').addEventListener('click', function () { approve(true); });
+  $('asis').addEventListener('click', function () { approve(false); });
+  $('logout').addEventListener('click', function () {
+    clearToken(); location.reload();
+  });
+
+  if (token()) loadDraft();
+})();
+</script>
+</body>
+</html>

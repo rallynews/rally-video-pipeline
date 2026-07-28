@@ -3,7 +3,7 @@ const os = require('os');
 const path = require('path');
 
 const { writeReelScript } = require('./script-writer');
-const { planShots } = require('./shot-planner');
+const { planShots, resolveDraftShots } = require('./shot-planner');
 const { narrateLines, isConfigured: voiceConfigured, describeProvider } = require('./voice');
 const { renderOverlays, renderFollowCard } = require('./caption-renderer');
 const { buildTimeline } = require('./timeline');
@@ -75,7 +75,42 @@ function isConfigured() {
   return missingPrerequisite() === null;
 }
 
-async function generateReel(story, slideCopy, raw, coverUri) {
+// Plan today's reel without building it: the script, the cuts, and the images
+// they resolve to right now. This is what goes into the morning review draft.
+async function planReel(story, slideCopy, raw) {
+  const blocked = missingPrerequisite();
+  if (blocked) throw new Error(blocked);
+
+  const lib = await catalogue.loadCatalogue();
+  if (!lib.images.length && !lib.generic.length) {
+    throw new Error(
+      `no images under ${catalogue.IMAGE_PREFIX()} or ${catalogue.GENERIC_PREFIX()} ` +
+      `in ${catalogue.VIDEO_BUCKET()} — upload b-roll before enabling reels`
+    );
+  }
+
+  const { script, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw);
+  const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
+  const shots = await planShots(story, slideCopy, script, lines, lib, storyKeywords);
+
+  return {
+    script,
+    mood,
+    wordCount,
+    lines,
+    shots: shots.map(s => ({
+      line: s.line, keywords: s.keywords, key: s.key,
+      motion: s.motion, transition: s.transition,
+    })),
+    stockedKeywords: [...lib.stocked].sort(),
+  };
+}
+
+// `approved` (optional) is a reviewed draft: { lines, shots, mood } with the
+// editor's changes. When present, the script/plan steps are skipped and the
+// reel is built from exactly what was approved — keywords re-resolved against
+// today's library, empty lines dropped along with their shots.
+async function generateReel(story, slideCopy, raw, coverUri, approved) {
   const blocked = missingPrerequisite();
   if (blocked) throw new Error(blocked);
   if (!(await ff.isAvailable())) {
@@ -98,15 +133,41 @@ async function generateReel(story, slideCopy, raw, coverUri) {
       );
     }
 
-    // 1 · script
-    console.log('  [reel] writing the 20–30s script...');
-    const { script, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw);
-    console.log(`  [reel] ${wordCount} words across ${lines.length} lines (mood: ${mood})`);
-
-    // 2 · cuts
-    console.log('  [reel] planning the cuts...');
     const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
-    const plannedShots = await planShots(story, slideCopy, script, lines, lib, storyKeywords);
+    let script, lines, mood, wordCount, plannedShots;
+
+    if (approved && Array.isArray(approved.lines)) {
+      // The editor's cut. Blanked lines are dropped and shot indexes remapped
+      // so the remaining shots stay glued to the lines they were planned for.
+      const keptIndex = new Map();
+      lines = [];
+      approved.lines.forEach((l, i) => {
+        const text = String((l && l.text) || '').replace(/\s+/g, ' ').trim();
+        if (!text) return;
+        keptIndex.set(i, lines.length);
+        lines.push({ text, caption: String((l && l.caption) || '').trim().slice(0, 42) });
+      });
+      if (!lines.length) throw new Error('Approved reel has no script lines left');
+
+      const remapped = (approved.shots || [])
+        .filter(s => keptIndex.has(Number(s && s.line)))
+        .map(s => ({ ...s, line: keptIndex.get(Number(s.line)) }));
+
+      script = lines.map(l => l.text).join(' ');
+      mood = String(approved.mood || 'uplifting');
+      wordCount = script.split(/\s+/).length;
+      plannedShots = resolveDraftShots(remapped, lines.length, lib, storyKeywords);
+      console.log(`  [reel] building from the approved draft — ${lines.length} lines, ${plannedShots.length} shots`);
+    } else {
+      // 1 · script
+      console.log('  [reel] writing the 20–30s script...');
+      ({ script, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw));
+      console.log(`  [reel] ${wordCount} words across ${lines.length} lines (mood: ${mood})`);
+
+      // 2 · cuts
+      console.log('  [reel] planning the cuts...');
+      plannedShots = await planShots(story, slideCopy, script, lines, lib, storyKeywords);
+    }
 
     // The reel opens on the article's own photo, so the first shot is swapped
     // for it. Counts and pacing are untouched — only what shot 1 shows.
@@ -264,4 +325,4 @@ async function generateReel(story, slideCopy, raw, coverUri) {
   }
 }
 
-module.exports = { generateReel, isConfigured, missingPrerequisite, describeProvider };
+module.exports = { generateReel, planReel, isConfigured, missingPrerequisite, describeProvider };

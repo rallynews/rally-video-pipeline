@@ -1,22 +1,22 @@
-name: Rally News Carousel Pipeline
+name: Rally News Carousel Produce (after review)
 
-# Fully independent of the video pipeline — enable or disable this one on its
-# own. Triggered manually via the Actions UI, or externally through the
-# workflow_dispatch API (e.g. an external cron-job). GitHub does NOT run this
-# on a schedule of its own.
+# Runs when the review app commits an approval to review/approved/. Builds and
+# delivers the carousel + reel from exactly what was approved. Can also be
+# dispatched manually with a specific approved file (e.g. to re-run a day).
 on:
+  push:
+    branches: [main]
+    paths:
+      - 'review/approved/*.json'
   workflow_dispatch:
     inputs:
-      mode:
-        description: >
-          draft = write the morning outline for human review (default when
-          REVIEW_MODE isn't off) · full = produce everything with no review
-        type: choice
-        options: [default, draft, full]
-        default: default
+      file:
+        description: 'Approved draft to produce, e.g. review/approved/2026-07-28.json'
+        required: true
+        type: string
 
 jobs:
-  generate-and-deliver:
+  produce-and-deliver:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     permissions:
@@ -27,14 +27,29 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          # HEAD^ is needed to find which approval this push added.
+          fetch-depth: 2
+
+      - name: Resolve approved file
+        id: file
+        run: |
+          if [ -n "${{ inputs.file }}" ]; then
+            FILE="${{ inputs.file }}"
+          else
+            FILE=$(git diff --name-only HEAD^ HEAD -- 'review/approved/*.json' | tail -1)
+          fi
+          if [ -z "$FILE" ] || [ ! -f "$FILE" ]; then
+            echo "No approved draft found in this push." >&2
+            exit 1
+          fi
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+          echo "Producing from $FILE"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '22'
 
-      # The reel is cut with ffmpeg. Installed explicitly rather than relying on
-      # whatever the runner image happens to ship.
       - name: Install ffmpeg
         run: |
           if ! command -v ffmpeg >/dev/null; then
@@ -46,7 +61,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run carousel pipeline
+      - name: Produce and deliver
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -61,8 +76,6 @@ jobs:
           R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
-          # 9:16 Reels/Shorts cut. The voice runs on OPENROUTER_API_KEY above,
-          # so nothing extra is needed; these only override the defaults.
           R2_VIDEO_BUCKET: ${{ vars.R2_VIDEO_BUCKET }}
           R2_VIDEO_PUBLIC_URL: ${{ vars.R2_VIDEO_PUBLIC_URL }}
           R2_REELS_IMAGE_PREFIX: ${{ vars.R2_REELS_IMAGE_PREFIX }}
@@ -72,27 +85,18 @@ jobs:
           REELS_VOICE: ${{ vars.REELS_VOICE }}
           REELS_TTS_MODEL: ${{ vars.REELS_TTS_MODEL }}
           REELS_VOICE_PROVIDER: ${{ vars.REELS_VOICE_PROVIDER }}
-          # Optional alternative voice providers, used only if set.
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Review gate. REVIEW_MODE=off (repo variable) skips review entirely
-          # — the vacation switch. A manual dispatch can override either way.
-          REVIEW_MODE: ${{ vars.REVIEW_MODE }}
-        run: |
-          case "${{ inputs.mode }}" in
-            draft) node carousel.js draft ;;
-            full)  node carousel.js full ;;
-            *)     node carousel.js ;;
-          esac
+        run: node carousel.js produce "${{ steps.file.outputs.file }}"
 
-      - name: Commit and push pipeline output (RSS feed / review draft)
+      - name: Commit and push updated RSS feed
         run: |
           git config user.name "Rally News Bot"
           git config user.email "pipeline@rallynews.com"
-          git add feed.rss review/pending
-          git diff --cached --quiet || git commit -m "chore: pipeline output (carousel) [skip ci]"
+          git add feed.rss
+          git diff --cached --quiet || git commit -m "chore: update RSS feed (carousel) [skip ci]"
           git pull --rebase origin main
           git push origin main

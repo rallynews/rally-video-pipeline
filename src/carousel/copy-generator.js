@@ -199,9 +199,10 @@ Write these fields:
 9. storyHashtag — ONE popular, real, story-specific hashtag word (no spaces, no # symbol), e.g. ClimateAction, CancerResearch, CleanEnergy.
 10. sources — an array of 1–3 URLs you actually used to corroborate the story.
 11. originalSource — the NAME of the original news outlet that first published this story and its photo (e.g. "Smithsonian Magazine", "BBC", "The Guardian", "Le Monde"). This credits the cover photo, so use the outlet's clean display name — not a URL, and never "Rally News" (that's only the aggregator).
+12. researchBrief — 3–6 sentences, written for the human editor who reviews this before production: what your research found, which claims are corroborated and by whom, the key numbers and where they come from, and anything you could NOT verify or chose to soften. Plain prose, no marketing voice.
 
 Return VALID JSON only, no markdown, with exactly these keys:
-{"pillar","headline","challenge","solution","resultHeading","resultLine","whyMatters","engagementQuestion","captionLead","storyHashtag","sources","originalSource"}`,
+{"pillar","headline","challenge","solution","resultHeading","resultLine","whyMatters","engagementQuestion","captionLead","storyHashtag","sources","originalSource","researchBrief"}`,
       },
       {
         role: 'user',

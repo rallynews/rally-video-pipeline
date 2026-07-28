@@ -13,6 +13,12 @@ generates a talking-head video → delivers it to Telegram. Workflow:
 
 ## 2. Carousel pipeline (`carousel.js`) — slides **and** the 9:16 reel
 
+**By default the daily run does not post anything.** It researches, writes,
+fact-checks and plans everything, then stops and sends you a link to review it
+— see **Human review** below. Production happens when you approve. Set the
+repository variable `REVIEW_MODE=off` to skip the review and run straight
+through (the vacation switch).
+
 Picks the **same-logic** story → **researches and corroborates it on the web**
 → writes a 5-part carousel with Mistral → **fact-checks that copy in a second
 pass** (cross-references every claim against the article and other sources,
@@ -58,6 +64,44 @@ one popular story-specific hashtag. Any "read more at the link in bio" call to
 action the writer put in the slide copy is stripped out of the Facebook
 caption, so it never points somewhere the link isn't. Slack delivery is skipped
 gracefully if its secrets aren't set.
+
+### Human review — the morning draft
+
+The daily run has three modes (`node carousel.js [draft|full|produce <file>]`):
+
+| Mode | When | What happens |
+| --- | --- | --- |
+| `draft` | default | Research → copy → fact-check → cover photo → reel script + shot plan, then **stop**. The outline is committed to `review/pending/<date>.json` and a review link goes to Telegram and Slack. Nothing is rendered, voiced, or posted. |
+| `produce` | on approval | Builds and delivers everything from the approved file — your edits included. Triggered automatically by the approval commit. |
+| `full` | `REVIEW_MODE=off`, or manual dispatch with mode `full` | The original unreviewed pipeline, end to end. |
+
+**The review app** (`review/index.html`) is a single static page committed to
+this repo; every draft run copies it to the videos bucket, so it's served at
+`<R2_VIDEO_PUBLIC_URL>/review/index.html` with zero extra hosting. The morning
+message links to `…/review/index.html?d=<date>`. It shows the article, the
+model's **research brief**, the fact-check verdicts, the cover photo, every
+carousel field, the style pick, and the reel script line by line with the
+planned shots as 9:16 thumbnails. Everything is editable — copy, style,
+on-screen headlines, shot keywords (restricted to the image library), motions,
+transitions. Blanking a line's text drops that line and its shots.
+
+**Sign-in**: the page asks once for a GitHub **fine-grained personal access
+token** and keeps it in your browser. Create it at GitHub → Settings →
+Developer settings → Fine-grained tokens: resource = this repository only,
+permission = **Contents: Read and write**, expiry of your choosing. The token
+is the password *and* the pen: the app reads the draft with it and, on
+approve, commits `review/approved/<date>.json` with it. That commit is what
+triggers the produce workflow (`.github/workflows/carousel-produce.yml`) — no
+server, no webhook, and the approval itself is version-controlled with your
+edits in the diff.
+
+**Approve as-is** is one click when the draft needs nothing. **Vacation
+bypass**: set the repository variable `REVIEW_MODE` to `off` (Settings →
+Secrets and variables → Actions → Variables) and the daily run produces and
+posts directly, exactly as before the review stage existed; delete the
+variable (or set anything else) to get review back. A manual run can also
+force either mode via the workflow_dispatch `mode` input. To re-produce a past
+day, dispatch the produce workflow with its `review/approved/<date>.json`.
 
 ### 2b. The 9:16 reel (part of the same run)
 
