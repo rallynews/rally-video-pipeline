@@ -28,10 +28,16 @@ const SRC_H = H * 2;
 const OUTRO_DISSOLVE = 0.45;
 const CAPTION_FADE = 0.18;
 
-// Music sits well under the voice, then comes up for the closing card where
-// there is nothing to duck for.
-const MUSIC_UNDER_VOICE = 0.11;
-const MUSIC_UNDER_OUTRO = 0.3;
+// The mix contract: while the narrator speaks, the music sits at ~60% of her
+// perceived loudness — i.e. 40% quieter. Raw gain can't promise that (every CC
+// track and every TTS voice arrives at a different level), so both buses are
+// loudness-normalised to the same LUFS first and the music is then offset by
+// a fixed dB amount. −7.5 dB ≈ 60% perceived loudness on the ~10dB-per-
+// doubling rule. Over the Follow Us card, with no voice to defer to, it rises
+// to −3 dB.
+const VOICE_LUFS = -15;
+const MUSIC_UNDER_VOICE = 0.42;  // −7.5 dB after normalisation → ~40% quieter
+const MUSIC_UNDER_OUTRO = 0.7;   // −3 dB over the outro
 const MUSIC_RAMP = 0.8;
 
 const XFADE = {
@@ -335,6 +341,12 @@ async function appendOutro(workDir, mainPath, mainDuration, outro) {
 
 // ── 7 · audio ──────────────────────────────────────────────────────────────
 
+// Both buses are brought to VOICE_LUFS with loudnorm before the offsets above
+// are applied, so "40% quieter" holds regardless of how hot the TTS output or
+// the chosen CC track happens to be. loudnorm resamples internally, hence the
+// aresample straight after it.
+const NORM = `loudnorm=I=${VOICE_LUFS}:TP=-1.5:LRA=11,aresample=48000`;
+
 async function buildAudio(workDir, narrationPath, musicPath, totalDuration, voiceEndsAt) {
   const out = path.join(workDir, 'audio.wav');
   const total = round(totalDuration);
@@ -342,7 +354,7 @@ async function buildAudio(workDir, narrationPath, musicPath, totalDuration, voic
   if (!musicPath) {
     await ffmpeg([
       '-y', '-i', narrationPath,
-      '-af', `apad=whole_dur=${total},atrim=0:${total},alimiter=limit=0.95`,
+      '-af', `${NORM},apad=whole_dur=${total},atrim=0:${total},alimiter=limit=0.95`,
       '-ar', '48000', '-ac', '2', '-c:a', 'pcm_s16le',
       out,
     ]);
@@ -365,8 +377,12 @@ async function buildAudio(workDir, narrationPath, musicPath, totalDuration, voic
     '-i', narrationPath,
     '-stream_loop', '-1', '-i', musicPath,
     '-filter_complex',
-    `[0:a]aformat=sample_rates=48000:channel_layouts=stereo,apad=whole_dur=${total},atrim=0:${total},asetpts=N/SR/TB[nar];` +
-    `[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:${total},asetpts=N/SR/TB,` +
+    `[0:a]aformat=sample_rates=48000:channel_layouts=stereo,${NORM},` +
+    `apad=whole_dur=${total},atrim=0:${total},asetpts=N/SR/TB[nar];` +
+    // The music is trimmed to length BEFORE loudnorm so the normalisation
+    // measures the stretch that actually plays, not the whole looped stream.
+    `[1:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:${total},asetpts=N/SR/TB,${NORM},` +
+    `atrim=0:${total},asetpts=N/SR/TB,` +
     `volume='${volume}':eval=frame,` +
     `afade=t=in:st=0:d=1.2,afade=t=out:st=${fadeOutStart}:d=1.4[mus];` +
     `[nar][mus]amix=inputs=2:duration=first:dropout_transition=0:normalize=0,alimiter=limit=0.95[aout]`,
