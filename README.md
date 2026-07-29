@@ -81,9 +81,16 @@ this repo; every draft run copies it to the videos bucket, so it's served at
 message links to `…/review/index.html?d=<date>`. It shows the article, the
 model's **research brief**, the fact-check verdicts, the cover photo, every
 carousel field, the style pick, and the reel script line by line with the
-planned shots as 9:16 thumbnails. Everything is editable — copy, style,
-on-screen headlines, shot keywords (restricted to the image library), motions,
-transitions. Blanking a line's text drops that line and its shots.
+planned shots as 9:16 thumbnails. Everything is editable — copy, style, the
+reel's spoken lines (each line's text is also its on-screen caption), motions
+and transitions, and each shot's **image via a searchable picker** that only
+offers keywords with a real file behind them, thumbnail included — so an edit
+can never point at a missing image. Blanking a line's text drops that line and
+its shots. A **🎲 Re-roll story** button throws today's story back entirely:
+it records the rejection in `review/reroll/<date>.json`, which re-runs the
+draft with that story excluded — new story, new research, new copy, fresh
+review link in a few minutes. Re-rolls stack, so you can throw back several in
+a row and never see the same one twice in a day.
 
 **Sign-in**: the page asks once for a GitHub **fine-grained personal access
 token** and keeps it in your browser. Create it at GitHub → Settings →
@@ -117,9 +124,12 @@ The five steps, once the carousel copy has been written and fact-checked:
 1. **Script** (`src/reels/script-writer.js`) — Mistral rewrites the *same*
    fact-checked story arc as a 55–78 word spoken script (≈20–30s), casual and
    colloquial, closing on the same engagement question. It comes back split
-   into 7–11 lines, each with the short on-screen headline that goes with it.
-   The model is told to use **only** facts already in the carousel copy, so the
-   reel inherits the fact-check instead of inventing around it.
+   into 7–11 lines. **Each line's spoken text is also its on-screen caption**,
+   shown in Lora while the line plays — the words on screen are always exactly
+   the words being said. The opening line gets no caption: it plays over the
+   article's own photo, which carries the credit. The model is told to use
+   **only** facts already in the carousel copy, so the reel inherits the
+   fact-check instead of inventing around it.
 2. **Cuts** (`src/reels/shot-planner.js`) — Mistral reads the script back and
    decides where the picture cuts, aiming for **15–25 shots** across the video.
    It picks keywords from a fixed **keyword bank** (`src/reels/keywords.js`),

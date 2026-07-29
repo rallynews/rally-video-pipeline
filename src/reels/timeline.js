@@ -157,11 +157,13 @@ function buildTimeline(lines, shots, durations, catalogue) {
     );
   });
 
-  // 5. Captions ride their line, leading it very slightly so the words are
-  //    already up as the line starts.
+  // 5. Captions ARE the narration: each line's spoken text is shown while it
+  //    plays, leading it very slightly so the words are already up as the
+  //    line starts. The first line gets none — it plays over the article's
+  //    own photo, which carries the credit and deserves to breathe.
   const captions = lines
     .map((line, i) => ({
-      text: line.caption,
+      text: i === 0 ? '' : line.text,
       start: Math.max(0, lineTimings[i].start - 0.1),
       end: Math.min(videoDuration, lineTimings[i].end + 0.15),
     }))

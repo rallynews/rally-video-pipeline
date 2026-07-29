@@ -90,6 +90,28 @@
   .shot input, .shot select { font-size:13px; padding:7px 9px; margin-top:8px; }
   .shot .slabel { font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--faint); margin-top:8px; display:block; }
 
+  /* searchable image picker */
+  .picker { position:relative; }
+  .picker input { width:100%; }
+  .picker-list {
+    position:absolute; left:0; right:0; top:100%; z-index:40; margin-top:4px;
+    max-height:230px; overflow-y:auto; background:var(--surface);
+    border:1px solid var(--line); border-radius:9px; box-shadow:var(--shadow);
+  }
+  .picker-list.hidden { display:none; }
+  .picker-opt {
+    display:flex; align-items:center; gap:9px; width:100%;
+    padding:6px 9px; border:none; background:none; cursor:pointer;
+    font:inherit; font-size:13px; color:var(--ink); text-align:left;
+  }
+  .picker-opt img { width:26px; height:46px; object-fit:cover; border-radius:4px; background:var(--surface-2); flex:none; }
+  .picker-opt:hover, .picker-opt.active { background:var(--accent-soft); }
+  .picker-empty { padding:9px; font-size:12.5px; color:var(--faint); }
+
+  .btn.danger { color:var(--danger); }
+  .rerollbox { display:flex; gap:12px; align-items:center; flex-wrap:wrap; margin-top:18px; padding-top:16px; border-top:1px solid var(--line); }
+  .rerollbox .note { font-size:13px; color:var(--muted); flex:1; min-width:200px; }
+
   /* action bar */
   .bar {
     position:fixed; left:0; right:0; bottom:0; z-index:30;
@@ -163,6 +185,10 @@
         <img id="coverimg" alt="Article cover photo">
         <p class="sub" style="max-width:46ch">The article's own photo. It opens the carousel and the reel, credited to the original outlet.</p>
       </div>
+      <div class="rerollbox">
+        <span class="note">Story misses the mark? Re-rolling excludes it and re-runs the whole draft — new story, new research, new copy — in a few minutes.</span>
+        <button class="btn danger" id="reroll" type="button">🎲 Re-roll story</button>
+      </div>
     </section>
 
     <section class="card">
@@ -196,11 +222,11 @@
 
     <section class="card" id="reelcard">
       <h2>Reel — script &amp; shots</h2>
-      <p class="sub">Each line is spoken as written. The photos beneath a line are the cuts that
-         play while it's said — change a keyword to change the photo (options limited to the
-         image library). Blank a line's text to drop it and its shots.</p>
+      <p class="sub">Each line is spoken as written and its text appears on screen as the caption
+         while it plays (the opening article-photo shot stays caption-free). The photos beneath a
+         line are the cuts that play while it's said — pick a different image from the library
+         to change one. Blank a line's text to drop it and its shots.</p>
       <div id="rlines"></div>
-      <datalist id="kwlist"></datalist>
     </section>
 
     <div class="donebox card hidden" id="donebox">
@@ -339,32 +365,88 @@
     });
   }
 
+  // A searchable single-select over the image library. Only real keywords are
+  // choosable, so an edit can never name an image that doesn't exist. Picking
+  // one swaps the thumbnail so you see exactly the image that will play.
+  function buildPicker(shot, si, thumbEl) {
+    var library = draft.reel.library || {};
+    var keywords = Object.keys(library).sort();
+    var current = (shot.keywords || [])[0] || '';
+
+    var wrap = document.createElement('div');
+    wrap.className = 'picker';
+    var input = document.createElement('input');
+    input.type = 'text';
+    input.value = current;
+    input.setAttribute('autocomplete', 'off');
+    input.setAttribute('spellcheck', 'false');
+    input.dataset.shot = si; input.dataset.role = 'image';
+    input.dataset.value = current;
+    var list = document.createElement('div');
+    list.className = 'picker-list hidden';
+    wrap.appendChild(input); wrap.appendChild(list);
+
+    function choose(kw) {
+      input.value = kw;
+      input.dataset.value = kw;
+      list.classList.add('hidden');
+      if (thumbEl && library[kw]) thumbEl.src = library[kw];
+    }
+
+    function refresh() {
+      var q = input.value.trim().toLowerCase();
+      var hits = keywords.filter(function (k) { return !q || k.indexOf(q) !== -1; }).slice(0, 40);
+      list.innerHTML = '';
+      if (!hits.length) {
+        list.innerHTML = '<div class="picker-empty">No image matches — the library only has the keywords listed.</div>';
+      }
+      hits.forEach(function (k) {
+        var opt = document.createElement('button');
+        opt.type = 'button';
+        opt.className = 'picker-opt' + (k === input.dataset.value ? ' active' : '');
+        opt.innerHTML = '<img loading="lazy" src="' + library[k] + '" alt="">' + k;
+        opt.addEventListener('mousedown', function (e) { e.preventDefault(); choose(k); });
+        list.appendChild(opt);
+      });
+      list.classList.remove('hidden');
+    }
+
+    input.addEventListener('focus', refresh);
+    input.addEventListener('input', refresh);
+    input.addEventListener('blur', function () {
+      setTimeout(function () {
+        list.classList.add('hidden');
+        // Free-typed text only sticks if it names a real image.
+        input.value = input.dataset.value;
+      }, 120);
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        var q = input.value.trim().toLowerCase();
+        var hit = keywords.find(function (k) { return k === q; }) ||
+                  keywords.find(function (k) { return q && k.indexOf(q) !== -1; });
+        if (hit) choose(hit);
+      }
+      if (e.key === 'Escape') { list.classList.add('hidden'); input.value = input.dataset.value; }
+    });
+
+    return wrap;
+  }
+
   function renderReel() {
     if (!draft.reel) { $('reelcard').classList.add('hidden'); return; }
-    var kws = draft.reel.stockedKeywords || [];
-    var dl = $('kwlist');
-    kws.forEach(function (k) {
-      var o = document.createElement('option'); o.value = k; dl.appendChild(o);
-    });
 
     var host = $('rlines');
     draft.reel.lines.forEach(function (line, i) {
       var box = document.createElement('div');
       box.className = 'rline';
       box.innerHTML = '<div class="rline-head"><span class="rline-n">Line ' + (i + 1) +
-        '</span><span class="rline-hint">spoken as written · blank to drop</span></div>';
+        '</span><span class="rline-hint">spoken AND shown on screen' + (i === 0 ? ' (no caption over the opening photo)' : '') + ' · blank to drop</span></div>';
 
       var t = document.createElement('textarea');
       t.rows = 2; t.value = line.text; t.dataset.line = i; t.dataset.role = 'text';
       box.appendChild(t);
-
-      var capLabel = document.createElement('label'); capLabel.className = 'f';
-      capLabel.innerHTML = '<span>On-screen headline (blank = none)</span>';
-      var cap = document.createElement('input');
-      cap.type = 'text'; cap.maxLength = 42; cap.value = line.caption || '';
-      cap.dataset.line = i; cap.dataset.role = 'caption';
-      capLabel.appendChild(cap);
-      box.appendChild(capLabel);
 
       var shotsWrap = document.createElement('div');
       shotsWrap.className = 'shots';
@@ -372,18 +454,19 @@
         if (shot.line !== i) return;
         var card = document.createElement('div');
         card.className = 'shot';
-        card.innerHTML = shot.thumb
-          ? '<img loading="lazy" src="' + shot.thumb + '" alt="">'
-          : '<div class="noimg">no preview</div>';
+        var thumbEl = null;
+        if (shot.thumb) {
+          thumbEl = document.createElement('img');
+          thumbEl.loading = 'lazy'; thumbEl.src = shot.thumb; thumbEl.alt = '';
+          card.appendChild(thumbEl);
+        } else {
+          card.insertAdjacentHTML('beforeend', '<div class="noimg">no preview</div>');
+        }
         if (shot.cover) {
           card.insertAdjacentHTML('beforeend', '<span class="coverbadge">Article photo — always first</span>');
-        } else {
-          card.insertAdjacentHTML('beforeend', '<span class="slabel">Keywords</span>');
-          var kw = document.createElement('input');
-          kw.type = 'text'; kw.value = (shot.keywords || []).join(', ');
-          kw.setAttribute('list', 'kwlist');
-          kw.dataset.shot = si; kw.dataset.role = 'keywords';
-          card.appendChild(kw);
+        } else if (Object.keys(draft.reel.library || {}).length) {
+          card.insertAdjacentHTML('beforeend', '<span class="slabel">Image</span>');
+          card.appendChild(buildPicker(shot, si, thumbEl));
         }
         card.insertAdjacentHTML('beforeend', '<span class="slabel">Motion</span>');
         var mo = document.createElement('select');
@@ -412,11 +495,9 @@
         document.querySelectorAll('[data-role=text]').forEach(function (el) {
           out.reel.lines[+el.dataset.line].text = el.value.trim();
         });
-        document.querySelectorAll('[data-role=caption]').forEach(function (el) {
-          out.reel.lines[+el.dataset.line].caption = el.value.trim();
-        });
-        document.querySelectorAll('[data-role=keywords]').forEach(function (el) {
-          out.reel.shots[+el.dataset.shot].keywords = el.value.split(/[,\s]+/).filter(Boolean);
+        document.querySelectorAll('[data-role=image]').forEach(function (el) {
+          var kw = el.dataset.value;
+          if (kw) out.reel.shots[+el.dataset.shot].keywords = [kw];
         });
         document.querySelectorAll('[data-role=motion]').forEach(function (el) {
           out.reel.shots[+el.dataset.shot].motion = el.value;
@@ -487,6 +568,51 @@
   $('asis').addEventListener('click', function () { approve(false); });
   $('logout').addEventListener('click', function () {
     clearToken(); location.reload();
+  });
+
+  // Re-roll: append today's story URL to review/reroll/<date>.json. That commit
+  // (made with YOUR token, so it does trigger workflows) re-runs the draft with
+  // this story excluded; a fresh Telegram/Slack link arrives in a few minutes.
+  $('reroll').addEventListener('click', function () {
+    if (!confirm('Throw this story back and draft a different one?\n\nA fresh outline takes a few minutes and replaces this page.')) return;
+    var btn = $('reroll');
+    btn.disabled = true; btn.textContent = 'Re-rolling…';
+    var rerollPath = 'review/reroll/' + draft.date + '.json';
+
+    gh(rerollPath + '?ref=' + BRANCH)
+      .then(function (res) { return res.ok ? res.json() : null; })
+      .then(function (existing) {
+        var exclude = [];
+        if (existing && existing.content) {
+          try {
+            exclude = (JSON.parse(atob(existing.content.replace(/\n/g, ''))).exclude) || [];
+          } catch (e) { exclude = []; }
+        }
+        if (exclude.indexOf(draft.story.url) === -1) exclude.push(draft.story.url);
+        return gh(rerollPath, {
+          method: 'PUT',
+          body: JSON.stringify({
+            message: 'Re-roll ' + draft.date + ' — exclude "' + draft.story.headline.slice(0, 60) + '"',
+            content: b64encode(JSON.stringify({ exclude: exclude }, null, 2) + '\n'),
+            branch: BRANCH,
+            sha: existing && existing.sha ? existing.sha : undefined
+          })
+        });
+      })
+      .then(function (res) {
+        if (!res.ok) return res.json().then(function (e) { throw new Error(e.message || ('GitHub error ' + res.status)); });
+        $('app').querySelectorAll('section.card').forEach(function (sec) { sec.classList.add('hidden'); });
+        $('donebox').classList.remove('hidden');
+        $('donetitle').textContent = 'Re-rolling…';
+        $('donesub').innerHTML = 'A new story is being picked and researched now. The fresh draft replaces this one in a few minutes — you\u2019ll get a new Telegram/Slack message, or just reload this page. ' +
+          '<a target="_blank" rel="noopener" href="https://github.com/' + OWNER + '/' + REPO + '/actions">Watch the run</a>.';
+        $('bar').classList.add('hidden');
+        window.scrollTo({ top: 0 });
+      })
+      .catch(function (err) {
+        btn.disabled = false; btn.textContent = '🎲 Re-roll story';
+        alert('Re-roll failed: ' + err.message);
+      });
   });
 
   if (token()) loadDraft();

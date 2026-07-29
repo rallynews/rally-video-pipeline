@@ -93,6 +93,15 @@ async function planReel(story, slideCopy, raw) {
   const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
   const shots = await planShots(story, slideCopy, script, lines, lib, storyKeywords);
 
+  // keyword → object key for every stocked keyword, so the review app can
+  // offer a picker of real images (and their thumbnails) instead of free text.
+  const library = {};
+  for (const img of lib.images) {
+    for (const k of img.keywords) {
+      if (!library[k]) library[k] = img.key;
+    }
+  }
+
   return {
     script,
     mood,
@@ -103,6 +112,7 @@ async function planReel(story, slideCopy, raw) {
       motion: s.motion, transition: s.transition,
     })),
     stockedKeywords: [...lib.stocked].sort(),
+    library,
   };
 }
 
@@ -148,7 +158,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
         const text = String((l && l.text) || '').replace(/\s+/g, ' ').trim();
         if (!text) return;
         keptIndex.set(i, lines.length);
-        lines.push({ text, caption: String((l && l.caption) || '').trim().slice(0, 42) });
+        lines.push({ text });
       });
       if (!lines.length) throw new Error('Approved reel has no script lines left');
 

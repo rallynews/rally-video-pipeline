@@ -5,10 +5,11 @@ const { chatCompletion, parseJSON } = require('../openrouter');
 // second spoken script — intro hook → challenge → solution → result → why it
 // matters → the engagement question.
 //
-// The script comes back already broken into `lines`: natural spoken sentences,
-// each with the short on-screen headline that goes with it. Lines are the unit
-// everything downstream is timed against — each is voiced on its own, so its
-// real duration (not an estimate) drives the cuts and the captions.
+// The script comes back already broken into `lines`: natural spoken sentences.
+// Lines are the unit everything downstream is timed against — each is voiced
+// on its own, so its real duration (not an estimate) drives the cuts, and the
+// line's text doubles as its on-screen caption (built in the timeline, not
+// here).
 
 // ~2.6 words/second of relaxed conversational delivery.
 const TARGET_WORDS = { min: 55, max: 78 };
@@ -34,20 +35,16 @@ function splitLongLines(lines) {
 
     // Rebalance into halves rather than fragments.
     const mid = Math.ceil(parts.length / 2);
-    out.push({ text: parts.slice(0, mid).join(' ').trim(), caption: line.caption });
-    out.push({ text: parts.slice(mid).join(' ').trim(), caption: '' });
+    out.push({ text: parts.slice(0, mid).join(' ').trim() });
+    out.push({ text: parts.slice(mid).join(' ').trim() });
   }
   return out;
 }
 
 function normalizeLines(rawLines, fallbackScript) {
   let lines = (Array.isArray(rawLines) ? rawLines : [])
-    .map(l => (typeof l === 'string' ? { text: l, caption: '' } : l))
-    .map(l => ({
-      text: String((l && l.text) || '').replace(/\s+/g, ' ').trim(),
-      // On-screen headline. Kept short — it is set in Lora over the footage.
-      caption: String((l && l.caption) || '').replace(/\s+/g, ' ').trim().slice(0, 42),
-    }))
+    .map(l => (typeof l === 'string' ? { text: l } : l))
+    .map(l => ({ text: String((l && l.text) || '').replace(/\s+/g, ' ').trim() }))
     .filter(l => l.text);
 
   if (!lines.length) {
@@ -55,7 +52,7 @@ function normalizeLines(rawLines, fallbackScript) {
       .split(/(?<=[.!?])\s+/)
       .map(t => t.trim())
       .filter(Boolean)
-      .map(text => ({ text, caption: '' }));
+      .map(text => ({ text }));
   }
 
   return splitLongLines(lines);
@@ -84,13 +81,10 @@ VOICE — this is read by a young woman, casually, to camera:
 - Write it to be SPOKEN: no brackets, no stage directions, no numbers written as digits when a word reads better (say "twelve thousand", not "12,000").
 
 LINES:
-Break the script into 7–11 lines. Each line is ONE natural spoken sentence or clause — something a person says in one breath, roughly 6–14 words. These get voiced individually, so a line must stand on its own without sounding clipped.
-
-CAPTIONS:
-Every line gets a "caption": the on-screen headline shown while that line is spoken. 2–5 words, title-case-ish, plain text. It should pull the punchiest idea out of the line — NOT a transcript of it. Some lines are better with no caption at all; return "" for those. Roughly two thirds of lines should have one.
+Break the script into 7–11 lines. Each line is ONE natural spoken sentence or clause — something a person says in one breath, roughly 6–14 words. These get voiced individually, so a line must stand on its own without sounding clipped. Each line is also shown on screen as a caption while it is spoken, so no line may rely on the previous one to parse.
 
 Return VALID JSON only, no markdown:
-{"script": "the full script as one string", "lines": [{"text": "spoken line", "caption": "On-Screen Words"}], "mood": "one word for the music mood: uplifting, hopeful, warm, gentle, triumphant, curious, or calm"}`,
+{"script": "the full script as one string", "lines": [{"text": "spoken line"}], "mood": "one word for the music mood: uplifting, hopeful, warm, gentle, triumphant, curious, or calm"}`,
       },
       {
         role: 'user',
