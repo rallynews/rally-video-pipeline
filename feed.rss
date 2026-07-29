@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2026 06:37:14 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 06:01:56 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>1 billion stitches, 51 countries: World record red dress on display in Brisbane</title>
+      <link>https://rally.news/categories/arts/?article=1%2Bbillion%2Bstitches%2C%2B51%2Bcountries%3A%2BWorld%2Brecord%2Bred%2Bdress%2Bon%2Bdisplay%2Bin%2BBrisbane</link>
+      <description>Local needleworkers have waited eight years to see the garment they have helped sew with 380 embroiderers worldwide.</description>
+      <pubDate>Wed, 29 Jul 2026 06:01:56 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/arts/?article=1%2Bbillion%2Bstitches%2C%2B51%2Bcountries%3A%2BWorld%2Brecord%2Bred%2Bdress%2Bon%2Bdisplay%2Bin%2BBrisbane</guid>
+    </item>
+
+<item>
       <title>Scientists Found a Genius Way to Remove &apos;Forever Chemicals&apos; From Soil</title>
       <link>https://rally.news/categories/climate/?article=Scientists%2BFound%2Ba%2BGenius%2BWay%2Bto%2BRemove%2B%27Forever%2BChemicals%27%2BFrom%2BSoil</link>
       <description>Every year, millions of dry metric tons of biosolids – the nutrient-rich stuff left over from municipal sewage treatment, aka sludge – are applied to US soils.</description>
@@ -400,14 +408,6 @@
       <description>A team of researchers has uncovered hundreds of fossilized whale carcasses off the southwest coast of Australia. Spanning 1,200 kilometers, this is the largest, deepest and oldest cetacean bone graveyard ever observed.</description>
       <pubDate>Tue, 23 Jun 2026 05:02:53 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=Mysterious%2Bwhale%2B%27necropolis%27%2Bdiscovered%2Bat%2Bthe%2Bbottom%2Bof%2Bthe%2BIndian%2BOcean</guid>
-    </item>
-
-<item>
-      <title>Catherine, Princess of Wales Questions Digital Screens’ Role in Children’s Lives</title>
-      <link>https://rally.news/categories/politics/?article=Catherine%2C%2BPrincess%2Bof%2BWales%2BQuestions%2BDigital%2BScreens%E2%80%99%2BRole%2Bin%2BChildren%E2%80%99s%2BLives</link>
-      <description>The princess published an essay Friday warning against a childhood “mediated by screens,” days after Britain announced a ban on social media for children under 16.</description>
-      <pubDate>Mon, 22 Jun 2026 05:03:10 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/politics/?article=Catherine%2C%2BPrincess%2Bof%2BWales%2BQuestions%2BDigital%2BScreens%E2%80%99%2BRole%2Bin%2BChildren%E2%80%99s%2BLives</guid>
     </item>
   </channel>
 </rss>
