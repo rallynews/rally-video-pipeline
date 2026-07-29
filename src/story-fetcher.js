@@ -42,7 +42,9 @@ function extractThumbnail(item) {
   return img ? img[1] : null;
 }
 
-async function getMostViralStory() {
+// `excludeUrls` lists stories already rejected today (the review app's
+// re-roll), so a fresh pick never lands on the same article again.
+async function getMostViralStory(excludeUrls = []) {
   // Step 1: Fetch and parse the RSS feed
   const response = await axios.get(process.env.RALLY_RSS_URL, {
     headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' }
@@ -54,7 +56,15 @@ async function getMostViralStory() {
   const items = feed?.rss?.channel?.item;
   if (!items) throw new Error('Could not find any items in the RSS feed');
 
-  const stories = (Array.isArray(items) ? items : [items]).slice(0, 10);
+  const excluded = new Set((excludeUrls || []).map(u => String(u).trim()).filter(Boolean));
+  const all = (Array.isArray(items) ? items : [items]);
+  const eligible = all.filter(item => !excluded.has(String(item.link || '').trim()));
+  if (!eligible.length) throw new Error('Every story in the feed has been re-rolled away — nothing left to pick');
+  if (excluded.size) {
+    console.log(`   (re-roll: ${all.length - eligible.length} story/ies excluded)`);
+  }
+
+  const stories = eligible.slice(0, 10);
 
   // Step 2: Ask AI to pick the most virally positive story
   const storySummaries = stories.map((item, i) => ({

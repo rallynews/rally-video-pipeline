@@ -14,6 +14,18 @@ on:
         type: choice
         options: [default, draft, full]
         default: default
+  # The review app's re-roll button commits review/reroll/<date>.json with the
+  # rejected story's URL; that push re-runs the draft with it excluded. (Pushes
+  # made by the workflows' own GITHUB_TOKEN never trigger this.)
+  push:
+    branches: [main]
+    paths:
+      - 'review/reroll/*.json'
+
+# A re-roll clicked while a run is in flight queues rather than overlaps.
+concurrency:
+  group: carousel-pipeline
+  cancel-in-progress: false
 
 jobs:
   generate-and-deliver:
@@ -82,11 +94,17 @@ jobs:
           # — the vacation switch. A manual dispatch can override either way.
           REVIEW_MODE: ${{ vars.REVIEW_MODE }}
         run: |
-          case "${{ inputs.mode }}" in
-            draft) node carousel.js draft ;;
-            full)  node carousel.js full ;;
-            *)     node carousel.js ;;
-          esac
+          # A re-roll push always drafts — the editor is at the review page
+          # waiting for a new outline, regardless of REVIEW_MODE.
+          if [ "${{ github.event_name }}" = "push" ]; then
+            node carousel.js draft
+          else
+            case "${{ inputs.mode }}" in
+              draft) node carousel.js draft ;;
+              full)  node carousel.js full ;;
+              *)     node carousel.js ;;
+            esac
+          fi
 
       - name: Commit and push pipeline output (RSS feed / review draft)
         run: |

@@ -12,6 +12,8 @@ const review = require('./src/review/draft');
 const { sendDraftNotice } = require('./src/review/notify');
 const { updateRSSFeed } = require('./src/rss-updater');
 const axios = require('axios');
+const fs = require('fs');
+const path = require('path');
 
 // Three modes:
 //
@@ -73,11 +75,26 @@ function slugify(text) {
     .slice(0, 60) || 'story';
 }
 
+// Stories the editor has re-rolled away today. The review app appends the
+// rejected story's URL to review/reroll/<date>.json; that commit re-triggers
+// the draft workflow, and this exclusion list keeps the new pick fresh.
+function todaysExclusions() {
+  const file = path.join(__dirname, 'review', 'reroll', `${review.today()}.json`);
+  try {
+    const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
+    return Array.isArray(parsed.exclude) ? parsed.exclude : [];
+  } catch {
+    return [];
+  }
+}
+
 // Research and write today's editorial: story → copy → fact-check → cover.
 // Shared by draft and full modes.
 async function buildEditorial() {
   console.log('📰 Selecting most viral story from RSS...');
-  const story = await getMostViralStory();
+  const exclusions = todaysExclusions();
+  if (exclusions.length) console.log(`   Re-rolled away: ${exclusions.join(', ')}`);
+  const story = await getMostViralStory(exclusions);
   console.log(`   Selected: "${story.headline}"`);
 
   console.log('\n✍️  Researching story and writing carousel copy...');

@@ -34,13 +34,17 @@ function logoDataUri() {
   return null;
 }
 
-// Longer headlines step down a size so they never wrap past two lines.
+// Captions are full narration lines now, so the scale runs from punchy
+// three-word moments down to a size where a 14-word sentence sets in three
+// comfortable lines.
 function fontSizeFor(text) {
   const n = String(text).length;
   if (n <= 14) return 96;
   if (n <= 22) return 84;
   if (n <= 32) return 72;
-  return 62;
+  if (n <= 48) return 62;
+  if (n <= 70) return 54;
+  return 46;
 }
 
 // The caption card. Sits in the lower third but clear of the bottom 320px,

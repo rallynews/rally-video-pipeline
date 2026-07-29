@@ -82,12 +82,20 @@ async function writeDraft({ story, raw, pillar, style, slideCopy, sources, verif
     console.warn(`  [review] cover staging failed (${e.message}) — draft continues without it`);
   }
 
+  // keyword → thumbnail URL for the app's image picker: only keywords with a
+  // real file behind them appear, so an edit can never name a missing image.
+  const library = {};
+  for (const [kw, key] of Object.entries(reelPlan ? reelPlan.library || {} : {})) {
+    const url = publicUrl(key);
+    if (url) library[kw] = url;
+  }
+
   const reel = reelPlan
     ? {
         script: reelPlan.script,
         mood: reelPlan.mood,
         wordCount: reelPlan.wordCount,
-        lines: reelPlan.lines,
+        lines: reelPlan.lines.map(l => ({ text: l.text })),
         shots: reelPlan.shots.map((s, i) => ({
           ...s,
           // The first shot is always replaced by the article photo at build
@@ -96,6 +104,7 @@ async function writeDraft({ story, raw, pillar, style, slideCopy, sources, verif
           thumb: i === 0 && coverUrl ? coverUrl : publicUrl(s.key),
         })),
         stockedKeywords: reelPlan.stockedKeywords,
+        library,
       }
     : null;
 
