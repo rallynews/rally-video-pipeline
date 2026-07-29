@@ -1,0 +1,574 @@
+{
+  "version": 1,
+  "date": "2026-07-29",
+  "createdAt": "2026-07-29T05:34:06.596Z",
+  "story": {
+    "headline": "1 billion stitches, 51 countries: World record red dress on display in Brisbane",
+    "summary": "Local needleworkers have waited eight years to see the garment they have helped sew with 380 embroiderers worldwide.",
+    "publisher": "Rally News",
+    "url": "https://rally.news/categories/arts/?article=1%2Bbillion%2Bstitches%2C%2B51%2Bcountries%3A%2BWorld%2Brecord%2Bred%2Bdress%2Bon%2Bdisplay%2Bin%2BBrisbane"
+  },
+  "researchBrief": "The Red Dress project, initiated by Kirstie Macleod in 2009, has been embroidered by 380 artists from 51 countries, including refugees, survivors of war, and disadvantaged women. The dress, made from 87 panels of burgundy silk dupion, weighs 6.8 kg and is covered in an estimated 1–1.5 billion stitches. It holds the Guinness World Record for the largest collaborative embroidery project. The dress has been exhibited in major galleries and political gatherings worldwide and is now on display in Brisbane. All commissioned embroiderers were compensated for their work. The project is supported by various charities, social enterprises, and funding bodies, including the British Council Dubai and Arts Council England. The Australian contribution to the dress was created by 24 members of Brisbane’s Allthreads community. The dress aims to amplify marginalized voices and address vital social issues, with some artisans rebuilding their lives through embroidery.",
+  "sources": [
+    "https://ru24.net/english/428594952/",
+    "https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane",
+    "https://allevents.in/brisbane/behind-the-seams-the-red-dress/200030426620230",
+    "https://pocketmags.com/embroidery-magazine/mayjun-2024/articles/dress-to-impress"
+  ],
+  "verification": {
+    "ran": true,
+    "report": [
+      {
+        "field": "headline",
+        "verdict": "verified",
+        "note": "Confirmed by [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "challenge",
+        "verdict": "verified",
+        "note": "Confirmed by [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "solution",
+        "verdict": "corrected",
+        "note": "Changed '1–1.5 billion stitches' to 'an estimated one to 1.5 billion stitches' for accuracy based on [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "verified",
+        "note": "Confirmed by [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "resultLine",
+        "verdict": "verified",
+        "note": "Confirmed by [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "Confirmed by [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "captionLead",
+        "verdict": "verified",
+        "note": "Confirmed by [ru24.net](https://ru24.net/english/428594952/) and [mustdobrisbane.com](https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane)"
+      },
+      {
+        "field": "originalSource",
+        "verdict": "corrected",
+        "note": "Changed from 'The Inland Report' to 'News in English on ru24.net' based on the original source of the story."
+      }
+    ]
+  },
+  "pillar": "Human Kindness Stories",
+  "style": "1c",
+  "raw": {
+    "pillar": "Human Kindness Stories",
+    "headline": "Can a dress change the world? This Guinness World Record project wants to try.",
+    "challenge": "For 14 years, British artist Kirstie Macleod designed a dress that could amplify marginalized voices. The journey wasn't easy. It brought her to 51 countries, and more than 380 total artists.",
+    "solution": "The Red Dress became a global tapestry of connection. It's artists include refugees, survivors of war, and disadvantaged women from around the globe. In total, the dress has 1.5 billion stitches and won the Guinness World Record for the biggest collaborative embroidery project ever.",
+    "resultHeading": "The Red Dress is now touring the world. It's currently on display in Brisbane.",
+    "resultLine": "See this stunning piece of collaborative art in person—details at the link in bio.",
+    "whyMatters": "The Red Dress is more than mere fashion. It's billions of threads and hundreds of artists tell a story and leaves us with a potent message: We're all in this together.",
+    "engagementQuestion": "What’s the most meaningful piece of art you’ve ever seen?",
+    "captionLead": "A Guinness World Record dress made by 380 artists from 51 countries just arrived in Brisbane! The Red Dress is a stunning testament to human connection and resilience. Read more at the link in bio.",
+    "storyHashtag": "Fashion",
+    "sources": [
+      "https://ru24.net/english/428594952/",
+      "https://www.mustdobrisbane.com/whats-on/red-dress-museum-brisbane",
+      "https://allevents.in/brisbane/behind-the-seams-the-red-dress/200030426620230",
+      "https://pocketmags.com/embroidery-magazine/mayjun-2024/articles/dress-to-impress"
+    ],
+    "originalSource": "ru24.net",
+    "researchBrief": "The Red Dress project, initiated by Kirstie Macleod in 2009, has been embroidered by 380 artists from 51 countries, including refugees, survivors of war, and disadvantaged women. The dress, made from 87 panels of burgundy silk dupion, weighs 6.8 kg and is covered in an estimated 1–1.5 billion stitches. It holds the Guinness World Record for the largest collaborative embroidery project. The dress has been exhibited in major galleries and political gatherings worldwide and is now on display in Brisbane. All commissioned embroiderers were compensated for their work. The project is supported by various charities, social enterprises, and funding bodies, including the British Council Dubai and Arts Council England. The Australian contribution to the dress was created by 24 members of Brisbane’s Allthreads community. The dress aims to amplify marginalized voices and address vital social issues, with some artisans rebuilding their lives through embroidery."
+  },
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-07-29/cover.jpg"
+  },
+  "reel": {
+    "script": "Imagine a dress that can change the world. For 14 years, Kirstie Macleod dreamed of a dress that could amplify marginalized voices. It wasn't easy—gathering contributions from 51 countries took immense coordination and funding. But the Red Dress became a global tapestry of connection. Embroidered by 380 artists, including refugees and survivors of war, it now holds the Guinness World Record. With an estimated one to 1.5 billion stitches, it's a stunning piece of collaborative art. The Red Dress is now on display in Brisbane. It's more than art; it's a testament to human resilience and the power of storytelling. What’s the most meaningful piece of art you’ve ever seen?",
+    "mood": "warm",
+    "wordCount": 110,
+    "lines": [
+      {
+        "text": "A British artist wants to change the world with this dress.",
+        "caption": "A dress to change the world?"
+      },
+      {
+        "text": "For 14 years, Kirstie Macleod dreamed of a dress made by members of marginalized communities around the world.",
+        "caption": "She wanted to amplify marginalized voices"
+      },
+      {
+        "text": "But she didn't just dream. She traveled to 51 countries to collaborate with more than 300 artists from marginalized backgrounds!",
+        "caption": "She traveled the world to achieve her goal"
+      },
+      {
+        "text": "All of this with one goal: to make fashion mean something more. She created a global tapestry of unity.",
+        "caption": "She made a Global Tapestry"
+      },
+      {
+        "text": "The artists who took part included refugees and survivors of war.",
+        "caption": ""
+      },
+      {
+        "text": "And now her project holds the Guinness World Record for the largest art project in history.",
+        "caption": "Now she has a world record"
+      },
+      {
+        "text": "With an estimated one to 1.5 billion stitches, it's a stunning piece of collaborative art.",
+        "caption": "Her 1.5 Billion stitches helped heal"
+      },
+      {
+        "text": "The Red Dress is now on display in Brisbane.",
+        "caption": "It's now on display In Brisbane"
+      },
+      {
+        "text": "The piece is a testament to human resilience and the power of storytelling.",
+        "caption": "A Testament To Resilience"
+      },
+      {
+        "text": "What’s the most meaningful piece of art you’ve ever seen?",
+        "caption": ""
+      }
+    ],
+    "shots": [
+      {
+        "line": 0,
+        "keywords": [
+          "art",
+          "painting"
+        ],
+        "key": "videos/painting.jpg",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-07-29/cover.jpg"
+      },
+      {
+        "line": 0,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/applause.jpg",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "writing",
+          "notebook"
+        ],
+        "key": "videos/writing.jpg",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "microphone",
+          "campaign"
+        ],
+        "key": "videos/microphone.jpg",
+        "motion": "pan-right",
+        "transition": "whip-right",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microphone.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "map",
+          "globe"
+        ],
+        "key": "videos/map.jpg",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/map.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "forest"
+        ],
+        "key": "videos/toolbox.jpg",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/toolbox.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "art",
+          "painting"
+        ],
+        "key": "videos/art.jpg",
+        "motion": "push-in",
+        "transition": "dissolve",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/art.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "hands",
+          "handshake"
+        ],
+        "key": "videos/hands.jpg",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hands.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "refugees",
+          "border"
+        ],
+        "key": "videos/border.jpg",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/border.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "aid"
+        ],
+        "key": "videos/trophy.jpg",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trophy.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "medal",
+          "trophy"
+        ],
+        "key": "videos/aid.jpg",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "art",
+          "painting"
+        ],
+        "key": "videos/smiling.jpg",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/smiling.jpg"
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "city",
+          "skyline"
+        ],
+        "key": "videos/city.jpg",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg"
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "museum"
+        ],
+        "key": "videos/museum.jpg",
+        "motion": "pan-right",
+        "transition": "zoom-punch",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/museum.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "tears",
+          "relief"
+        ],
+        "key": "videos/relief.jpg",
+        "motion": "push-in",
+        "transition": "dissolve",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/relief.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "notebook"
+        ],
+        "key": "videos/notebook.jpg",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "art",
+          "painting"
+        ],
+        "key": "videos/running.jpg",
+        "motion": "pan-right",
+        "transition": "flash",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/running.jpg"
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "art"
+        ],
+        "key": "videos/allotment.jpg",
+        "motion": "pan-down",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "portrait"
+        ],
+        "key": "videos/ambulance.jpg",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
+      }
+    ],
+    "stockedKeywords": [
+      "aid",
+      "allotment",
+      "ambulance",
+      "applause",
+      "art",
+      "ballot",
+      "banner",
+      "battery",
+      "bees",
+      "birds",
+      "blanket",
+      "border",
+      "brainscan",
+      "bridge",
+      "bus",
+      "butterfly",
+      "cafe",
+      "calendar",
+      "campaign",
+      "candles",
+      "canopy",
+      "cat",
+      "cattle",
+      "celebration",
+      "charging",
+      "cheering",
+      "children",
+      "church",
+      "circuit",
+      "city",
+      "classroom",
+      "climbing",
+      "clock",
+      "clouds",
+      "coastline",
+      "construction",
+      "convoy",
+      "cooking",
+      "coral",
+      "courthouse",
+      "crowd",
+      "cycling",
+      "dancing",
+      "deer",
+      "dna",
+      "doctor",
+      "dog",
+      "dolphin",
+      "donation",
+      "door",
+      "doves",
+      "drought",
+      "dust",
+      "elephant",
+      "embrace",
+      "engineer",
+      "factory",
+      "family",
+      "farmland",
+      "finishline",
+      "fish",
+      "flag",
+      "flood",
+      "foodbank",
+      "football",
+      "forest",
+      "frog",
+      "garden",
+      "gavel",
+      "glacier",
+      "globe",
+      "grandfather",
+      "grandmother",
+      "guitar",
+      "hands",
+      "handshake",
+      "harbour",
+      "horizon",
+      "horse",
+      "hospital",
+      "houses",
+      "hug",
+      "journalist",
+      "kitchen",
+      "laboratory",
+      "lake",
+      "laptop",
+      "laughing",
+      "letter",
+      "library",
+      "light",
+      "map",
+      "march",
+      "market",
+      "meadow",
+      "meal",
+      "medal",
+      "medicine",
+      "meeting",
+      "microphone",
+      "microscope",
+      "moss",
+      "mountains",
+      "mural",
+      "museum",
+      "music",
+      "neighbours",
+      "nest",
+      "newspaper",
+      "notebook",
+      "nurse",
+      "ocean",
+      "olivebranch",
+      "owl",
+      "painting",
+      "panels",
+      "park",
+      "parliament",
+      "path",
+      "patient",
+      "peace",
+      "penguin",
+      "petition",
+      "pipeline",
+      "plastic",
+      "playground",
+      "portrait",
+      "powerlines",
+      "prosthetic",
+      "protest",
+      "railway",
+      "rain",
+      "recycling",
+      "refugees",
+      "relief",
+      "rescue",
+      "research",
+      "reunion",
+      "ripple",
+      "river",
+      "road",
+      "robot",
+      "rocket",
+      "rooftop",
+      "roots",
+      "running",
+      "sanctuary",
+      "scientist",
+      "seal",
+      "seedling",
+      "shadow",
+      "sheep",
+      "shelter",
+      "signature",
+      "silhouette",
+      "skyline",
+      "smiling",
+      "snow",
+      "soil",
+      "solar",
+      "space",
+      "stadium",
+      "stairs",
+      "street",
+      "students",
+      "summit",
+      "sunbeam",
+      "sunrise",
+      "sunset",
+      "surgery",
+      "swimming",
+      "syringe",
+      "teacher",
+      "team",
+      "teamwork",
+      "tears",
+      "teenagers",
+      "telescope",
+      "tent",
+      "thoughtful",
+      "toolbox",
+      "town",
+      "townhall",
+      "training",
+      "trees",
+      "trophy",
+      "turtle",
+      "vaccine",
+      "victory",
+      "vigil",
+      "village",
+      "volunteers",
+      "voting",
+      "walking",
+      "waste",
+      "water",
+      "waterfall",
+      "waves",
+      "wetlands",
+      "whale",
+      "wheelchair",
+      "wildflowers",
+      "wind",
+      "windfarm",
+      "window",
+      "wolf",
+      "workshop",
+      "wreath",
+      "writing"
+    ]
+  },
+  "approvedAt": "2026-07-29T05:55:39.327Z",
+  "approvedWithEdits": true
+}
