@@ -74,7 +74,9 @@ function densify(shots, catalogue) {
 }
 
 // `durations[i]` is the measured length of the voice clip for `lines[i]`.
-function buildTimeline(lines, shots, durations, catalogue) {
+// `hook`, when given, is the short on-screen headline shown over the opening
+// shot while line 0 is spoken; from line 1 on, captions are the narration.
+function buildTimeline(lines, shots, durations, catalogue, hook) {
   if (lines.length !== durations.length) {
     throw new Error(`Timeline mismatch: ${lines.length} lines vs ${durations.length} voice clips`);
   }
@@ -157,14 +159,16 @@ function buildTimeline(lines, shots, durations, catalogue) {
     );
   });
 
-  // 5. Captions ARE the narration: each line's spoken text is shown while it
-  //    plays, leading it very slightly so the words are already up as the
-  //    line starts. The first line gets none — it plays over the article's
-  //    own photo, which carries the credit and deserves to breathe.
+  // 5. From line 1 on, captions ARE the narration: each line's spoken text is
+  //    shown while it plays, leading it very slightly so the words are already
+  //    up as the line starts. Line 0 instead carries the HOOK — the short
+  //    catchy headline over the article's opening photo — held from the very
+  //    start so it's on screen before the voice begins.
   const captions = lines
     .map((line, i) => ({
-      text: i === 0 ? '' : line.text,
-      start: Math.max(0, lineTimings[i].start - 0.1),
+      text: i === 0 ? String(hook || '').trim() : line.text,
+      hook: i === 0,
+      start: i === 0 ? 0 : Math.max(0, lineTimings[i].start - 0.1),
       end: Math.min(videoDuration, lineTimings[i].end + 0.15),
     }))
     .filter(c => c.text && c.end - c.start > 0.35);

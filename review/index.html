@@ -226,6 +226,9 @@
          while it plays (the opening article-photo shot stays caption-free). The photos beneath a
          line are the cuts that play while it's said — pick a different image from the library
          to change one. Blank a line's text to drop it and its shots.</p>
+      <label class="f"><span>Opening headline — big text over the article photo (not spoken)</span>
+        <input type="text" id="f-hook" maxlength="60" placeholder="e.g. A River Came Back">
+      </label>
       <div id="rlines"></div>
     </section>
 
@@ -371,7 +374,15 @@
   function buildPicker(shot, si, thumbEl) {
     var library = draft.reel.library || {};
     var keywords = Object.keys(library).sort();
-    var current = (shot.keywords || [])[0] || '';
+    // Pre-fill with the image that's actually on screen: the resolved file's
+    // own keyword, or (older drafts) the library entry matching the thumbnail.
+    // The planner's requested keywords are only a last resort — on a fallback
+    // pick they can name something else entirely.
+    var current = shot.image || '';
+    if (!current && shot.thumb) {
+      current = keywords.filter(function (k) { return library[k] === shot.thumb; })[0] || '';
+    }
+    if (!current) current = (shot.keywords || [])[0] || '';
 
     var wrap = document.createElement('div');
     wrap.className = 'picker';
@@ -436,13 +447,14 @@
 
   function renderReel() {
     if (!draft.reel) { $('reelcard').classList.add('hidden'); return; }
+    $('f-hook').value = draft.reel.hook || '';
 
     var host = $('rlines');
     draft.reel.lines.forEach(function (line, i) {
       var box = document.createElement('div');
       box.className = 'rline';
       box.innerHTML = '<div class="rline-head"><span class="rline-n">Line ' + (i + 1) +
-        '</span><span class="rline-hint">spoken AND shown on screen' + (i === 0 ? ' (no caption over the opening photo)' : '') + ' · blank to drop</span></div>';
+        '</span><span class="rline-hint">' + (i === 0 ? 'spoken under the opening headline' : 'spoken AND shown on screen') + ' · blank to drop</span></div>';
 
       var t = document.createElement('textarea');
       t.rows = 2; t.value = line.text; t.dataset.line = i; t.dataset.role = 'text';
@@ -492,12 +504,16 @@
       RAW_FIELDS.forEach(function (f) { out.raw[f] = $('f-' + f).value.trim(); });
       out.style = $('f-style').value;
       if (out.reel) {
+        out.reel.hook = $('f-hook').value.trim();
         document.querySelectorAll('[data-role=text]').forEach(function (el) {
           out.reel.lines[+el.dataset.line].text = el.value.trim();
         });
         document.querySelectorAll('[data-role=image]').forEach(function (el) {
           var kw = el.dataset.value;
-          if (kw) out.reel.shots[+el.dataset.shot].keywords = [kw];
+          if (kw) {
+            out.reel.shots[+el.dataset.shot].keywords = [kw];
+            out.reel.shots[+el.dataset.shot].image = kw;
+          }
         });
         document.querySelectorAll('[data-role=motion]').forEach(function (el) {
           out.reel.shots[+el.dataset.shot].motion = el.value;

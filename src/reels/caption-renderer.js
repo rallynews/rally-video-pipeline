@@ -47,15 +47,39 @@ function fontSizeFor(text) {
   return 46;
 }
 
-// The caption card. Sits in the lower third but clear of the bottom 320px,
-// which Instagram and TikTok cover with their own UI.
-function captionFrame(text) {
-  const size = fontSizeFor(text);
+// The opening HOOK is a different animal from a subtitle: it's the headline
+// that has to stop the scroll, so it sits high and centred over the article
+// photo at display size, not down in the subtitle band.
+function hookSizeFor(text) {
+  const n = String(text).length;
+  if (n <= 18) return 128;
+  if (n <= 28) return 112;
+  if (n <= 40) return 96;
+  return 82;
+}
+
+// The caption card. Subtitles sit in the lower third but clear of the bottom
+// 320px, which Instagram and TikTok cover with their own UI; the hook takes
+// the upper-middle of the frame instead.
+function captionFrame(caption) {
+  const text = typeof caption === 'string' ? caption : caption.text;
+  const isHook = Boolean(caption && caption.hook);
+
+  if (isHook) {
+    return `<div class="frame">
+      <div class="hook-scrim"></div>
+      <div class="hook">
+        <div class="hook-text" style="font-size:${hookSizeFor(text)}px;">${esc(text)}</div>
+        <div class="hook-rule"></div>
+      </div>
+    </div>`;
+  }
+
   return `<div class="frame">
     <div class="scrim"></div>
     <div class="caption">
       <div class="rule"></div>
-      <div class="text" style="font-size:${size}px;">${esc(text)}</div>
+      <div class="text" style="font-size:${fontSizeFor(text)}px;">${esc(text)}</div>
     </div>
   </div>`;
 }
@@ -107,6 +131,21 @@ function buildDocument(captions, logo, credit) {
     display:flex; flex-direction:column; align-items:center; text-align:center;
   }
   .rule { width:72px; height:5px; background:${GREEN}; margin-bottom:28px; border-radius:3px; }
+  /* Hook: the scroll-stopping headline over the opening photo. Darkens the
+     whole frame rather than just the base, because it sits high. */
+  .hook-scrim {
+    position:absolute; inset:0;
+    background:linear-gradient(to bottom, rgba(15,14,12,0.62) 0%, rgba(15,14,12,0.34) 55%, rgba(15,14,12,0.62) 100%);
+  }
+  .hook {
+    position:absolute; left:72px; right:72px; top:430px;
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+  }
+  .hook-text {
+    font-family:'Lora', serif; font-weight:700; line-height:1.06; color:${CREAM};
+    letter-spacing:-0.02em; text-shadow:0 4px 26px rgba(0,0,0,0.72), 0 2px 5px rgba(0,0,0,0.6);
+  }
+  .hook-rule { width:110px; height:7px; background:${GREEN}; margin-top:36px; border-radius:4px; }
   .text {
     font-family:'Lora', serif; font-weight:600; line-height:1.14; color:${CREAM};
     letter-spacing:-0.01em; text-shadow:0 3px 18px rgba(0,0,0,0.6), 0 1px 3px rgba(0,0,0,0.5);
@@ -134,6 +173,7 @@ ${frames}
 // Render one transparent PNG per caption, plus the brand mark that stays on
 // screen for the whole reel and (when the opening shot is the article's own
 // photo) the credit for the outlet that published it.
+// `captions` are { text, hook } — hook entries get the headline treatment.
 // Returns { captions: Buffer[], brand: Buffer, credit: Buffer|null }.
 async function renderOverlays(captions, credit) {
   const html = buildDocument(captions, logoDataUri(), credit);
@@ -152,6 +192,7 @@ async function renderOverlays(captions, credit) {
       await page.evaluate(() => document.fonts.ready);
       await page.evaluate(() => Promise.all([
         document.fonts.load("600 96px 'Lora'"),
+        document.fonts.load("700 128px 'Lora'"),
         document.fonts.load("italic 700 26px 'Outfit'"),
       ]));
     } catch (e) {

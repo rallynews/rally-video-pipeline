@@ -71,7 +71,7 @@ function reelSummary(reel) {
 //   4. Facebook caption ALONE (plain text, nothing else — copy/paste ready)
 //   5. Instagram caption ALONE (plain text, nothing else — copy/paste ready)
 //   6. The article link ALONE, for pasting as the first comment
-async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel }) {
+async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel, proofreading }) {
   const today = new Date().toLocaleDateString('en-GB', {
     weekday: 'long', day: 'numeric', month: 'long',
   });
@@ -94,6 +94,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     `*Style:* ${style}\n` +
     `*Link:* ${story.url}` +
     checkLine +
+    proofLine(proofreading) +
     urlLines +
     srcLines +
     reelSummary(reel) +
