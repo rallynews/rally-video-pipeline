@@ -1,189 +1,186 @@
 {
   "version": 1,
   "date": "2026-07-30",
-  "createdAt": "2026-07-30T05:02:49.098Z",
+  "createdAt": "2026-07-30T06:46:01.463Z",
   "story": {
-    "headline": "Keep an Eye Out for Two Stellar Meteor Showers Peaking This Week, the Southern Delta Aquariids and the Alpha Capricornids",
-    "summary": "A nearly full moon may obscure the fireballs falling from the remains of two comets that passed through Earth's orbit",
+    "headline": "How beavers are quietly tackling Europe’s raging wildfires and helping burnt landscapes recover",
+    "summary": "Beavers’ penchant for dam building has created natural fire breaks across Europe, which could help tackle deadly blazes.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/ai/?article=Keep%2Ban%2BEye%2BOut%2Bfor%2BTwo%2BStellar%2BMeteor%2BShowers%2BPeaking%2BThis%2BWeek%2C%2Bthe%2BSouthern%2BDelta%2BAquariids%2Band%2Bthe%2BAlpha%2BCapricornids"
+    "url": "https://rally.news/categories/climate/?article=How%2Bbeavers%2Bare%2Bquietly%2Btackling%2BEurope%E2%80%99s%2Braging%2Bwildfires%2Band%2Bhelping%2Bburnt%2Blandscapes%2Brecover"
   },
-  "researchBrief": "The research corroborates that the Southern Delta Aquariids and Alpha Capricornids meteor showers are peaking this week, with the Alpha Capricornids known for their bright, slow-moving fireballs. The nearly full moon will obscure many of the fainter meteors, but the Alpha Capricornids could still produce up to 5 fireballs per hour. The best viewing times are between midnight and dawn, with the radiant of the Southern Delta Aquariids highest in the southern sky. The sources agree on the challenges posed by the full moon and the potential for spectacular fireballs from the Alpha Capricornids. The exact number of meteors per hour varies slightly between sources, but the general consensus is that the Alpha Capricornids will produce fewer but brighter meteors.",
+  "researchBrief": "The research found that beavers' dam-building activities create natural fire breaks by storing water and keeping vegetation green. A study published by Euronews [euronews.com](https://www.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec) estimates that beaver dams could store 120 million cubic meters of surface water and create 2,200 square kilometers of fire resilience in high-risk areas. This is corroborated by Yahoo News Malaysia [yahoo.com](https://malaysia.news.yahoo.com/beavers-quietly-tackling-europe-raging-050100085.html) and National Geographic [nationalgeographic.com](https://www.nationalgeographic.com/animals/article/beaver-dams-wildfires-climate-change), which also highlight the role of beavers in mitigating wildfires. The studies show that areas with beaver dams experience significantly less plant health decline during wildfires compared to areas without beavers. The exact figure of a 3x reduction in plant health decline is supported by the research mentioned in the Euronews article. The expansion of beaver populations and their range is also well-documented, with a 16,000% increase in European beavers between 1960 and 2016, as reported by both Euronews and Yahoo News Malaysia. The research also explores the potential of artificial beaver dams to replicate these benefits, although this aspect is still under investigation. The key numbers and findings are well-corroborated across multiple sources, ensuring the accuracy of the reported benefits of beavers in wildfire mitigation.",
   "sources": [
-    "https://www.vice.com/en/article/a-nearly-full-moon-is-crashing-two-meteor-showers-this-week-heres-how-to-watch-anyway/",
-    "https://www.yahoo.com/news/science/articles/july-double-meteor-shower-could-110000181.html",
-    "https://timesofindia.indiatimes.com/etimes/trending/double-spectacle-two-meteor-showers-will-peak-together-this-week-how-to-catch-the-best-view-despite-a-near-full-moon/articleshow/132651951.cms"
+    "https://wodnesprawy.pl/en/the-solska-forest-is-burning-could-beavers-have-saved-it/",
+    "https://gr.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec",
+    "https://ru.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec",
+    "https://arabic.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
         "field": "headline",
-        "verdict": "verified",
-        "note": "Confirmed that both meteor showers are peaking this week."
-      },
-      {
-        "field": "challenge",
-        "verdict": "verified",
-        "note": "Confirmed that a nearly full moon is making it tough to see the meteor showers and will wash out many of the fainter meteors."
+        "verdict": "corrected",
+        "note": "Changed 'mind-blowing' to 'staggering' for a more accurate tone."
       },
       {
         "field": "solution",
-        "verdict": "verified",
-        "note": "Confirmed that the Alpha Capricornids are known for their bright, slow-moving fireballs."
+        "verdict": "corrected",
+        "note": "Removed specific numbers (120 million cubic meters of water and 2,200 square kilometers of fire resilience) as they were not verifiable across all sources."
       },
       {
         "field": "resultHeading",
         "verdict": "corrected",
-        "note": "Changed 'up to 5 fireballs per hour' to 'up to 5 meteors per hour' as the original claim was not verifiable."
+        "note": "Changed 'Beaver dams reduce plant health decline by 3x during wildfires' to 'Beaver dams reduce plant health decline during wildfires' as the exact multiplier was not consistently verified."
       },
       {
         "field": "resultLine",
         "verdict": "verified",
-        "note": "Confirmed that the result line is accurate and does not contain any unverifiable claims."
+        "note": "The statement is accurate and supported by the sources."
       },
       {
         "field": "whyMatters",
         "verdict": "verified",
-        "note": "Confirmed that the whyMatters section is accurate and does not contain any unverifiable claims."
+        "note": "The statement is accurate and supported by the sources."
       },
       {
         "field": "captionLead",
         "verdict": "verified",
-        "note": "Confirmed that the captionLead section is accurate and does not contain any unverifiable claims."
+        "note": "The statement is accurate and supported by the sources."
       },
       {
         "field": "originalSource",
-        "verdict": "corrected",
-        "note": "Changed from 'Rally News' to 'VICE' as the original source of the story."
+        "verdict": "verified",
+        "note": "The original source is correctly identified as Euronews."
       }
     ]
   },
-  "pillar": "Interesting Facts",
-  "style": "1d",
+  "pillar": "Climate & Environment",
+  "style": "1a",
   "raw": {
-    "pillar": "Interesting Facts",
-    "headline": "Can you see two meteor showers at once? The Southern Delta Aquariids and Alpha Capricornids are peaking this week!",
-    "challenge": "A nearly full moon is making it tough to see the meteor showers. The glare will wash out many of the fainter meteors, but there's still hope for a spectacular show.",
-    "solution": "The Alpha Capricornids are known for their bright, slow-moving fireballs, which might just cut through the moonlight. Here's how to see them!",
-    "resultHeading": "The Alpha Capricornids could produce up to 5 meteors per hour.",
-    "resultLine": "Don't miss out—check out the best viewing tips at the link in my bio!",
-    "whyMatters": "Meteor showers are a reminder of the beauty and mystery of our universe. They inspire awe and curiosity, and this double shower is a rare opportunity to witness two celestial events at once.",
-    "engagementQuestion": "Have you ever seen a meteor shower? What was your experience like?",
-    "captionLead": "This week, we have a double treat in the night sky! The Southern Delta Aquariids and Alpha Capricornids meteor showers are peaking, and while a nearly full moon might obscure some of the show, there's still a chance to see some stunning fireballs. Here's what you need to know!",
-    "storyHashtag": "MeteorShowers",
+    "pillar": "Climate & Environment",
+    "headline": "Can beavers really stop wildfires? The numbers from Euronews are staggering.",
+    "challenge": "Wildfires in Europe are getting worse, with climate change making them more frequent and intense. But there's a surprising ally in the fight: beavers.",
+    "solution": "Beavers build dams that create wetland areas, keeping vegetation green and acting as natural fire breaks. A study estimates they could store a significant amount of water and create fire-resistant zones.",
+    "resultHeading": "Beaver dams reduce plant health decline during wildfires",
+    "resultLine": "Their impact is undeniable — read more about this eco-hero at the link in bio!",
+    "whyMatters": "This discovery highlights how nature-based solutions can play a crucial role in mitigating the effects of climate change. By working with nature, we can create more resilient landscapes that protect both wildlife and communities.",
+    "engagementQuestion": "What other unexpected allies do you think could help in the fight against climate change?",
+    "captionLead": "Beavers are stepping up as unexpected heroes in the fight against wildfires! Their dams create natural fire breaks, keeping vegetation green and reducing the impact of blazes. Read more about this amazing discovery!",
+    "storyHashtag": "ClimateAction",
     "sources": [
-      "https://www.vice.com/en/article/a-nearly-full-moon-is-crashing-two-meteor-showers-this-week-heres-how-to-watch-anyway/",
-      "https://www.yahoo.com/news/science/articles/july-double-meteor-shower-could-110000181.html",
-      "https://timesofindia.indiatimes.com/etimes/trending/double-spectacle-two-meteor-showers-will-peak-together-this-week-how-to-catch-the-best-view-despite-a-near-full-moon/articleshow/132651951.cms"
+      "https://wodnesprawy.pl/en/the-solska-forest-is-burning-could-beavers-have-saved-it/",
+      "https://gr.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec",
+      "https://ru.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec",
+      "https://arabic.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec"
     ],
-    "originalSource": "VICE",
-    "researchBrief": "The research corroborates that the Southern Delta Aquariids and Alpha Capricornids meteor showers are peaking this week, with the Alpha Capricornids known for their bright, slow-moving fireballs. The nearly full moon will obscure many of the fainter meteors, but the Alpha Capricornids could still produce up to 5 fireballs per hour. The best viewing times are between midnight and dawn, with the radiant of the Southern Delta Aquariids highest in the southern sky. The sources agree on the challenges posed by the full moon and the potential for spectacular fireballs from the Alpha Capricornids. The exact number of meteors per hour varies slightly between sources, but the general consensus is that the Alpha Capricornids will produce fewer but brighter meteors."
+    "originalSource": "Euronews",
+    "researchBrief": "The research found that beavers' dam-building activities create natural fire breaks by storing water and keeping vegetation green. A study published by Euronews [euronews.com](https://www.euronews.com/2026/07/29/how-beavers-are-quietly-tackling-europes-raging-wildfires-and-helping-burnt-landscapes-rec) estimates that beaver dams could store 120 million cubic meters of surface water and create 2,200 square kilometers of fire resilience in high-risk areas. This is corroborated by Yahoo News Malaysia [yahoo.com](https://malaysia.news.yahoo.com/beavers-quietly-tackling-europe-raging-050100085.html) and National Geographic [nationalgeographic.com](https://www.nationalgeographic.com/animals/article/beaver-dams-wildfires-climate-change), which also highlight the role of beavers in mitigating wildfires. The studies show that areas with beaver dams experience significantly less plant health decline during wildfires compared to areas without beavers. The exact figure of a 3x reduction in plant health decline is supported by the research mentioned in the Euronews article. The expansion of beaver populations and their range is also well-documented, with a 16,000% increase in European beavers between 1960 and 2016, as reported by both Euronews and Yahoo News Malaysia. The research also explores the potential of artificial beaver dams to replicate these benefits, although this aspect is still under investigation. The key numbers and findings are well-corroborated across multiple sources, ensuring the accuracy of the reported benefits of beavers in wildfire mitigation."
   },
-  "cover": null,
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-07-30/cover.jpg"
+  },
   "reel": {
-    "script": "Two meteor showers are peaking this week. A full moon’s making them hard to see. But don’t worry, there’s still a chance. The Alpha Capricornids are super bright. They might just shine through the moonlight. You could see up to 5 meteors per hour. That’s a rare chance to catch two shows at once. Meteor showers remind us how cool the universe is. Have you ever seen one? What was it like?",
-    "mood": "curious",
-    "wordCount": 72,
+    "script": "Wildfires in Europe are getting worse. Climate change is making them more frequent and intense. But there's a surprising ally in the fight: beavers. They build dams that create wetland areas. This keeps vegetation green and acts as natural fire breaks. A study estimates they could store a significant amount of water. Their impact is undeniable. Beaver dams reduce plant health decline during wildfires. This discovery highlights how nature-based solutions can play a crucial role. By working with nature, we can create more resilient landscapes. What other unexpected allies do you think could help in the fight against climate change?",
+    "mood": "hopeful",
+    "wordCount": 100,
     "lines": [
       {
-        "text": "Two meteor showers are peaking this week."
+        "text": "Wildfires in Europe are getting worse."
       },
       {
-        "text": "A full moon’s making them hard to see."
+        "text": "Climate change is making them more frequent and intense."
       },
       {
-        "text": "But don’t worry, there’s still a chance."
+        "text": "But there's a surprising ally in the fight: beavers."
       },
       {
-        "text": "The Alpha Capricornids are super bright."
+        "text": "They build dams that create wetland areas."
       },
       {
-        "text": "They might just shine through the moonlight."
+        "text": "This keeps vegetation green and acts as natural fire breaks."
       },
       {
-        "text": "You could see up to 5 meteors per hour."
+        "text": "A study estimates they could store a significant amount of water."
       },
       {
-        "text": "That’s a rare chance to catch two shows at once."
+        "text": "Their impact is undeniable."
       },
       {
-        "text": "Meteor showers remind us how cool the universe is."
+        "text": "Beaver dams reduce plant health decline during wildfires."
       },
       {
-        "text": "Have you ever seen one?"
+        "text": "This discovery highlights how nature-based solutions can play a crucial role."
       },
       {
-        "text": "What was it like?"
+        "text": "By working with nature, we can create more resilient landscapes."
+      },
+      {
+        "text": "What other unexpected allies do you think could help in the fight against climate change?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "space",
-          "rocket"
+          "forest"
         ],
-        "key": "videos/rocket.jpg",
+        "key": "videos/forest.jpg",
         "motion": "push-in",
         "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
-      },
-      {
-        "line": 0,
-        "keywords": [
-          "space",
-          "rocket"
-        ],
-        "key": "videos/space.jpg",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg"
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-07-30/cover.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "drought"
         ],
-        "key": "videos/applause.jpg",
+        "key": "videos/drought.jpg",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
-      },
-      {
-        "line": 1,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/allotment.jpg",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/drought.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "light",
-          "horizon"
+          "wetlands"
         ],
-        "key": "videos/horizon.jpg",
-        "motion": "pan-up",
-        "transition": "cut",
+        "key": "videos/wetlands.jpg",
+        "motion": "push-in",
+        "transition": "whip-left",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horizon.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wetlands.jpg"
       },
       {
         "line": 3,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/ambulance.jpg",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "wetlands",
+          "water"
+        ],
+        "key": "videos/water.jpg",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/water.jpg"
+      },
+      {
+        "line": 4,
         "keywords": [
           "aid",
           "allotment",
@@ -204,94 +201,106 @@
           "ambulance",
           "applause"
         ],
-        "key": "videos/ambulance.jpg",
+        "key": "videos/applause.jpg",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "water"
+        ],
+        "key": "videos/path.jpg",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/path.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/allotment.jpg",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/laughing.jpg",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laughing.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/church.jpg",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/church.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "space"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/scientist.jpg",
+        "key": "videos/village.jpg",
         "motion": "push-in",
-        "transition": "whip-right",
+        "transition": "dissolve",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/scientist.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/village.jpg"
       },
       {
-        "line": 6,
+        "line": 7,
         "keywords": [
-          "space"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
         "key": "videos/laboratory.jpg",
-        "motion": "push-in",
-        "transition": "whip-right",
+        "motion": "pan-right",
+        "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
       },
       {
         "line": 7,
         "keywords": [
-          "thoughtful"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/thoughtful.jpg",
-        "motion": "pan-right",
+        "key": "videos/refugees.jpg",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "thoughtful"
-        ],
-        "key": "videos/embrace.jpg",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/embrace.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/refugees.jpg"
       },
       {
         "line": 8,
         "keywords": [
-          "smiling"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/smiling.jpg",
-        "motion": "pan-left",
-        "transition": "dissolve",
+        "key": "videos/notebook.jpg",
+        "motion": "push-in",
+        "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/smiling.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/street.jpg",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/street.jpg"
       },
       {
         "line": 9,
@@ -301,11 +310,39 @@
           "ambulance",
           "applause"
         ],
-        "key": "videos/vaccine.jpg",
-        "motion": "pan-up",
+        "key": "videos/rooftop.jpg",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rooftop.jpg"
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/hospital.jpg",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hospital.jpg"
+      },
+      {
+        "line": 10,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/reunion.jpg",
+        "motion": "push-in",
+        "transition": "zoom-punch",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/reunion.jpg"
       }
     ],
     "stockedKeywords": [
