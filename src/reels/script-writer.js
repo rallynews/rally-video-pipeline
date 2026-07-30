@@ -41,6 +41,15 @@ function splitLongLines(lines) {
   return out;
 }
 
+// The opening headline: short, unquoted, one line.
+function normalizeHook(value) {
+  return String(value || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/^["'\u201c\u201d\u2018\u2019]+|["'\u201c\u201d\u2018\u2019]+$/g, '')
+    .slice(0, 60);
+}
+
 function normalizeLines(rawLines, fallbackScript) {
   let lines = (Array.isArray(rawLines) ? rawLines : [])
     .map(l => (typeof l === 'string' ? { text: l } : l))
@@ -81,10 +90,13 @@ VOICE — this is read by a young woman, casually, to camera:
 - Write it to be SPOKEN: no brackets, no stage directions, no numbers written as digits when a word reads better (say "twelve thousand", not "12,000").
 
 LINES:
-Break the script into 7–11 lines. Each line is ONE natural spoken sentence or clause — something a person says in one breath, roughly 6–14 words. These get voiced individually, so a line must stand on its own without sounding clipped. Each line is also shown on screen as a caption while it is spoken, so no line may rely on the previous one to parse.
+Break the script into 7–11 lines. Each line is ONE natural spoken sentence or clause — something a person says in one breath, roughly 6–14 words. These get voiced individually, so a line must stand on its own without sounding clipped. From the second line on, each line is also shown on screen as a caption while it is spoken, so no line may rely on the previous one to parse.
+
+HOOK:
+Also write a "hook": the on-screen headline over the OPENING shot (the article's own photo), shown while the first line is spoken. 3–7 words, punchy and curiosity-driven — the thing that stops the scroll. It is NOT spoken and must NOT be a transcript of the first line; it teases the payoff. E.g. "A River Came Back", "Chemo Couldn't Stop Him", "Solar Just Beat Oil".
 
 Return VALID JSON only, no markdown:
-{"script": "the full script as one string", "lines": [{"text": "spoken line"}], "mood": "one word for the music mood: uplifting, hopeful, warm, gentle, triumphant, curious, or calm"}`,
+{"script": "the full script as one string", "hook": "On-Screen Opening Headline", "lines": [{"text": "spoken line"}], "mood": "one word for the music mood: uplifting, hopeful, warm, gentle, triumphant, curious, or calm"}`,
       },
       {
         role: 'user',
@@ -113,10 +125,11 @@ Write the ${TARGET_WORDS.min}–${TARGET_WORDS.max} word spoken script and retur
 
   return {
     script,
+    hook: normalizeHook(parsed.hook),
     lines,
     mood: String(parsed.mood || 'uplifting').toLowerCase().replace(/[^a-z]/g, '') || 'uplifting',
     wordCount: words(script),
   };
 }
 
-module.exports = { writeReelScript, normalizeLines, TARGET_WORDS };
+module.exports = { writeReelScript, normalizeLines, normalizeHook, TARGET_WORDS };

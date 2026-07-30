@@ -7,6 +7,26 @@ function isConfigured() {
   return Boolean(process.env.SLACK_BOT_TOKEN && process.env.SLACK_CHANNEL_ID);
 }
 
+// What the post-edit proofread changed, if it ran. Silence when it found
+// nothing — a clean pass is not news.
+function proofLine(proofreading) {
+  if (!proofreading || !proofreading.ran) return '';
+  const fixed = (proofreading.changes || []).length;
+  const kept = (proofreading.rejected || []).length;
+  if (!fixed && !kept) return '\n📝 *Proofread* — no spelling or grammar errors in your edits.';
+  const parts = [];
+  if (fixed) {
+    parts.push(
+      `\n📝 *Proofread* — ${fixed} fix(es) after your edits:\n` +
+      proofreading.changes.map(c => `• ${c.field}: "${c.before}" → "${c.after}"`).join('\n')
+    );
+  }
+  if (kept) {
+    parts.push(`\n⚠️ ${kept} suggested change(s) looked like a rewrite, not a fix — your text was kept.`);
+  }
+  return parts.join('');
+}
+
 // Everything about the reel worth reading before posting it.
 function reelSummary(reel) {
   if (!reel) return '';
@@ -28,7 +48,7 @@ function reelSummary(reel) {
 //   3. Facebook caption ALONE (plain text — copy/paste ready)
 //   4. Instagram caption ALONE (plain text — copy/paste ready)
 //   5. The article link ALONE, for pasting as the first comment
-async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel }) {
+async function sendCarousel({ story, pillar, style, images, captions, imageUrls, sources, verification, reel, proofreading }) {
   const client = new WebClient(process.env.SLACK_BOT_TOKEN);
   const channel = process.env.SLACK_CHANNEL_ID;
 
@@ -52,6 +72,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     `*Pillar:* ${pillar}   *Style:* ${style}\n` +
     `*Link:* ${story.url}` +
     checkLine +
+    proofLine(proofreading) +
     urlLines +
     srcLines +
     reelSummary(reel) +

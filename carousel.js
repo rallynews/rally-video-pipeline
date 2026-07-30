@@ -9,6 +9,7 @@ const { sendCarousel } = require('./src/carousel/carousel-telegram');
 const slack = require('./src/carousel/slack-sender');
 const reels = require('./src/reels');
 const review = require('./src/review/draft');
+const { proofread } = require('./src/review/proofreader');
 const { sendDraftNotice } = require('./src/review/notify');
 const { updateRSSFeed } = require('./src/rss-updater');
 const axios = require('axios');
@@ -124,7 +125,7 @@ async function buildEditorial() {
 
 // Render, build, upload and deliver — from copy that is already final
 // (either fact-checked-and-approved, or fact-checked in full mode).
-async function produceAndDeliver({ story, raw, pillar, slideCopy, captions, sources, verification, coverUri, style, approvedReel }) {
+async function produceAndDeliver({ story, raw, pillar, slideCopy, captions, sources, verification, coverUri, style, approvedReel, proofreading }) {
   console.log('\n🎨 Rendering carousel slides...');
   const rendered = await renderCarousel(slideCopy, coverUri, style || pickStyle());
   console.log(`   Rendered ${rendered.images.length} slides in style ${rendered.style}`);
@@ -157,7 +158,7 @@ async function produceAndDeliver({ story, raw, pillar, slideCopy, captions, sour
 
   const delivery = {
     story, pillar, style: rendered.style, images: rendered.images,
-    captions, imageUrls, sources, verification, reel,
+    captions, imageUrls, sources, verification, reel, proofreading,
   };
 
   console.log('\n📱 Sending carousel to Telegram...');
@@ -226,6 +227,14 @@ async function runProduce(file) {
   const approved = review.readApproved(file);
   const story = approved.story;
 
+  // Only when the editor typed into it — an as-is approval has nothing new to
+  // have gone wrong in, and the copy was already fact-checked before review.
+  let proofreading = { ran: false, changes: [], rejected: [] };
+  if (approved.approvedWithEdits) {
+    console.log('\n📝 Proofreading the edited copy (spelling and grammar only)...');
+    proofreading = await proofread(approved);
+  }
+
   const { pillar, slideCopy, captions } = buildFromRaw(approved.raw, story);
 
   console.log('🖼️  Fetching the staged cover photo...');
@@ -246,6 +255,7 @@ async function runProduce(file) {
     coverUri,
     style: approved.style,
     approvedReel: approved.reel,
+    proofreading,
   });
 }
 

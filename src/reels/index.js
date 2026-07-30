@@ -89,7 +89,7 @@ async function planReel(story, slideCopy, raw) {
     );
   }
 
-  const { script, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw);
+  const { script, hook, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw);
   const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
   const shots = await planShots(story, slideCopy, script, lines, lib, storyKeywords);
 
@@ -102,13 +102,21 @@ async function planReel(story, slideCopy, raw) {
     }
   }
 
+  // The keyword the resolved file is actually named after — what the review
+  // app's picker must show, as opposed to the keywords the planner ASKED for
+  // (which, on a fallback, can be something else entirely).
+  const keywordOfKey = key =>
+    filterToBank(catalogue.tokenize(path.basename(String(key || ''))))[0] || null;
+
   return {
     script,
+    hook,
     mood,
     wordCount,
     lines,
     shots: shots.map(s => ({
       line: s.line, keywords: s.keywords, key: s.key,
+      image: keywordOfKey(s.key),
       motion: s.motion, transition: s.transition,
     })),
     stockedKeywords: [...lib.stocked].sort(),
@@ -147,7 +155,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     }
 
     const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
-    let script, lines, mood, wordCount, plannedShots;
+    let script, hook, lines, mood, wordCount, plannedShots;
 
     if (approved && Array.isArray(approved.lines)) {
       // The editor's cut. Blanked lines are dropped and shot indexes remapped
@@ -167,6 +175,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
         .map(s => ({ ...s, line: keptIndex.get(Number(s.line)) }));
 
       script = lines.map(l => l.text).join(' ');
+      hook = String(approved.hook || '').trim();
       mood = String(approved.mood || 'uplifting');
       wordCount = script.split(/\s+/).length;
       plannedShots = resolveDraftShots(remapped, lines.length, lib, storyKeywords);
@@ -174,7 +183,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     } else {
       // 1 · script
       console.log('  [reel] writing the 20–30s script...');
-      ({ script, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw));
+      ({ script, hook, lines, mood, wordCount } = await writeReelScript(story, slideCopy, raw));
       console.log(`  [reel] ${wordCount} words across ${lines.length} lines (mood: ${mood})`);
 
       // 2 · cuts
@@ -206,7 +215,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     console.log(`  [reel] narration recorded — ${spoken.toFixed(1)}s of speech`);
 
     // The edit, timed against the voice that will actually play.
-    const timeline = buildTimeline(lines, plannedShots, durations, lib);
+    const timeline = buildTimeline(lines, plannedShots, durations, lib, hook);
     console.log(
       `  [reel] timeline: ${timeline.shots.length} shots over ` +
       `${timeline.videoDuration.toFixed(1)}s, ${timeline.captions.length} captions`
@@ -243,7 +252,9 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     // The photo credit belongs to the opening shot, but is held for a readable
     // minimum in case the first cut is a fast one.
     const photoCredit = coverFile ? slideCopy.source : '';
-    const overlays = await renderOverlays(timeline.captions.map(c => c.text), photoCredit);
+    const overlays = await renderOverlays(
+      timeline.captions.map(c => ({ text: c.text, hook: c.hook })), photoCredit
+    );
 
     const timedLayers = timeline.captions.map((cap, i) => {
       const file = path.join(workDir, `caption-${i}.png`);
@@ -322,6 +333,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
       buffer,
       duration,
       script,
+      hook,
       lines,
       mood,
       wordCount,

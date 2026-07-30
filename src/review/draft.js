@@ -93,6 +93,7 @@ async function writeDraft({ story, raw, pillar, style, slideCopy, sources, verif
   const reel = reelPlan
     ? {
         script: reelPlan.script,
+        hook: reelPlan.hook || '',
         mood: reelPlan.mood,
         wordCount: reelPlan.wordCount,
         lines: reelPlan.lines.map(l => ({ text: l.text })),
