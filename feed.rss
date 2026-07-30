@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2026 06:01:56 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 07:09:02 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>How beavers are quietly tackling Europe’s raging wildfires and helping burnt landscapes recover</title>
+      <link>https://rally.news/categories/climate/?article=How%2Bbeavers%2Bare%2Bquietly%2Btackling%2BEurope%E2%80%99s%2Braging%2Bwildfires%2Band%2Bhelping%2Bburnt%2Blandscapes%2Brecover</link>
+      <description>Beavers’ penchant for dam building has created natural fire breaks across Europe, which could help tackle deadly blazes.</description>
+      <pubDate>Thu, 30 Jul 2026 07:09:02 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/climate/?article=How%2Bbeavers%2Bare%2Bquietly%2Btackling%2BEurope%E2%80%99s%2Braging%2Bwildfires%2Band%2Bhelping%2Bburnt%2Blandscapes%2Brecover</guid>
+    </item>
+
+<item>
       <title>1 billion stitches, 51 countries: World record red dress on display in Brisbane</title>
       <link>https://rally.news/categories/arts/?article=1%2Bbillion%2Bstitches%2C%2B51%2Bcountries%3A%2BWorld%2Brecord%2Bred%2Bdress%2Bon%2Bdisplay%2Bin%2BBrisbane</link>
       <description>Local needleworkers have waited eight years to see the garment they have helped sew with 380 embroiderers worldwide.</description>
@@ -400,14 +408,6 @@
       <description>Iran leave a message saying &quot;may peace, respect and friendship prevail among all nations&quot; following their World Cup group game with Belgium.</description>
       <pubDate>Wed, 24 Jun 2026 05:02:41 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=Iran%2Bleaves%2Bnote%2Babout%2Bpeace%2Bin%2Bdressing%2Broom%2Bafter%2BBelgium%2Bdraw</guid>
-    </item>
-
-<item>
-      <title>Mysterious whale &apos;necropolis&apos; discovered at the bottom of the Indian Ocean</title>
-      <link>https://rally.news/categories/world/?article=Mysterious%2Bwhale%2B%27necropolis%27%2Bdiscovered%2Bat%2Bthe%2Bbottom%2Bof%2Bthe%2BIndian%2BOcean</link>
-      <description>A team of researchers has uncovered hundreds of fossilized whale carcasses off the southwest coast of Australia. Spanning 1,200 kilometers, this is the largest, deepest and oldest cetacean bone graveyard ever observed.</description>
-      <pubDate>Tue, 23 Jun 2026 05:02:53 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/world/?article=Mysterious%2Bwhale%2B%27necropolis%27%2Bdiscovered%2Bat%2Bthe%2Bbottom%2Bof%2Bthe%2BIndian%2BOcean</guid>
     </item>
   </channel>
 </rss>
