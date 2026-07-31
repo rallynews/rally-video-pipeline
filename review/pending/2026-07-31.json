@@ -1,32 +1,62 @@
 {
   "version": 1,
   "date": "2026-07-31",
-  "createdAt": "2026-07-31T05:01:30.804Z",
+  "createdAt": "2026-07-31T06:26:44.669Z",
   "story": {
-    "headline": "Hint, a new AI startup co-founded by Martha Stewart, offers an AI assistant for homeowners",
-    "summary": "AI home management startup Hint, co-founded by Martha Stewart, wants to become an “AI for your home,” combining property records, maintenance schedules, home documents, and an AI assistant into a single app.",
+    "headline": "One Common Vitamin Could Lower Toxic Alzheimer's Proteins, Research Suggests",
+    "summary": "The benefits of  vitamin D are many, with research suggesting it plays an important role in several facets of our health, from boosting our immunity to helping us counter harmful diseases.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/ai/?article=Hint%2C%2Ba%2Bnew%2BAI%2Bstartup%2Bco-founded%2Bby%2BMartha%2BStewart%2C%2Boffers%2Ban%2BAI%2Bassistant%2Bfor%2Bhomeowners"
+    "url": "https://rally.news/categories/world/?article=One%2BCommon%2BVitamin%2BCould%2BLower%2BToxic%2BAlzheimer%27s%2BProteins%2C%2BResearch%2BSuggests"
   },
-  "researchBrief": "The story about Hint, the AI home management app co-founded by Martha Stewart, was corroborated across multiple sources. Key details include the app's features, such as personalized maintenance schedules, document tracking, and insurance advice. The app is currently available for free on iOS and aims to simplify home management tasks. Martha Stewart is actively involved in the development and is not just a figurehead. The app was initially focused on decarbonization incentives but pivoted to a broader scope. The startup has secured $10 million in funding from various investors. All claims are supported by the provided sources.",
+  "researchBrief": "The research found that higher vitamin D levels in midlife are associated with lower levels of tau protein deposits in the brain 16 years later. This association was particularly strong in the entorhinal cortex, one of the first brain regions impacted by Alzheimer's. The study involved 793 participants with an average age of 39, who had their vitamin D levels measured and underwent brain scans 16 years later. The study did not find a relationship between vitamin D levels and amyloid beta protein. The researchers noted that further studies, including clinical trials, are needed to determine if vitamin D supplements could prevent dementia. The study was published in Neurology Open Access and was conducted by researchers from the University of Galway.",
   "sources": [
-    "https://techcrunch.com/2026/07/29/hint-a-new-ai-startup-co-founded-by-martha-stewart-offers-an-ai-assistant-for-homeowners/",
-    "https://hinthome.com/home",
-    "https://steminsights.org/hint-a-new-ai-startup-co-founded-by-martha-stewart-offers-an-ai-assistant-for-homeowners/",
-    "https://finance.yahoo.com/sectors/technology/articles/martha-stewarts-ai-startup-says-221500775.html"
+    "https://us.headtopics.com/news/one-common-vitamin-could-lower-toxic-alzheimer-s-proteins-86086314",
+    "https://foodclimatepartnership.org/vitamin-d-alzheimers-tau-study/",
+    "https://www.insidehook.com/wellness/start-taking-vitamin-before-40-support-brain-health",
+    "https://verifyparts.com/article/vitamin-d-a-potential-key-to-unlocking-alzheimer-s-prevention"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
+        "field": "headline",
+        "verdict": "verified",
+        "note": "The headline accurately reflects the content of the study."
+      },
+      {
+        "field": "challenge",
+        "verdict": "verified",
+        "note": "The challenge accurately describes the context of Alzheimer's disease and the need for early intervention."
+      },
+      {
         "field": "solution",
-        "verdict": "corrected",
-        "note": "Changed 'The best part? It's free to use!' to 'The app is currently available for free on iOS without subscriptions or ads.' to accurately reflect the information from the sources."
+        "verdict": "verified",
+        "note": "The solution accurately reflects the findings of the study regarding vitamin D levels and tau proteins."
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "verified",
+        "note": "The result heading accurately summarizes the key finding of the study."
+      },
+      {
+        "field": "resultLine",
+        "verdict": "verified",
+        "note": "The result line accurately reflects the study's findings and the time frame mentioned."
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "The whyMatters section accurately explains the significance of the research."
+      },
+      {
+        "field": "captionLead",
+        "verdict": "verified",
+        "note": "The caption lead accurately reflects the study's findings and their potential impact."
       },
       {
         "field": "originalSource",
         "verdict": "corrected",
-        "note": "Changed from 'Rally News' to 'TechCrunch' as the original source of the story."
+        "note": "The original source was corrected to 'United States' as it was not 'ScienceAlert'."
       }
     ]
   },
@@ -34,72 +64,64 @@
   "style": "1d",
   "raw": {
     "pillar": "Science & Health Breakthroughs",
-    "headline": "Can AI finally make home maintenance easy? Hint, the new app co-founded by Martha Stewart, is giving it a shot.",
-    "challenge": "Managing a home is a full-time job. Between maintenance schedules, insurance claims, and energy management, it's easy to get overwhelmed. Hint aims to simplify it all with AI.",
-    "solution": "Hint, co-founded by Martha Stewart, uses AI to create personalized home maintenance schedules, track documents, and even advise on insurance claims. The app is currently available for free on iOS without subscriptions or ads.",
-    "resultHeading": "Hint is now available for free on iOS",
-    "resultLine": "Download it today and see how AI can transform your home management routine—link in bio!",
-    "whyMatters": "Home maintenance is a universal challenge, and having a tool that simplifies it can save time, money, and stress. Hint's AI assistant could revolutionize how we care for our homes.",
-    "engagementQuestion": "How do you currently manage your home maintenance tasks?",
-    "captionLead": "Managing a home just got a whole lot easier! Hint, the new AI app co-founded by Martha Stewart, is here to revolutionize home maintenance. Swipe to learn more!",
-    "storyHashtag": "HomeManagement",
+    "headline": "Could a common vitamin help fight Alzheimer's? New research has some promising clues.",
+    "challenge": "Alzheimer's disease is a devastating condition with no known cure. Early intervention is key, but identifying modifiable risk factors has been challenging.",
+    "solution": "A new study suggests that higher vitamin D levels in midlife may be linked to lower levels of toxic tau proteins in the brain years later. Researchers are now exploring this potential connection further.",
+    "resultHeading": "Higher vitamin D levels linked to lower tau protein deposits",
+    "resultLine": "The study found a significant association between midlife vitamin D levels and reduced tau protein buildup 16 years later. Read more at the link in bio.",
+    "whyMatters": "This research offers hope for early intervention in Alzheimer's disease. By identifying modifiable risk factors like vitamin D levels, we may be able to reduce the risk of dementia before symptoms even appear.",
+    "engagementQuestion": "How do you think vitamin D could play a role in preventing Alzheimer's?",
+    "captionLead": "New research suggests that higher vitamin D levels in midlife may be linked to lower levels of toxic tau proteins in the brain years later. This could be a game-changer in the fight against Alzheimer's!",
+    "storyHashtag": "AlzheimersResearch",
     "sources": [
-      "https://techcrunch.com/2026/07/29/hint-a-new-ai-startup-co-founded-by-martha-stewart-offers-an-ai-assistant-for-homeowners/",
-      "https://hinthome.com/home",
-      "https://steminsights.org/hint-a-new-ai-startup-co-founded-by-martha-stewart-offers-an-ai-assistant-for-homeowners/",
-      "https://finance.yahoo.com/sectors/technology/articles/martha-stewarts-ai-startup-says-221500775.html"
+      "https://us.headtopics.com/news/one-common-vitamin-could-lower-toxic-alzheimer-s-proteins-86086314",
+      "https://foodclimatepartnership.org/vitamin-d-alzheimers-tau-study/",
+      "https://www.insidehook.com/wellness/start-taking-vitamin-before-40-support-brain-health",
+      "https://verifyparts.com/article/vitamin-d-a-potential-key-to-unlocking-alzheimer-s-prevention"
     ],
-    "originalSource": "TechCrunch",
-    "researchBrief": "The story about Hint, the AI home management app co-founded by Martha Stewart, was corroborated across multiple sources. Key details include the app's features, such as personalized maintenance schedules, document tracking, and insurance advice. The app is currently available for free on iOS and aims to simplify home management tasks. Martha Stewart is actively involved in the development and is not just a figurehead. The app was initially focused on decarbonization incentives but pivoted to a broader scope. The startup has secured $10 million in funding from various investors. All claims are supported by the provided sources."
+    "originalSource": "United States",
+    "researchBrief": "The research found that higher vitamin D levels in midlife are associated with lower levels of tau protein deposits in the brain 16 years later. This association was particularly strong in the entorhinal cortex, one of the first brain regions impacted by Alzheimer's. The study involved 793 participants with an average age of 39, who had their vitamin D levels measured and underwent brain scans 16 years later. The study did not find a relationship between vitamin D levels and amyloid beta protein. The researchers noted that further studies, including clinical trials, are needed to determine if vitamin D supplements could prevent dementia. The study was published in Neurology Open Access and was conducted by researchers from the University of Galway."
   },
   "cover": {
     "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-07-31/cover.jpg"
   },
   "reel": {
-    "script": "Managing a home can be a total headache. There's maintenance, insurance, energy stuff—it's a lot. Hint's here to help. It's an AI app co-founded by Martha Stewart. It makes personalized schedules, tracks documents, and even helps with insurance claims. And it's free on iOS. Home stuff is stressful for everyone. This could save time, money, and a lot of hassle. How do you handle home maintenance now?",
-    "hook": "AI for Your Home Headaches",
+    "script": "Alzheimer's is tough, but new research gives hope. Scientists found a link between vitamin D and lower levels of toxic tau proteins in the brain. Years later, those with higher vitamin D had less tau buildup. It's early days, but this could be a game-changer. Imagine preventing dementia before it even starts. How do you think vitamin D could help fight Alzheimer's?",
+    "hook": "Vitamin D and Alzheimer's",
     "mood": "hopeful",
-    "wordCount": 67,
+    "wordCount": 62,
     "lines": [
       {
-        "text": "Managing a home can be a total headache."
+        "text": "Alzheimer's is tough, but new research gives hope."
       },
       {
-        "text": "There's maintenance, insurance, energy stuff—it's a lot."
+        "text": "Scientists found a link between vitamin D and lower"
       },
       {
-        "text": "Hint's here to help."
+        "text": "levels of toxic tau proteins in the brain."
       },
       {
-        "text": "It's an AI app co-founded by Martha Stewart."
+        "text": "Years later, those with higher vitamin D had less tau buildup."
       },
       {
-        "text": "It makes personalized schedules, tracks documents, and even helps with insurance claims."
+        "text": "It's early days, but this could be a game-changer."
       },
       {
-        "text": "And it's free on iOS."
+        "text": "Imagine preventing dementia before it even starts."
       },
       {
-        "text": "Home stuff is stressful for everyone."
-      },
-      {
-        "text": "This could save time, money, and a lot of hassle."
-      },
-      {
-        "text": "How do you handle home maintenance now?"
+        "text": "How do you think vitamin D could help fight Alzheimer's?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "hospital",
+          "doctor"
         ],
-        "key": "videos/aid.jpg",
-        "image": "aid",
+        "key": "videos/doctor.jpg",
+        "image": "doctor",
         "motion": "push-in",
         "transition": "cut",
         "cover": true,
@@ -108,188 +130,180 @@
       {
         "line": 0,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "scientist",
+          "laboratory"
+        ],
+        "key": "videos/laboratory.jpg",
+        "image": "laboratory",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "scientist",
+          "research"
+        ],
+        "key": "videos/research.jpg",
+        "image": "research",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "syringe"
+        ],
+        "key": "videos/syringe.jpg",
+        "image": "syringe",
+        "motion": "pan-left",
+        "transition": "whip-left",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "brainscan",
+          "dna"
+        ],
+        "key": "videos/brainscan.jpg",
+        "image": "brainscan",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/brainscan.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "research"
         ],
         "key": "videos/ambulance.jpg",
         "image": "ambulance",
-        "motion": "push-in",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
       },
       {
-        "line": 1,
+        "line": 3,
         "keywords": [
-          "toolbox",
-          "powerlines"
+          "calendar",
+          "clock"
         ],
-        "key": "videos/powerlines.jpg",
-        "image": "powerlines",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/powerlines.jpg"
-      },
-      {
-        "line": 1,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/applause.jpg",
-        "image": "applause",
+        "key": "videos/clock.jpg",
+        "image": "clock",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
-      },
-      {
-        "line": 2,
-        "keywords": [
-          "laptop",
-          "smiling"
-        ],
-        "key": "videos/laptop.jpg",
-        "image": "laptop",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laptop.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "laptop",
-          "portrait"
+          "dna"
         ],
-        "key": "videos/portrait.jpg",
-        "image": "portrait",
+        "key": "videos/dna.jpg",
+        "image": "dna",
         "motion": "pan-up",
-        "transition": "cut",
+        "transition": "dissolve",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "dna"
+        ],
+        "key": "videos/vaccine.jpg",
+        "image": "vaccine",
+        "motion": "pan-up",
+        "transition": "dissolve",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "calendar"
+          "medicine",
+          "vaccine"
         ],
-        "key": "videos/calendar.jpg",
-        "image": "calendar",
+        "key": "videos/medicine.jpg",
+        "image": "medicine",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medicine.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "celebration",
+          "applause"
+        ],
+        "key": "videos/applause.jpg",
+        "image": "applause",
         "motion": "pan-right",
-        "transition": "cut",
+        "transition": "whip-right",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/calendar.jpg"
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/allotment.jpg",
-        "image": "allotment",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/smiling.jpg",
-        "image": "smiling",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/smiling.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
       },
       {
         "line": 5,
         "keywords": [
-          "laptop"
+          "grandmother",
+          "grandfather"
         ],
-        "key": "videos/music.jpg",
-        "image": "music",
+        "key": "videos/grandfather.jpg",
+        "image": "grandfather",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/music.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/grandfather.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "children",
+          "playground"
+        ],
+        "key": "videos/playground.jpg",
+        "image": "playground",
+        "motion": "pan-left",
+        "transition": "dissolve",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/playground.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "relief"
+          "thoughtful",
+          "notebook"
         ],
-        "key": "videos/relief.jpg",
-        "image": "relief",
+        "key": "videos/notebook.jpg",
+        "image": "notebook",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/relief.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
       },
       {
-        "line": 7,
+        "line": 6,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "laptop",
+          "research"
         ],
-        "key": "videos/skyline.jpg",
-        "image": "skyline",
+        "key": "videos/laptop.jpg",
+        "image": "laptop",
         "motion": "pan-right",
-        "transition": "cut",
+        "transition": "zoom-punch",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "relief"
-        ],
-        "key": "videos/walking.jpg",
-        "image": "walking",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/walking.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "relief"
-        ],
-        "key": "videos/celebration.jpg",
-        "image": "celebration",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg"
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "thoughtful"
-        ],
-        "key": "videos/thoughtful.jpg",
-        "image": "thoughtful",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laptop.jpg"
       }
     ],
     "stockedKeywords": [
