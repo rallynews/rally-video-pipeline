@@ -419,6 +419,7 @@ sudo apt-get install -y ffmpeg    # reels only; macOS: brew install ffmpeg
 
 npm run carousel                  # full daily run — requires the env vars above
 npm run reel-check                # just the reel, from canned copy
+npm run delivery-check            # both senders, network stubbed — no credentials needed
 ```
 
 Rendering uses puppeteer's bundled Chromium, which `npm install` fetches; in CI
