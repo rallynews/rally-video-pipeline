@@ -1,5 +1,6 @@
 const axios = require('axios');
 const FormData = require('form-data');
+const { proofLine, reelSummary, checkLine, sourceLines, slideLines } = require('./header-text');
 
 const TG_BASE = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
@@ -48,21 +49,6 @@ async function sendReel(reel) {
   });
 }
 
-// Everything about the reel that's worth reading before posting it: the script
-// it speaks, the voice, the music, and how it was cut.
-function reelSummary(reel) {
-  if (!reel) return '';
-  const link = reel.url ? `\n*Reel (R2):* ${reel.url}` : '';
-  return (
-    `\n\n🎬 *Reels / Shorts cut* — ${reel.duration.toFixed(0)}s · 1080×1920 · ` +
-    `${reel.shots.length} shots · ${reel.captions.length} captions\n` +
-    `*Voice:* ${reel.voice}\n` +
-    `*Music:* ${reel.track || '(none — voice only)'}` +
-    link +
-    `\n*Script:* ${reel.script}`
-  );
-}
-
 // Deliver a finished carousel to Telegram.
 // Message order:
 //   1. Info/header (story, source, pillar, links) — safe to skip past
@@ -76,16 +62,6 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     weekday: 'long', day: 'numeric', month: 'long',
   });
 
-  const checkLine = verification && verification.ran
-    ? `\n✅ *Fact-checked* — ${verification.report.filter(r => r.verdict === 'corrected').length} field(s) rewritten after cross-referencing.`
-    : '';
-  const srcLines = (sources && sources.length)
-    ? `\n*Corroborated with:*\n${sources.map(s => `• ${s}`).join('\n')}`
-    : '';
-  const urlLines = (imageUrls && imageUrls.length)
-    ? `\n*Slides (R2):*\n${imageUrls.map((u, i) => `${i + 1}. ${u}`).join('\n')}`
-    : '';
-
   const header =
     `🖼️ *Rally News Carousel — ${today}*\n\n` +
     `*Story:* ${story.headline}\n` +
@@ -93,10 +69,10 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     `*Pillar:* ${pillar}\n` +
     `*Style:* ${style}\n` +
     `*Link:* ${story.url}` +
-    checkLine +
+    checkLine(verification) +
     proofLine(proofreading) +
-    urlLines +
-    srcLines +
+    slideLines(imageUrls) +
+    sourceLines(sources) +
     reelSummary(reel) +
     `\n\n⬇️ Save the images below, then paste the Facebook and Instagram captions (the next two messages) straight into each app. The message after those is the article link on its own — post it as the FIRST COMMENT, not in the caption.`;
 
