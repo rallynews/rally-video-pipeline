@@ -20,11 +20,15 @@ const originalRequire = Module.prototype.require;
 Module.prototype.require = function (id) {
   if (id === 'axios') {
     return {
-      post: async (url) => {
+      post: async (url, body) => {
         const kind = String(url).includes('sendMediaGroup') ? 'album'
           : String(url).includes('sendVideo') ? 'video'
           : 'message';
-        sent.push({ platform: 'telegram', kind });
+        sent.push({
+          platform: 'telegram', kind,
+          text: (body && body.text) || '',
+          parse_mode: body && body.parse_mode,
+        });
         return { data: {} };
       },
     };
@@ -54,8 +58,26 @@ process.env.SLACK_BOT_TOKEN = process.env.SLACK_BOT_TOKEN || 'stub';
 process.env.SLACK_CHANNEL_ID = process.env.SLACK_CHANNEL_ID || 'stub';
 
 const { buildFromRaw } = require('../src/carousel/copy-generator');
+const { TELEGRAM_LIMIT } = require('../src/carousel/header-text');
 const telegram = require('../src/carousel/carousel-telegram');
 const slack = require('../src/carousel/slack-sender');
+
+// Telegram rejects a message with HTTP 400 when parse_mode is set and an
+// emphasis character is unbalanced, or when it runs past 4096 characters.
+// Nothing this pipeline sends may be able to trigger either.
+function telegramWouldReject(message) {
+  const reasons = [];
+  if (message.parse_mode) {
+    for (const ch of ['*', '_', '`']) {
+      const n = (message.text.match(new RegExp('\\' + ch, 'g')) || []).length;
+      if (n % 2) reasons.push(`unbalanced ${ch} with parse_mode=${message.parse_mode}`);
+    }
+  }
+  if (message.text.length > TELEGRAM_LIMIT) {
+    reasons.push(`${message.text.length} chars > ${TELEGRAM_LIMIT} limit`);
+  }
+  return reasons;
+}
 
 const STORY = {
   headline: 'Rewilded riverbanks bring a dried-up river back to life',
@@ -85,7 +107,9 @@ const REEL = {
   script: 'Okay so this one actually made my day.',
   shots: [{}, {}, {}],
   captions: ['a', 'b'],
-  voice: 'OpenRouter voxtral / casual_female',
+  // The real resolved voice name. Its single underscore made Telegram reject
+  // the whole header with HTTP 400 when the header was parsed as Markdown.
+  voice: 'OpenRouter mistralai/voxtral-mini-tts-2603 / casual_female',
   track: 'audio/track-03.mp3',
   url: 'https://cdn.test/reels/2026-07-31/river.mp4',
 };
@@ -118,21 +142,43 @@ const CASES = [
     name: 'no reel, no proofreading key at all (full mode)',
     extra: { reel: null, imageUrls: [], verification: { ran: false, report: [] } },
   },
+  {
+    name: 'copy full of Markdown metacharacters',
+    story: {
+      ...STORY,
+      headline: 'A 50% rise in wolf_populations — *finally* [confirmed]',
+      url: 'https://rally.news/?article=wolves_return&utm_source=rss',
+    },
+    sources: ['https://guardian.example/a_b', 'https://x.test/c'],
+    extra: {
+      reel: { ...REEL, hook: 'Wolves_Are_Back', script: 'They said it could not happen_ but it did.' },
+      imageUrls: ['https://cdn.test/a_b.png'],
+      verification: { ran: true, report: [] },
+      proofreading: {
+        ran: true,
+        changes: [{ field: 'raw.challenge', before: 'wolf_populaton', after: 'wolf_population' }],
+        rejected: [],
+      },
+    },
+  },
 ];
 
 (async () => {
-  const { pillar, slideCopy, captions } = buildFromRaw({ ...RAW }, STORY);
   let failures = 0;
 
   for (const testCase of CASES) {
     sent.length = 0;
+    const story = testCase.story || STORY;
+    // Captions are rebuilt per case: they carry the story's own link, so a
+    // case that overrides the story must get captions that match it.
+    const { pillar, captions } = buildFromRaw({ ...RAW, ...(testCase.raw || {}) }, story);
     const delivery = {
-      story: STORY,
+      story,
       pillar,
       style: '1b',
       images: [Buffer.alloc(8), Buffer.alloc(8)],
       captions,
-      sources: ['https://guardian.example/a'],
+      sources: testCase.sources || ['https://guardian.example/a', 'https://x.test/c'],
       ...testCase.extra,
     };
 
@@ -149,17 +195,23 @@ const CASES = [
     const sl = sent.filter(m => m.platform === 'slack');
     const header = sl.find(m => m.kind === 'files').text;
 
+    // Nothing sent to Telegram may be rejectable.
+    const rejects = tg
+      .filter(m => m.kind === 'message')
+      .flatMap(m => telegramWouldReject(m).map(r => r));
+
     // The link goes out on its own, last, and never inside a caption.
-    const linkAlone = sl.filter(m => m.kind === 'message' && m.text === STORY.url).length === 1;
-    const captionsClean = !captions.facebook.includes(STORY.url) && !captions.instagram.includes(STORY.url);
+    const linkAlone = tg.filter(m => m.text === story.url).length === 1;
+    const captionsClean = !captions.facebook.includes(story.url) && !captions.instagram.includes(story.url);
     const hookShown = !delivery.reel || header.includes(delivery.reel.hook);
 
-    const ok = linkAlone && captionsClean && hookShown;
+    const ok = !rejects.length && linkAlone && captionsClean && hookShown;
     if (!ok) failures++;
     console.log(
       `${ok ? '✓' : '✗'} ${testCase.name}\n` +
       `    telegram: ${tg.length} sends · slack: ${sl.length} sends · header ${header.length} chars`
     );
+    for (const r of rejects) console.log(`    ✗ Telegram would answer 400: ${r}`);
     if (!linkAlone) console.log('    ✗ the bare article link was not sent exactly once');
     if (!captionsClean) console.log('    ✗ a caption contains the article link');
     if (!hookShown) console.log('    ✗ the reel hook is missing from the header');

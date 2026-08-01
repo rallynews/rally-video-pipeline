@@ -387,6 +387,21 @@ Runs automatically every day at **14:00 UTC** (change the `schedule` cron in
 the workflow to your preferred time). To run on demand: GitHub → Actions →
 **Rally News Carousel Pipeline** → Run workflow.
 
+### Delivery is plain text on purpose
+
+Telegram messages are sent with **no `parse_mode`**. Its legacy Markdown parser
+rejects an entire message with HTTP 400 when an emphasis character is
+unbalanced, and the header interpolates arbitrary text — story headlines, URLs,
+proofread diffs, and voice names like `casual_female`, whose single underscore
+once lost a full day's delivery. The emphasis was cosmetic; correctness is not.
+Messages over Telegram's 4096-character limit are split rather than refused.
+Slack keeps its `*bold*`, since its mrkdwn renders an unmatched character
+literally instead of failing the request.
+
+`npm run delivery-check` asserts this: nothing the pipeline can send is
+rejectable by Telegram, across five header shapes including one whose copy is
+deliberately full of Markdown metacharacters.
+
 ## Network resilience
 
 A daily pipeline gets one shot at the wire, so the calls a run cannot continue

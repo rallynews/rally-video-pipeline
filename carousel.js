@@ -46,9 +46,12 @@ async function sendErrorAlert(error) {
     await axios.post(
       `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`,
       {
+        // Plain text deliberately: an error message containing an underscore
+        // or asterisk would make Telegram reject the alert, losing the very
+        // notification that says something broke.
         chat_id: process.env.TELEGRAM_CHAT_ID,
-        text: `⚠️ *Rally News carousel pipeline failed*\n\n${error.message}\n\nCheck GitHub Actions for details.`,
-        parse_mode: 'Markdown',
+        text: `⚠️ Rally News carousel pipeline failed\n\n${error.message}\n\nCheck GitHub Actions for details.`,
+        disable_web_page_preview: true,
       }
     );
     if (process.env.BREVO_API_KEY && process.env.ALERT_EMAIL) {
