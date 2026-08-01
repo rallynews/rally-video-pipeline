@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2026 08:44:00 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 10:37:23 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Mysterious Shapes Hidden Beneath the Amazon Canopy Reveal a Sprawling Ancient Civilization Much Bigger Than Researchers Expected</title>
+      <link>https://rally.news/categories/world/?article=Mysterious%2BShapes%2BHidden%2BBeneath%2Bthe%2BAmazon%2BCanopy%2BReveal%2Ba%2BSprawling%2BAncient%2BCivilization%2BMuch%2BBigger%2BThan%2BResearchers%2BExpected</link>
+      <description>Scientists recently discovered hundreds of monumental, geometric earthworks known as &quot;geoglyphs&quot; in northern Brazil from the Aquiry civilization</description>
+      <pubDate>Sat, 01 Aug 2026 10:37:23 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/world/?article=Mysterious%2BShapes%2BHidden%2BBeneath%2Bthe%2BAmazon%2BCanopy%2BReveal%2Ba%2BSprawling%2BAncient%2BCivilization%2BMuch%2BBigger%2BThan%2BResearchers%2BExpected</guid>
+    </item>
+
+<item>
       <title>One Common Vitamin Could Lower Toxic Alzheimer&apos;s Proteins, Research Suggests</title>
       <link>https://rally.news/categories/world/?article=One%2BCommon%2BVitamin%2BCould%2BLower%2BToxic%2BAlzheimer%27s%2BProteins%2C%2BResearch%2BSuggests</link>
       <description>The benefits of  vitamin D are many, with research suggesting it plays an important role in several facets of our health, from boosting our immunity to helping us counter harmful diseases.</description>
@@ -400,14 +408,6 @@
       <description>Sexual-assault survivor Harrison James, 26, and cancer survivor Bella Johnston, 31, first met on Instagram, but the sparks really flew when they finally came face-to-face.</description>
       <pubDate>Fri, 26 Jun 2026 05:02:29 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=%E2%80%98My%2Bfirst%2Bthought%2Bwas%2Bhow%2Bgorgeous%2Bshe%2Blooked%E2%80%99%3A%2Bfrom%2BInsta%2BDMs%2Bto%2Breal-life%2Bromance%2Bin%2BRome</guid>
-    </item>
-
-<item>
-      <title>Cristiano Ronaldo becomes first player to score in six World Cups</title>
-      <link>https://rally.news/categories/entertainment/?article=Cristiano%2BRonaldo%2Bbecomes%2Bfirst%2Bplayer%2Bto%2Bscore%2Bin%2Bsix%2BWorld%2BCups</link>
-      <description>Cristiano Ronaldo scored twice in Portugal’s 5-0 win over Uzbekistan</description>
-      <pubDate>Thu, 25 Jun 2026 05:04:00 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Cristiano%2BRonaldo%2Bbecomes%2Bfirst%2Bplayer%2Bto%2Bscore%2Bin%2Bsix%2BWorld%2BCups</guid>
     </item>
   </channel>
 </rss>
