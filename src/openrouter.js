@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { withRetry, isTransientNetwork } = require('./http');
 
 const AI_MODELS = [
   'mistralai/mistral-small-3.2-24b-instruct',
@@ -12,17 +13,24 @@ async function chatCompletion(payload) {
   let lastError;
   for (const model of AI_MODELS) {
     try {
-      const response = await axios.post(
-        'https://openrouter.ai/api/v1/chat/completions',
-        { ...payload, model },
-        {
-          headers: {
-            'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
-            'Content-Type': 'application/json',
-            'HTTP-Referer': 'https://rallynews.com',
-            'X-Title': 'Rally News Pipeline'
+      // Only the wire is retried here. An HTTP error means THIS model said no,
+      // and the next model in the list is a better answer than asking the same
+      // one again — so those fall straight through to the loop below.
+      const response = await withRetry(
+        () => axios.post(
+          'https://openrouter.ai/api/v1/chat/completions',
+          { ...payload, model },
+          {
+            headers: {
+              'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
+              'Content-Type': 'application/json',
+              'HTTP-Referer': 'https://rallynews.com',
+              'X-Title': 'Rally News Pipeline'
+            },
+            timeout: 180000,
           }
-        }
+        ),
+        { label: `openrouter ${model}`, attempts: 3, retryable: isTransientNetwork }
       );
 
       const choices = response.data.choices;

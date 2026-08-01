@@ -1,6 +1,6 @@
-const axios = require('axios');
 const { XMLParser } = require('fast-xml-parser');
 const { chatCompletion, parseJSON } = require('./openrouter');
+const { getWithRetry } = require('./http');
 
 // Edit this list to boost stories about specific subjects during selection.
 // Stories matching any of these subjects will be prioritised over others.
@@ -46,9 +46,16 @@ function extractThumbnail(item) {
 // re-roll), so a fresh pick never lands on the same article again.
 async function getMostViralStory(excludeUrls = []) {
   // Step 1: Fetch and parse the RSS feed
-  const response = await axios.get(process.env.RALLY_RSS_URL, {
-    headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' }
-  });
+  // Nothing downstream can happen without the feed, so a transient blip here
+  // is retried rather than allowed to lose the day's post.
+  const response = await getWithRetry(
+    process.env.RALLY_RSS_URL,
+    {
+      headers: { 'Accept': 'application/rss+xml, application/xml, text/xml' },
+      timeout: 30000,
+    },
+    { label: 'RSS feed', attempts: 4 }
+  );
 
   const parser = new XMLParser({ ignoreAttributes: false });
   const feed = parser.parse(response.data);

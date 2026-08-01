@@ -387,6 +387,21 @@ Runs automatically every day at **14:00 UTC** (change the `schedule` cron in
 the workflow to your preferred time). To run on demand: GitHub → Actions →
 **Rally News Carousel Pipeline** → Run workflow.
 
+## Network resilience
+
+A daily pipeline gets one shot at the wire, so the calls a run cannot continue
+without are retried (`src/http.js`):
+
+| Call | Behaviour |
+| --- | --- |
+| **RSS feed** (`src/story-fetcher.js`) | 4 attempts, ~2s → 5s → 11s backoff with jitter |
+| **OpenRouter** (`src/openrouter.js`) | 3 attempts per model on *network* failures only; an HTTP error falls straight through to the next model in the chain, so no model is asked twice |
+
+Only transient failures are retried — dropped connections, DNS blips, timeouts,
+TLS handshake alerts (`EPROTO`, the class that once killed a run outright), and
+`429`/`5xx`. A `400`, `401` or `404` will fail identically every time, so those
+raise immediately instead of padding the run with pointless waiting.
+
 ## Cost per run (approx.)
 
 | | Video | Carousel | Carousel + reel |
