@@ -64,4 +64,47 @@ function slideLines(imageUrls) {
     : '';
 }
 
-module.exports = { proofLine, reelSummary, checkLine, sourceLines, slideLines };
+// Telegram's legacy Markdown parser rejects the ENTIRE message with HTTP 400
+// when an emphasis character is unbalanced — and this header interpolates
+// arbitrary text: story headlines, URLs, proofread diffs, and voice names like
+// `casual_female`, which carries exactly one underscore. That single character
+// lost a whole day's delivery.
+//
+// The emphasis is cosmetic, so the Telegram copy is sent as plain text with
+// the markers stripped and no parse_mode at all. That makes the failure
+// impossible rather than merely unlikely. Slack keeps the markers: its mrkdwn
+// renders an unmatched character literally instead of failing the request.
+function toPlainText(markdown) {
+  return String(markdown == null ? '' : markdown).replace(/\*/g, '');
+}
+
+// Telegram caps a message at 4096 characters and answers 400 past it. Split on
+// paragraph, then line, then hard — a header that grows past the cap should
+// arrive in two parts rather than not at all.
+const TELEGRAM_LIMIT = 4096;
+
+function chunk(text, limit = TELEGRAM_LIMIT) {
+  const source = String(text == null ? '' : text);
+  if (source.length <= limit) return [source];
+
+  const parts = [];
+  let rest = source;
+
+  while (rest.length > limit) {
+    const window = rest.slice(0, limit);
+    // Prefer the last paragraph break, then the last line break, then give up
+    // and cut at the limit.
+    let cut = window.lastIndexOf('\n\n');
+    if (cut < limit * 0.5) cut = window.lastIndexOf('\n');
+    if (cut < limit * 0.5) cut = limit;
+    parts.push(rest.slice(0, cut).trimEnd());
+    rest = rest.slice(cut).trimStart();
+  }
+  if (rest) parts.push(rest);
+  return parts;
+}
+
+module.exports = {
+  proofLine, reelSummary, checkLine, sourceLines, slideLines,
+  toPlainText, chunk, TELEGRAM_LIMIT,
+};

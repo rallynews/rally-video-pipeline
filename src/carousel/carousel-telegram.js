@@ -1,14 +1,25 @@
 const axios = require('axios');
 const FormData = require('form-data');
-const { proofLine, reelSummary, checkLine, sourceLines, slideLines } = require('./header-text');
+const {
+  proofLine, reelSummary, checkLine, sourceLines, slideLines, toPlainText, chunk,
+} = require('./header-text');
 
 const TG_BASE = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}`;
 const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
 
-async function sendMessage(text, parseMode) {
-  const body = { chat_id: CHAT_ID, text, disable_web_page_preview: true };
-  if (parseMode) body.parse_mode = parseMode;
-  await axios.post(`${TG_BASE}/sendMessage`, body);
+// Everything goes out as plain text. No parse_mode means no entity parsing,
+// so no interpolated headline, URL, voice name or proofread diff can ever make
+// Telegram reject the message — and the copy arrives exactly as written, which
+// matters most for the captions that get pasted straight into Facebook and
+// Instagram. Over-long text is split rather than refused.
+async function sendMessage(text) {
+  for (const part of chunk(text)) {
+    await axios.post(`${TG_BASE}/sendMessage`, {
+      chat_id: CHAT_ID,
+      text: part,
+      disable_web_page_preview: true,
+    });
+  }
 }
 
 // Send the 5 slides as a single album so they arrive together and each can be
@@ -76,7 +87,7 @@ async function sendCarousel({ story, pillar, style, images, captions, imageUrls,
     reelSummary(reel) +
     `\n\n⬇️ Save the images below, then paste the Facebook and Instagram captions (the next two messages) straight into each app. The message after those is the article link on its own — post it as the FIRST COMMENT, not in the caption.`;
 
-  await sendMessage(header, 'Markdown');
+  await sendMessage(toPlainText(header));
   await sendAlbum(images);
 
   if (reel) {
