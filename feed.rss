@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Aug 2026 10:37:23 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 05:23:44 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Jorge Pérez Gallego, astrophysicist: ‘A total eclipse creates an energy similar to a big concert, to the feeling of celebrating a goal’</title>
+      <link>https://rally.news/categories/ai/?article=Jorge%2BP%C3%A9rez%2BGallego%2C%2Bastrophysicist%3A%2B%E2%80%98A%2Btotal%2Beclipse%2Bcreates%2Ban%2Benergy%2Bsimilar%2Bto%2Ba%2Bbig%2Bconcert%2C%2Bto%2Bthe%2Bfeeling%2Bof%2Bcelebrating%2Ba%2Bgoal%E2%80%99</link>
+      <description>For the Spaniard who directs communications at the U.S. National Solar Observatory, the unique sensations produced by the astronomical phenomenon go beyond what science can explain</description>
+      <pubDate>Mon, 03 Aug 2026 05:23:44 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Jorge%2BP%C3%A9rez%2BGallego%2C%2Bastrophysicist%3A%2B%E2%80%98A%2Btotal%2Beclipse%2Bcreates%2Ban%2Benergy%2Bsimilar%2Bto%2Ba%2Bbig%2Bconcert%2C%2Bto%2Bthe%2Bfeeling%2Bof%2Bcelebrating%2Ba%2Bgoal%E2%80%99</guid>
+    </item>
+
+<item>
       <title>Mysterious Shapes Hidden Beneath the Amazon Canopy Reveal a Sprawling Ancient Civilization Much Bigger Than Researchers Expected</title>
       <link>https://rally.news/categories/world/?article=Mysterious%2BShapes%2BHidden%2BBeneath%2Bthe%2BAmazon%2BCanopy%2BReveal%2Ba%2BSprawling%2BAncient%2BCivilization%2BMuch%2BBigger%2BThan%2BResearchers%2BExpected</link>
       <description>Scientists recently discovered hundreds of monumental, geometric earthworks known as &quot;geoglyphs&quot; in northern Brazil from the Aquiry civilization</description>
@@ -400,14 +408,6 @@
       <description>&quot;We hope to be there soon,&quot; IAEA chief Rafael Grossi said at a news conference in Japan on Friday, according to Reuters.</description>
       <pubDate>Sat, 27 Jun 2026 05:03:08 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=UN%2Bnuclear%2Bwatchdog%2Bsays%2Bit%2Bhas%2Baccess%2Bto%2BIran%27s%2Bnuclear%2Bsites%2Bafter%2Binterim%2Bpeace%2Bdeal</guid>
-    </item>
-
-<item>
-      <title>‘My first thought was how gorgeous she looked’: from Insta DMs to real-life romance in Rome</title>
-      <link>https://rally.news/categories/entertainment/?article=%E2%80%98My%2Bfirst%2Bthought%2Bwas%2Bhow%2Bgorgeous%2Bshe%2Blooked%E2%80%99%3A%2Bfrom%2BInsta%2BDMs%2Bto%2Breal-life%2Bromance%2Bin%2BRome</link>
-      <description>Sexual-assault survivor Harrison James, 26, and cancer survivor Bella Johnston, 31, first met on Instagram, but the sparks really flew when they finally came face-to-face.</description>
-      <pubDate>Fri, 26 Jun 2026 05:02:29 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=%E2%80%98My%2Bfirst%2Bthought%2Bwas%2Bhow%2Bgorgeous%2Bshe%2Blooked%E2%80%99%3A%2Bfrom%2BInsta%2BDMs%2Bto%2Breal-life%2Bromance%2Bin%2BRome</guid>
     </item>
   </channel>
 </rss>
