@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2026 05:23:44 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 05:28:47 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Dark Matter May Be Transforming Into Weird Particles That Fill The Universe With Gravity</title>
+      <link>https://rally.news/categories/ai/?article=Dark%2BMatter%2BMay%2BBe%2BTransforming%2BInto%2BWeird%2BParticles%2BThat%2BFill%2BThe%2BUniverse%2BWith%2BGravity</link>
+      <description>All the visible stuff like galaxies, stars, and the sugary, raspberry-flavored gas clouds that leave us so jaw-gapingly awed (and hungry) only make up about 15 percent of the Universe&apos;s matter.</description>
+      <pubDate>Tue, 04 Aug 2026 05:28:47 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Dark%2BMatter%2BMay%2BBe%2BTransforming%2BInto%2BWeird%2BParticles%2BThat%2BFill%2BThe%2BUniverse%2BWith%2BGravity</guid>
+    </item>
+
+<item>
       <title>Jorge Pérez Gallego, astrophysicist: ‘A total eclipse creates an energy similar to a big concert, to the feeling of celebrating a goal’</title>
       <link>https://rally.news/categories/ai/?article=Jorge%2BP%C3%A9rez%2BGallego%2C%2Bastrophysicist%3A%2B%E2%80%98A%2Btotal%2Beclipse%2Bcreates%2Ban%2Benergy%2Bsimilar%2Bto%2Ba%2Bbig%2Bconcert%2C%2Bto%2Bthe%2Bfeeling%2Bof%2Bcelebrating%2Ba%2Bgoal%E2%80%99</link>
       <description>For the Spaniard who directs communications at the U.S. National Solar Observatory, the unique sensations produced by the astronomical phenomenon go beyond what science can explain</description>
@@ -400,14 +408,6 @@
       <description>The royal residence the pair will use has not been made public, but they will also be staying in private accommodation during the trip.</description>
       <pubDate>Sun, 28 Jun 2026 05:03:21 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Harry%2Band%2BMeghan%2Baccept%2Boffer%2Bto%2Bstay%2Bat%2Broyal%2Bestate%2Bduring%2BUK%2Bvisit</guid>
-    </item>
-
-<item>
-      <title>UN nuclear watchdog says it has access to Iran&apos;s nuclear sites after interim peace deal</title>
-      <link>https://rally.news/categories/world/?article=UN%2Bnuclear%2Bwatchdog%2Bsays%2Bit%2Bhas%2Baccess%2Bto%2BIran%27s%2Bnuclear%2Bsites%2Bafter%2Binterim%2Bpeace%2Bdeal</link>
-      <description>&quot;We hope to be there soon,&quot; IAEA chief Rafael Grossi said at a news conference in Japan on Friday, according to Reuters.</description>
-      <pubDate>Sat, 27 Jun 2026 05:03:08 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/world/?article=UN%2Bnuclear%2Bwatchdog%2Bsays%2Bit%2Bhas%2Baccess%2Bto%2BIran%27s%2Bnuclear%2Bsites%2Bafter%2Binterim%2Bpeace%2Bdeal</guid>
     </item>
   </channel>
 </rss>
