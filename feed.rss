@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2026 05:28:47 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 05:18:25 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>After Receiving a Custom Experimental Medicine, a Teen With a Rare Genetic Disorder Walked on His Own for the First Time</title>
+      <link>https://rally.news/categories/ai/?article=After%2BReceiving%2Ba%2BCustom%2BExperimental%2BMedicine%2C%2Ba%2BTeen%2BWith%2Ba%2BRare%2BGenetic%2BDisorder%2BWalked%2Bon%2BHis%2BOwn%2Bfor%2Bthe%2BFirst%2BTime</link>
+      <description>The patient&apos;s genetic disorder causes frequent seizures and developmental delays. His progress, along with that of another boy who received a similar personalized treatment, highlights the promise—and challenges—of tailor-made drugs</description>
+      <pubDate>Wed, 05 Aug 2026 05:18:25 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=After%2BReceiving%2Ba%2BCustom%2BExperimental%2BMedicine%2C%2Ba%2BTeen%2BWith%2Ba%2BRare%2BGenetic%2BDisorder%2BWalked%2Bon%2BHis%2BOwn%2Bfor%2Bthe%2BFirst%2BTime</guid>
+    </item>
+
+<item>
       <title>Dark Matter May Be Transforming Into Weird Particles That Fill The Universe With Gravity</title>
       <link>https://rally.news/categories/ai/?article=Dark%2BMatter%2BMay%2BBe%2BTransforming%2BInto%2BWeird%2BParticles%2BThat%2BFill%2BThe%2BUniverse%2BWith%2BGravity</link>
       <description>All the visible stuff like galaxies, stars, and the sugary, raspberry-flavored gas clouds that leave us so jaw-gapingly awed (and hungry) only make up about 15 percent of the Universe&apos;s matter.</description>
@@ -400,14 +408,6 @@
       <description>Pride and a party as the Puerto Rican becomes the first Latin artist to headline a UK stadium.</description>
       <pubDate>Mon, 29 Jun 2026 05:03:02 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Bad%2BBunny%3A%2BLatin%2Bstar%2Blights%2Bup%2BLondon%2Bwith%2Bhistory-making%2Bstadium%2Bshow</guid>
-    </item>
-
-<item>
-      <title>Harry and Meghan accept offer to stay at royal estate during UK visit</title>
-      <link>https://rally.news/categories/entertainment/?article=Harry%2Band%2BMeghan%2Baccept%2Boffer%2Bto%2Bstay%2Bat%2Broyal%2Bestate%2Bduring%2BUK%2Bvisit</link>
-      <description>The royal residence the pair will use has not been made public, but they will also be staying in private accommodation during the trip.</description>
-      <pubDate>Sun, 28 Jun 2026 05:03:21 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Harry%2Band%2BMeghan%2Baccept%2Boffer%2Bto%2Bstay%2Bat%2Broyal%2Bestate%2Bduring%2BUK%2Bvisit</guid>
     </item>
   </channel>
 </rss>
