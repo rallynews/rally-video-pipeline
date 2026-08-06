@@ -65,6 +65,13 @@
   textarea:focus-visible, input:focus-visible, select:focus-visible { outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
   .charcount { font-size:12px; color:var(--faint); text-align:right; margin-top:3px; }
 
+  /* a switch, not a form field: label and box sit on one line */
+  label.check { display:flex; align-items:flex-start; gap:10px; margin-top:20px;
+                padding-top:16px; border-top:1px solid var(--line); cursor:pointer; }
+  label.check input { width:17px; height:17px; margin:1px 0 0; flex:none; accent-color:var(--accent); cursor:pointer; }
+  label.check b { display:block; font-size:14.5px; font-weight:600; color:var(--ink); }
+  label.check em { display:block; font-style:normal; font-size:12.5px; color:var(--faint); margin-top:2px; }
+
   .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:0 18px; }
   @media (max-width:640px) { .grid2 { grid-template-columns:1fr; } }
 
@@ -230,6 +237,14 @@
         <input type="text" id="f-hook" maxlength="60" placeholder="e.g. A River Came Back">
       </label>
       <div id="rlines"></div>
+      <label class="check">
+        <input type="checkbox" id="f-nomusic">
+        <span>
+          <b>No music — narration only</b>
+          <em>Leave unticked to score the reel with a random track from the R2 library.
+              Tick it for a sombre story, or one the narration carries on its own.</em>
+        </span>
+      </label>
     </section>
 
     <div class="donebox card hidden" id="donebox">
@@ -448,6 +463,7 @@
   function renderReel() {
     if (!draft.reel) { $('reelcard').classList.add('hidden'); return; }
     $('f-hook').value = draft.reel.hook || '';
+    $('f-nomusic').checked = !!draft.reel.noMusic;
 
     var host = $('rlines');
     draft.reel.lines.forEach(function (line, i) {
@@ -500,6 +516,11 @@
   // ── collect + submit ─────────────────────────────────────────────────────
   function collect(edited) {
     var out = JSON.parse(JSON.stringify(draft));
+    // Read outside the `edited` branch on purpose: muting the bed is a setting,
+    // not copy, so ticking the box and hitting "Approve as-is" has to work too.
+    // It carries nothing for the proofreader to read, so it costs that path
+    // nothing.
+    if (out.reel) out.reel.noMusic = $('f-nomusic').checked;
     if (edited) {
       RAW_FIELDS.forEach(function (f) { out.raw[f] = $('f-' + f).value.trim(); });
       out.style = $('f-style').value;

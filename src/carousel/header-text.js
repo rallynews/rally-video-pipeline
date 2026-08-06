@@ -38,7 +38,7 @@ function reelSummary(reel) {
     `\n\n🎬 *Reels / Shorts cut* — ${reel.duration.toFixed(0)}s · 1080×1920 · ` +
     `${reel.shots.length} shots · ${reel.captions.length} captions\n` +
     `*Voice:* ${reel.voice}\n` +
-    `*Music:* ${reel.track || '(none — voice only)'}` +
+    `*Music:* ${reel.track || (reel.musicMuted ? '(muted in review — voice only)' : '(none — voice only)')}` +
     hook +
     link +
     `\n*Script:* ${reel.script}`

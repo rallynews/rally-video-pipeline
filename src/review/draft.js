@@ -94,6 +94,9 @@ async function writeDraft({ story, raw, pillar, style, slideCopy, sources, verif
     ? {
         script: reelPlan.script,
         hook: reelPlan.hook || '',
+        // Editor-facing switch; the reel is built with a music bed unless
+        // this is ticked in review.
+        noMusic: false,
         mood: reelPlan.mood,
         wordCount: reelPlan.wordCount,
         lines: reelPlan.lines.map(l => ({ text: l.text })),
