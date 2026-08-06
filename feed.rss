@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Aug 2026 05:18:25 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 06:18:49 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Monkeys Show a Strange Language Quirk We Thought Was Unique to Humans</title>
+      <link>https://rally.news/categories/ai/?article=Monkeys%2BShow%2Ba%2BStrange%2BLanguage%2BQuirk%2BWe%2BThought%2BWas%2BUnique%2Bto%2BHumans</link>
+      <description>If I told you the shapes below had names – one is called &apos;Bouba&apos;, the other &apos;Kiki&apos; – which would you think is which?</description>
+      <pubDate>Thu, 06 Aug 2026 06:18:49 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Monkeys%2BShow%2Ba%2BStrange%2BLanguage%2BQuirk%2BWe%2BThought%2BWas%2BUnique%2Bto%2BHumans</guid>
+    </item>
+
+<item>
       <title>After Receiving a Custom Experimental Medicine, a Teen With a Rare Genetic Disorder Walked on His Own for the First Time</title>
       <link>https://rally.news/categories/ai/?article=After%2BReceiving%2Ba%2BCustom%2BExperimental%2BMedicine%2C%2Ba%2BTeen%2BWith%2Ba%2BRare%2BGenetic%2BDisorder%2BWalked%2Bon%2BHis%2BOwn%2Bfor%2Bthe%2BFirst%2BTime</link>
       <description>The patient&apos;s genetic disorder causes frequent seizures and developmental delays. His progress, along with that of another boy who received a similar personalized treatment, highlights the promise—and challenges—of tailor-made drugs</description>
@@ -400,14 +408,6 @@
       <description>Seven-time champion seizes chance ‘to showcase what I do,’ beginning with matchup against 20-year-old Maya Joint</description>
       <pubDate>Tue, 30 Jun 2026 05:04:06 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=All%2Beyes%2Bon%2BSerena%2BWilliams%2Bas%2Btennis%2Bgreat%2Bmakes%2Bsingles%2Bcomeback%2Bat%2BWimbledon</guid>
-    </item>
-
-<item>
-      <title>Bad Bunny: Latin star lights up London with history-making stadium show</title>
-      <link>https://rally.news/categories/entertainment/?article=Bad%2BBunny%3A%2BLatin%2Bstar%2Blights%2Bup%2BLondon%2Bwith%2Bhistory-making%2Bstadium%2Bshow</link>
-      <description>Pride and a party as the Puerto Rican becomes the first Latin artist to headline a UK stadium.</description>
-      <pubDate>Mon, 29 Jun 2026 05:03:02 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Bad%2BBunny%3A%2BLatin%2Bstar%2Blights%2Bup%2BLondon%2Bwith%2Bhistory-making%2Bstadium%2Bshow</guid>
     </item>
   </channel>
 </rss>
