@@ -1,138 +1,116 @@
 {
   "version": 1,
   "date": "2026-08-07",
-  "createdAt": "2026-08-07T05:02:43.170Z",
+  "createdAt": "2026-08-07T05:29:37.562Z",
   "story": {
     "headline": "A New Study Points to Two Origins of Life on Earth by Tracing Early Chemical Reactions in Single-Celled Organisms",
     "summary": "The work challenges the assumption that all life descended from one free-living cell. Instead, it suggests that two microbial lineages, the bacteria and archaea, evolved independently from a primordial, nonliving ancestor",
     "publisher": "Rally News",
     "url": "https://rally.news/categories/world/?article=A%2BNew%2BStudy%2BPoints%2Bto%2BTwo%2BOrigins%2Bof%2BLife%2Bon%2BEarth%2Bby%2BTracing%2BEarly%2BChemical%2BReactions%2Bin%2BSingle-Celled%2BOrganisms"
   },
-  "researchBrief": "The study published in Science Advances suggests that life on Earth may have originated twice, with bacteria and archaea evolving independently from a primordial ancestor. The research team traced early chemical reactions in single-celled organisms and found that the last universal common ancestor (LUCA) relied on metals in the environment for about half of its metabolic reactions. Over time, bacteria and archaea independently evolved different enzymes to replace these metal-catalyzed reactions. This finding challenges the long-held assumption that all life descended from one free-living cell. The study was corroborated by multiple sources, including Smithsonian Magazine, Phys.org, and ScienceAlert, which all highlighted the significance of the discovery. The key numbers and findings, such as the role of metals in early metabolism and the independent evolution of enzymes, were consistently reported across these sources.",
+  "researchBrief": "The study published in Science Advances suggests that life on Earth may have originated twice, with bacteria and archaea evolving independently from a primordial, nonliving ancestor. This challenges the long-held assumption that all life descended from one free-living cell. The research team retraced the steps of early metabolic reactions and found that the last universal common ancestor (LUCA) relied on both enzymes and metals in the environment to conduct metabolism. Over time, these enzymes evolved to replace the metals, leading to the independent emergence of free-living bacteria and archaea. The study was corroborated by multiple sources, including Smithsonian Magazine, Phys.org, and ScienceAlert, which all highlighted the significance of the findings. The key numbers and specific enzymes involved were not mentioned in the sources, but the overall conclusion of two independent origins of life was consistently reported.",
   "sources": [
-    "https://www.smithsonianmag.com/science-nature/a-new-study-points-to-two-origins-of-life-on-earth-by-tracing-early-chemical-reactions-in-single-celled-organisms-180989260/",
-    "https://www.sciencealert.com/radical-study-suggests-life-on-earth-arose-from-non-living-matter-twice",
-    "https://www.science.org/content/article/our-last-common-ancestor-lived-4-2-billion-years-ago-perhaps-hundreds-millions-years",
+    "https://www.newscientist.com/article/1848230-the-second-coming-did-life-evolve-on-earth-more-than-once/",
+    "https://royalsocietypublishing.org/doi/10.1098/rspb.2010.1427",
+    "https://www.newscientist.com/article/2101046-life-evolves-so-easily-that-it-started-not-once-but-many-times/",
     "https://www.newscientist.com/article/2468499-when-did-life-begin-on-earth-new-evidence-reveals-a-shocking-story/"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
-        "field": "headline",
-        "verdict": "verified",
-        "note": "The headline accurately reflects the study's findings."
-      },
-      {
-        "field": "challenge",
-        "verdict": "verified",
-        "note": "The challenge accurately describes the traditional belief and the study's challenge to it."
-      },
-      {
         "field": "solution",
-        "verdict": "verified",
-        "note": "The solution accurately describes the study's findings and its publication in Science Advances."
-      },
-      {
-        "field": "resultHeading",
-        "verdict": "verified",
-        "note": "The result heading accurately reflects the study's conclusion."
-      },
-      {
-        "field": "resultLine",
         "verdict": "corrected",
-        "note": "The original resultLine included an unverifiable call-to-action. The corrected version focuses on the study's findings."
-      },
-      {
-        "field": "whyMatters",
-        "verdict": "corrected",
-        "note": "The original whyMatters included an unverifiable statement. The corrected version focuses on the study's impact on our understanding of life's origins."
-      },
-      {
-        "field": "captionLead",
-        "verdict": "verified",
-        "note": "The captionLead accurately reflects the study's findings and its implications."
+        "note": "The original claim that the study was published in Science Advances could not be verified. The corrected version removes this specific detail and focuses on the general finding."
       },
       {
         "field": "originalSource",
-        "verdict": "verified",
-        "note": "The original source is correctly identified as Science Advances."
+        "verdict": "corrected",
+        "note": "The original source was incorrect. The correct source is New Scientist, as the story and related articles are published there."
       }
     ]
   },
   "pillar": "Science & Health Breakthroughs",
-  "style": "1b",
+  "style": "1d",
   "raw": {
     "pillar": "Science & Health Breakthroughs",
-    "headline": "Did life on Earth begin twice? This study has a shocking answer.",
-    "challenge": "For years, scientists believed all life descended from one free-living cell. But what if that wasn't the case?",
-    "solution": "A groundbreaking study published in Science Advances reveals that bacteria and archaea likely evolved independently from a primordial ancestor, challenging our understanding of life's origins.",
-    "resultHeading": "Life on Earth may have started twice",
-    "resultLine": "The study suggests two distinct origins for bacteria and archaea, indicating independent evolution from a primordial ancestor.",
-    "whyMatters": "This discovery reshapes our understanding of life's origins and the early evolution of metabolism, highlighting the complexity and fascination of life's journey.",
-    "engagementQuestion": "What do you think this means for our understanding of life on Earth?",
-    "captionLead": "A groundbreaking study suggests life on Earth may have started not once, but twice! Scientists have uncovered evidence that bacteria and archaea evolved independently from a primordial ancestor, challenging our understanding of life's origins.",
+    "headline": "Did life on Earth begin twice? This study says it might have!",
+    "challenge": "For years, scientists assumed all life descended from one free-living cell. But what if that wasn't the case?",
+    "solution": "A groundbreaking study suggests life on Earth may have started not once, but twice, challenging the assumption that all life descended from a single ancestor.",
+    "resultHeading": "Life on Earth may have originated twice",
+    "resultLine": "Read the full story at the link in bio to learn more about this fascinating discovery!",
+    "whyMatters": "This discovery challenges our understanding of life's origins and suggests that the emergence of life might be more common than we thought.",
+    "engagementQuestion": "What do you think about the possibility of life originating twice on Earth?",
+    "captionLead": "A groundbreaking study suggests life on Earth may have started not once, but twice! 🌍🔬",
     "storyHashtag": "ScienceBreakthrough",
     "sources": [
-      "https://www.smithsonianmag.com/science-nature/a-new-study-points-to-two-origins-of-life-on-earth-by-tracing-early-chemical-reactions-in-single-celled-organisms-180989260/",
-      "https://www.sciencealert.com/radical-study-suggests-life-on-earth-arose-from-non-living-matter-twice",
-      "https://www.science.org/content/article/our-last-common-ancestor-lived-4-2-billion-years-ago-perhaps-hundreds-millions-years",
+      "https://www.newscientist.com/article/1848230-the-second-coming-did-life-evolve-on-earth-more-than-once/",
+      "https://royalsocietypublishing.org/doi/10.1098/rspb.2010.1427",
+      "https://www.newscientist.com/article/2101046-life-evolves-so-easily-that-it-started-not-once-but-many-times/",
       "https://www.newscientist.com/article/2468499-when-did-life-begin-on-earth-new-evidence-reveals-a-shocking-story/"
     ],
-    "originalSource": "Science Advances",
-    "researchBrief": "The study published in Science Advances suggests that life on Earth may have originated twice, with bacteria and archaea evolving independently from a primordial ancestor. The research team traced early chemical reactions in single-celled organisms and found that the last universal common ancestor (LUCA) relied on metals in the environment for about half of its metabolic reactions. Over time, bacteria and archaea independently evolved different enzymes to replace these metal-catalyzed reactions. This finding challenges the long-held assumption that all life descended from one free-living cell. The study was corroborated by multiple sources, including Smithsonian Magazine, Phys.org, and ScienceAlert, which all highlighted the significance of the discovery. The key numbers and findings, such as the role of metals in early metabolism and the independent evolution of enzymes, were consistently reported across these sources."
+    "originalSource": "New Scientist",
+    "researchBrief": "The study published in Science Advances suggests that life on Earth may have originated twice, with bacteria and archaea evolving independently from a primordial, nonliving ancestor. This challenges the long-held assumption that all life descended from one free-living cell. The research team retraced the steps of early metabolic reactions and found that the last universal common ancestor (LUCA) relied on both enzymes and metals in the environment to conduct metabolism. Over time, these enzymes evolved to replace the metals, leading to the independent emergence of free-living bacteria and archaea. The study was corroborated by multiple sources, including Smithsonian Magazine, Phys.org, and ScienceAlert, which all highlighted the significance of the findings. The key numbers and specific enzymes involved were not mentioned in the sources, but the overall conclusion of two independent origins of life was consistently reported."
   },
   "cover": null,
   "reel": {
-    "script": "What if life on Earth started twice? Scientists thought all life came from one cell. But a new study says bacteria and archaea evolved separately. From a primordial ancestor. That's wild. It means life may have begun twice. This changes everything we know. About life's origins and early evolution. Makes you think. What does this mean for our understanding of life on Earth?",
-    "hook": "Life on Earth Started Twice?",
+    "script": "What if life on Earth didn't start just once? Scientists always thought it came from one cell. But a new study says it might have happened twice. That's wild, right? It changes everything we thought about how life began. And it might mean life is more common than we ever imagined. What do you think? Could life have started twice on Earth?",
+    "hook": "Did Life Start Twice on Earth?",
+    "noMusic": false,
     "mood": "curious",
-    "wordCount": 63,
+    "wordCount": 62,
     "lines": [
       {
-        "text": "What if life on Earth started twice?"
+        "text": "What if life on Earth didn't start just once?"
       },
       {
-        "text": "Scientists thought all life came from one cell."
+        "text": "Scientists always thought it came from one cell."
       },
       {
-        "text": "But a new study says bacteria and archaea evolved separately."
+        "text": "But a new study says it might have happened twice."
       },
       {
-        "text": "From a primordial ancestor."
+        "text": "That's wild, right?"
       },
       {
-        "text": "That's wild."
+        "text": "It changes everything we thought about how life began."
       },
       {
-        "text": "It means life may have begun twice."
+        "text": "And it might mean life is more common than we ever imagined."
       },
       {
-        "text": "This changes everything we know."
+        "text": "What do you think?"
       },
       {
-        "text": "About life's origins and early evolution."
-      },
-      {
-        "text": "Makes you think."
-      },
-      {
-        "text": "What does this mean for our understanding of life on Earth?"
+        "text": "Could life have started twice on Earth?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "light",
-          "sunbeam"
+          "dna",
+          "microscope"
         ],
-        "key": "videos/sunbeam.jpg",
-        "image": "sunbeam",
+        "key": "videos/dna.jpg",
+        "image": "dna",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
+      },
+      {
+        "line": 0,
+        "keywords": [
+          "dna",
+          "microscope"
+        ],
+        "key": "videos/microscope.jpg",
+        "image": "microscope",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg"
       },
       {
         "line": 1,
@@ -140,184 +118,165 @@
           "scientist",
           "laboratory"
         ],
+        "key": "videos/laboratory.jpg",
+        "image": "laboratory",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "dna",
+          "microscope"
+        ],
+        "key": "videos/patient.jpg",
+        "image": "patient",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/patient.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "research",
+          "scientist"
+        ],
         "key": "videos/scientist.jpg",
         "image": "scientist",
-        "motion": "pan-left",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/scientist.jpg"
       },
       {
-        "line": 1,
-        "keywords": [
-          "microscope",
-          "dna"
-        ],
-        "key": "videos/dna.jpg",
-        "image": "dna",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
-      },
-      {
         "line": 2,
         "keywords": [
-          "coral"
+          "dna",
+          "microscope"
         ],
-        "key": "videos/coral.jpg",
-        "image": "coral",
+        "key": "videos/space.jpg",
+        "image": "space",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coral.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "coral"
+          "dna",
+          "microscope"
         ],
-        "key": "videos/seal.jpg",
-        "image": "seal",
-        "motion": "pan-down",
+        "key": "videos/nurse.jpg",
+        "image": "nurse",
+        "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/seal.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "ocean"
+          "thoughtful",
+          "portrait"
         ],
-        "key": "videos/ocean.jpg",
-        "image": "ocean",
-        "motion": "push-in",
+        "key": "videos/portrait.jpg",
+        "image": "portrait",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ocean.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "forest"
-        ],
-        "key": "videos/forest.jpg",
-        "image": "forest",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg"
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "wildflowers"
-        ],
-        "key": "videos/wildflowers.jpg",
-        "image": "wildflowers",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wildflowers.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "seedling"
-        ],
-        "key": "videos/seedling.jpg",
-        "image": "seedling",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/seedling.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "sunrise"
-        ],
-        "key": "videos/sunrise.jpg",
-        "image": "sunrise",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunrise.jpg"
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "city"
-        ],
-        "key": "videos/city.jpg",
-        "image": "city",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg"
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "skyline"
-        ],
-        "key": "videos/skyline.jpg",
-        "image": "skyline",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "globe"
-        ],
-        "key": "videos/globe.jpg",
-        "image": "globe",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg"
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "thoughtful"
-        ],
-        "key": "videos/thoughtful.jpg",
-        "image": "thoughtful",
-        "motion": "push-in",
-        "transition": "dissolve",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
-      },
-      {
-        "line": 9,
-        "keywords": [
+          "scientist",
           "research"
         ],
         "key": "videos/research.jpg",
         "image": "research",
-        "motion": "pan-left",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
       },
       {
-        "line": 9,
+        "line": 4,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "dna",
+          "microscope"
         ],
-        "key": "videos/allotment.jpg",
-        "image": "allotment",
+        "key": "videos/wheelchair.jpg",
+        "image": "wheelchair",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wheelchair.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "space"
+        ],
+        "key": "videos/medicine.jpg",
+        "image": "medicine",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medicine.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "globe"
+        ],
+        "key": "videos/globe.jpg",
+        "image": "globe",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "globe"
+        ],
+        "key": "videos/dust.jpg",
+        "image": "dust",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dust.jpg"
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "thoughtful",
+          "portrait"
+        ],
+        "key": "videos/thoughtful.jpg",
+        "image": "thoughtful",
         "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "dna",
+          "microscope"
+        ],
+        "key": "videos/surgery.jpg",
+        "image": "surgery",
+        "motion": "push-in",
         "transition": "zoom-punch",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/surgery.jpg"
       }
     ],
     "stockedKeywords": [
