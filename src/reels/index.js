@@ -224,9 +224,14 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     const narrationPath = await asm.buildNarration(workDir, timeline.segments, voiceFiles);
 
     // 4 · music
-    const track = catalogue.pickTrack(lib.tracks);
+    // The editor can mute the bed for a story that plays better dry — a
+    // sombre subject, or narration that a track fights rather than lifts.
+    const muted = Boolean(approved && approved.noMusic);
+    const track = muted ? null : catalogue.pickTrack(lib.tracks);
     let musicPath = null;
-    if (track) {
+    if (muted) {
+      console.log('  [reel] music muted in review — voice only');
+    } else if (track) {
       musicPath = await catalogue.downloadObject(
         track, path.join(workDir, `music${path.extname(track) || '.mp3'}`)
       );
@@ -347,6 +352,7 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
       captions: timeline.captions.map(c => c.text),
       voice: voice.label,
       track,
+      musicMuted: muted,
       outroSource: outroVideo ? outroKey : 'rendered fallback card',
     };
   } finally {

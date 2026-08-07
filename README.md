@@ -114,6 +114,10 @@ threshold sits at 3. Anything it changed (or refused to change) is listed in the
 Telegram/Slack header. Approving as-is skips the pass entirely — nothing new was
 introduced to check.
 
+**No music**: the checkbox at the foot of the reel card mutes the bed for that
+day's reel. It's a setting rather than copy, so it's honoured on *both* buttons
+— tick it and approve as-is and the reel still comes back dry.
+
 **Approve as-is** is one click when the draft needs nothing. **Vacation
 bypass**: set the repository variable `REVIEW_MODE` to `off` (Settings →
 Secrets and variables → Actions → Variables) and the daily run produces and
@@ -163,6 +167,9 @@ The five steps, once the carousel copy has been written and fact-checked:
    loudness-normalised, then the bed is held **~7.5 dB under the narrator
    (about 40% quieter)** while she speaks — so a hot track and a quiet track
    land at the same place — rising to −3 dB over the Follow Us card.
+   Ticking **No music — narration only** at the foot of the reel card in review
+   skips the bed entirely and the reel runs dry (the Follow Us card then plays
+   silent, since the bed is what carried it).
 5. **Assembly** (`src/reels/assembler.js`) — ffmpeg builds it in passes:
    Ken Burns move per shot → transition chain → Lora captions and the
    `rally.news` mark overlaid → the **Follow Us** card dissolved on the end →

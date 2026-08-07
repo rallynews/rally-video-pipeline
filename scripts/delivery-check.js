@@ -143,6 +143,15 @@ const CASES = [
     extra: { reel: null, imageUrls: [], verification: { ran: false, report: [] } },
   },
   {
+    name: 'music muted in review (voice-only reel)',
+    extra: {
+      reel: { ...REEL, track: null, musicMuted: true },
+      imageUrls: [],
+      verification: { ran: true, report: [] },
+      proofreading: { ran: true, changes: [], rejected: [] },
+    },
+  },
+  {
     name: 'copy full of Markdown metacharacters',
     story: {
       ...STORY,
