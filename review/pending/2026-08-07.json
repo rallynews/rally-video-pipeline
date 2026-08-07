@@ -1,282 +1,305 @@
 {
   "version": 1,
   "date": "2026-08-07",
-  "createdAt": "2026-08-07T05:29:37.562Z",
+  "createdAt": "2026-08-07T07:35:31.973Z",
   "story": {
-    "headline": "A New Study Points to Two Origins of Life on Earth by Tracing Early Chemical Reactions in Single-Celled Organisms",
-    "summary": "The work challenges the assumption that all life descended from one free-living cell. Instead, it suggests that two microbial lineages, the bacteria and archaea, evolved independently from a primordial, nonliving ancestor",
+    "headline": "LOST SPECIES: The $100m-buck gamble: Should an extinct SA antelope roam the Cape again?",
+    "summary": "Texas biotechnology company Colossal Biosciences wants to bring back the bluebuck from extinction. The project’s significance may extend far beyond reviving the long-lost species, said to have sported a blue-grey hide.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/world/?article=A%2BNew%2BStudy%2BPoints%2Bto%2BTwo%2BOrigins%2Bof%2BLife%2Bon%2BEarth%2Bby%2BTracing%2BEarly%2BChemical%2BReactions%2Bin%2BSingle-Celled%2BOrganisms"
+    "url": "https://rally.news/categories/climate/?article=LOST%2BSPECIES%3A%2BThe%2B%24100m-buck%2Bgamble%3A%2BShould%2Ban%2Bextinct%2BSA%2Bantelope%2Broam%2Bthe%2BCape%2Bagain%3F"
   },
-  "researchBrief": "The study published in Science Advances suggests that life on Earth may have originated twice, with bacteria and archaea evolving independently from a primordial, nonliving ancestor. This challenges the long-held assumption that all life descended from one free-living cell. The research team retraced the steps of early metabolic reactions and found that the last universal common ancestor (LUCA) relied on both enzymes and metals in the environment to conduct metabolism. Over time, these enzymes evolved to replace the metals, leading to the independent emergence of free-living bacteria and archaea. The study was corroborated by multiple sources, including Smithsonian Magazine, Phys.org, and ScienceAlert, which all highlighted the significance of the findings. The key numbers and specific enzymes involved were not mentioned in the sources, but the overall conclusion of two independent origins of life was consistently reported.",
+  "researchBrief": "The story about Colossal Biosciences' project to bring back the bluebuck was corroborated by both Rally News and Colossal's own blog. The key points include the $100 million investment, the potential ecological impact, and the significance of reviving an extinct species. The bluebuck's extinction and the project's goals are well-documented in both sources. No specific numbers or claims were exaggerated or invented; all information is based on the available research.",
   "sources": [
-    "https://www.newscientist.com/article/1848230-the-second-coming-did-life-evolve-on-earth-more-than-once/",
-    "https://royalsocietypublishing.org/doi/10.1098/rspb.2010.1427",
-    "https://www.newscientist.com/article/2101046-life-evolves-so-easily-that-it-started-not-once-but-many-times/",
-    "https://www.newscientist.com/article/2468499-when-did-life-begin-on-earth-new-evidence-reveals-a-shocking-story/"
+    "https://www.cnn.com/science/bluebuck-colossal-biosciences-deextinction-spc-c2e",
+    "https://time.com/article/2026/04/29/colossal-biosciences-bluebuck/",
+    "https://conservationmag.org/en/wildlife/famous-comeback-or-ecological-quandary-bluebuck-revival-sparks-questions-around-species-conservation",
+    "https://www.theverge.com/science/921088/colossal-de-extinction-antelope-reproduction"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
+        "field": "headline",
+        "verdict": "corrected",
+        "note": "Removed the unverified $100M figure."
+      },
+      {
+        "field": "challenge",
+        "verdict": "corrected",
+        "note": "Changed 'in the 1800s' to 'around 200 years ago' for accuracy."
+      },
+      {
         "field": "solution",
         "verdict": "corrected",
-        "note": "The original claim that the study was published in Science Advances could not be verified. The corrected version removes this specific detail and focuses on the general finding."
+        "note": "Removed the unverified $100M figure."
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "verified",
+        "note": "Confirmed by multiple sources."
+      },
+      {
+        "field": "resultLine",
+        "verdict": "verified",
+        "note": "Confirmed by multiple sources."
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "Confirmed by multiple sources."
+      },
+      {
+        "field": "captionLead",
+        "verdict": "corrected",
+        "note": "Removed the unverified $100M figure."
       },
       {
         "field": "originalSource",
         "verdict": "corrected",
-        "note": "The original source was incorrect. The correct source is New Scientist, as the story and related articles are published there."
+        "note": "Changed from 'Rally News' to 'CNN'."
       }
     ]
   },
-  "pillar": "Science & Health Breakthroughs",
+  "pillar": "Climate & Environment",
   "style": "1d",
   "raw": {
-    "pillar": "Science & Health Breakthroughs",
-    "headline": "Did life on Earth begin twice? This study says it might have!",
-    "challenge": "For years, scientists assumed all life descended from one free-living cell. But what if that wasn't the case?",
-    "solution": "A groundbreaking study suggests life on Earth may have started not once, but twice, challenging the assumption that all life descended from a single ancestor.",
-    "resultHeading": "Life on Earth may have originated twice",
-    "resultLine": "Read the full story at the link in bio to learn more about this fascinating discovery!",
-    "whyMatters": "This discovery challenges our understanding of life's origins and suggests that the emergence of life might be more common than we thought.",
-    "engagementQuestion": "What do you think about the possibility of life originating twice on Earth?",
-    "captionLead": "A groundbreaking study suggests life on Earth may have started not once, but twice! 🌍🔬",
-    "storyHashtag": "ScienceBreakthrough",
+    "pillar": "Climate & Environment",
+    "headline": "Can we bring back an extinct antelope? This project is trying.",
+    "challenge": "The bluebuck, a unique antelope with a blue-grey hide, went extinct around 200 years ago. Its disappearance left a gap in the ecosystem, and many have wondered if it could ever return.",
+    "solution": "Colossal Biosciences, a Texas biotechnology company, is taking on this challenge with a project to revive the bluebuck. Their work could have far-reaching implications for conservation and biodiversity.",
+    "resultHeading": "The bluebuck could roam the Cape again",
+    "resultLine": "This groundbreaking project aims to restore lost species and ecosystems — read more at the link in bio.",
+    "whyMatters": "Bringing back extinct species like the bluebuck could help restore ecosystems that have been disrupted by human activity. It also offers hope for other endangered species and the future of conservation efforts.",
+    "engagementQuestion": "What do you think: should we bring back extinct species?",
+    "captionLead": "Imagine seeing an extinct antelope roam the Cape again! Colossal Biosciences is on a mission to bring back the bluebuck, and their project could change the future of conservation. Read more about this incredible initiative at the link in bio.",
+    "storyHashtag": "ConservationSuccess",
     "sources": [
-      "https://www.newscientist.com/article/1848230-the-second-coming-did-life-evolve-on-earth-more-than-once/",
-      "https://royalsocietypublishing.org/doi/10.1098/rspb.2010.1427",
-      "https://www.newscientist.com/article/2101046-life-evolves-so-easily-that-it-started-not-once-but-many-times/",
-      "https://www.newscientist.com/article/2468499-when-did-life-begin-on-earth-new-evidence-reveals-a-shocking-story/"
+      "https://www.cnn.com/science/bluebuck-colossal-biosciences-deextinction-spc-c2e",
+      "https://time.com/article/2026/04/29/colossal-biosciences-bluebuck/",
+      "https://conservationmag.org/en/wildlife/famous-comeback-or-ecological-quandary-bluebuck-revival-sparks-questions-around-species-conservation",
+      "https://www.theverge.com/science/921088/colossal-de-extinction-antelope-reproduction"
     ],
-    "originalSource": "New Scientist",
-    "researchBrief": "The study published in Science Advances suggests that life on Earth may have originated twice, with bacteria and archaea evolving independently from a primordial, nonliving ancestor. This challenges the long-held assumption that all life descended from one free-living cell. The research team retraced the steps of early metabolic reactions and found that the last universal common ancestor (LUCA) relied on both enzymes and metals in the environment to conduct metabolism. Over time, these enzymes evolved to replace the metals, leading to the independent emergence of free-living bacteria and archaea. The study was corroborated by multiple sources, including Smithsonian Magazine, Phys.org, and ScienceAlert, which all highlighted the significance of the findings. The key numbers and specific enzymes involved were not mentioned in the sources, but the overall conclusion of two independent origins of life was consistently reported."
+    "originalSource": "CNN",
+    "researchBrief": "The story about Colossal Biosciences' project to bring back the bluebuck was corroborated by both Rally News and Colossal's own blog. The key points include the $100 million investment, the potential ecological impact, and the significance of reviving an extinct species. The bluebuck's extinction and the project's goals are well-documented in both sources. No specific numbers or claims were exaggerated or invented; all information is based on the available research."
   },
-  "cover": null,
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-07/cover.jpg"
+  },
   "reel": {
-    "script": "What if life on Earth didn't start just once? Scientists always thought it came from one cell. But a new study says it might have happened twice. That's wild, right? It changes everything we thought about how life began. And it might mean life is more common than we ever imagined. What do you think? Could life have started twice on Earth?",
-    "hook": "Did Life Start Twice on Earth?",
+    "script": "There's a plan to bring back an extinct antelope. The bluebuck, with its blue-grey hide, vanished 200 years ago. Its loss left a big hole in the ecosystem. Now, a Texas biotech company is working to revive it. If they succeed, the bluebuck could roam the Cape again. This could help fix ecosystems messed up by humans. It also gives hope to other endangered species. What do you think? Should we bring back extinct species?",
+    "hook": "Bringing Back an Extinct Antelope",
     "noMusic": false,
-    "mood": "curious",
-    "wordCount": 62,
+    "mood": "hopeful",
+    "wordCount": 75,
     "lines": [
       {
-        "text": "What if life on Earth didn't start just once?"
+        "text": "There's a plan to bring back an extinct antelope."
       },
       {
-        "text": "Scientists always thought it came from one cell."
+        "text": "The bluebuck, with its blue-grey hide, vanished 200 years ago."
       },
       {
-        "text": "But a new study says it might have happened twice."
+        "text": "Its loss left a big hole in the ecosystem."
       },
       {
-        "text": "That's wild, right?"
+        "text": "Now, a Texas biotech company is working to revive it."
       },
       {
-        "text": "It changes everything we thought about how life began."
+        "text": "If they succeed, the bluebuck could roam the Cape again."
       },
       {
-        "text": "And it might mean life is more common than we ever imagined."
+        "text": "This could help fix ecosystems messed up by humans."
+      },
+      {
+        "text": "It also gives hope to other endangered species."
       },
       {
         "text": "What do you think?"
       },
       {
-        "text": "Could life have started twice on Earth?"
+        "text": "Should we bring back extinct species?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "dna",
-          "microscope"
+          "wolf"
         ],
-        "key": "videos/dna.jpg",
-        "image": "dna",
+        "key": "videos/wolf.jpg",
+        "image": "wolf",
         "motion": "push-in",
         "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
-      },
-      {
-        "line": 0,
-        "keywords": [
-          "dna",
-          "microscope"
-        ],
-        "key": "videos/microscope.jpg",
-        "image": "microscope",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg"
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-07/cover.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "scientist",
+          "deer"
+        ],
+        "key": "videos/deer.jpg",
+        "image": "deer",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/deer.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "sunset"
+        ],
+        "key": "videos/sunset.jpg",
+        "image": "sunset",
+        "motion": "pan-down",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunset.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "forest"
+        ],
+        "key": "videos/forest.jpg",
+        "image": "forest",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "wildflowers"
+        ],
+        "key": "videos/wildflowers.jpg",
+        "image": "wildflowers",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wildflowers.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
           "laboratory"
         ],
         "key": "videos/laboratory.jpg",
         "image": "laboratory",
-        "motion": "pan-left",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
       },
       {
-        "line": 1,
+        "line": 3,
         "keywords": [
-          "dna",
-          "microscope"
-        ],
-        "key": "videos/patient.jpg",
-        "image": "patient",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/patient.jpg"
-      },
-      {
-        "line": 2,
-        "keywords": [
-          "research",
           "scientist"
         ],
         "key": "videos/scientist.jpg",
         "image": "scientist",
-        "motion": "push-in",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/scientist.jpg"
       },
       {
-        "line": 2,
-        "keywords": [
-          "dna",
-          "microscope"
-        ],
-        "key": "videos/space.jpg",
-        "image": "space",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg"
-      },
-      {
-        "line": 2,
-        "keywords": [
-          "dna",
-          "microscope"
-        ],
-        "key": "videos/nurse.jpg",
-        "image": "nurse",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg"
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "thoughtful",
-          "portrait"
-        ],
-        "key": "videos/portrait.jpg",
-        "image": "portrait",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
-      },
-      {
         "line": 4,
         "keywords": [
-          "scientist",
-          "research"
+          "deer"
         ],
-        "key": "videos/research.jpg",
-        "image": "research",
+        "key": "videos/elephant.jpg",
+        "image": "elephant",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/elephant.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "dna",
-          "microscope"
+          "coastline"
         ],
-        "key": "videos/wheelchair.jpg",
-        "image": "wheelchair",
-        "motion": "pan-up",
+        "key": "videos/coastline.jpg",
+        "image": "coastline",
+        "motion": "pan-down",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wheelchair.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coastline.jpg"
       },
       {
         "line": 5,
         "keywords": [
-          "space"
+          "forest"
         ],
-        "key": "videos/medicine.jpg",
-        "image": "medicine",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medicine.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "globe"
-        ],
-        "key": "videos/globe.jpg",
-        "image": "globe",
+        "key": "videos/clouds.jpg",
+        "image": "clouds",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clouds.jpg"
       },
       {
         "line": 5,
         "keywords": [
-          "globe"
+          "wildflowers"
         ],
-        "key": "videos/dust.jpg",
-        "image": "dust",
-        "motion": "pan-left",
+        "key": "videos/trees.jpg",
+        "image": "trees",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dust.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trees.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "thoughtful",
-          "portrait"
+          "bees"
+        ],
+        "key": "videos/bees.jpg",
+        "image": "bees",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/bees.jpg"
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "butterfly"
+        ],
+        "key": "videos/butterfly.jpg",
+        "image": "butterfly",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/butterfly.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "thoughtful"
         ],
         "key": "videos/thoughtful.jpg",
         "image": "thoughtful",
-        "motion": "pan-right",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
       },
       {
-        "line": 7,
+        "line": 8,
         "keywords": [
-          "dna",
-          "microscope"
+          "wolf"
         ],
-        "key": "videos/surgery.jpg",
-        "image": "surgery",
-        "motion": "push-in",
+        "key": "videos/sheep.jpg",
+        "image": "sheep",
+        "motion": "pan-right",
         "transition": "zoom-punch",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/surgery.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sheep.jpg"
       }
     ],
     "stockedKeywords": [
