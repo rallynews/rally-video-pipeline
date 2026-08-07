@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 07 Aug 2026 06:50:59 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 07 Aug 2026 07:31:42 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>A New Study Points to Two Origins of Life on Earth by Tracing Early Chemical Reactions in Single-Celled Organisms</title>
+      <link>https://rally.news/categories/world/?article=A%2BNew%2BStudy%2BPoints%2Bto%2BTwo%2BOrigins%2Bof%2BLife%2Bon%2BEarth%2Bby%2BTracing%2BEarly%2BChemical%2BReactions%2Bin%2BSingle-Celled%2BOrganisms</link>
+      <description>The work challenges the assumption that all life descended from one free-living cell. Instead, it suggests that two microbial lineages, the bacteria and archaea, evolved independently from a primordial, nonliving ancestor</description>
+      <pubDate>Fri, 07 Aug 2026 07:31:42 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/world/?article=A%2BNew%2BStudy%2BPoints%2Bto%2BTwo%2BOrigins%2Bof%2BLife%2Bon%2BEarth%2Bby%2BTracing%2BEarly%2BChemical%2BReactions%2Bin%2BSingle-Celled%2BOrganisms</guid>
+    </item>
+
+<item>
       <title>A New Study Points to Two Origins of Life on Earth by Tracing Early Chemical Reactions in Single-Celled Organisms</title>
       <link>https://rally.news/categories/world/?article=A%2BNew%2BStudy%2BPoints%2Bto%2BTwo%2BOrigins%2Bof%2BLife%2Bon%2BEarth%2Bby%2BTracing%2BEarly%2BChemical%2BReactions%2Bin%2BSingle-Celled%2BOrganisms</link>
       <description>The work challenges the assumption that all life descended from one free-living cell. Instead, it suggests that two microbial lineages, the bacteria and archaea, evolved independently from a primordial, nonliving ancestor</description>
@@ -400,14 +408,6 @@
       <description>Two NASA astronauts stepping outside the International Space Station to fix robotic arm.</description>
       <pubDate>Thu, 02 Jul 2026 05:02:35 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=NASA%2Bastronauts%2Bspacewalk%2Bto%2Bfix%2Brobotic%2Barm</guid>
-    </item>
-
-<item>
-      <title>Remote-controlled cockroach swarm can now breathe underwater</title>
-      <link>https://rally.news/categories/ai/?article=Remote-controlled%2Bcockroach%2Bswarm%2Bcan%2Bnow%2Bbreathe%2Bunderwater</link>
-      <description>Tiny 3D-printed diving suits allow cockroaches to walk underwater for up to 3 hours with no ill effects, which could enable a cyborg insect swarm to explore disaster zones and perhaps even Mars</description>
-      <pubDate>Wed, 01 Jul 2026 05:03:04 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Remote-controlled%2Bcockroach%2Bswarm%2Bcan%2Bnow%2Bbreathe%2Bunderwater</guid>
     </item>
   </channel>
 </rss>
