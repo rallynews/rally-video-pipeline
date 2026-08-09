@@ -88,36 +88,36 @@
   "reel": {
     "script": "Meet Rhossi, a tiny turtle with a huge journey. He was found cold-stunned and near death in Wales. Kemp's Ridley turtles are super endangered. After two years of care, he's ready to go home. A team of experts is sending him 5,000 miles back to the Gulf of Mexico. He'll be released on August 18. This shows what we can do when we work together. Every turtle counts for this species. What's the most incredible wildlife rescue you've heard?",
     "hook": "This Tiny Turtle's 5,000-Mile Journey",
-    "noMusic": false,
+    "noMusic": true,
     "mood": "hopeful",
     "wordCount": 79,
     "lines": [
       {
-        "text": "Meet Rhossi, a critically endangered Kemp's Ridley sea turtle."
+        "text": "Meet Rhossi, a tiny turtle with a huge journey."
       },
       {
-        "text": "He was found cold-stunned and near death in Wales. He was rescued from an Anglesey beach in December 2023 and has been nursed back to health by staff at the Anglesey Sea Zoo."
+        "text": "He was found cold-stunned and near death on an Anglesey beach."
       },
       {
-        "text": "Kemp's Ridley turtles are one of the world's most endangered species, with breeding populations largely confined to the Gulf of Mexico."
+        "text": "Kemp's Ridley turtles are one of the world's most endangered species."
       },
       {
-        "text": "After two years of dedicated care at the Anglesey Sea Zoo, Rhossi is ready to embark on a remarkable 5,000-mile journey back to his natural home."
+        "text": "After two years of care at the Anglesey Sea Zoo, he's ready to go home."
       },
       {
-        "text": "Thanks to a team of international conservationists, volunteers, and experts. They have come together to make this happen."
+        "text": "A team of experts is sending him 5,000 miles back to the Gulf of Mexico."
       },
       {
-        "text": "Rhossi is set to be released into the Gulf of Mexico on August 18."
+        "text": "He'll be released on August 18."
       },
       {
-        "text": "Rhossi's story is a powerful reminder that endangered species can recover when people come together to protect them."
+        "text": "This shows what we can do when we work together."
       },
       {
-        "text": "Every healthy adult returned to the wild strengthens the fragile population, ensuring the survival of this critically endangered species for future generations."
+        "text": "Every turtle counts for this species."
       },
       {
-        "text": "What’s the most incredible wildlife rescue story you’ve ever heard?"
+        "text": "What's the most incredible wildlife rescue you've heard?"
       }
     ],
     "shots": [
@@ -148,10 +148,10 @@
       {
         "line": 1,
         "keywords": [
-          "snow"
+          "water"
         ],
         "key": "videos/nest.jpg",
-        "image": "snow",
+        "image": "water",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -160,10 +160,10 @@
       {
         "line": 2,
         "keywords": [
-          "ocean"
+          "turtle"
         ],
         "key": "videos/sanctuary.jpg",
-        "image": "ocean",
+        "image": "turtle",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
@@ -172,10 +172,10 @@
       {
         "line": 3,
         "keywords": [
-          "water"
+          "harbour"
         ],
         "key": "videos/whale.jpg",
-        "image": "water",
+        "image": "harbour",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
@@ -196,10 +196,10 @@
       {
         "line": 3,
         "keywords": [
-          "ocean"
+          "waves"
         ],
         "key": "videos/cattle.jpg",
-        "image": "ocean",
+        "image": "waves",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -220,10 +220,10 @@
       {
         "line": 4,
         "keywords": [
-          "scientist"
+          "ocean"
         ],
         "key": "videos/ocean.jpg",
-        "image": "scientist",
+        "image": "ocean",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -232,10 +232,10 @@
       {
         "line": 4,
         "keywords": [
-          "research"
+          "scientist"
         ],
         "key": "videos/farmland.jpg",
-        "image": "research",
+        "image": "scientist",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -244,10 +244,10 @@
       {
         "line": 5,
         "keywords": [
-          "waves"
+          "calendar"
         ],
         "key": "videos/calendar.jpg",
-        "image": "waves",
+        "image": "calendar",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
@@ -268,10 +268,10 @@
       {
         "line": 7,
         "keywords": [
-          "turtle"
+          "whale"
         ],
         "key": "videos/deer.jpg",
-        "image": "turtle",
+        "image": "whale",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
@@ -280,10 +280,10 @@
       {
         "line": 8,
         "keywords": [
-          "clouds"
+          "waterfall"
         ],
         "key": "videos/rescue.jpg",
-        "image": "clouds",
+        "image": "waterfall",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -292,10 +292,10 @@
       {
         "line": 8,
         "keywords": [
-          "smiling"
+          "writing"
         ],
         "key": "videos/thoughtful.jpg",
-        "image": "smiling",
+        "image": "writing",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -725,6 +725,6 @@
       "writing": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
     }
   },
-  "approvedAt": "2026-08-09T20:34:19.564Z",
+  "approvedAt": "2026-08-09T20:55:09.950Z",
   "approvedWithEdits": true
 }
