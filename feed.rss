@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2026 11:11:43 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2026 20:41:54 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Rare turtle to be sent back home in 5,000-mile &apos;incredibly emotional&apos; trip</title>
+      <link>https://rally.news/categories/climate/?article=Rare%2Bturtle%2Bto%2Bbe%2Bsent%2Bback%2Bhome%2Bin%2B5%2C000-mile%2B%27incredibly%2Bemotional%27%2Btrip</link>
+      <description>A rare turtle is being flown home to the Caribbean Sea after being found washed up in Wales.</description>
+      <pubDate>Sun, 09 Aug 2026 20:41:54 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/climate/?article=Rare%2Bturtle%2Bto%2Bbe%2Bsent%2Bback%2Bhome%2Bin%2B5%2C000-mile%2B%27incredibly%2Bemotional%27%2Btrip</guid>
+    </item>
+
+<item>
       <title>Rare turtle to be sent back home in 5,000-mile &apos;incredibly emotional&apos; trip</title>
       <link>https://rally.news/categories/climate/?article=Rare%2Bturtle%2Bto%2Bbe%2Bsent%2Bback%2Bhome%2Bin%2B5%2C000-mile%2B%27incredibly%2Bemotional%27%2Btrip</link>
       <description>A rare turtle is being flown home to the Caribbean Sea after being found washed up in Wales.</description>
@@ -400,14 +408,6 @@
       <description>The wedding between the superstar singer and football player was officiated by actor Adam Sandler</description>
       <pubDate>Sun, 05 Jul 2026 09:08:48 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Taylor%2BSwift%2Band%2BTravis%2BKelce%2Btie%2Bthe%2Bknot%2Bat%2Bstar-studded%2BMadison%2BSquare%2BGarden%2Bceremony</guid>
-    </item>
-
-<item>
-      <title>How a lock-in with Conor McGregor helped Hudson Young take his game to new heights</title>
-      <link>https://rally.news/categories/entertainment/?article=How%2Ba%2Block-in%2Bwith%2BConor%2BMcGregor%2Bhelped%2BHudson%2BYoung%2Btake%2Bhis%2Bgame%2Bto%2Bnew%2Bheights</link>
-      <description>The NSW Blues forward spent a wild night with UFC star Conor McGregor in Dublin late last year – but a jiu-jitsu session with his coach was even more memorable.</description>
-      <pubDate>Sat, 04 Jul 2026 05:06:05 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=How%2Ba%2Block-in%2Bwith%2BConor%2BMcGregor%2Bhelped%2BHudson%2BYoung%2Btake%2Bhis%2Bgame%2Bto%2Bnew%2Bheights</guid>
     </item>
   </channel>
 </rss>
