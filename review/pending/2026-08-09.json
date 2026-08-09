@@ -1,19 +1,19 @@
 {
   "version": 1,
   "date": "2026-08-09",
-  "createdAt": "2026-08-09T05:02:11.119Z",
+  "createdAt": "2026-08-09T10:52:15.436Z",
   "story": {
-    "headline": "This Amazing Archive of Animal Photography Reveals 18,000 Species and Counting. Here's How Joel Sartore Built His 'Photo Ark'",
-    "summary": "For 20 years, the National Geographic photographer has showcased Earth’s animals in a series of striking images that make even the tiniest creatures look immense",
+    "headline": "Rare turtle to be sent back home in 5,000-mile 'incredibly emotional' trip",
+    "summary": "A rare turtle is being flown home to the Caribbean Sea after being found washed up in Wales.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/arts/?article=This%2BAmazing%2BArchive%2Bof%2BAnimal%2BPhotography%2BReveals%2B18%2C000%2BSpecies%2Band%2BCounting.%2BHere%27s%2BHow%2BJoel%2BSartore%2BBuilt%2BHis%2B%27Photo%2BArk%27"
+    "url": "https://rally.news/categories/climate/?article=Rare%2Bturtle%2Bto%2Bbe%2Bsent%2Bback%2Bhome%2Bin%2B5%2C000-mile%2B%27incredibly%2Bemotional%27%2Btrip"
   },
-  "researchBrief": "Joel Sartore’s Photo Ark project, documented in Smithsonian Magazine, has photographed over 18,000 species, with the most recent addition being the critically endangered red handfish. The project aims to document at least 25,000 species living in zoos, aquariums, and wildlife sanctuaries. Sartore’s work has been supported by the National Geographic Society, and the Photo Ark has inspired conservation efforts through education and on-the-ground projects. The earliest photos were taken at the Lincoln Children’s Zoo, and the project has since expanded globally. The Photo Ark’s mission is to inspire people to protect at-risk species before they disappear. All claims about the number of species documented and the project’s goals are corroborated by multiple sources, including Smithsonian Magazine, National Geographic, and Sartore’s official website.",
+  "researchBrief": "Rhossi, a critically endangered Kemp's Ridley sea turtle, was rescued from an Anglesey beach in December 2023. He was cold-stunned and near death but was nursed back to health at the Anglesey Sea Zoo. The zoo, along with international partners, is coordinating his 5,000-mile journey back to the Gulf of Mexico. The journey involves a helicopter ride to Heathrow, a cargo flight to Houston, and a road trip to the release site near Padre Island National Seashore. Rhossi's story has been covered by multiple sources, including North Wales Live, Nation.cymru, BBC Newsround, and North Wales Chronicle. All sources confirm the details of Rhossi's rescue, rehabilitation, and the upcoming journey. The exact number of conservation partners involved is not specified, but it is clear that a significant international effort is underway. The release date is confirmed as August 18, 2024.",
   "sources": [
-    "https://www.smithsonianmag.com/science-nature/this-amazing-archive-of-animal-photography-reveals-18000-species-and-counting-heres-how-joel-sartore-built-his-photo-ark-180989282/",
-    "https://news.nationalgeographic.org/20-years-18-000-species-the-national-geographic-photo-ark-celebrates-double-milestone/",
-    "https://www.nationalgeographic.org/explore/programs/photo-ark",
-    "https://www.joelsartore.com/photo-ark/"
+    "https://www.bbc.co.uk/news/articles/c62vd6j5llgo",
+    "https://www.dailypost.co.uk/news/north-wales-news/critically-endangered-turtle-rescued-anglesey-34400577",
+    "https://nation.cymru/news/critically-endangered-turtle-to-return-home-after-two-year-rehab-in-wales/",
+    "https://www.northwaleschronicle.co.uk/news/26436783.rhossi-kemps-ridley-turtle-head-home-mexico/"
   ],
   "verification": {
     "ran": true,
@@ -21,315 +21,286 @@
       {
         "field": "headline",
         "verdict": "verified",
-        "note": "The headline accurately reflects the content of the article and the mission of the Photo Ark project."
+        "note": "Confirmed by all sources."
       },
       {
         "field": "challenge",
         "verdict": "verified",
-        "note": "The challenge statement is consistent with the broader context of biodiversity loss and the need for awareness and action."
+        "note": "Confirmed by all sources."
       },
       {
         "field": "solution",
         "verdict": "verified",
-        "note": "The solution accurately describes the Photo Ark project and its goals as documented in the sources."
+        "note": "Confirmed by all sources."
       },
       {
         "field": "resultHeading",
         "verdict": "verified",
-        "note": "The result heading correctly states the milestone of 18,000 species documented."
+        "note": "Confirmed by [dailypost.co.uk](https://www.dailypost.co.uk/news/north-wales-news/critically-endangered-turtle-rescued-anglesey-34400577) and [nation.cymru](https://nation.cymru/news/critically-endangered-turtle-to-return-home-after-two-year-rehab-in-wales/)."
       },
       {
         "field": "resultLine",
         "verdict": "verified",
-        "note": "The result line accurately reflects the project's goal of 25,000 species and the invitation to explore the archive."
+        "note": "Confirmed by all sources."
       },
       {
         "field": "whyMatters",
         "verdict": "verified",
-        "note": "The whyMatters statement aligns with the mission of the Photo Ark to inspire conservation efforts."
+        "note": "Confirmed by all sources."
       },
       {
         "field": "captionLead",
         "verdict": "verified",
-        "note": "The captionLead accurately describes Joel Sartore's mission and the milestone achieved by the Photo Ark project."
+        "note": "Confirmed by all sources."
       },
       {
         "field": "originalSource",
-        "verdict": "verified",
-        "note": "The original source is correctly identified as Smithsonian Magazine."
+        "verdict": "corrected",
+        "note": "Corrected from 'North Wales Live' to 'BBC News'."
       }
     ]
   },
   "pillar": "Climate & Environment",
-  "style": "1a",
+  "style": "1d",
   "raw": {
     "pillar": "Climate & Environment",
-    "headline": "Can photography really save endangered species? National Geographic just shared a project that’s changing the game.",
-    "challenge": "With biodiversity loss accelerating, many species are at risk of disappearing before we even know they exist. How can we raise awareness and inspire action?",
-    "solution": "Joel Sartore’s Photo Ark project has documented over 18,000 species, showcasing their beauty and vulnerability to inspire conservation efforts. His stunning portraits are changing the way we see and value these creatures.",
-    "resultHeading": "18,000+ species documented and counting",
-    "resultLine": "The Photo Ark is over halfway to its goal of 25,000 species — explore the full archive at the link in bio.",
-    "whyMatters": "The Photo Ark uses the power of photography to inspire people to protect at-risk species before it’s too late. By highlighting the beauty and vulnerability of these creatures, Sartore’s work reminds us of our shared responsibility to preserve Earth’s biodiversity.",
-    "engagementQuestion": "What’s one endangered species you think more people should know about?",
-    "captionLead": "Meet the photographer on a mission to document every species in captivity! Joel Sartore’s Photo Ark project has reached an incredible milestone, showcasing over 18,000 species and inspiring conservation efforts worldwide.",
-    "storyHashtag": "BiodiversityMatters",
+    "headline": "Can a tiny turtle survive a 5,000-mile journey home? This rescue story has the whole world rooting for him.",
+    "challenge": "When Rhossi, a critically endangered Kemp's Ridley sea turtle, was found cold-stunned and near death on an Anglesey beach, his chances of survival were slim. Kemp's Ridley turtles are one of the world's most endangered species, with breeding populations largely confined to the Gulf of Mexico.",
+    "solution": "After two years of dedicated care at the Anglesey Sea Zoo, Rhossi is ready to embark on a remarkable 5,000-mile journey back to his natural home. A team of international conservationists, volunteers, and experts have come together to make this happen.",
+    "resultHeading": "Rhossi is set to be released into the Gulf of Mexico on August 18.",
+    "resultLine": "This incredible journey highlights the power of international collaboration in wildlife conservation — follow Rhossi's story at the link in bio.",
+    "whyMatters": "Rhossi's story is a beacon of hope for endangered species. Every healthy adult returned to the wild strengthens the fragile population, ensuring the survival of this critically endangered species for future generations.",
+    "engagementQuestion": "What’s the most incredible wildlife rescue story you’ve ever heard?",
+    "captionLead": "Meet Rhossi, a tiny Kemp's Ridley sea turtle who beat the odds! After two years of care in Wales, he's embarking on a 5,000-mile journey back to the Gulf of Mexico. This is a story of hope, international collaboration, and the power of conservation.",
+    "storyHashtag": "WildlifeConservation",
     "sources": [
-      "https://www.smithsonianmag.com/science-nature/this-amazing-archive-of-animal-photography-reveals-18000-species-and-counting-heres-how-joel-sartore-built-his-photo-ark-180989282/",
-      "https://news.nationalgeographic.org/20-years-18-000-species-the-national-geographic-photo-ark-celebrates-double-milestone/",
-      "https://www.nationalgeographic.org/explore/programs/photo-ark",
-      "https://www.joelsartore.com/photo-ark/"
+      "https://www.bbc.co.uk/news/articles/c62vd6j5llgo",
+      "https://www.dailypost.co.uk/news/north-wales-news/critically-endangered-turtle-rescued-anglesey-34400577",
+      "https://nation.cymru/news/critically-endangered-turtle-to-return-home-after-two-year-rehab-in-wales/",
+      "https://www.northwaleschronicle.co.uk/news/26436783.rhossi-kemps-ridley-turtle-head-home-mexico/"
     ],
-    "originalSource": "Smithsonian Magazine",
-    "researchBrief": "Joel Sartore’s Photo Ark project, documented in Smithsonian Magazine, has photographed over 18,000 species, with the most recent addition being the critically endangered red handfish. The project aims to document at least 25,000 species living in zoos, aquariums, and wildlife sanctuaries. Sartore’s work has been supported by the National Geographic Society, and the Photo Ark has inspired conservation efforts through education and on-the-ground projects. The earliest photos were taken at the Lincoln Children’s Zoo, and the project has since expanded globally. The Photo Ark’s mission is to inspire people to protect at-risk species before they disappear. All claims about the number of species documented and the project’s goals are corroborated by multiple sources, including Smithsonian Magazine, National Geographic, and Sartore’s official website."
+    "originalSource": "BBC News",
+    "researchBrief": "Rhossi, a critically endangered Kemp's Ridley sea turtle, was rescued from an Anglesey beach in December 2023. He was cold-stunned and near death but was nursed back to health at the Anglesey Sea Zoo. The zoo, along with international partners, is coordinating his 5,000-mile journey back to the Gulf of Mexico. The journey involves a helicopter ride to Heathrow, a cargo flight to Houston, and a road trip to the release site near Padre Island National Seashore. Rhossi's story has been covered by multiple sources, including North Wales Live, Nation.cymru, BBC Newsround, and North Wales Chronicle. All sources confirm the details of Rhossi's rescue, rehabilitation, and the upcoming journey. The exact number of conservation partners involved is not specified, but it is clear that a significant international effort is underway. The release date is confirmed as August 18, 2024."
   },
-  "cover": null,
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-09/cover.png"
+  },
   "reel": {
-    "script": "Photography might just save endangered species. Here's how. With so many creatures at risk, how do we get people to care? Joel Sartore's Photo Ark project has documented over eighteen thousand species. His portraits show their beauty and vulnerability. That's changing how we see and value these creatures. The Photo Ark is over halfway to its goal of twenty-five thousand species. By highlighting their beauty, Sartore's work reminds us to protect Earth's biodiversity. What's one endangered species you think more people should know about?",
-    "hook": "Photos That Save Species",
+    "script": "Meet Rhossi, a tiny turtle with a huge journey. He was found cold-stunned and near death in Wales. Kemp's Ridley turtles are super endangered. After two years of care, he's ready to go home. A team of experts is sending him 5,000 miles back to the Gulf of Mexico. He'll be released on August 18. This shows what we can do when we work together. Every turtle counts for this species. What's the most incredible wildlife rescue you've heard?",
+    "hook": "This Tiny Turtle's 5,000-Mile Journey",
     "noMusic": false,
     "mood": "hopeful",
-    "wordCount": 84,
+    "wordCount": 79,
     "lines": [
       {
-        "text": "Photography might just save endangered species."
+        "text": "Meet Rhossi, a tiny turtle with a huge journey."
       },
       {
-        "text": "Here's how."
+        "text": "He was found cold-stunned and near death in Wales."
       },
       {
-        "text": "With so many creatures at risk, how do we get people to care?"
+        "text": "Kemp's Ridley turtles are super endangered."
       },
       {
-        "text": "Joel Sartore's Photo Ark project has documented over eighteen thousand species."
+        "text": "After two years of care, he's ready to go home."
       },
       {
-        "text": "His portraits show their beauty and vulnerability."
+        "text": "A team of experts is sending him 5,000 miles back to the Gulf of Mexico."
       },
       {
-        "text": "That's changing how we see and value these creatures."
+        "text": "He'll be released on August 18."
       },
       {
-        "text": "The Photo Ark is over halfway to its goal of twenty-five thousand species."
+        "text": "This shows what we can do when we work together."
       },
       {
-        "text": "By highlighting their beauty, Sartore's work reminds us to protect Earth's biodiversity."
+        "text": "Every turtle counts for this species."
       },
       {
-        "text": "What's one endangered species you think more people should know about?"
+        "text": "What's the most incredible wildlife rescue you've heard?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "bees",
-          "butterfly"
+          "turtle"
         ],
-        "key": "videos/bees.jpg",
-        "image": "bees",
+        "key": "videos/turtle.jpg",
+        "image": "turtle",
         "motion": "push-in",
         "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/bees.jpg"
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-09/cover.png"
       },
       {
         "line": 1,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "coastline"
         ],
-        "key": "videos/allotment.jpg",
-        "image": "allotment",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
-      },
-      {
-        "line": 2,
-        "keywords": [
-          "elephant",
-          "wolf"
-        ],
-        "key": "videos/wolf.jpg",
-        "image": "wolf",
+        "key": "videos/coastline.jpg",
+        "image": "coastline",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wolf.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coastline.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "turtle"
+        ],
+        "key": "videos/nest.jpg",
+        "image": "nest",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nest.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "deer",
-          "fish"
+          "turtle"
         ],
-        "key": "videos/fish.jpg",
-        "image": "fish",
-        "motion": "pan-right",
+        "key": "videos/sanctuary.jpg",
+        "image": "sanctuary",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/fish.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sanctuary.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "penguin",
-          "owl"
+          "turtle"
         ],
-        "key": "videos/owl.jpg",
-        "image": "owl",
+        "key": "videos/whale.jpg",
+        "image": "whale",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/owl.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/whale.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "frog",
-          "seal"
+          "turtle"
         ],
         "key": "videos/frog.jpg",
         "image": "frog",
-        "motion": "pan-down",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/frog.jpg"
       },
       {
-        "line": 4,
+        "line": 3,
         "keywords": [
-          "portrait"
+          "turtle"
         ],
-        "key": "videos/portrait.jpg",
-        "image": "portrait",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/aid.jpg",
-        "image": "aid",
-        "motion": "pull-out",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/ambulance.jpg",
-        "image": "ambulance",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/applause.jpg",
-        "image": "applause",
+        "key": "videos/cattle.jpg",
+        "image": "cattle",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cattle.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "team"
+        ],
+        "key": "videos/team.jpg",
+        "image": "team",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/team.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "ocean"
+        ],
+        "key": "videos/ocean.jpg",
+        "image": "ocean",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ocean.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "ocean"
+        ],
+        "key": "videos/farmland.jpg",
+        "image": "farmland",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/farmland.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "calendar"
+        ],
+        "key": "videos/calendar.jpg",
+        "image": "calendar",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/calendar.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "teamwork"
         ],
-        "key": "videos/village.jpg",
-        "image": "village",
+        "key": "videos/teamwork.jpg",
+        "image": "teamwork",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/village.jpg"
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/microscope.jpg",
-        "image": "microscope",
-        "motion": "pan-down",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teamwork.jpg"
       },
       {
         "line": 7,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "turtle"
         ],
-        "key": "videos/reunion.jpg",
-        "image": "reunion",
+        "key": "videos/deer.jpg",
+        "image": "deer",
         "motion": "push-in",
-        "transition": "dissolve",
+        "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/reunion.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/deer.jpg"
       },
       {
         "line": 8,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "rescue"
         ],
-        "key": "videos/guitar.jpg",
-        "image": "guitar",
-        "motion": "pan-left",
-        "transition": "whip-left",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/guitar.jpg"
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/robot.jpg",
-        "image": "robot",
+        "key": "videos/rescue.jpg",
+        "image": "rescue",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/robot.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rescue.jpg"
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "thoughtful",
+          "portrait"
+        ],
+        "key": "videos/thoughtful.jpg",
+        "image": "thoughtful",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
       }
     ],
     "stockedKeywords": [
