@@ -96,13 +96,13 @@
         "text": "Meet Rhossi, a tiny turtle with a huge journey."
       },
       {
-        "text": "He was found cold-stunned and near death on an Anglesey beach."
+        "text": "He was found cold-stunned and near death in Wales."
       },
       {
-        "text": "Kemp's Ridley turtles are one of the world's most endangered species."
+        "text": "Kemp's Ridley turtles are super endangered."
       },
       {
-        "text": "After two years of care at the Anglesey Sea Zoo, he's ready to go home."
+        "text": "After two years of care, he's ready to go home."
       },
       {
         "text": "A team of experts is sending him 5,000 miles back to the Gulf of Mexico."
@@ -148,10 +148,10 @@
       {
         "line": 1,
         "keywords": [
-          "water"
+          "waves"
         ],
         "key": "videos/nest.jpg",
-        "image": "water",
+        "image": "waves",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -172,10 +172,10 @@
       {
         "line": 3,
         "keywords": [
-          "harbour"
+          "sanctuary"
         ],
         "key": "videos/whale.jpg",
-        "image": "harbour",
+        "image": "sanctuary",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
@@ -184,10 +184,10 @@
       {
         "line": 3,
         "keywords": [
-          "coral"
+          "water"
         ],
         "key": "videos/frog.jpg",
-        "image": "coral",
+        "image": "water",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -196,10 +196,10 @@
       {
         "line": 3,
         "keywords": [
-          "waves"
+          "ocean"
         ],
         "key": "videos/cattle.jpg",
-        "image": "waves",
+        "image": "ocean",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -220,10 +220,10 @@
       {
         "line": 4,
         "keywords": [
-          "ocean"
+          "scientist"
         ],
         "key": "videos/ocean.jpg",
-        "image": "ocean",
+        "image": "scientist",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -232,10 +232,10 @@
       {
         "line": 4,
         "keywords": [
-          "scientist"
+          "coastline"
         ],
         "key": "videos/farmland.jpg",
-        "image": "scientist",
+        "image": "coastline",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -268,10 +268,10 @@
       {
         "line": 7,
         "keywords": [
-          "whale"
+          "turtle"
         ],
         "key": "videos/deer.jpg",
-        "image": "whale",
+        "image": "turtle",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
@@ -280,10 +280,10 @@
       {
         "line": 8,
         "keywords": [
-          "waterfall"
+          "writing"
         ],
         "key": "videos/rescue.jpg",
-        "image": "waterfall",
+        "image": "writing",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -292,10 +292,10 @@
       {
         "line": 8,
         "keywords": [
-          "writing"
+          "research"
         ],
         "key": "videos/thoughtful.jpg",
-        "image": "writing",
+        "image": "research",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -725,6 +725,6 @@
       "writing": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
     }
   },
-  "approvedAt": "2026-08-09T20:55:09.950Z",
+  "approvedAt": "2026-08-09T21:17:59.305Z",
   "approvedWithEdits": true
 }
