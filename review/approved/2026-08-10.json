@@ -87,7 +87,7 @@
   },
   "reel": {
     "script": "College students are always tired. Most don't get enough sleep. That can hurt their grades and mental health. But a new study found a simple fix. Small cash rewards and bedtime reminders helped students sleep more. They got 19 more minutes a night. And their grades improved. The boost stuck even after the rewards stopped. This shows better sleep can help students do better. Especially freshmen and STEM students. So how much do you think sleep affects your day?",
-    "hook": "Sleep More, Grade Better",
+    "hook": "A Change to Sleep Directly Boosts Academic Performance",
     "noMusic": false,
     "mood": "hopeful",
     "wordCount": 79,
@@ -167,8 +167,7 @@
       {
         "line": 2,
         "keywords": [
-          "doctor",
-          "patient"
+          "doctor"
         ],
         "key": "videos/doctor.jpg",
         "image": "doctor",
@@ -180,7 +179,6 @@
       {
         "line": 3,
         "keywords": [
-          "scientist",
           "research"
         ],
         "key": "videos/research.jpg",
@@ -193,7 +191,7 @@
       {
         "line": 4,
         "keywords": [
-          "students"
+          "cooking"
         ],
         "key": "videos/cooking.jpg",
         "image": "cooking",
@@ -205,7 +203,7 @@
       {
         "line": 4,
         "keywords": [
-          "students"
+          "children"
         ],
         "key": "videos/children.jpg",
         "image": "children",
@@ -217,7 +215,7 @@
       {
         "line": 4,
         "keywords": [
-          "students"
+          "crowd"
         ],
         "key": "videos/crowd.jpg",
         "image": "crowd",
@@ -229,8 +227,7 @@
       {
         "line": 5,
         "keywords": [
-          "clock",
-          "calendar"
+          "clock"
         ],
         "key": "videos/clock.jpg",
         "image": "clock",
@@ -242,7 +239,7 @@
       {
         "line": 6,
         "keywords": [
-          "students"
+          "teenagers"
         ],
         "key": "videos/teenagers.jpg",
         "image": "teenagers",
@@ -254,7 +251,7 @@
       {
         "line": 7,
         "keywords": [
-          "students"
+          "handshake"
         ],
         "key": "videos/handshake.jpg",
         "image": "handshake",
@@ -266,7 +263,7 @@
       {
         "line": 8,
         "keywords": [
-          "students"
+          "teacher"
         ],
         "key": "videos/teacher.jpg",
         "image": "teacher",
@@ -278,7 +275,7 @@
       {
         "line": 9,
         "keywords": [
-          "students"
+          "neighbours"
         ],
         "key": "videos/neighbours.jpg",
         "image": "neighbours",
@@ -290,10 +287,10 @@
       {
         "line": 10,
         "keywords": [
-          "students"
+          "brainscan"
         ],
         "key": "videos/kitchen.jpg",
-        "image": "kitchen",
+        "image": "brainscan",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -302,10 +299,10 @@
       {
         "line": 10,
         "keywords": [
-          "students"
+          "sunbeam"
         ],
         "key": "videos/playground.jpg",
-        "image": "playground",
+        "image": "sunbeam",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -735,6 +732,6 @@
       "writing": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
     }
   },
-  "approvedAt": "2026-08-10T05:50:03.424Z",
-  "approvedWithEdits": false
+  "approvedAt": "2026-08-10T17:57:29.250Z",
+  "approvedWithEdits": true
 }
