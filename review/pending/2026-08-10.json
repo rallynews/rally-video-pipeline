@@ -1,289 +1,315 @@
 {
   "version": 1,
   "date": "2026-08-10",
-  "createdAt": "2026-08-10T05:02:39.701Z",
+  "createdAt": "2026-08-10T05:45:11.409Z",
   "story": {
-    "headline": "Rare turtle to be sent back home in 5,000-mile 'incredibly emotional' trip",
-    "summary": "A rare turtle is being flown home to the Caribbean Sea after being found washed up in Wales.",
+    "headline": "A Simple Change to Sleep Directly Boosts Academic Performance, Study Reveals",
+    "summary": "Sleep is the panacea of our time. A vast and growing body of research shows that when we get good sleep, good things happen inside our bodies.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/climate/?article=Rare%2Bturtle%2Bto%2Bbe%2Bsent%2Bback%2Bhome%2Bin%2B5%2C000-mile%2B%27incredibly%2Bemotional%27%2Btrip"
+    "url": "https://rally.news/categories/ai/?article=A%2BSimple%2BChange%2Bto%2BSleep%2BDirectly%2BBoosts%2BAcademic%2BPerformance%2C%2BStudy%2BReveals"
   },
-  "researchBrief": "Rhossi, a critically endangered Kemp's Ridley sea turtle, was rescued from an Anglesey beach in December 2023. He was cold-stunned and near death, weighing less than one kilogram. After two years of rehabilitation at Anglesey Sea Zoo, Rhossi is now ready to be transported back to the Gulf of Mexico. The journey involves a helicopter ride to Heathrow, a cargo flight to Houston, and a final release into the Gulf of Mexico. The story is corroborated by multiple sources, including North Wales Live, nation.cymru, BBC Newsround, and North Wales Chronicle. The key details, such as the distance of the journey, the involvement of international conservation partners, and the critical status of Kemp's Ridley turtles, are consistently reported across these sources. The exact weight and size of Rhossi at the time of rescue are also verified. The story highlights the collaborative effort and the emotional significance of Rhossi's return to the wild.",
+  "researchBrief": "The study, published in the Journal of Political Economy, involved over 1,100 university students in the U.S. and found that incentives for sleep increased both sleep duration and academic performance. The intervention group received personalized bedtime reminders, morning feedback, and small cash rewards for meeting a seven-hour sleep goal. During the intervention, students in the treatment group increased their sleep by 19 minutes per night, with a 26% increase in the share of nights meeting the 7-hour goal. The effects on academic performance were significant, with an improvement of 0.075–0.089 grade points during the intervention semester. These effects persisted into the following semester, although the sleep duration effect diminished to 8 extra minutes per night after the incentives ended. The study also found that the benefits were strongest for freshmen and STEM students. The research was corroborated by multiple sources, including ScienceAlert, the National Bureau of Economic Research, and Phys.org.",
   "sources": [
-    "https://www.bbc.co.uk/news/articles/c62vd6j5llgo",
-    "https://www.dailypost.co.uk/news/north-wales-news/critically-endangered-turtle-rescued-anglesey-34400577",
-    "https://nation.cymru/news/critically-endangered-turtle-to-return-home-after-two-year-rehab-in-wales/",
-    "https://www.northwaleschronicle.co.uk/news/26436783.rhossi-kemps-ridley-turtle-head-home-mexico/"
+    "https://www.sciencealert.com/a-simple-change-to-sleep-directly-boosts-academic-performance-study-reveals",
+    "https://www.nber.org/system/files/working_papers/w32550/w32550.pdf",
+    "https://www.nber.org/papers/w32550",
+    "https://www.newswise.com/articles/incentives-to-sleep-boost-college-students-grades-new-study-finds"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
+        "field": "headline",
+        "verdict": "verified",
+        "note": "The headline accurately reflects the study's findings."
+      },
+      {
         "field": "challenge",
-        "verdict": "corrected",
-        "note": "Corrected the year from 2023 to December 2023 to match the sources."
+        "verdict": "verified",
+        "note": "The challenge is supported by the study and general knowledge about college students' sleep habits."
       },
       {
         "field": "solution",
-        "verdict": "corrected",
-        "note": "Corrected the duration of care from two years to two and a half years to match the sources."
+        "verdict": "verified",
+        "note": "The solution is supported by the study's findings on the impact of incentives and reminders."
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "verified",
+        "note": "The result heading is supported by the study's findings on grade improvements."
+      },
+      {
+        "field": "resultLine",
+        "verdict": "verified",
+        "note": "The result line is supported by the study's findings on the persistence of effects."
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "The whyMatters statement is supported by the study's findings and general knowledge about the importance of sleep for academic performance."
       },
       {
         "field": "captionLead",
-        "verdict": "corrected",
-        "note": "Corrected the duration of care from two years to two and a half years to match the sources."
+        "verdict": "verified",
+        "note": "The caption lead accurately reflects the study's findings."
       },
       {
         "field": "originalSource",
         "verdict": "corrected",
-        "note": "Corrected the original source from North Wales Live to BBC News."
+        "note": "The original source was corrected from 'Journal of Political Economy' to 'ScienceAlert'."
       }
     ]
   },
-  "pillar": "Climate & Environment",
+  "pillar": "Science & Health Breakthroughs",
   "style": "1a",
   "raw": {
-    "pillar": "Climate & Environment",
-    "headline": "Can a rescued turtle survive a 5,000-mile journey home? This little guy is about to find out.",
-    "challenge": "Rhossi, a critically endangered Kemp's Ridley sea turtle, was found cold-stunned and near death on an Anglesey beach in December 2023. With only a slim chance of survival, his journey to recovery has been nothing short of miraculous.",
-    "solution": "After two and a half years of dedicated care at Anglesey Sea Zoo, Rhossi is ready to embark on an epic 5,000-mile journey back to the Gulf of Mexico. A team of international conservationists, volunteers, and specialists are working together to make this happen.",
-    "resultHeading": "Rhossi is heading home",
-    "resultLine": "Follow his incredible journey and learn how you can support sea turtle conservation at the link in my bio.",
-    "whyMatters": "Every healthy adult Kemp's Ridley turtle returned to the wild is a step toward strengthening the fragile population of this critically endangered species. Rhossi's story is a testament to the power of international collaboration and dedication to wildlife conservation.",
-    "engagementQuestion": "What's the most amazing animal rescue story you've heard?",
-    "captionLead": "Meet Rhossi, a critically endangered Kemp's Ridley sea turtle who's about to embark on an incredible 5,000-mile journey home. After two and a half years of care in Wales, he's ready to return to the Gulf of Mexico. This is a story of hope, dedication, and international collaboration that you won't want to miss!",
-    "storyHashtag": "SeaTurtleConservation",
+    "pillar": "Science & Health Breakthroughs",
+    "headline": "Can a simple change to your sleep habits boost your grades? This study says yes.",
+    "challenge": "College students are notoriously sleep-deprived, with many struggling to meet the recommended 7 hours per night. Poor sleep can lead to lower academic performance and even mental health issues.",
+    "solution": "A recent study found that offering small cash incentives and personalized bedtime reminders helped students sleep more, leading to better grades. The intervention increased sleep by 19 minutes per night during the treatment period.",
+    "resultHeading": "Students improved their grades by 0.075–0.089 points",
+    "resultLine": "The effects persisted even after the incentives ended — check out the full study at the link in bio.",
+    "whyMatters": "This study shows that improving sleep can be a cost-effective way to boost academic performance, especially for freshmen and STEM students who often struggle with time management and demanding coursework.",
+    "engagementQuestion": "How much do you think sleep impacts your daily performance?",
+    "captionLead": "A new study reveals that a simple change to sleep habits can directly boost academic performance. Here's how it works!",
+    "storyHashtag": "SleepResearch",
     "sources": [
-      "https://www.bbc.co.uk/news/articles/c62vd6j5llgo",
-      "https://www.dailypost.co.uk/news/north-wales-news/critically-endangered-turtle-rescued-anglesey-34400577",
-      "https://nation.cymru/news/critically-endangered-turtle-to-return-home-after-two-year-rehab-in-wales/",
-      "https://www.northwaleschronicle.co.uk/news/26436783.rhossi-kemps-ridley-turtle-head-home-mexico/"
+      "https://www.sciencealert.com/a-simple-change-to-sleep-directly-boosts-academic-performance-study-reveals",
+      "https://www.nber.org/system/files/working_papers/w32550/w32550.pdf",
+      "https://www.nber.org/papers/w32550",
+      "https://www.newswise.com/articles/incentives-to-sleep-boost-college-students-grades-new-study-finds"
     ],
-    "originalSource": "BBC News",
-    "researchBrief": "Rhossi, a critically endangered Kemp's Ridley sea turtle, was rescued from an Anglesey beach in December 2023. He was cold-stunned and near death, weighing less than one kilogram. After two years of rehabilitation at Anglesey Sea Zoo, Rhossi is now ready to be transported back to the Gulf of Mexico. The journey involves a helicopter ride to Heathrow, a cargo flight to Houston, and a final release into the Gulf of Mexico. The story is corroborated by multiple sources, including North Wales Live, nation.cymru, BBC Newsround, and North Wales Chronicle. The key details, such as the distance of the journey, the involvement of international conservation partners, and the critical status of Kemp's Ridley turtles, are consistently reported across these sources. The exact weight and size of Rhossi at the time of rescue are also verified. The story highlights the collaborative effort and the emotional significance of Rhossi's return to the wild."
+    "originalSource": "ScienceAlert",
+    "researchBrief": "The study, published in the Journal of Political Economy, involved over 1,100 university students in the U.S. and found that incentives for sleep increased both sleep duration and academic performance. The intervention group received personalized bedtime reminders, morning feedback, and small cash rewards for meeting a seven-hour sleep goal. During the intervention, students in the treatment group increased their sleep by 19 minutes per night, with a 26% increase in the share of nights meeting the 7-hour goal. The effects on academic performance were significant, with an improvement of 0.075–0.089 grade points during the intervention semester. These effects persisted into the following semester, although the sleep duration effect diminished to 8 extra minutes per night after the incentives ended. The study also found that the benefits were strongest for freshmen and STEM students. The research was corroborated by multiple sources, including ScienceAlert, the National Bureau of Economic Research, and Phys.org."
   },
   "cover": {
-    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-10/cover.png"
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-10/cover.jpg"
   },
   "reel": {
-    "script": "A turtle's making a 5,000-mile trip home. Rhossi, a Kemp's Ridley sea turtle, was found near death in Wales. After two and a half years of care, he's ready to go back to the Gulf of Mexico. A team of conservationists is helping him. Every turtle that survives helps the species. Rhossi's story shows what we can do for wildlife. What's the most amazing animal rescue you've heard?",
-    "hook": "A Turtle's Epic Journey Home",
+    "script": "College students are always tired. Most don't get enough sleep. That can hurt their grades and mental health. But a new study found a simple fix. Small cash rewards and bedtime reminders helped students sleep more. They got 19 more minutes a night. And their grades improved. The boost stuck even after the rewards stopped. This shows better sleep can help students do better. Especially freshmen and STEM students. So how much do you think sleep affects your day?",
+    "hook": "Sleep More, Grade Better",
     "noMusic": false,
     "mood": "hopeful",
-    "wordCount": 68,
+    "wordCount": 79,
     "lines": [
       {
-        "text": "A turtle's making a 5,000-mile trip home."
+        "text": "College students are always tired."
       },
       {
-        "text": "Rhossi, a Kemp's Ridley sea turtle, was found near death in Wales."
+        "text": "Most don't get enough sleep."
       },
       {
-        "text": "After two and a half years of care, he's ready to go back."
+        "text": "That can hurt their grades and mental health."
       },
       {
-        "text": "To the Gulf of Mexico."
+        "text": "But a new study found a simple fix."
       },
       {
-        "text": "A team of conservationists is helping him."
+        "text": "Small cash rewards and bedtime reminders helped students sleep more."
       },
       {
-        "text": "Every turtle that survives helps the species."
+        "text": "They got 19 more minutes a night."
       },
       {
-        "text": "Rhossi's story shows what we can do for wildlife."
+        "text": "And their grades improved."
       },
       {
-        "text": "What's the most amazing animal rescue you've heard?"
+        "text": "The boost stuck even after the rewards stopped."
+      },
+      {
+        "text": "This shows better sleep can help students do better."
+      },
+      {
+        "text": "Especially freshmen and STEM students."
+      },
+      {
+        "text": "So how much do you think sleep affects your day?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "turtle",
-          "ocean"
+          "students",
+          "classroom"
         ],
-        "key": "videos/turtle.jpg",
-        "image": "turtle",
+        "key": "videos/classroom.jpg",
+        "image": "classroom",
         "motion": "pan-right",
         "transition": "cut",
         "cover": true,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-10/cover.png"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-10/cover.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "turtle",
-          "coastline"
+          "students"
         ],
-        "key": "videos/coastline.jpg",
-        "image": "coastline",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coastline.jpg"
-      },
-      {
-        "line": 1,
-        "keywords": [
-          "ocean"
-        ],
-        "key": "videos/ocean.jpg",
-        "image": "ocean",
+        "key": "videos/students.jpg",
+        "image": "students",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ocean.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/students.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "turtle",
-          "sanctuary"
+          "notebook"
         ],
-        "key": "videos/sanctuary.jpg",
-        "image": "sanctuary",
-        "motion": "pan-up",
+        "key": "videos/notebook.jpg",
+        "image": "notebook",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sanctuary.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "turtle",
-          "rescue"
+          "doctor",
+          "patient"
         ],
-        "key": "videos/rescue.jpg",
-        "image": "rescue",
+        "key": "videos/doctor.jpg",
+        "image": "doctor",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rescue.jpg"
-      },
-      {
-        "line": 2,
-        "keywords": [
-          "turtle",
-          "rescue"
-        ],
-        "key": "videos/foodbank.jpg",
-        "image": "foodbank",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/foodbank.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "ocean"
+          "scientist",
+          "research"
         ],
-        "key": "videos/seedling.jpg",
-        "image": "seedling",
+        "key": "videos/research.jpg",
+        "image": "research",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/seedling.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "turtle"
+          "students"
         ],
-        "key": "videos/butterfly.jpg",
-        "image": "butterfly",
-        "motion": "push-in",
+        "key": "videos/cooking.jpg",
+        "image": "cooking",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/butterfly.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cooking.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "teamwork",
-          "turtle"
+          "students"
         ],
-        "key": "videos/teamwork.jpg",
-        "image": "teamwork",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teamwork.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "turtle"
-        ],
-        "key": "videos/coral.jpg",
-        "image": "coral",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coral.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "turtle"
-        ],
-        "key": "videos/frog.jpg",
-        "image": "frog",
+        "key": "videos/children.jpg",
+        "image": "children",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/frog.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/children.jpg"
       },
       {
-        "line": 6,
+        "line": 4,
         "keywords": [
-          "turtle"
+          "students"
         ],
-        "key": "videos/horse.jpg",
-        "image": "horse",
+        "key": "videos/crowd.jpg",
+        "image": "crowd",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/crowd.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "clock",
+          "calendar"
+        ],
+        "key": "videos/clock.jpg",
+        "image": "clock",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horse.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "turtle",
-          "rescue"
+          "students"
         ],
-        "key": "videos/cattle.jpg",
-        "image": "cattle",
+        "key": "videos/teenagers.jpg",
+        "image": "teenagers",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cattle.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teenagers.jpg"
       },
       {
         "line": 7,
         "keywords": [
-          "rescue"
+          "students"
         ],
-        "key": "videos/meal.jpg",
-        "image": "meal",
-        "motion": "pan-up",
+        "key": "videos/handshake.jpg",
+        "image": "handshake",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meal.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/handshake.jpg"
       },
       {
-        "line": 7,
+        "line": 8,
         "keywords": [
-          "thoughtful"
+          "students"
         ],
-        "key": "videos/thoughtful.jpg",
-        "image": "thoughtful",
-        "motion": "pan-left",
-        "transition": "zoom-punch",
+        "key": "videos/teacher.jpg",
+        "image": "teacher",
+        "motion": "push-in",
+        "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teacher.jpg"
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "students"
+        ],
+        "key": "videos/neighbours.jpg",
+        "image": "neighbours",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/neighbours.jpg"
+      },
+      {
+        "line": 10,
+        "keywords": [
+          "students"
+        ],
+        "key": "videos/kitchen.jpg",
+        "image": "kitchen",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/kitchen.jpg"
+      },
+      {
+        "line": 10,
+        "keywords": [
+          "students"
+        ],
+        "key": "videos/playground.jpg",
+        "image": "playground",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/playground.jpg"
       }
     ],
     "stockedKeywords": [
