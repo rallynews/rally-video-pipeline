@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Aug 2026 18:02:17 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 19:53:09 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Human hair used as protective barrier in oceans</title>
+      <link>https://rally.news/categories/climate/?article=Human%2Bhair%2Bused%2Bas%2Bprotective%2Bbarrier%2Bin%2Boceans</link>
+      <description>A new environmental initiative is using human hair to help protect the oceans, building barriers from donated locks to shield parts of Brazil&apos;s coastline from oil spill pollution.</description>
+      <pubDate>Tue, 11 Aug 2026 19:53:09 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/climate/?article=Human%2Bhair%2Bused%2Bas%2Bprotective%2Bbarrier%2Bin%2Boceans</guid>
+    </item>
+
+<item>
       <title>A Simple Change to Sleep Directly Boosts Academic Performance, Study Reveals</title>
       <link>https://rally.news/categories/ai/?article=A%2BSimple%2BChange%2Bto%2BSleep%2BDirectly%2BBoosts%2BAcademic%2BPerformance%2C%2BStudy%2BReveals</link>
       <description>Sleep is the panacea of our time. A vast and growing body of research shows that when we get good sleep, good things happen inside our bodies.</description>
@@ -400,14 +408,6 @@
       <description>Across 65,000 kilometers (40,400 miles) of the ocean floor, a system of mid-ocean ridges marks the boundaries where Earth&apos;s tectonic plates meet.</description>
       <pubDate>Fri, 10 Jul 2026 05:04:49 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=World%2BFirst%3A%2BScientists%2BWitnessed%2Ba%2BPiece%2Bof%2BEarth%27s%2BOceanic%2BCrust%2BBeing%2BBorn</guid>
-    </item>
-
-<item>
-      <title>Cyborg Cockroaches Could Help Find Survivors of Natural Disasters. New Diving Suits Allow the Insects to Expand Their Search Underwater</title>
-      <link>https://rally.news/categories/ai/?article=Cyborg%2BCockroaches%2BCould%2BHelp%2BFind%2BSurvivors%2Bof%2BNatural%2BDisasters.%2BNew%2BDiving%2BSuits%2BAllow%2Bthe%2BInsects%2Bto%2BExpand%2BTheir%2BSearch%2BUnderwater</link>
-      <description>Previously, researchers created electrical implants to control cockroaches&apos; movements for search-and-rescue missions. Now, they&apos;ve made 3D-printed suits that provide oxygen, allowing the critters to survive submerged for up to three hours</description>
-      <pubDate>Thu, 09 Jul 2026 05:04:52 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Cyborg%2BCockroaches%2BCould%2BHelp%2BFind%2BSurvivors%2Bof%2BNatural%2BDisasters.%2BNew%2BDiving%2BSuits%2BAllow%2Bthe%2BInsects%2Bto%2BExpand%2BTheir%2BSearch%2BUnderwater</guid>
     </item>
   </channel>
 </rss>
