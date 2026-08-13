@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2026 06:26:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 07:07:32 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Britain’s Andy Green sets another speed record, this time for fastest run in a hydrogen-powered car</title>
+      <link>https://rally.news/categories/transportation/?article=Britain%E2%80%99s%2BAndy%2BGreen%2Bsets%2Banother%2Bspeed%2Brecord%2C%2Bthis%2Btime%2Bfor%2Bfastest%2Brun%2Bin%2Ba%2Bhydrogen-powered%2Bcar</link>
+      <description>Green reached 653.908 kilometres per hour in a car powered by two hydrogen internal combustion engines with a combined 1,600 horsepower</description>
+      <pubDate>Thu, 13 Aug 2026 07:07:32 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/transportation/?article=Britain%E2%80%99s%2BAndy%2BGreen%2Bsets%2Banother%2Bspeed%2Brecord%2C%2Bthis%2Btime%2Bfor%2Bfastest%2Brun%2Bin%2Ba%2Bhydrogen-powered%2Bcar</guid>
+    </item>
+
+<item>
       <title>For the First Time, an mRNA Flu Shot Will Be Available to Some People in the United States. Here&apos;s What You Should Know</title>
       <link>https://rally.news/categories/world/?article=For%2Bthe%2BFirst%2BTime%2C%2Ban%2BmRNA%2BFlu%2BShot%2BWill%2BBe%2BAvailable%2Bto%2BSome%2BPeople%2Bin%2Bthe%2BUnited%2BStates.%2BHere%27s%2BWhat%2BYou%2BShould%2BKnow</link>
       <description>The Food and Drug Administration just approved the new type of flu vaccine for adults ages 50 and older. It relies on the same technology as many Covid-19 jabs. However, it’s unclear whether insurance companies will pay for the novel flu shot</description>
@@ -400,14 +408,6 @@
       <description>China&apos;s state-owned space company recovered its first orbital rocket booster after launch.</description>
       <pubDate>Sat, 11 Jul 2026 13:45:50 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=China%2Bis%2Bcatching%2Bup%2Bto%2BElon%2BMusk%E2%80%99s%2Breusable%2Brockets</guid>
-    </item>
-
-<item>
-      <title>Which records has France’s Kylian Mbappe broken at FIFA World Cup 2026?</title>
-      <link>https://rally.news/categories/entertainment/?article=Which%2Brecords%2Bhas%2BFrance%E2%80%99s%2BKylian%2BMbappe%2Bbroken%2Bat%2BFIFA%2BWorld%2BCup%2B2026%3F</link>
-      <description>From individual milestones to national numbers, several records have tumbled in Mbappe&amp;#039;s historic World Cup run.</description>
-      <pubDate>Sat, 11 Jul 2026 05:04:42 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Which%2Brecords%2Bhas%2BFrance%E2%80%99s%2BKylian%2BMbappe%2Bbroken%2Bat%2BFIFA%2BWorld%2BCup%2B2026%3F</guid>
     </item>
   </channel>
 </rss>
