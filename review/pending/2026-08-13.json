@@ -1,158 +1,197 @@
 {
   "version": 1,
   "date": "2026-08-13",
-  "createdAt": "2026-08-13T01:32:33.915Z",
+  "createdAt": "2026-08-13T05:02:59.437Z",
   "story": {
     "headline": "How to Watch the Total Solar Eclipse on a Live Stream, Witnessing the Rare View of the Sun's Corona From Your Own Home",
     "summary": "Wednesday’s eclipse will bring dark skies to parts of Russia, Greenland, Iceland, Portugal and Spain. But with these online broadcasts, you can view the spectacle from anywhere",
     "publisher": "Rally News",
     "url": "https://rally.news/categories/entertainment/?article=How%2Bto%2BWatch%2Bthe%2BTotal%2BSolar%2BEclipse%2Bon%2Ba%2BLive%2BStream%2C%2BWitnessing%2Bthe%2BRare%2BView%2Bof%2Bthe%2BSun%27s%2BCorona%2BFrom%2BYour%2BOwn%2BHome"
   },
-  "researchBrief": "The August 12th solar eclipse will be visible in parts of Europe and North America, with totality passing over Greenland, Iceland, Spain, and a corner of Portugal. Multiple organizations, including NASA, the European Space Agency (ESA), and the Virtual Telescope Project, are offering live streams of the event. NASA’s broadcast will feature interviews with experts and live telescope views, while ESA will stream from the Astrophysical Observatory of Javalambre in Spain. The Virtual Telescope Project will cover the eclipse from both Italy and Spain. All sources corroborate the availability of these livestreams and the path of totality. The key numbers, such as the time of totality and the percentage of the sun covered in different regions, are consistent across sources.",
+  "researchBrief": "The research confirms that NASA and ESA are indeed providing live streams of the August 12th total solar eclipse. NASA's coverage begins at 1:15 p.m. EDT, with totality starting in Iceland at 1:45 p.m. and in Spain at 2:28 p.m. ESA's broadcast will be available on YouTube and ESA Web TV, starting at 19:30 CEST. Both organizations will feature expert commentary and high-quality imagery. The eclipse will be visible in parts of Greenland, Iceland, Spain, and a small corner of Portugal, with partial visibility in other parts of the Northern Hemisphere. The live streams ensure that people worldwide can experience this rare event safely and comfortably from home.",
   "sources": [
     "https://www.smithsonianmag.com/smart-news/how-to-watch-the-total-solar-eclipse-on-a-live-stream-witnessing-the-rare-view-of-the-suns-corona-from-your-own-home-180989315/",
     "https://www.esa.int/Science_Exploration/Space_Science/Total_solar_eclipse_how_to_watch_live_from_home",
-    "https://www.nasa.gov/news-release/nasa-sets-coverage-for-august-northern-hemisphere-total-solar-eclipse/",
-    "https://science.nasa.gov/eclipses/future-eclipses/total-solar-eclipse-on-august-12-2026/"
+    "https://science.nasa.gov/eclipses/future-eclipses/total-solar-eclipse-on-august-12-2026/",
+    "https://www.nasa.gov/news-release/nasa-sets-coverage-for-august-northern-hemisphere-total-solar-eclipse/"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
-        "field": "headline",
-        "verdict": "verified",
-        "note": "The headline accurately reflects the content of the article and the availability of live streams for the solar eclipse."
-      },
-      {
-        "field": "challenge",
-        "verdict": "verified",
-        "note": "The challenge is accurate as the eclipse will be visible only in parts of Europe and North America, but live streams are available for others."
-      },
-      {
-        "field": "solution",
-        "verdict": "verified",
-        "note": "NASA, the European Space Agency, and other organizations are indeed providing live streams of the eclipse."
-      },
-      {
-        "field": "resultHeading",
-        "verdict": "verified",
-        "note": "Multiple livestreams are confirmed to be available for the eclipse."
-      },
-      {
         "field": "resultLine",
-        "verdict": "verified",
-        "note": "The result line accurately states that viewers can witness the event from anywhere via live streams."
-      },
-      {
-        "field": "whyMatters",
-        "verdict": "verified",
-        "note": "The explanation of why the eclipse matters is accurate and aligns with the educational and inspirational aspects of the event."
-      },
-      {
-        "field": "captionLead",
-        "verdict": "verified",
-        "note": "The caption lead correctly informs viewers that they can watch the eclipse live online."
+        "verdict": "corrected",
+        "note": "Added specific start times for NASA and ESA broadcasts."
       },
       {
         "field": "originalSource",
-        "verdict": "verified",
-        "note": "The original source is correctly identified as Smithsonian Magazine."
+        "verdict": "corrected",
+        "note": "Changed from 'Rally News' to 'Smithsonian Magazine'."
       }
     ]
   },
   "pillar": "Interesting Facts",
-  "style": "1a",
+  "style": "1b",
   "raw": {
     "pillar": "Interesting Facts",
-    "headline": "Can you watch the solar eclipse from home? Here’s how to see it live!",
-    "challenge": "The August 12th solar eclipse will be visible only in parts of Europe and North America. But don’t worry—you won’t miss out!",
-    "solution": "Thanks to NASA, the European Space Agency, and other organizations, you can watch the eclipse live online. Here’s how to tune in.",
-    "resultHeading": "Multiple livestreams will bring the eclipse to you",
-    "resultLine": "No matter where you are, you can witness this celestial event—check out the links in the bio to join the fun!",
-    "whyMatters": "Solar eclipses are rare and awe-inspiring events that remind us of the beauty and complexity of our universe. Being able to watch them live from anywhere makes science accessible to everyone.",
-    "engagementQuestion": "Have you ever watched a solar eclipse? Where were you?",
-    "captionLead": "Missed the August 12th solar eclipse? No worries! You can still watch it live online. Here’s how to join the fun from anywhere in the world.",
-    "storyHashtag": "SolarEclipse",
+    "headline": "Can you watch the solar eclipse from home? NASA and ESA are making it happen!",
+    "challenge": "Total solar eclipses are rare and often only visible from specific locations. But this time, you don't have to travel to see it!",
+    "solution": "NASA and ESA are offering live streams of the August 12th eclipse, so you can witness the spectacle from anywhere in the world.",
+    "resultHeading": "Live Streams Bring the Eclipse to You",
+    "resultLine": "Tune in to NASA's or ESA's broadcasts and experience the eclipse safely and comfortably at home. NASA's broadcast starts at 1:15 p.m. EDT, while ESA's begins at 19:30 CEST.",
+    "whyMatters": "This accessibility ensures that everyone, regardless of location, can witness this rare celestial event and learn about the science behind it. It's a fantastic opportunity for education and wonder!",
+    "engagementQuestion": "Are you planning to watch the eclipse live stream? What are you most excited to see?",
+    "captionLead": "Exciting news! You don't have to travel to see the total solar eclipse on August 12th. NASA and ESA are offering live streams so you can witness this rare event from the comfort of your own home. Tune in and enjoy the spectacle!",
+    "storyHashtag": "SolarEclipse2026",
     "sources": [
       "https://www.smithsonianmag.com/smart-news/how-to-watch-the-total-solar-eclipse-on-a-live-stream-witnessing-the-rare-view-of-the-suns-corona-from-your-own-home-180989315/",
       "https://www.esa.int/Science_Exploration/Space_Science/Total_solar_eclipse_how_to_watch_live_from_home",
-      "https://www.nasa.gov/news-release/nasa-sets-coverage-for-august-northern-hemisphere-total-solar-eclipse/",
-      "https://science.nasa.gov/eclipses/future-eclipses/total-solar-eclipse-on-august-12-2026/"
+      "https://science.nasa.gov/eclipses/future-eclipses/total-solar-eclipse-on-august-12-2026/",
+      "https://www.nasa.gov/news-release/nasa-sets-coverage-for-august-northern-hemisphere-total-solar-eclipse/"
     ],
     "originalSource": "Smithsonian Magazine",
-    "researchBrief": "The August 12th solar eclipse will be visible in parts of Europe and North America, with totality passing over Greenland, Iceland, Spain, and a corner of Portugal. Multiple organizations, including NASA, the European Space Agency (ESA), and the Virtual Telescope Project, are offering live streams of the event. NASA’s broadcast will feature interviews with experts and live telescope views, while ESA will stream from the Astrophysical Observatory of Javalambre in Spain. The Virtual Telescope Project will cover the eclipse from both Italy and Spain. All sources corroborate the availability of these livestreams and the path of totality. The key numbers, such as the time of totality and the percentage of the sun covered in different regions, are consistent across sources."
+    "researchBrief": "The research confirms that NASA and ESA are indeed providing live streams of the August 12th total solar eclipse. NASA's coverage begins at 1:15 p.m. EDT, with totality starting in Iceland at 1:45 p.m. and in Spain at 2:28 p.m. ESA's broadcast will be available on YouTube and ESA Web TV, starting at 19:30 CEST. Both organizations will feature expert commentary and high-quality imagery. The eclipse will be visible in parts of Greenland, Iceland, Spain, and a small corner of Portugal, with partial visibility in other parts of the Northern Hemisphere. The live streams ensure that people worldwide can experience this rare event safely and comfortably from home."
   },
   "cover": null,
   "reel": {
-    "script": "There's a solar eclipse coming up. You might not be able to see it in person. But you can still watch it live online. NASA and the European Space Agency are streaming it. Multiple livestreams will bring the eclipse to you. No matter where you are, you can witness this celestial event. Solar eclipses are rare and awe-inspiring. They remind us of the beauty of our universe. Being able to watch them live makes science accessible. Have you ever watched a solar eclipse? Where were you?",
-    "hook": "Watch the Eclipse from Home",
+    "script": "Total solar eclipses are rare and often only visible from specific locations. But this time, you don't have to travel to see it! NASA and ESA are offering live streams of the August 12th eclipse. Tune in to NASA's or ESA's broadcasts and experience the eclipse safely and comfortably at home. NASA's broadcast starts at 1:15 p.m. EDT, while ESA's begins at 19:30 CEST. This accessibility ensures that everyone, regardless of location, can witness this rare celestial event and learn about the science behind it. Are you planning to watch the eclipse live stream? What are you most excited to see?",
+    "hook": "See the Eclipse from Anywhere",
     "noMusic": false,
     "mood": "curious",
-    "wordCount": 86,
+    "wordCount": 101,
     "lines": [
       {
-        "text": "There's a solar eclipse coming up."
+        "text": "Total solar eclipses are rare and often only visible from specific locations."
       },
       {
-        "text": "You might not be able to see it in person."
+        "text": "But this time, you don't have to travel to see it!"
       },
       {
-        "text": "But you can still watch it live online."
+        "text": "NASA and ESA are offering live streams of the August 12th eclipse."
       },
       {
-        "text": "NASA and the European Space Agency are streaming it."
+        "text": "Tune in to NASA's or ESA's broadcasts and experience the eclipse safely and comfortably at home."
       },
       {
-        "text": "Multiple livestreams will bring the eclipse to you."
+        "text": "NASA's broadcast starts at 1:15 p.m. EDT, while ESA's begins at 19:30 CEST."
       },
       {
-        "text": "No matter where you are, you can witness this celestial event."
+        "text": "This accessibility ensures that everyone, regardless of location,"
       },
       {
-        "text": "Solar eclipses are rare and awe-inspiring."
+        "text": "can witness this rare celestial event and learn about the science behind it."
       },
       {
-        "text": "They remind us of the beauty of our universe."
+        "text": "Are you planning to watch the eclipse live stream?"
       },
       {
-        "text": "Being able to watch them live makes science accessible."
-      },
-      {
-        "text": "Have you ever watched a solar eclipse?"
-      },
-      {
-        "text": "Where were you?"
+        "text": "What are you most excited to see?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "solar",
-          "sunbeam"
+          "sunrise",
+          "sunset"
         ],
-        "key": "videos/sunbeam.jpg",
-        "image": "sunbeam",
+        "key": "videos/sunset.jpg",
+        "image": "sunset",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunset.jpg"
+      },
+      {
+        "line": 0,
+        "keywords": [
+          "space",
+          "rocket"
+        ],
+        "key": "videos/rocket.jpg",
+        "image": "rocket",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "city",
-          "skyline"
+          "laptop"
         ],
-        "key": "videos/city.jpg",
-        "image": "city",
+        "key": "videos/laptop.jpg",
+        "image": "laptop",
+        "motion": "push-in",
+        "transition": "whip-right",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laptop.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "solar"
+        ],
+        "key": "videos/solar.jpg",
+        "image": "solar",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/solar.jpg"
       },
       {
-        "line": 1,
+        "line": 2,
+        "keywords": [
+          "telescope",
+          "satellite"
+        ],
+        "key": "videos/telescope.jpg",
+        "image": "telescope",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "family"
+        ],
+        "key": "videos/family.jpg",
+        "image": "family",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/family.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "smiling",
+          "celebration"
+        ],
+        "key": "videos/smiling.jpg",
+        "image": "smiling",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/smiling.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "clock",
+          "calendar"
+        ],
+        "key": "videos/calendar.jpg",
+        "image": "calendar",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/calendar.jpg"
+      },
+      {
+        "line": 4,
         "keywords": [
           "city",
           "skyline"
@@ -165,158 +204,90 @@
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg"
       },
       {
-        "line": 2,
-        "keywords": [
-          "laptop",
-          "light"
-        ],
-        "key": "videos/light.jpg",
-        "image": "light",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/light.jpg"
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "rocket",
-          "space"
-        ],
-        "key": "videos/rocket.jpg",
-        "image": "rocket",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "satellite",
-          "telescope"
-        ],
-        "key": "videos/telescope.jpg",
-        "image": "telescope",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg"
-      },
-      {
-        "line": 4,
+        "line": 5,
         "keywords": [
           "globe"
         ],
         "key": "videos/globe.jpg",
         "image": "globe",
-        "motion": "pan-left",
+        "motion": "pan-up",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg"
       },
       {
-        "line": 5,
+        "line": 6,
         "keywords": [
-          "sunset",
-          "horizon"
+          "laptop"
         ],
-        "key": "videos/sunset.jpg",
-        "image": "sunset",
-        "motion": "pan-right",
-        "transition": "cut",
+        "key": "videos/meeting.jpg",
+        "image": "meeting",
+        "motion": "push-in",
+        "transition": "whip-left",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunset.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "sunset",
-          "horizon"
-        ],
-        "key": "videos/horizon.jpg",
-        "image": "horizon",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horizon.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meeting.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "sunrise",
-          "clouds"
+          "family"
         ],
-        "key": "videos/clouds.jpg",
-        "image": "clouds",
-        "motion": "pan-up",
+        "key": "videos/crowd.jpg",
+        "image": "crowd",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clouds.jpg"
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "waves",
-          "ocean"
-        ],
-        "key": "videos/ocean.jpg",
-        "image": "ocean",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ocean.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/crowd.jpg"
       },
       {
         "line": 7,
         "keywords": [
-          "space"
+          "smiling",
+          "celebration"
         ],
-        "key": "videos/space.jpg",
-        "image": "space",
-        "motion": "push-in",
-        "transition": "dissolve",
+        "key": "videos/celebration.jpg",
+        "image": "celebration",
+        "motion": "pan-left",
+        "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "sunrise",
+          "sunset"
+        ],
+        "key": "videos/sunrise.jpg",
+        "image": "sunrise",
+        "motion": "push-in",
+        "transition": "flash",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunrise.jpg"
       },
       {
         "line": 8,
         "keywords": [
-          "scientist",
-          "laboratory"
+          "solar"
         ],
-        "key": "videos/laboratory.jpg",
-        "image": "laboratory",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
-      },
-      {
-        "line": 9,
-        "keywords": [
-          "thoughtful",
-          "portrait"
-        ],
-        "key": "videos/portrait.jpg",
-        "image": "portrait",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
-      },
-      {
-        "line": 10,
-        "keywords": [
-          "map",
-          "globe"
-        ],
-        "key": "videos/map.jpg",
-        "image": "map",
+        "key": "videos/railway.jpg",
+        "image": "railway",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/map.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/railway.jpg"
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "solar"
+        ],
+        "key": "videos/factory.jpg",
+        "image": "factory",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg"
       }
     ],
     "stockedKeywords": [
