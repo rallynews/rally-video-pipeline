@@ -84,10 +84,28 @@ carousel field, the style pick, and the reel script line by line with the
 planned shots as 9:16 thumbnails. Everything is editable — copy, style, the
 reel's **opening hook headline**, its spoken lines (each line's text is also
 its on-screen caption), motions and transitions, and each shot's **image via a
-searchable picker** that only offers keywords with a real file behind them,
-thumbnail included, pre-filled with the image actually resolved for that shot —
-so an edit can never point at a missing image. Blanking a line's text drops that line and
-its shots. A **🎲 Re-roll story** button throws today's story back entirely:
+searchable picker**, thumbnail included, pre-filled with the image actually
+resolved for that shot. Blanking a line's text drops that line and its shots.
+
+**What you see is what plays.** The shots on the page are the shots in the
+finished reel — all of them, in that order, on those files. The picker offers
+the **whole library**, one entry per file: every keyworded still (including two
+files claiming the same word) and the **generic fallback pool** as well, since
+the reel can cut to either. Picking one pins that shot to that exact object
+key, and the builder honours it verbatim — no substitution, no "that photo is
+already spent, have another", no re-roll, even if the same photo is used twice.
+Nothing is added afterwards either: an approved cut is never re-paced with
+extra images, because the only images that may reach the reel are the ones that
+were on the page. The one image that isn't chosen this way is the opening
+article photo, which is fixed — but the library still-frame that opens the reel
+*if that photo turns out to be unusable* is shown and editable underneath it,
+so there is no frame in the finished video that wasn't reviewed. If a chosen
+file has been renamed or deleted from the bucket since the morning draft, that
+one shot falls back to its keywords and the run says so in the log.
+
+Edits are only carried by **Approve with my edits** — that is what "as-is"
+means. So the page says as soon as anything has been touched, and **Approve
+as-is** asks before throwing those changes away. A **🎲 Re-roll story** button throws today's story back entirely:
 it records the rejection in `review/reroll/<date>.json`, which re-runs the
 draft with that story excluded — new story, new research, new copy, fresh
 review link in a few minutes. Re-rolls stack, so you can throw back several in
@@ -241,6 +259,11 @@ but when it does repeat one, the picker walks a ladder rather than giving up:
 Two consecutive shots are never the same photo at any rung. So a partial
 library still produces a watchable reel; it just leans harder on `generic/`.
 
+This ladder is for the **planner** — the model asking for a subject it can't
+have. It is never applied to a choice made in review: an image picked on the
+review page names one exact file, and that file plays. The only time a reviewed
+shot goes back down the ladder is when its file is no longer in the bucket.
+
 **`generic/`** — the fallback pool, and the thing that carries the reel while
 the keyworded library is still filling up. Any filename; no keywords needed.
 These should be pretty, uplifting, subject-agnostic frames that sit under any
@@ -272,6 +295,8 @@ photo, the reel opens on library footage instead and no credit is shown.
 npm run reel-assets         # what's in the bucket and what the builder sees
 npm run voice-check         # which speech model/voice the key can actually use
 npm run reel-check          # builds reel-check.mp4 from canned copy
+npm run review-check        # the review page and the builder agree (no network)
+npm run review-app-check    # drives the review page in a browser (no network)
 ```
 
 `reel-assets` reads the bucket and prints every folder in it, which folder each
@@ -457,7 +482,18 @@ sudo apt-get install -y ffmpeg    # reels only; macOS: brew install ffmpeg
 npm run carousel                  # full daily run — requires the env vars above
 npm run reel-check                # just the reel, from canned copy
 npm run delivery-check            # both senders, network stubbed — no credentials needed
+npm run review-check              # the editor/builder contract, stubbed library
+npm run review-app-check          # the review page itself, in puppeteer's Chromium
 ```
+
+`review-check` and `review-app-check` are the two halves of one promise: that
+every image in the finished reel was on the review page, and that an image
+picked there is the image that plays. `review-check` asserts the builder side
+against a stubbed library — including through `generateReel` itself, so the
+guard is checked where it's actually wired rather than where it's convenient.
+`review-app-check` loads `review/index.html` in a browser with the GitHub API
+stubbed, picks images, approves, and reads back the JSON the page would commit.
+Neither needs credentials, a network, or ffmpeg.
 
 Rendering uses puppeteer's bundled Chromium, which `npm install` fetches; in CI
 it's picked up automatically.

@@ -76,7 +76,14 @@ function densify(shots, catalogue) {
 // `durations[i]` is the measured length of the voice clip for `lines[i]`.
 // `hook`, when given, is the short on-screen headline shown over the opening
 // shot while line 0 is spoken; from line 1 on, captions are the narration.
-function buildTimeline(lines, shots, durations, catalogue, hook) {
+//
+// `options.densify` (default true) controls whether over-long shots may be
+// split onto FRESH images. A reviewed cut is built with it off: the editor
+// approved a specific set of photos, and quietly adding others they never saw
+// would break that promise. The planner already targets 15–25 shots, so an
+// approved plan is paced without it.
+function buildTimeline(lines, shots, durations, catalogue, hook, options) {
+  const opts = options || {};
   if (lines.length !== durations.length) {
     throw new Error(`Timeline mismatch: ${lines.length} lines vs ${durations.length} voice clips`);
   }
@@ -128,7 +135,7 @@ function buildTimeline(lines, shots, durations, catalogue, hook) {
   // leave a hole; guard against a zero-length edit.
   if (!timed.length) throw new Error('Timeline produced no shots');
 
-  densify(timed, catalogue);
+  if (opts.densify !== false) densify(timed, catalogue);
 
   // Hold a floor on very short shots, then rescale the whole run so the
   // picture lands on exactly the same length as the narration — the audio and

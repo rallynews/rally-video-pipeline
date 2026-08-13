@@ -1,5 +1,7 @@
+const path = require('path');
+
 const { chatCompletion, parseJSON } = require('../openrouter');
-const { pickImage } = require('./r2-catalogue');
+const { pickImage, pickRequested, hasKey, labelOf, tokenize } = require('./r2-catalogue');
 const { bankPrompt, filterToBank } = require('./keywords');
 
 // Step 2 of the reel flow. Mistral reads the script back and decides where the
@@ -191,37 +193,73 @@ Plan the cuts and return the JSON described above.`,
   return shots;
 }
 
-// Re-resolve a reviewed draft's shot list against today's library. The editor
-// edits keywords, motions and transitions — the concrete object keys are picked
-// fresh here, so an image renamed or added since the draft still resolves, and
-// an edited keyword actually takes effect. Shots whose line no longer exists
-// (the editor blanked the line) are dropped, and any surviving line left with
-// no shots gets one so the timeline never has a hole.
+// Build a reviewed draft's shot list against today's library.
+//
+// Every shot in the draft was shown to the editor as a thumbnail of a specific
+// file, and the picker writes that file's object key back onto the shot. So the
+// key IS the decision — approved as-is or edited, it is honoured verbatim here:
+// no de-duplication, no "already spent" substitution, no re-roll. Two shots may
+// carry the same photo if that is what was approved. What the editor saw is
+// what gets built.
+//
+// The keyword ladder only comes back out when a reviewed key can no longer be
+// resolved — an image renamed or deleted between the morning draft and the
+// approval — or for drafts written before the picker recorded keys at all.
+// Shots whose line no longer exists (the editor blanked the line) are dropped,
+// and any surviving line left with no shots gets one so the timeline never has
+// a hole.
 function resolveDraftShots(draftShots, lineCount, catalogue, storyKeywords) {
   const used = new Set();
   let previous = null;
   const shots = [];
 
   for (const spec of Array.isArray(draftShots) ? draftShots : []) {
-    const line = Number(spec && spec.line);
+    if (!spec || typeof spec !== 'object') continue;
+    const line = Number(spec.line);
     if (!Number.isInteger(line) || line < 0 || line >= lineCount) continue;
 
+    const chosen = String(spec.key || '');
     const asked = filterToBank(spec.keywords);
-    const keywords = asked.length ? asked : storyKeywords;
-    const key = pickImage(catalogue, keywords, used, previous);
+
+    // `image` is the label of the file the editor was looking at. The review
+    // app keeps it in step with `key`, so when the two disagree the file was
+    // chosen by the OLD app — which wrote the pick into the label and left the
+    // key on the draft's original image. The label is the later decision, so
+    // the keywords behind it win and the stale key is ignored.
+    const label = labelOf(chosen);
+    const relabelled = Boolean(spec.image && label && String(spec.image) !== label);
+
+    let key = !relabelled && hasKey(catalogue, chosen) ? chosen : null;
+    let keywords = asked;
+
+    if (!key) {
+      if (chosen && !relabelled) {
+        console.warn(
+          `  [reel] ${chosen} is no longer in the library — falling back to ` +
+          `keywords (${asked.join(', ') || 'story'}) for that shot`
+        );
+      }
+      keywords = asked.length ? asked : storyKeywords;
+      key = pickRequested(catalogue, keywords, used, previous);
+    }
     if (!key) throw new Error('R2 image library is empty — nothing to cut to');
+
     used.add(key);
     previous = key;
 
     shots.push({
       line,
       key,
-      keywords,
+      keywords: keywords.length ? keywords : filterToBank(tokenize(path.basename(key))),
       motion: clampMotion(spec.motion, shots.length),
       transition: shots.length === 0 ? 'cut' : clampTransition(spec.transition, shots.length),
     });
   }
 
+  // A kept line with no shots would be a hole in the picture. Every drafted
+  // line is given shots and the editor can't delete them, so this is a guard
+  // against a malformed file rather than a path a reviewer can reach — which
+  // is why it's allowed to reach for an image the editor never saw.
   for (let i = 0; i < lineCount; i++) {
     if (shots.some(s => s.line === i)) continue;
     const key = pickImage(catalogue, storyKeywords, used, previous);

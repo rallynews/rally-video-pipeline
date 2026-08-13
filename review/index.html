@@ -96,6 +96,8 @@
   }
   .shot input, .shot select { font-size:13px; padding:7px 9px; margin-top:8px; }
   .shot .slabel { font-size:11px; font-weight:600; letter-spacing:.05em; text-transform:uppercase; color:var(--faint); margin-top:8px; display:block; }
+  .shot .fallbackthumb { width:52px; aspect-ratio:9/16; object-fit:cover; border-radius:5px;
+                         border:1px solid var(--line); margin-top:6px; display:block; }
 
   /* searchable image picker */
   .picker { position:relative; }
@@ -113,6 +115,9 @@
   }
   .picker-opt img { width:26px; height:46px; object-fit:cover; border-radius:4px; background:var(--surface-2); flex:none; }
   .picker-opt:hover, .picker-opt.active { background:var(--accent-soft); }
+  .picker-opt .name { flex:1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .picker-opt .tag { font-size:10.5px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+                     color:var(--faint); flex:none; }
   .picker-empty { padding:9px; font-size:12.5px; color:var(--faint); }
 
   .btn.danger { color:var(--danger); }
@@ -137,6 +142,7 @@
   .status { font-size:13.5px; color:var(--muted); flex:1; min-width:160px; }
   .status.err { color:var(--danger); }
   .status.ok { color:var(--accent); }
+  .status.warn { color:var(--warn); }
 
   /* gate */
   .gate { max-width:520px; margin:60px auto 0; }
@@ -231,8 +237,9 @@
       <h2>Reel — script &amp; shots</h2>
       <p class="sub">Each line is spoken as written and its text appears on screen as the caption
          while it plays (the opening article-photo shot stays caption-free). The photos beneath a
-         line are the cuts that play while it's said — pick a different image from the library
-         to change one. Blank a line's text to drop it and its shots.</p>
+         line are the cuts that play while it's said — every one of them, in order, with nothing
+         added later. Pick a different image from the library to change one and the reel is built
+         on exactly that file. Blank a line's text to drop it and its shots.</p>
       <label class="f"><span>Opening headline — big text over the article photo (not spoken)</span>
         <input type="text" id="f-hook" maxlength="60" placeholder="e.g. A River Came Back">
       </label>
@@ -372,6 +379,8 @@
     $('f-style').value = draft.style || '1a';
 
     renderReel();
+    // Only after everything is populated, so filling the form isn't an "edit".
+    watchForEdits();
   }
 
   function option(sel, values, chosen) {
@@ -383,66 +392,117 @@
     });
   }
 
-  // A searchable single-select over the image library. Only real keywords are
-  // choosable, so an edit can never name an image that doesn't exist. Picking
-  // one swaps the thumbnail so you see exactly the image that will play.
+  // The image library as a flat list of { key, label, url, pool, keywords } —
+  // one entry per FILE, keyworded stills and the generic fallback pool alike,
+  // because the reel can cut to either. Drafts written before the picker
+  // recorded object keys carried a { keyword: url } map instead; those still
+  // render, they just resolve by keyword at build time rather than by file.
+  function libEntries() {
+    var lib = (draft.reel && draft.reel.library) || [];
+    if (Array.isArray(lib)) return lib;
+    return Object.keys(lib).sort().map(function (kw) {
+      return { key: '', label: kw, url: lib[kw], pool: 'keyword', keywords: [kw] };
+    });
+  }
+
+  // The entry a shot is currently on. The object key is definitive — it names
+  // the exact file — and everything after it is for older drafts that predate
+  // the key being recorded.
+  function currentEntry(entries, shot) {
+    function find(test) { return entries.filter(test)[0] || null; }
+    return (shot.key && find(function (e) { return e.key === shot.key; })) ||
+           (shot.image && find(function (e) { return e.label === shot.image; })) ||
+           (shot.thumb && find(function (e) { return e.url === shot.thumb; })) ||
+           ((shot.keywords || []).length && find(function (e) {
+             return e.keywords.indexOf(shot.keywords[0]) !== -1;
+           })) ||
+           null;
+  }
+
+  // A searchable single-select over that library. Only real files are
+  // choosable, so an edit can never name an image that doesn't exist, and the
+  // whole library is offered, so no image can reach the reel without having
+  // been on this list. Picking one swaps the thumbnail, so you are always
+  // looking at the frame that will actually play.
   function buildPicker(shot, si, thumbEl) {
-    var library = draft.reel.library || {};
-    var keywords = Object.keys(library).sort();
-    // Pre-fill with the image that's actually on screen: the resolved file's
-    // own keyword, or (older drafts) the library entry matching the thumbnail.
-    // The planner's requested keywords are only a last resort — on a fallback
-    // pick they can name something else entirely.
-    var current = shot.image || '';
-    if (!current && shot.thumb) {
-      current = keywords.filter(function (k) { return library[k] === shot.thumb; })[0] || '';
-    }
-    if (!current) current = (shot.keywords || [])[0] || '';
+    var entries = libEntries();
+    var current = currentEntry(entries, shot);
 
     var wrap = document.createElement('div');
     wrap.className = 'picker';
     var input = document.createElement('input');
     input.type = 'text';
-    input.value = current;
     input.setAttribute('autocomplete', 'off');
     input.setAttribute('spellcheck', 'false');
     input.dataset.shot = si; input.dataset.role = 'image';
-    input.dataset.value = current;
     var list = document.createElement('div');
     list.className = 'picker-list hidden';
     wrap.appendChild(input); wrap.appendChild(list);
 
-    function choose(kw) {
-      input.value = kw;
-      input.dataset.value = kw;
+    function apply(entry, quiet) {
+      input.value = entry ? entry.label : '';
+      input.dataset.value = entry ? entry.label : '';
+      input.dataset.key = entry ? entry.key : '';
+      input.dataset.keywords = entry ? (entry.keywords || []).join(',') : '';
       list.classList.add('hidden');
-      if (thumbEl && library[kw]) thumbEl.src = library[kw];
+      if (thumbEl && entry && entry.url) thumbEl.src = entry.url;
+      if (!quiet) markDirty();
+    }
+    apply(current, true);
+
+    function matches(q) {
+      if (!q) return entries;
+      return entries.filter(function (e) {
+        return e.label.toLowerCase().indexOf(q) !== -1 ||
+               (e.keywords || []).some(function (k) { return k.indexOf(q) !== -1; });
+      });
     }
 
-    function refresh() {
-      var q = input.value.trim().toLowerCase();
-      var hits = keywords.filter(function (k) { return !q || k.indexOf(q) !== -1; }).slice(0, 40);
+    // `query` is passed explicitly on focus so the box opens on the WHOLE
+    // library rather than filtered down to the one image already in it —
+    // otherwise the only way to discover the other photos is to guess a name.
+    var LIST_CAP = 120;
+    function refresh(query) {
+      var q = (query === undefined ? input.value : query).trim().toLowerCase();
+      var all = matches(q);
+      var hits = all.slice(0, LIST_CAP);
       list.innerHTML = '';
       if (!hits.length) {
-        list.innerHTML = '<div class="picker-empty">No image matches — the library only has the keywords listed.</div>';
+        list.innerHTML = '<div class="picker-empty">No image matches — the library only holds the files listed here.</div>';
       }
-      hits.forEach(function (k) {
+      hits.forEach(function (e) {
         var opt = document.createElement('button');
         opt.type = 'button';
-        opt.className = 'picker-opt' + (k === input.dataset.value ? ' active' : '');
-        opt.innerHTML = '<img loading="lazy" src="' + library[k] + '" alt="">' + k;
-        opt.addEventListener('mousedown', function (e) { e.preventDefault(); choose(k); });
+        opt.className = 'picker-opt' + (e.key === input.dataset.key && e.label === input.dataset.value ? ' active' : '');
+        var img = document.createElement('img');
+        img.loading = 'lazy'; img.src = e.url; img.alt = '';
+        var name = document.createElement('span');
+        name.className = 'name'; name.textContent = e.label;
+        opt.appendChild(img); opt.appendChild(name);
+        if (e.pool === 'generic') {
+          var tag = document.createElement('span');
+          tag.className = 'tag'; tag.textContent = 'generic';
+          opt.appendChild(tag);
+        }
+        opt.addEventListener('mousedown', function (ev) { ev.preventDefault(); apply(e); });
         list.appendChild(opt);
       });
+      if (all.length > hits.length) {
+        var more = document.createElement('div');
+        more.className = 'picker-empty';
+        more.textContent = '…and ' + (all.length - hits.length) + ' more — type to narrow.';
+        list.appendChild(more);
+      }
       list.classList.remove('hidden');
     }
 
-    input.addEventListener('focus', refresh);
-    input.addEventListener('input', refresh);
+    // Focus opens the full library; typing narrows it.
+    input.addEventListener('focus', function () { input.select(); refresh(''); });
+    input.addEventListener('input', function () { refresh(); });
     input.addEventListener('blur', function () {
       setTimeout(function () {
         list.classList.add('hidden');
-        // Free-typed text only sticks if it names a real image.
+        // Free-typed text only sticks if it named a real file.
         input.value = input.dataset.value;
       }, 120);
     });
@@ -450,9 +510,9 @@
       if (e.key === 'Enter') {
         e.preventDefault();
         var q = input.value.trim().toLowerCase();
-        var hit = keywords.find(function (k) { return k === q; }) ||
-                  keywords.find(function (k) { return q && k.indexOf(q) !== -1; });
-        if (hit) choose(hit);
+        var exact = entries.filter(function (x) { return x.label.toLowerCase() === q; })[0];
+        var hit = exact || (q ? matches(q)[0] : null);
+        if (hit) apply(hit);
       }
       if (e.key === 'Escape') { list.classList.add('hidden'); input.value = input.dataset.value; }
     });
@@ -466,6 +526,8 @@
     $('f-nomusic').checked = !!draft.reel.noMusic;
 
     var host = $('rlines');
+    host.innerHTML = '';   // a second sign-in re-renders rather than doubling up
+    var hasLibrary = libEntries().length > 0;
     draft.reel.lines.forEach(function (line, i) {
       var box = document.createElement('div');
       box.className = 'rline';
@@ -492,7 +554,23 @@
         }
         if (shot.cover) {
           card.insertAdjacentHTML('beforeend', '<span class="coverbadge">Article photo — always first</span>');
-        } else if (Object.keys(draft.reel.library || {}).length) {
+          // The article's photo is swapped in at build time, but if it turns
+          // out to be unusable the reel opens on this library image instead —
+          // so it's shown and editable here too, rather than being a picture
+          // that reaches the reel without ever having been reviewed.
+          if (hasLibrary) {
+            card.insertAdjacentHTML('beforeend',
+              '<span class="slabel">Stand-in if the article photo fails</span>');
+            var fallbackEl = null;
+            if (shot.fallbackThumb) {
+              fallbackEl = document.createElement('img');
+              fallbackEl.className = 'fallbackthumb';
+              fallbackEl.loading = 'lazy'; fallbackEl.src = shot.fallbackThumb; fallbackEl.alt = '';
+              card.appendChild(fallbackEl);
+            }
+            card.appendChild(buildPicker(shot, si, fallbackEl));
+          }
+        } else if (hasLibrary) {
           card.insertAdjacentHTML('beforeend', '<span class="slabel">Image</span>');
           card.appendChild(buildPicker(shot, si, thumbEl));
         }
@@ -529,12 +607,16 @@
         document.querySelectorAll('[data-role=text]').forEach(function (el) {
           out.reel.lines[+el.dataset.line].text = el.value.trim();
         });
+        // The object key is the decision the builder honours verbatim — it
+        // names one exact file, so what played on this card is what plays in
+        // the reel. The label and keywords ride along for the logs, and for
+        // older drafts whose library had no keys to record.
         document.querySelectorAll('[data-role=image]').forEach(function (el) {
-          var kw = el.dataset.value;
-          if (kw) {
-            out.reel.shots[+el.dataset.shot].keywords = [kw];
-            out.reel.shots[+el.dataset.shot].image = kw;
-          }
+          var shot = out.reel.shots[+el.dataset.shot];
+          if (!shot || !el.dataset.value) return;
+          shot.key = el.dataset.key || '';
+          shot.image = el.dataset.value;
+          shot.keywords = (el.dataset.keywords || '').split(',').filter(Boolean);
         });
         document.querySelectorAll('[data-role=motion]').forEach(function (el) {
           out.reel.shots[+el.dataset.shot].motion = el.value;
@@ -551,6 +633,28 @@
 
   function setStatus(msg, cls) {
     var s = $('status'); s.textContent = msg; s.className = 'status ' + (cls || '');
+  }
+
+  // "Approve as-is" commits the draft as it was written, which means anything
+  // typed or picked on this page is thrown away. That is a fine thing to do
+  // deliberately and a miserable one to do by accident, so the moment the page
+  // is touched it says so, and the as-is button asks before discarding.
+  // The no-music switch is deliberately excluded: it's honoured on BOTH
+  // buttons, so ticking it isn't an edit that as-is would lose.
+  var dirty = false;
+  var ready = false;
+  function markDirty() {
+    if (dirty || !ready) return;
+    dirty = true;
+    setStatus('You’ve made edits — “Approve with my edits →” keeps them.', 'warn');
+  }
+  function watchForEdits() {
+    ['input', 'change'].forEach(function (evt) {
+      $('app').addEventListener(evt, function (e) {
+        if (e.target && e.target.id !== 'f-nomusic') markDirty();
+      }, true);
+    });
+    ready = true;
   }
 
   function approve(edited) {
@@ -602,7 +706,14 @@
   });
   $('token').addEventListener('keydown', function (e) { if (e.key === 'Enter') $('signin').click(); });
   $('approve').addEventListener('click', function () { approve(true); });
-  $('asis').addEventListener('click', function () { approve(false); });
+  $('asis').addEventListener('click', function () {
+    if (dirty && !confirm(
+      'Approve the ORIGINAL draft and discard your edits?\n\n' +
+      'Your copy changes, image picks and shot settings will be thrown away.\n' +
+      'Use "Approve with my edits →" to keep them.'
+    )) return;
+    approve(false);
+  });
   $('logout').addEventListener('click', function () {
     clearToken(); location.reload();
   });
