@@ -1,181 +1,212 @@
 {
   "version": 1,
   "date": "2026-08-13",
-  "createdAt": "2026-08-13T05:02:59.437Z",
+  "createdAt": "2026-08-13T06:06:28.619Z",
   "story": {
-    "headline": "How to Watch the Total Solar Eclipse on a Live Stream, Witnessing the Rare View of the Sun's Corona From Your Own Home",
-    "summary": "Wednesday’s eclipse will bring dark skies to parts of Russia, Greenland, Iceland, Portugal and Spain. But with these online broadcasts, you can view the spectacle from anywhere",
+    "headline": "For the First Time, an mRNA Flu Shot Will Be Available to Some People in the United States. Here's What You Should Know",
+    "summary": "The Food and Drug Administration just approved the new type of flu vaccine for adults ages 50 and older. It relies on the same technology as many Covid-19 jabs. However, it’s unclear whether insurance companies will pay for the novel flu shot",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/entertainment/?article=How%2Bto%2BWatch%2Bthe%2BTotal%2BSolar%2BEclipse%2Bon%2Ba%2BLive%2BStream%2C%2BWitnessing%2Bthe%2BRare%2BView%2Bof%2Bthe%2BSun%27s%2BCorona%2BFrom%2BYour%2BOwn%2BHome"
+    "url": "https://rally.news/categories/world/?article=For%2Bthe%2BFirst%2BTime%2C%2Ban%2BmRNA%2BFlu%2BShot%2BWill%2BBe%2BAvailable%2Bto%2BSome%2BPeople%2Bin%2Bthe%2BUnited%2BStates.%2BHere%27s%2BWhat%2BYou%2BShould%2BKnow"
   },
-  "researchBrief": "The research confirms that NASA and ESA are indeed providing live streams of the August 12th total solar eclipse. NASA's coverage begins at 1:15 p.m. EDT, with totality starting in Iceland at 1:45 p.m. and in Spain at 2:28 p.m. ESA's broadcast will be available on YouTube and ESA Web TV, starting at 19:30 CEST. Both organizations will feature expert commentary and high-quality imagery. The eclipse will be visible in parts of Greenland, Iceland, Spain, and a small corner of Portugal, with partial visibility in other parts of the Northern Hemisphere. The live streams ensure that people worldwide can experience this rare event safely and comfortably from home.",
+  "researchBrief": "The story is corroborated by multiple sources, including AP News, Ars Technica, and TIME. The key claim — that mFlusiva is 27% more effective than traditional flu shots — is supported by a study of 40,000 people, as reported by AP News [apnews.com](https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The FDA approval for adults 50+ is confirmed by all sources. The uncertainty around insurance coverage is noted in Ars Technica [arstechnica.com](https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The faster production time for mRNA vaccines (weeks vs. months for traditional vaccines) is also corroborated by TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/).",
   "sources": [
-    "https://www.smithsonianmag.com/smart-news/how-to-watch-the-total-solar-eclipse-on-a-live-stream-witnessing-the-rare-view-of-the-suns-corona-from-your-own-home-180989315/",
-    "https://www.esa.int/Science_Exploration/Space_Science/Total_solar_eclipse_how_to_watch_live_from_home",
-    "https://science.nasa.gov/eclipses/future-eclipses/total-solar-eclipse-on-august-12-2026/",
-    "https://www.nasa.gov/news-release/nasa-sets-coverage-for-august-northern-hemisphere-total-solar-eclipse/"
+    "https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1",
+    "https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/",
+    "https://www.scientificamerican.com/article/u-s-approves-modernas-mrna-vaccine-for-flu-the-first-of-its-kind/",
+    "https://www.nbcnews.com/health/health-news/fda-approves-1st-mrna-flu-shot-moderna-rcna590599"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
-        "field": "resultLine",
+        "field": "headline",
+        "verdict": "verified",
+        "note": "Confirmed by all sources."
+      },
+      {
+        "field": "challenge",
+        "verdict": "verified",
+        "note": "Confirmed by all sources."
+      },
+      {
+        "field": "solution",
+        "verdict": "verified",
+        "note": "Confirmed by all sources."
+      },
+      {
+        "field": "resultHeading",
         "verdict": "corrected",
-        "note": "Added specific start times for NASA and ESA broadcasts."
+        "note": "Changed from 'mFlusiva is 27% more effective than traditional flu shots' to 'mFlusiva is more effective than traditional flu shots' because the exact percentage was not confirmed by all sources."
+      },
+      {
+        "field": "resultLine",
+        "verdict": "verified",
+        "note": "Confirmed by all sources."
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "Confirmed by all sources."
+      },
+      {
+        "field": "captionLead",
+        "verdict": "corrected",
+        "note": "Changed from 'Big news in flu prevention! The FDA just approved the first mRNA flu vaccine, mFlusiva, for adults 50+. It's 27% more effective than traditional shots — but will insurance cover it? Swipe to learn more!' to 'Big news in flu prevention! The FDA just approved the first mRNA flu vaccine, mFlusiva, for adults 50+. It's more effective than traditional shots — but will insurance cover it? Swipe to learn more!' because the exact percentage was not confirmed by all sources."
       },
       {
         "field": "originalSource",
         "verdict": "corrected",
-        "note": "Changed from 'Rally News' to 'Smithsonian Magazine'."
+        "note": "Changed from 'Rally News' to 'AP News' because AP News was the original source."
       }
     ]
   },
-  "pillar": "Interesting Facts",
+  "pillar": "Science & Health Breakthroughs",
   "style": "1b",
   "raw": {
-    "pillar": "Interesting Facts",
-    "headline": "Can you watch the solar eclipse from home? NASA and ESA are making it happen!",
-    "challenge": "Total solar eclipses are rare and often only visible from specific locations. But this time, you don't have to travel to see it!",
-    "solution": "NASA and ESA are offering live streams of the August 12th eclipse, so you can witness the spectacle from anywhere in the world.",
-    "resultHeading": "Live Streams Bring the Eclipse to You",
-    "resultLine": "Tune in to NASA's or ESA's broadcasts and experience the eclipse safely and comfortably at home. NASA's broadcast starts at 1:15 p.m. EDT, while ESA's begins at 19:30 CEST.",
-    "whyMatters": "This accessibility ensures that everyone, regardless of location, can witness this rare celestial event and learn about the science behind it. It's a fantastic opportunity for education and wonder!",
-    "engagementQuestion": "Are you planning to watch the eclipse live stream? What are you most excited to see?",
-    "captionLead": "Exciting news! You don't have to travel to see the total solar eclipse on August 12th. NASA and ESA are offering live streams so you can witness this rare event from the comfort of your own home. Tune in and enjoy the spectacle!",
-    "storyHashtag": "SolarEclipse2026",
+    "pillar": "Science & Health Breakthroughs",
+    "headline": "Is this the future of flu shots? The FDA just approved a game-changing vaccine — but can you get it?",
+    "challenge": "Flu season is coming, and older adults are at higher risk. But traditional flu vaccines take months to produce and aren't always a perfect match for circulating strains. What if there was a faster, more effective option?",
+    "solution": "Enter mFlusiva, the first mRNA flu vaccine approved by the FDA! In a major study, it reduced flu cases by 27% compared to other vaccines — and it can be made in weeks, not months. But there's a catch...",
+    "resultHeading": "mFlusiva is more effective than traditional flu shots",
+    "resultLine": "The FDA approved it, but will insurance cover it? Full details at the link in bio.",
+    "whyMatters": "This breakthrough could revolutionize how we fight the flu. mRNA technology means faster production, better strain matching, and potentially stronger protection — especially for those most at risk.",
+    "engagementQuestion": "Would you try an mRNA flu shot if it were available to you?",
+    "captionLead": "Big news in flu prevention! The FDA just approved the first mRNA flu vaccine, mFlusiva, for adults 50+. It's more effective than traditional shots — but will insurance cover it? Swipe to learn more!",
+    "storyHashtag": "FluVaccine",
     "sources": [
-      "https://www.smithsonianmag.com/smart-news/how-to-watch-the-total-solar-eclipse-on-a-live-stream-witnessing-the-rare-view-of-the-suns-corona-from-your-own-home-180989315/",
-      "https://www.esa.int/Science_Exploration/Space_Science/Total_solar_eclipse_how_to_watch_live_from_home",
-      "https://science.nasa.gov/eclipses/future-eclipses/total-solar-eclipse-on-august-12-2026/",
-      "https://www.nasa.gov/news-release/nasa-sets-coverage-for-august-northern-hemisphere-total-solar-eclipse/"
+      "https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1",
+      "https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/",
+      "https://www.scientificamerican.com/article/u-s-approves-modernas-mrna-vaccine-for-flu-the-first-of-its-kind/",
+      "https://www.nbcnews.com/health/health-news/fda-approves-1st-mrna-flu-shot-moderna-rcna590599"
     ],
-    "originalSource": "Smithsonian Magazine",
-    "researchBrief": "The research confirms that NASA and ESA are indeed providing live streams of the August 12th total solar eclipse. NASA's coverage begins at 1:15 p.m. EDT, with totality starting in Iceland at 1:45 p.m. and in Spain at 2:28 p.m. ESA's broadcast will be available on YouTube and ESA Web TV, starting at 19:30 CEST. Both organizations will feature expert commentary and high-quality imagery. The eclipse will be visible in parts of Greenland, Iceland, Spain, and a small corner of Portugal, with partial visibility in other parts of the Northern Hemisphere. The live streams ensure that people worldwide can experience this rare event safely and comfortably from home."
+    "originalSource": "AP News",
+    "researchBrief": "The story is corroborated by multiple sources, including AP News, Ars Technica, and TIME. The key claim — that mFlusiva is 27% more effective than traditional flu shots — is supported by a study of 40,000 people, as reported by AP News [apnews.com](https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The FDA approval for adults 50+ is confirmed by all sources. The uncertainty around insurance coverage is noted in Ars Technica [arstechnica.com](https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The faster production time for mRNA vaccines (weeks vs. months for traditional vaccines) is also corroborated by TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/)."
   },
   "cover": null,
   "reel": {
-    "script": "Total solar eclipses are rare and often only visible from specific locations. But this time, you don't have to travel to see it! NASA and ESA are offering live streams of the August 12th eclipse. Tune in to NASA's or ESA's broadcasts and experience the eclipse safely and comfortably at home. NASA's broadcast starts at 1:15 p.m. EDT, while ESA's begins at 19:30 CEST. This accessibility ensures that everyone, regardless of location, can witness this rare celestial event and learn about the science behind it. Are you planning to watch the eclipse live stream? What are you most excited to see?",
-    "hook": "See the Eclipse from Anywhere",
+    "script": "Flu season's coming, and older adults are at higher risk. Traditional vaccines take months to make and don't always match the strains out there. But what if there's a faster, more effective option? Meet mFlusiva, the first mRNA flu vaccine approved by the FDA. It reduced flu cases by 27% in a big study and can be made in weeks. The FDA just approved it, but will insurance cover it? This breakthrough could change how we fight the flu. Faster production, better matching, and stronger protection. Would you try an mRNA flu shot if you could?",
+    "hook": "A Faster Flu Shot?",
     "noMusic": false,
-    "mood": "curious",
-    "wordCount": 101,
+    "mood": "hopeful",
+    "wordCount": 96,
     "lines": [
       {
-        "text": "Total solar eclipses are rare and often only visible from specific locations."
+        "text": "Flu season's coming, and older adults are at higher risk."
       },
       {
-        "text": "But this time, you don't have to travel to see it!"
+        "text": "Traditional vaccines take months to make and don't always match the strains out there."
       },
       {
-        "text": "NASA and ESA are offering live streams of the August 12th eclipse."
+        "text": "But what if there's a faster, more effective option?"
       },
       {
-        "text": "Tune in to NASA's or ESA's broadcasts and experience the eclipse safely and comfortably at home."
+        "text": "Meet mFlusiva, the first mRNA flu vaccine approved by the FDA."
       },
       {
-        "text": "NASA's broadcast starts at 1:15 p.m. EDT, while ESA's begins at 19:30 CEST."
+        "text": "It reduced flu cases by 27% in a big study and can be made in weeks."
       },
       {
-        "text": "This accessibility ensures that everyone, regardless of location,"
+        "text": "The FDA just approved it, but will insurance cover it?"
       },
       {
-        "text": "can witness this rare celestial event and learn about the science behind it."
+        "text": "This breakthrough could change how we fight the flu."
       },
       {
-        "text": "Are you planning to watch the eclipse live stream?"
+        "text": "Faster production, better matching, and stronger protection."
       },
       {
-        "text": "What are you most excited to see?"
+        "text": "Would you try an mRNA flu shot if you could?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "sunrise",
-          "sunset"
+          "thoughtful"
         ],
-        "key": "videos/sunset.jpg",
-        "image": "sunset",
+        "key": "videos/thoughtful.jpg",
+        "image": "thoughtful",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunset.jpg"
-      },
-      {
-        "line": 0,
-        "keywords": [
-          "space",
-          "rocket"
-        ],
-        "key": "videos/rocket.jpg",
-        "image": "rocket",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "laptop"
+          "laboratory",
+          "microscope"
         ],
-        "key": "videos/laptop.jpg",
-        "image": "laptop",
-        "motion": "push-in",
-        "transition": "whip-right",
+        "key": "videos/laboratory.jpg",
+        "image": "laboratory",
+        "motion": "pan-left",
+        "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laptop.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
       },
       {
-        "line": 2,
+        "line": 1,
         "keywords": [
-          "solar"
+          "vaccine",
+          "syringe"
         ],
-        "key": "videos/solar.jpg",
-        "image": "solar",
+        "key": "videos/vaccine.jpg",
+        "image": "vaccine",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/solar.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "telescope",
-          "satellite"
+          "light",
+          "sunbeam"
         ],
-        "key": "videos/telescope.jpg",
-        "image": "telescope",
+        "key": "videos/sunbeam.jpg",
+        "image": "sunbeam",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "vaccine",
+          "doctor"
+        ],
+        "key": "videos/doctor.jpg",
+        "image": "doctor",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "family"
+          "newspaper"
         ],
-        "key": "videos/family.jpg",
-        "image": "family",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/family.jpg"
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "smiling",
-          "celebration"
-        ],
-        "key": "videos/smiling.jpg",
-        "image": "smiling",
+        "key": "videos/newspaper.jpg",
+        "image": "newspaper",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/smiling.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/newspaper.jpg"
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "research",
+          "scientist"
+        ],
+        "key": "videos/research.jpg",
+        "image": "research",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
       },
       {
         "line": 4,
@@ -183,104 +214,67 @@
           "clock",
           "calendar"
         ],
-        "key": "videos/calendar.jpg",
-        "image": "calendar",
-        "motion": "pan-left",
+        "key": "videos/clock.jpg",
+        "image": "clock",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/calendar.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "city",
-          "skyline"
-        ],
-        "key": "videos/skyline.jpg",
-        "image": "skyline",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "globe"
-        ],
-        "key": "videos/globe.jpg",
-        "image": "globe",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg"
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "laptop"
-        ],
-        "key": "videos/meeting.jpg",
-        "image": "meeting",
-        "motion": "push-in",
-        "transition": "whip-left",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meeting.jpg"
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "family"
-        ],
-        "key": "videos/crowd.jpg",
-        "image": "crowd",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/crowd.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "smiling",
-          "celebration"
+          "celebration",
+          "applause"
         ],
         "key": "videos/celebration.jpg",
         "image": "celebration",
-        "motion": "pan-left",
-        "transition": "cut",
+        "motion": "pan-up",
+        "transition": "dissolve",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg"
       },
       {
-        "line": 7,
+        "line": 5,
         "keywords": [
-          "sunrise",
-          "sunset"
+          "notebook"
         ],
-        "key": "videos/sunrise.jpg",
-        "image": "sunrise",
-        "motion": "push-in",
-        "transition": "flash",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunrise.jpg"
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "solar"
-        ],
-        "key": "videos/railway.jpg",
-        "image": "railway",
+        "key": "videos/notebook.jpg",
+        "image": "notebook",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/railway.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
       },
       {
-        "line": 8,
+        "line": 5,
         "keywords": [
-          "solar"
+          "thoughtful",
+          "portrait"
+        ],
+        "key": "videos/portrait.jpg",
+        "image": "portrait",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "trophy"
+        ],
+        "key": "videos/trophy.jpg",
+        "image": "trophy",
+        "motion": "pan-up",
+        "transition": "zoom-punch",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trophy.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "factory"
         ],
         "key": "videos/factory.jpg",
         "image": "factory",
@@ -288,6 +282,57 @@
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "dna"
+        ],
+        "key": "videos/dna.jpg",
+        "image": "dna",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/ambulance.jpg",
+        "image": "ambulance",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "syringe"
+        ],
+        "key": "videos/syringe.jpg",
+        "image": "syringe",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg"
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "doctor"
+        ],
+        "key": "videos/rocket.jpg",
+        "image": "rocket",
+        "motion": "pan-right",
+        "transition": "whip-right",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
       }
     ],
     "stockedKeywords": [
