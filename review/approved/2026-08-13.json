@@ -1,19 +1,19 @@
 {
   "version": 1,
   "date": "2026-08-13",
-  "createdAt": "2026-08-13T06:06:28.619Z",
+  "createdAt": "2026-08-13T06:33:01.587Z",
   "story": {
-    "headline": "For the First Time, an mRNA Flu Shot Will Be Available to Some People in the United States. Here's What You Should Know",
-    "summary": "The Food and Drug Administration just approved the new type of flu vaccine for adults ages 50 and older. It relies on the same technology as many Covid-19 jabs. However, it’s unclear whether insurance companies will pay for the novel flu shot",
+    "headline": "Britain’s Andy Green sets another speed record, this time for fastest run in a hydrogen-powered car",
+    "summary": "Green reached 653.908 kilometres per hour in a car powered by two hydrogen internal combustion engines with a combined 1,600 horsepower",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/world/?article=For%2Bthe%2BFirst%2BTime%2C%2Ban%2BmRNA%2BFlu%2BShot%2BWill%2BBe%2BAvailable%2Bto%2BSome%2BPeople%2Bin%2Bthe%2BUnited%2BStates.%2BHere%27s%2BWhat%2BYou%2BShould%2BKnow"
+    "url": "https://rally.news/categories/transportation/?article=Britain%E2%80%99s%2BAndy%2BGreen%2Bsets%2Banother%2Bspeed%2Brecord%2C%2Bthis%2Btime%2Bfor%2Bfastest%2Brun%2Bin%2Ba%2Bhydrogen-powered%2Bcar"
   },
-  "researchBrief": "The story is corroborated by multiple sources, including AP News, Ars Technica, and TIME. The key claim — that mFlusiva is 27% more effective than traditional flu shots — is supported by a study of 40,000 people, as reported by AP News [apnews.com](https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The FDA approval for adults 50+ is confirmed by all sources. The uncertainty around insurance coverage is noted in Ars Technica [arstechnica.com](https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The faster production time for mRNA vaccines (weeks vs. months for traditional vaccines) is also corroborated by TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/).",
+  "researchBrief": "The story was corroborated across multiple sources, confirming that Andy Green set a new world land speed record for hydrogen-powered vehicles. The record speed of 406.320 mph (653.908 km/h) was achieved using a car powered by two hydrogen internal combustion engines with a combined 1,600 horsepower. The record was set at the Bonneville Salt Flats in Utah and is subject to official ratification by the Fédération Internationale de l’Automobile (FIA). The car, engineered by British construction equipment manufacturer JCB, also beat the previous hydrogen combustion world record of 185.5 mph (298.5 kph) set by the BMW H2R in 2004. The engines used in the car are adapted from those used in JCB’s heavy machinery and are part of the company’s £100 million hydrogen program. The record is significant as it exceeds the 303 mph hydrogen fuel cell mark, making the JCB Hydromax the fastest hydrogen-powered vehicle of any kind in history.",
   "sources": [
-    "https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1",
-    "https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/",
-    "https://www.scientificamerican.com/article/u-s-approves-modernas-mrna-vaccine-for-flu-the-first-of-its-kind/",
-    "https://www.nbcnews.com/health/health-news/fda-approves-1st-mrna-flu-shot-moderna-rcna590599"
+    "https://www.yourbigsky.com/news/national-news/ap-britains-andy-green-sets-another-speed-record-this-time-for-fastest-run-in-a-hydrogen-powered-car/",
+    "https://www.plant-planet.co.uk/hydrogen-powered-jcb-hydromax-sets-406-320-mph-world-land-speed-record/",
+    "https://shorty-news.com/business/andy-green-hydrogen-car-speed-record/",
+    "https://racer.com/2026/08/06/hydromax-gears-up-for-lsr-attempt-with-new-bonneville-record"
   ],
   "verification": {
     "ran": true,
@@ -21,42 +21,42 @@
       {
         "field": "headline",
         "verdict": "verified",
-        "note": "Confirmed by all sources."
+        "note": "The headline accurately reflects the achievement of Andy Green setting a speed record in a hydrogen-powered car."
       },
       {
         "field": "challenge",
         "verdict": "verified",
-        "note": "Confirmed by all sources."
+        "note": "The challenge statement is accurate as land speed records have been dominated by fossil fuel-powered vehicles."
       },
       {
         "field": "solution",
         "verdict": "verified",
-        "note": "Confirmed by all sources."
+        "note": "Andy Green is indeed a British pilot and speed enthusiast who set a new world record in a hydrogen-powered car."
       },
       {
         "field": "resultHeading",
-        "verdict": "corrected",
-        "note": "Changed from 'mFlusiva is 27% more effective than traditional flu shots' to 'mFlusiva is more effective than traditional flu shots' because the exact percentage was not confirmed by all sources."
+        "verdict": "verified",
+        "note": "The result heading correctly states the speed achieved by Andy Green in the hydrogen-powered car."
       },
       {
         "field": "resultLine",
         "verdict": "verified",
-        "note": "Confirmed by all sources."
+        "note": "The result line accurately describes the significance of the record for clean energy."
       },
       {
         "field": "whyMatters",
         "verdict": "verified",
-        "note": "Confirmed by all sources."
+        "note": "The statement about the potential of hydrogen as a clean energy source is accurate and supported by the sources."
       },
       {
         "field": "captionLead",
-        "verdict": "corrected",
-        "note": "Changed from 'Big news in flu prevention! The FDA just approved the first mRNA flu vaccine, mFlusiva, for adults 50+. It's 27% more effective than traditional shots — but will insurance cover it? Swipe to learn more!' to 'Big news in flu prevention! The FDA just approved the first mRNA flu vaccine, mFlusiva, for adults 50+. It's more effective than traditional shots — but will insurance cover it? Swipe to learn more!' because the exact percentage was not confirmed by all sources."
+        "verdict": "verified",
+        "note": "The caption lead correctly states the speed achieved by Andy Green and the significance of the record for clean energy."
       },
       {
         "field": "originalSource",
         "verdict": "corrected",
-        "note": "Changed from 'Rally News' to 'AP News' because AP News was the original source."
+        "note": "The original source was corrected from 'Rally News' to 'YourBigSky.com' as it is the first outlet to publish the story."
       }
     ]
   },
@@ -64,236 +64,232 @@
   "style": "1b",
   "raw": {
     "pillar": "Science & Health Breakthroughs",
-    "headline": "Is this the future of flu shots? The FDA just approved a game-changing vaccine — but can you get it?",
-    "challenge": "Flu season is coming, and older adults are at higher risk. But traditional flu vaccines take months to produce and aren't always a perfect match for circulating strains. What if there was a faster, more effective option?",
-    "solution": "Enter mFlusiva, the first mRNA flu vaccine approved by the FDA! In a major study, it reduced flu cases by 27% compared to other vaccines — and it can be made in weeks, not months. But there's a catch...",
-    "resultHeading": "mFlusiva is more effective than traditional flu shots",
-    "resultLine": "The FDA approved it, but will insurance cover it? Full details at the link in bio.",
-    "whyMatters": "This breakthrough could revolutionize how we fight the flu. mRNA technology means faster production, better strain matching, and potentially stronger protection — especially for those most at risk.",
-    "engagementQuestion": "Would you try an mRNA flu shot if it were available to you?",
-    "captionLead": "Big news in flu prevention! The FDA just approved the first mRNA flu vaccine, mFlusiva, for adults 50+. It's more effective than traditional shots — but will insurance cover it? Swipe to learn more!",
-    "storyHashtag": "FluVaccine",
+    "headline": "Can a hydrogen-powered car break speed limits? This British driver just shattered records.",
+    "challenge": "Land speed records have long been dominated by fossil fuel-powered vehicles. But what if hydrogen could change the game?",
+    "solution": "Enter Andy Green, a British pilot and speed enthusiast, who recently set a new world record in a hydrogen-powered car. Here's how he did it.",
+    "resultHeading": "406.320 MPH: The fastest hydrogen-powered car in history",
+    "resultLine": "This record isn't just a win for speed—it's a win for clean energy. Read more at the link in bio.",
+    "whyMatters": "This achievement showcases the potential of hydrogen as a clean, powerful energy source for transportation. It's a big step forward in the quest for sustainable, high-performance vehicles.",
+    "engagementQuestion": "How do you think hydrogen-powered cars will shape the future of racing and transportation?",
+    "captionLead": "Andy Green just shattered speed records in a hydrogen-powered car, reaching an astonishing 406.320 mph! This isn't just a win for speed—it's a win for clean energy. Read more at the link in bio.",
+    "storyHashtag": "HydrogenPower",
     "sources": [
-      "https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1",
-      "https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/",
-      "https://www.scientificamerican.com/article/u-s-approves-modernas-mrna-vaccine-for-flu-the-first-of-its-kind/",
-      "https://www.nbcnews.com/health/health-news/fda-approves-1st-mrna-flu-shot-moderna-rcna590599"
+      "https://www.yourbigsky.com/news/national-news/ap-britains-andy-green-sets-another-speed-record-this-time-for-fastest-run-in-a-hydrogen-powered-car/",
+      "https://www.plant-planet.co.uk/hydrogen-powered-jcb-hydromax-sets-406-320-mph-world-land-speed-record/",
+      "https://shorty-news.com/business/andy-green-hydrogen-car-speed-record/",
+      "https://racer.com/2026/08/06/hydromax-gears-up-for-lsr-attempt-with-new-bonneville-record"
     ],
-    "originalSource": "AP News",
-    "researchBrief": "The story is corroborated by multiple sources, including AP News, Ars Technica, and TIME. The key claim — that mFlusiva is 27% more effective than traditional flu shots — is supported by a study of 40,000 people, as reported by AP News [apnews.com](https://apnews.com/article/flu-vaccine-moderna-mrna-fda-mflusiva-59d991a6bf70c26e2f0c210cc8ca87f1) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The FDA approval for adults 50+ is confirmed by all sources. The uncertainty around insurance coverage is noted in Ars Technica [arstechnica.com](https://arstechnica.com/health/2026/08/modernas-mrna-flu-shot-earns-fda-approval-after-rollercoaster-review/) and TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/). The faster production time for mRNA vaccines (weeks vs. months for traditional vaccines) is also corroborated by TIME [time.com](https://time.com/article/2026/08/06/fda-approves-first-mrna-flu-vaccine/)."
+    "originalSource": "YourBigSky.com",
+    "researchBrief": "The story was corroborated across multiple sources, confirming that Andy Green set a new world land speed record for hydrogen-powered vehicles. The record speed of 406.320 mph (653.908 km/h) was achieved using a car powered by two hydrogen internal combustion engines with a combined 1,600 horsepower. The record was set at the Bonneville Salt Flats in Utah and is subject to official ratification by the Fédération Internationale de l’Automobile (FIA). The car, engineered by British construction equipment manufacturer JCB, also beat the previous hydrogen combustion world record of 185.5 mph (298.5 kph) set by the BMW H2R in 2004. The engines used in the car are adapted from those used in JCB’s heavy machinery and are part of the company’s £100 million hydrogen program. The record is significant as it exceeds the 303 mph hydrogen fuel cell mark, making the JCB Hydromax the fastest hydrogen-powered vehicle of any kind in history."
   },
-  "cover": null,
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-13/cover.jpg"
+  },
   "reel": {
-    "script": "Flu season's coming, and older adults are at higher risk. Traditional vaccines take months to make and don't always match the strains out there. But what if there's a faster, more effective option? Meet mFlusiva, the first mRNA flu vaccine approved by the FDA. It reduced flu cases by 27% in a big study and can be made in weeks. The FDA just approved it, but will insurance cover it? This breakthrough could change how we fight the flu. Faster production, better matching, and stronger protection. Would you try an mRNA flu shot if you could?",
-    "hook": "A Faster Flu Shot?",
+    "script": "Land speed records are usually all about fossil fuels. But what if hydrogen could change that? Meet Andy Green, a British pilot who just shattered the record for hydrogen-powered cars. He hit 406 miles per hour. That's not just fast—it's a win for clean energy. This shows hydrogen could be a powerful, sustainable option for the future. How do you think it'll change racing and transportation?",
+    "hook": "Hydrogen Just Broke Speed Records",
     "noMusic": false,
-    "mood": "hopeful",
-    "wordCount": 96,
+    "mood": "triumphant",
+    "wordCount": 66,
     "lines": [
       {
-        "text": "Flu season's coming, and older adults are at higher risk."
+        "text": "Land speed records are usually all about fossil fuels."
       },
       {
-        "text": "Traditional vaccines take months to make and don't always match the strains out there."
+        "text": "But what if hydrogen could change that?"
       },
       {
-        "text": "But what if there's a faster, more effective option?"
+        "text": "Meet Andy Green, a British pilot."
       },
       {
-        "text": "Meet mFlusiva, the first mRNA flu vaccine approved by the FDA."
+        "text": "He just shattered the record for hydrogen-powered cars."
       },
       {
-        "text": "It reduced flu cases by 27% in a big study and can be made in weeks."
+        "text": "He hit 406 miles per hour."
       },
       {
-        "text": "The FDA just approved it, but will insurance cover it?"
+        "text": "That's not just fast—it's a win for clean energy."
       },
       {
-        "text": "This breakthrough could change how we fight the flu."
+        "text": "This shows hydrogen could be a powerful, sustainable option."
       },
       {
-        "text": "Faster production, better matching, and stronger protection."
-      },
-      {
-        "text": "Would you try an mRNA flu shot if you could?"
+        "text": "How do you think it'll change racing and transportation?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "thoughtful"
+          "factory",
+          "pipeline"
         ],
-        "key": "videos/thoughtful.jpg",
-        "image": "thoughtful",
-        "motion": "push-in",
+        "key": "videos/pipeline.jpg",
+        "image": "pipeline",
+        "motion": "pan-right",
         "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-13/cover.jpg"
       },
       {
-        "line": 1,
+        "line": 0,
         "keywords": [
-          "laboratory",
-          "microscope"
+          "ocean",
+          "waves"
         ],
-        "key": "videos/laboratory.jpg",
-        "image": "laboratory",
+        "key": "videos/waves.jpg",
+        "image": "waves",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/waves.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "vaccine",
-          "syringe"
+          "battery"
         ],
-        "key": "videos/vaccine.jpg",
-        "image": "vaccine",
-        "motion": "pan-right",
+        "key": "videos/battery.jpg",
+        "image": "battery",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/battery.jpg"
       },
       {
         "line": 2,
         "keywords": [
-          "light",
-          "sunbeam"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/sunbeam.jpg",
-        "image": "sunbeam",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg"
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "vaccine",
-          "doctor"
-        ],
-        "key": "videos/doctor.jpg",
-        "image": "doctor",
+        "key": "videos/aid.jpg",
+        "image": "aid",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg"
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "portrait",
+          "smiling"
+        ],
+        "key": "videos/portrait.jpg",
+        "image": "portrait",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
       },
       {
         "line": 3,
         "keywords": [
-          "newspaper"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/newspaper.jpg",
-        "image": "newspaper",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/newspaper.jpg"
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "research",
-          "scientist"
-        ],
-        "key": "videos/research.jpg",
-        "image": "research",
+        "key": "videos/allotment.jpg",
+        "image": "allotment",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "trophy",
+          "victory"
+        ],
+        "key": "videos/victory.jpg",
+        "image": "victory",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/victory.jpg"
       },
       {
         "line": 4,
         "keywords": [
-          "clock",
-          "calendar"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/clock.jpg",
-        "image": "clock",
-        "motion": "pan-right",
+        "key": "videos/applause.jpg",
+        "image": "applause",
+        "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
       },
       {
         "line": 4,
+        "keywords": [
+          "road",
+          "horizon"
+        ],
+        "key": "videos/horizon.jpg",
+        "image": "horizon",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horizon.jpg"
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "solar",
+          "panels"
+        ],
+        "key": "videos/panels.jpg",
+        "image": "panels",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/panels.jpg"
+      },
+      {
+        "line": 5,
         "keywords": [
           "celebration",
           "applause"
         ],
         "key": "videos/celebration.jpg",
         "image": "celebration",
-        "motion": "pan-up",
+        "motion": "push-in",
         "transition": "dissolve",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg"
       },
       {
-        "line": 5,
+        "line": 6,
         "keywords": [
-          "notebook"
+          "battery"
         ],
-        "key": "videos/notebook.jpg",
-        "image": "notebook",
-        "motion": "pan-left",
+        "key": "videos/plastic.jpg",
+        "image": "plastic",
+        "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "thoughtful",
-          "portrait"
-        ],
-        "key": "videos/portrait.jpg",
-        "image": "portrait",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/plastic.jpg"
       },
       {
         "line": 6,
         "keywords": [
-          "trophy"
+          "city",
+          "skyline"
         ],
-        "key": "videos/trophy.jpg",
-        "image": "trophy",
-        "motion": "pan-up",
-        "transition": "zoom-punch",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trophy.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "factory"
-        ],
-        "key": "videos/factory.jpg",
-        "image": "factory",
+        "key": "videos/skyline.jpg",
+        "image": "skyline",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg"
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "dna"
-        ],
-        "key": "videos/dna.jpg",
-        "image": "dna",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg"
       },
       {
         "line": 7,
@@ -305,34 +301,23 @@
         ],
         "key": "videos/ambulance.jpg",
         "image": "ambulance",
-        "motion": "pan-up",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
       },
       {
-        "line": 8,
+        "line": 7,
         "keywords": [
-          "syringe"
+          "bus",
+          "charging"
         ],
-        "key": "videos/syringe.jpg",
-        "image": "syringe",
+        "key": "videos/bus.jpg",
+        "image": "bus",
         "motion": "push-in",
-        "transition": "cut",
+        "transition": "zoom-punch",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg"
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "doctor"
-        ],
-        "key": "videos/rocket.jpg",
-        "image": "rocket",
-        "motion": "pan-right",
-        "transition": "whip-right",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/bus.jpg"
       }
     ],
     "stockedKeywords": [
@@ -758,6 +743,6 @@
       "writing": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
     }
   },
-  "approvedAt": "2026-08-13T06:21:20.183Z",
+  "approvedAt": "2026-08-13T07:03:12.622Z",
   "approvedWithEdits": false
 }
