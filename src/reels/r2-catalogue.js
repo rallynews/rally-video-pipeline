@@ -411,6 +411,66 @@ function pickImage(catalogue, keywords, used, previous) {
   return randomFrom(catalogue.images.map(img => img.key), used, previous);
 }
 
+// Resolve keywords that came back from REVIEW rather than from the planner.
+// There a keyword is a decision, not a suggestion — the editor picked it off a
+// list of real photos, or the draft resolved it and showed them the result — so
+// the exact photo wins even when another shot has already spent it. Only the
+// frame on screen right now is excluded, so a cut never lands on the picture
+// it is cutting from. Anything genuinely unmatched falls back to the ladder.
+function pickRequested(catalogue, keywords, used, previous) {
+  const wanted = filterToBank(keywords);
+
+  const fresh = bestMatch(catalogue.images, wanted, used, previous);
+  if (fresh) return fresh;
+
+  const spent = catalogue.images
+    .filter(img => img.key !== previous && scoreImage(img, wanted) > 0)
+    .sort((a, b) => scoreImage(b, wanted) - scoreImage(a, wanted))[0];
+  if (spent) return spent.key;
+
+  return pickImage(catalogue, wanted, used, previous);
+}
+
+// The filename, minus folder and extension — how an image is named in the
+// review app's picker. `videos/forest.jpg` → `forest`.
+const labelOf = key => path.basename(String(key || '')).replace(/\.[a-z0-9]+$/i, '');
+
+// Every image the reel could possibly cut to — the keyworded stills AND the
+// generic pool — as the review app needs them: a stable object key, a label to
+// search on, and the bank keywords behind it.
+//
+// The picker is built from this list and the builder honours the key it hands
+// back, so the images offered in review are exactly the images that can reach
+// the finished reel. Anything missing here is a photo the editor could end up
+// with but never saw, which is the whole reason this list exists. Note that
+// it's per-FILE, not per-keyword: two files claiming `forest` are two entries,
+// and a generic still with no keyword at all is still choosable.
+function libraryEntries(lib) {
+  const entries = [
+    ...(lib.images || []).map(img => ({
+      key: img.key, label: labelOf(img.key), keywords: img.keywords, pool: 'keyword',
+    })),
+    ...(lib.generic || []).map(key => ({
+      key, label: labelOf(key), keywords: [], pool: 'generic',
+    })),
+  ];
+  // Keyworded first, alphabetical within each pool — the order the picker lists.
+  entries.sort((a, b) =>
+    (a.pool === b.pool ? 0 : a.pool === 'keyword' ? -1 : 1) ||
+    a.label.localeCompare(b.label)
+  );
+  return entries;
+}
+
+// Is this exact object still in the library? Images can be renamed, replaced or
+// deleted between the morning draft and the approval, so a reviewed choice is
+// checked before it's trusted.
+function hasKey(lib, key) {
+  if (!key) return false;
+  return (lib.images || []).some(img => img.key === key) ||
+         (lib.generic || []).includes(key);
+}
+
 function pickTrack(tracks) {
   if (!tracks.length) return null;
   return tracks[Math.floor(Math.random() * tracks.length)];
@@ -462,6 +522,10 @@ module.exports = {
   loadCatalogue,
   uploadReel,
   pickImage,
+  pickRequested,
+  libraryEntries,
+  labelOf,
+  hasKey,
   pickTrack,
   pickOutro,
   downloadObject,

@@ -93,20 +93,11 @@ async function planReel(story, slideCopy, raw) {
   const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
   const shots = await planShots(story, slideCopy, script, lines, lib, storyKeywords);
 
-  // keyword → object key for every stocked keyword, so the review app can
-  // offer a picker of real images (and their thumbnails) instead of free text.
-  const library = {};
-  for (const img of lib.images) {
-    for (const k of img.keywords) {
-      if (!library[k]) library[k] = img.key;
-    }
-  }
-
-  // The keyword the resolved file is actually named after — what the review
-  // app's picker must show, as opposed to the keywords the planner ASKED for
-  // (which, on a fallback, can be something else entirely).
-  const keywordOfKey = key =>
-    filterToBank(catalogue.tokenize(path.basename(String(key || ''))))[0] || null;
+  // Every image the reel could cut to, so the review app can offer a picker of
+  // real files instead of free text. Keyworded stills AND the generic pool:
+  // both can end up on screen, so both have to be choosable, and a shot that
+  // fell back to a generic still has to be nameable as the file it actually is.
+  const library = catalogue.libraryEntries(lib);
 
   return {
     script,
@@ -116,7 +107,10 @@ async function planReel(story, slideCopy, raw) {
     lines,
     shots: shots.map(s => ({
       line: s.line, keywords: s.keywords, key: s.key,
-      image: keywordOfKey(s.key),
+      // The file the shot actually resolved to — what the picker shows —
+      // as opposed to the keywords the planner ASKED for, which on a fallback
+      // pick can name something else entirely.
+      image: catalogue.labelOf(s.key),
       motion: s.motion, transition: s.transition,
     })),
     stockedKeywords: [...lib.stocked].sort(),
@@ -155,9 +149,10 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     }
 
     const storyKeywords = storyKeywordsFor(story, slideCopy, lib.stocked);
+    const fromApproved = Boolean(approved && Array.isArray(approved.lines));
     let script, hook, lines, mood, wordCount, plannedShots;
 
-    if (approved && Array.isArray(approved.lines)) {
+    if (fromApproved) {
       // The editor's cut. Blanked lines are dropped and shot indexes remapped
       // so the remaining shots stay glued to the lines they were planned for.
       const keptIndex = new Map();
@@ -179,7 +174,12 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
       mood = String(approved.mood || 'uplifting');
       wordCount = script.split(/\s+/).length;
       plannedShots = resolveDraftShots(remapped, lines.length, lib, storyKeywords);
-      console.log(`  [reel] building from the approved draft — ${lines.length} lines, ${plannedShots.length} shots`);
+      const reviewed = new Set(remapped.map(s => s.key).filter(Boolean));
+      const verbatim = plannedShots.filter(s => reviewed.has(s.key)).length;
+      console.log(
+        `  [reel] building from the approved draft — ${lines.length} lines, ` +
+        `${plannedShots.length} shots, ${verbatim} on the exact image approved in review`
+      );
     } else {
       // 1 · script
       console.log('  [reel] writing the 20–30s script...');
@@ -214,8 +214,12 @@ async function generateReel(story, slideCopy, raw, coverUri, approved) {
     const spoken = durations.reduce((a, b) => a + b, 0);
     console.log(`  [reel] narration recorded — ${spoken.toFixed(1)}s of speech`);
 
-    // The edit, timed against the voice that will actually play.
-    const timeline = buildTimeline(lines, plannedShots, durations, lib, hook);
+    // The edit, timed against the voice that will actually play. A reviewed cut
+    // is never densified: splitting a long shot pulls a fresh image out of the
+    // library, and the editor only ever approved the ones they were shown.
+    const timeline = buildTimeline(
+      lines, plannedShots, durations, lib, hook, { densify: !fromApproved }
+    );
     console.log(
       `  [reel] timeline: ${timeline.shots.length} shots over ` +
       `${timeline.videoDuration.toFixed(1)}s, ${timeline.captions.length} captions`

@@ -82,13 +82,14 @@ async function writeDraft({ story, raw, pillar, style, slideCopy, sources, verif
     console.warn(`  [review] cover staging failed (${e.message}) — draft continues without it`);
   }
 
-  // keyword → thumbnail URL for the app's image picker: only keywords with a
-  // real file behind them appear, so an edit can never name a missing image.
-  const library = {};
-  for (const [kw, key] of Object.entries(reelPlan ? reelPlan.library || {} : {})) {
-    const url = publicUrl(key);
-    if (url) library[kw] = url;
-  }
+  // The image picker's whole catalogue: one entry per FILE the reel could cut
+  // to — keyworded stills and the generic pool alike — each with the object key
+  // the builder will honour and a thumbnail to show it by. Entries with no
+  // public URL are dropped, since the picker must never offer an image it can't
+  // display. Everything that can reach the reel is in here; nothing else can.
+  const library = (reelPlan ? reelPlan.library || [] : [])
+    .map(entry => ({ ...entry, url: publicUrl(entry.key) }))
+    .filter(entry => entry.url);
 
   const reel = reelPlan
     ? {
@@ -100,13 +101,20 @@ async function writeDraft({ story, raw, pillar, style, slideCopy, sources, verif
         mood: reelPlan.mood,
         wordCount: reelPlan.wordCount,
         lines: reelPlan.lines.map(l => ({ text: l.text })),
-        shots: reelPlan.shots.map((s, i) => ({
-          ...s,
+        shots: reelPlan.shots.map((s, i) => {
           // The first shot is always replaced by the article photo at build
-          // time; the draft shows that honestly.
-          cover: i === 0 && Boolean(coverUrl),
-          thumb: i === 0 && coverUrl ? coverUrl : publicUrl(s.key),
-        })),
+          // time; the draft shows that honestly — and still carries the library
+          // image underneath, which is what opens the reel if the article's
+          // photo turns out to be unusable. Both are shown in review, so there
+          // is no image in the finished reel the editor didn't see.
+          const cover = i === 0 && Boolean(coverUrl);
+          return {
+            ...s,
+            cover,
+            thumb: cover ? coverUrl : publicUrl(s.key),
+            fallbackThumb: cover ? publicUrl(s.key) : null,
+          };
+        }),
         stockedKeywords: reelPlan.stockedKeywords,
         library,
       }
