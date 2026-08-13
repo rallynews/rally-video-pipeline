@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2026 07:07:32 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 21:22:58 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>Britain’s Andy Green sets another speed record, this time for fastest run in a hydrogen-powered car</title>
+      <link>https://rally.news/categories/transportation/?article=Britain%E2%80%99s%2BAndy%2BGreen%2Bsets%2Banother%2Bspeed%2Brecord%2C%2Bthis%2Btime%2Bfor%2Bfastest%2Brun%2Bin%2Ba%2Bhydrogen-powered%2Bcar</link>
+      <description>Green reached 653.908 kilometres per hour in a car powered by two hydrogen internal combustion engines with a combined 1,600 horsepower</description>
+      <pubDate>Thu, 13 Aug 2026 21:22:58 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/transportation/?article=Britain%E2%80%99s%2BAndy%2BGreen%2Bsets%2Banother%2Bspeed%2Brecord%2C%2Bthis%2Btime%2Bfor%2Bfastest%2Brun%2Bin%2Ba%2Bhydrogen-powered%2Bcar</guid>
+    </item>
+
+<item>
       <title>Britain’s Andy Green sets another speed record, this time for fastest run in a hydrogen-powered car</title>
       <link>https://rally.news/categories/transportation/?article=Britain%E2%80%99s%2BAndy%2BGreen%2Bsets%2Banother%2Bspeed%2Brecord%2C%2Bthis%2Btime%2Bfor%2Bfastest%2Brun%2Bin%2Ba%2Bhydrogen-powered%2Bcar</link>
       <description>Green reached 653.908 kilometres per hour in a car powered by two hydrogen internal combustion engines with a combined 1,600 horsepower</description>
@@ -399,14 +407,6 @@
       <link>https://rally.news/categories/ai/?article=China%2Bis%2Bcatching%2Bup%2Bto%2BElon%2BMusk%E2%80%99s%2Breusable%2Brockets</link>
       <description>China&apos;s state-owned space company recovered its first orbital rocket booster after launch.</description>
       <pubDate>Sun, 12 Jul 2026 05:04:52 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/ai/?article=China%2Bis%2Bcatching%2Bup%2Bto%2BElon%2BMusk%E2%80%99s%2Breusable%2Brockets</guid>
-    </item>
-
-<item>
-      <title>China is catching up to Elon Musk’s reusable rockets</title>
-      <link>https://rally.news/categories/ai/?article=China%2Bis%2Bcatching%2Bup%2Bto%2BElon%2BMusk%E2%80%99s%2Breusable%2Brockets</link>
-      <description>China&apos;s state-owned space company recovered its first orbital rocket booster after launch.</description>
-      <pubDate>Sat, 11 Jul 2026 13:45:50 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=China%2Bis%2Bcatching%2Bup%2Bto%2BElon%2BMusk%E2%80%99s%2Breusable%2Brockets</guid>
     </item>
   </channel>
