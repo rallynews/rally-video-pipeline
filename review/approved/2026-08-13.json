@@ -134,11 +134,10 @@
       {
         "line": 0,
         "keywords": [
-          "ocean",
-          "waves"
+          "pipeline"
         ],
         "key": "videos/waves.jpg",
-        "image": "waves",
+        "image": "pipeline",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -147,10 +146,10 @@
       {
         "line": 1,
         "keywords": [
-          "battery"
+          "doctor"
         ],
         "key": "videos/battery.jpg",
-        "image": "battery",
+        "image": "doctor",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
@@ -159,13 +158,10 @@
       {
         "line": 2,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "workshop"
         ],
         "key": "videos/aid.jpg",
-        "image": "aid",
+        "image": "workshop",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
@@ -174,11 +170,10 @@
       {
         "line": 2,
         "keywords": [
-          "portrait",
-          "smiling"
+          "skyline"
         ],
         "key": "videos/portrait.jpg",
-        "image": "portrait",
+        "image": "skyline",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
@@ -187,13 +182,10 @@
       {
         "line": 3,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "charging"
         ],
         "key": "videos/allotment.jpg",
-        "image": "allotment",
+        "image": "charging",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
@@ -202,11 +194,10 @@
       {
         "line": 3,
         "keywords": [
-          "trophy",
-          "victory"
+          "laboratory"
         ],
         "key": "videos/victory.jpg",
-        "image": "victory",
+        "image": "laboratory",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
@@ -215,13 +206,10 @@
       {
         "line": 4,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "road"
         ],
         "key": "videos/applause.jpg",
-        "image": "applause",
+        "image": "road",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
@@ -230,7 +218,6 @@
       {
         "line": 4,
         "keywords": [
-          "road",
           "horizon"
         ],
         "key": "videos/horizon.jpg",
@@ -243,7 +230,6 @@
       {
         "line": 5,
         "keywords": [
-          "solar",
           "panels"
         ],
         "key": "videos/panels.jpg",
@@ -256,8 +242,7 @@
       {
         "line": 5,
         "keywords": [
-          "celebration",
-          "applause"
+          "celebration"
         ],
         "key": "videos/celebration.jpg",
         "image": "celebration",
@@ -269,7 +254,7 @@
       {
         "line": 6,
         "keywords": [
-          "battery"
+          "plastic"
         ],
         "key": "videos/plastic.jpg",
         "image": "plastic",
@@ -281,7 +266,6 @@
       {
         "line": 6,
         "keywords": [
-          "city",
           "skyline"
         ],
         "key": "videos/skyline.jpg",
@@ -294,10 +278,7 @@
       {
         "line": 7,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "ambulance"
         ],
         "key": "videos/ambulance.jpg",
         "image": "ambulance",
@@ -309,8 +290,7 @@
       {
         "line": 7,
         "keywords": [
-          "bus",
-          "charging"
+          "bus"
         ],
         "key": "videos/bus.jpg",
         "image": "bus",
@@ -743,6 +723,6 @@
       "writing": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
     }
   },
-  "approvedAt": "2026-08-13T07:03:12.622Z",
-  "approvedWithEdits": false
+  "approvedAt": "2026-08-13T21:18:30.192Z",
+  "approvedWithEdits": true
 }
