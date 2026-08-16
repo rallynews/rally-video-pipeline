@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Aug 2026 20:33:30 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2026 00:06:30 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>The Global Web of Subsea Cables That Connects the World Can Now Detect Whales—Even When They&apos;re Silent</title>
+      <link>https://rally.news/categories/world/?article=The%2BGlobal%2BWeb%2Bof%2BSubsea%2BCables%2BThat%2BConnects%2Bthe%2BWorld%2BCan%2BNow%2BDetect%2BWhales%E2%80%94Even%2BWhen%2BThey%27re%2BSilent</link>
+      <description>A diving whale revealed how existing technology makes it possible to monitor cetaceans swimming quietly across the seabed</description>
+      <pubDate>Sun, 16 Aug 2026 00:06:30 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/world/?article=The%2BGlobal%2BWeb%2Bof%2BSubsea%2BCables%2BThat%2BConnects%2Bthe%2BWorld%2BCan%2BNow%2BDetect%2BWhales%E2%80%94Even%2BWhen%2BThey%27re%2BSilent</guid>
+    </item>
+
+<item>
       <title>Northrop’s robot space mechanic is a new way to keep satellites at work longer</title>
       <link>https://rally.news/categories/ai/?article=Northrop%E2%80%99s%2Brobot%2Bspace%2Bmechanic%2Bis%2Ba%2Bnew%2Bway%2Bto%2Bkeep%2Bsatellites%2Bat%2Bwork%2Blonger</link>
       <description>The Mission Robotic Vehicle is making the first attempt to attach a new thruster to an aging satellite.</description>
@@ -400,14 +408,6 @@
       <description>While the world drowns in plastic, researchers are on the hunt for practical materials that are lightweight, tough, and biodegradable.</description>
       <pubDate>Sun, 12 Jul 2026 11:35:09 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</guid>
-    </item>
-
-<item>
-      <title>Humans Have a &apos;Sixth Sense&apos; You&apos;ve Probably Never Heard Of – And It Appears to Be Key For Mental Health</title>
-      <link>https://rally.news/categories/ai/?article=Humans%2BHave%2Ba%2B%27Sixth%2BSense%27%2BYou%27ve%2BProbably%2BNever%2BHeard%2BOf%2B%E2%80%93%2BAnd%2BIt%2BAppears%2Bto%2BBe%2BKey%2BFor%2BMental%2BHealth</link>
-      <description>We all know that humans have five senses. But a growing body of research shows we have a sixth one that almost nobody talks about – and it may be just as important for our wellbeing as any of the others.</description>
-      <pubDate>Sun, 12 Jul 2026 11:07:48 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/ai/?article=Humans%2BHave%2Ba%2B%27Sixth%2BSense%27%2BYou%27ve%2BProbably%2BNever%2BHeard%2BOf%2B%E2%80%93%2BAnd%2BIt%2BAppears%2Bto%2BBe%2BKey%2BFor%2BMental%2BHealth</guid>
     </item>
   </channel>
 </rss>
