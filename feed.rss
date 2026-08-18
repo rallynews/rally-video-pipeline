@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Aug 2026 21:55:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 18 Aug 2026 20:42:41 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>After Half A Century, Physicists Find The Strongest Evidence Yet For An Exotic &apos;Glueball&apos; Particle</title>
+      <link>https://rally.news/categories/ai/?article=After%2BHalf%2BA%2BCentury%2C%2BPhysicists%2BFind%2BThe%2BStrongest%2BEvidence%2BYet%2BFor%2BAn%2BExotic%2B%27Glueball%27%2BParticle</link>
+      <description>An important part of the  Standard Model of particle physics, quantum chromodynamics describes the strong interaction of quarks and gluons to create the ordinary matter we see, touch, and taste.</description>
+      <pubDate>Tue, 18 Aug 2026 20:42:41 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=After%2BHalf%2BA%2BCentury%2C%2BPhysicists%2BFind%2BThe%2BStrongest%2BEvidence%2BYet%2BFor%2BAn%2BExotic%2B%27Glueball%27%2BParticle</guid>
+    </item>
+
+<item>
       <title>‘Excellent profit’: Meet the Bavarian hop farmer securing his harvest and income with solar &apos;hats&apos;</title>
       <link>https://rally.news/categories/climate/?article=%E2%80%98Excellent%2Bprofit%E2%80%99%3A%2BMeet%2Bthe%2BBavarian%2Bhop%2Bfarmer%2Bsecuring%2Bhis%2Bharvest%2Band%2Bincome%2Bwith%2Bsolar%2B%27hats%27</link>
       <description>No rain, no hops – no hops, no beer. Climate change, heat and dry farmland are hitting Bavaria’s key crop. Could solar panels save it?</description>
@@ -399,14 +407,6 @@
       <link>https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</link>
       <description>While the world drowns in plastic, researchers are on the hunt for practical materials that are lightweight, tough, and biodegradable.</description>
       <pubDate>Sun, 12 Jul 2026 14:55:56 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</guid>
-    </item>
-
-<item>
-      <title>Scientists Think Bee Silk Could Be a Surprising New Supermaterial. Here&apos;s Why.</title>
-      <link>https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</link>
-      <description>While the world drowns in plastic, researchers are on the hunt for practical materials that are lightweight, tough, and biodegradable.</description>
-      <pubDate>Sun, 12 Jul 2026 11:38:25 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</guid>
     </item>
   </channel>
