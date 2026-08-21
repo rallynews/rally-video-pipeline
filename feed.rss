@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Aug 2026 20:42:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 13:28:29 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>mRNA cancer vaccine succeeded in Phase 3 melanoma trial, Moderna and Merck say</title>
+      <link>https://rally.news/categories/ai/?article=mRNA%2Bcancer%2Bvaccine%2Bsucceeded%2Bin%2BPhase%2B3%2Bmelanoma%2Btrial%2C%2BModerna%2Band%2BMerck%2Bsay</link>
+      <description>The vaccine reportedly thwarted the cancer&apos;s return and spread.</description>
+      <pubDate>Fri, 21 Aug 2026 13:28:29 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=mRNA%2Bcancer%2Bvaccine%2Bsucceeded%2Bin%2BPhase%2B3%2Bmelanoma%2Btrial%2C%2BModerna%2Band%2BMerck%2Bsay</guid>
+    </item>
+
+<item>
       <title>After Half A Century, Physicists Find The Strongest Evidence Yet For An Exotic &apos;Glueball&apos; Particle</title>
       <link>https://rally.news/categories/ai/?article=After%2BHalf%2BA%2BCentury%2C%2BPhysicists%2BFind%2BThe%2BStrongest%2BEvidence%2BYet%2BFor%2BAn%2BExotic%2B%27Glueball%27%2BParticle</link>
       <description>An important part of the  Standard Model of particle physics, quantum chromodynamics describes the strong interaction of quarks and gluons to create the ordinary matter we see, touch, and taste.</description>
@@ -400,14 +408,6 @@
       <description>We all know that humans have five senses. But a growing body of research shows we have a sixth one that almost nobody talks about – and it may be just as important for our wellbeing as any of the others.</description>
       <pubDate>Mon, 13 Jul 2026 05:04:57 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/ai/?article=Humans%2BHave%2Ba%2B%27Sixth%2BSense%27%2BYou%27ve%2BProbably%2BNever%2BHeard%2BOf%2B%E2%80%93%2BAnd%2BIt%2BAppears%2Bto%2BBe%2BKey%2BFor%2BMental%2BHealth</guid>
-    </item>
-
-<item>
-      <title>Scientists Think Bee Silk Could Be a Surprising New Supermaterial. Here&apos;s Why.</title>
-      <link>https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</link>
-      <description>While the world drowns in plastic, researchers are on the hunt for practical materials that are lightweight, tough, and biodegradable.</description>
-      <pubDate>Sun, 12 Jul 2026 14:55:56 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/world/?article=Scientists%2BThink%2BBee%2BSilk%2BCould%2BBe%2Ba%2BSurprising%2BNew%2BSupermaterial.%2BHere%27s%2BWhy.</guid>
     </item>
   </channel>
 </rss>
