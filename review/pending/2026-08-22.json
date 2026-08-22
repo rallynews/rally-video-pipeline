@@ -1,137 +1,132 @@
 {
   "version": 1,
   "date": "2026-08-22",
-  "createdAt": "2026-08-22T05:02:17.255Z",
+  "createdAt": "2026-08-22T19:12:01.906Z",
   "story": {
-    "headline": "Can’t sleep on planes? Try this newly opened Malaysian hotel with suites inside two Boeing 747s",
-    "summary": "Forget flying on a Boeing 747, how about staying the night in one? 1975 Avenue & Hotel in Malaysia has transformed two jumbo jets into suites, alongside pools, dining and spa facilities.",
+    "headline": "An 'Extremely Rare' Half-Male, Half-Female Bird Temporarily Took Up Residence Outside of Chicago",
+    "summary": "The unusual-looking bobolink is what's called a bilateral gynandromorph. The bird behaved like a male, eventually wooing a mate and raising fledglings",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/transportation/?article=Can%E2%80%99t%2Bsleep%2Bon%2Bplanes%3F%2BTry%2Bthis%2Bnewly%2Bopened%2BMalaysian%2Bhotel%2Bwith%2Bsuites%2Binside%2Btwo%2BBoeing%2B747s"
+    "url": "https://rally.news/categories/world/?article=An%2B%27Extremely%2BRare%27%2BHalf-Male%2C%2BHalf-Female%2BBird%2BTemporarily%2BTook%2BUp%2BResidence%2BOutside%2Bof%2BChicago"
   },
-  "researchBrief": "The 1975 Avenue & Hotel in Johor Bahru, Malaysia, has transformed two retired Boeing 747s into 18 luxury suites, each themed after different countries. The suites range from RM1,706 to RM2,786 per night and include amenities like freestanding bathtubs, living areas, and country-themed decor. The hotel also features a gym, spa, pools, and dining options. The suites are housed in two 747s, named Bove and Bey, which previously flew with Pan Am and JAL. The hotel's unique concept offers a blend of luxury and aviation history, providing a distinctive travel experience. All sources corroborate the basic facts about the hotel's concept, amenities, and pricing, with slight variations in details.",
+  "researchBrief": "The story of the half-male, half-female bobolink, named Black and Tan, was corroborated by multiple sources. The bird was first spotted by Luke Dahlberg, a conservation seed program manager, at the Hill ‘N Dale Preserve in Barrington Hills, Illinois. Ornithologists confirmed it was a bilateral gynandromorph, a rare genetic anomaly where the bird is half male and half female. This is the first documented case of a gynandromorphic bobolink. The bird behaved like a male, singing, flying, and establishing a breeding territory. It successfully nested and raised fledglings. The exact causes of bilateral gynandromorphism are not fully understood, but it is believed to result from a genetic anomaly during female meiosis. This phenomenon has been recorded in fewer than 100 individual birds across around 45 species. The bird has since left the preserve, but there is hope it will return next spring. The story highlights the importance of preserving natural habitats, which are crucial for the survival of species like the bobolink.",
   "sources": [
-    "https://www.timeout.com/singapore/news/johor-bahrus-first-airplane-themed-luxury-hotel-lets-you-spend-a-night-in-a-retired-boeing-022226",
-    "https://thesmartlocal.com/read/1975-avenue-hotel-aeroplane-jb/",
-    "https://theiskandarian.com/tiong-nam-group-poised-to-launch-lifestyle-hub-with-redesigned-twin-aeroplanes-dubbed-as-1975-avenue-hotel/",
-    "https://www.laviezine.com/1594919/this-malaysian-hotel-lets-you-sleep-in-a-real-aircraft-travel-meet-asia-2026-starry-tee/"
+    "https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/",
+    "https://chicago.suntimes.com/animals/2026/08/12/rare-half-male-half-female-bird-spotted-at-suburban-chicago-preserve",
+    "https://news.wttw.com/2026/08/05/wicked-cool-half-female-half-male-bird-landed-suburban-chicago-offering-rare-glimpse-one",
+    "https://www.wbez.org/in-the-loop-with-sasha-ann-simons/2026/08/11/just-how-rare-is-this-half-female-half-male-bird-sighting"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
-        "field": "resultLine",
+        "field": "headline",
+        "verdict": "verified",
+        "note": "The Smithsonian Magazine article confirms the story and its rarity."
+      },
+      {
+        "field": "challenge",
+        "verdict": "verified",
+        "note": "The phenomenon of bilateral gynandromorphism is confirmed as extremely rare."
+      },
+      {
+        "field": "solution",
         "verdict": "corrected",
-        "note": "Removed unverified rate information."
+        "note": "Removed the claim of it being the 'first of its kind ever documented' as it is not verifiable. The rest of the information is confirmed."
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "verified",
+        "note": "The bird successfully nested and raised fledglings, as confirmed by multiple sources."
+      },
+      {
+        "field": "resultLine",
+        "verdict": "verified",
+        "note": "The result line is accurate and invites readers to learn more."
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "The importance of preserving natural habitats is highlighted in the sources."
+      },
+      {
+        "field": "captionLead",
+        "verdict": "verified",
+        "note": "The caption lead accurately describes the bird and its actions, inviting readers to learn more."
       },
       {
         "field": "originalSource",
-        "verdict": "corrected",
-        "note": "Corrected to 'Time Out Singapore' as it was the original source."
+        "verdict": "verified",
+        "note": "The original source is correctly identified as Smithsonian Magazine."
       }
     ]
   },
   "pillar": "Interesting Facts",
-  "style": "1d",
+  "style": "1c",
   "raw": {
     "pillar": "Interesting Facts",
-    "headline": "Can’t sleep on planes? Try this newly opened Malaysian hotel with suites inside two Boeing 747s",
-    "challenge": "Ever struggled to sleep on a plane? The 1975 Avenue & Hotel in Malaysia has a unique solution. Two retired Boeing 747s have been transformed into luxury suites, offering a one-of-a-kind stay. But how does this aviation-themed hotel work?",
-    "solution": "The 1975 Avenue & Hotel in Johor Bahru has turned two historic Boeing 747s into 18 luxurious suites, each themed after different countries. Guests can enjoy a unique stay with amenities like pools, dining, and spa facilities. Ready to take off?",
-    "resultHeading": "18 suites inside two Boeing 747s",
-    "resultLine": "The hotel offers a unique experience with suites themed by country. Check out the full story at the link in my bio.",
-    "whyMatters": "This innovative hotel not only repurposes historic aircraft but also offers a unique travel experience. It's a testament to creativity and the potential for sustainable tourism.",
-    "engagementQuestion": "Would you stay in a hotel inside a Boeing 747?",
-    "captionLead": "Ever struggled to sleep on a plane? The 1975 Avenue & Hotel in Malaysia has a unique solution. Two retired Boeing 747s have been transformed into luxury suites, offering a one-of-a-kind stay. But how does this aviation-themed hotel work?",
-    "storyHashtag": "AviationThemedHotel",
+    "headline": "Have you ever seen a bird like this before? The Smithsonian just shared a story that’s got everyone talking.",
+    "challenge": "Imagine a bird that’s half male and half female. That’s exactly what birdwatchers in Chicago got to see this spring. This rare phenomenon, called bilateral gynandromorphism, is extremely uncommon in nature.",
+    "solution": "Luke Dahlberg, a conservation seed program manager, first spotted the bird at the Hill ‘N Dale Preserve in Barrington Hills. Ornithologists confirmed it was a bilateral gynandromorph bobolink, the first of its kind ever documented. The bird, named Black and Tan, behaved like a male, singing, flying, and establishing a breeding territory.",
+    "resultHeading": "Black and Tan successfully nested and raised fledglings.",
+    "resultLine": "A rare and fascinating sighting—read the full story at the link in my bio.",
+    "whyMatters": "This discovery highlights the beauty and complexity of nature. It also underscores the importance of preserving natural habitats, which are crucial for the survival of species like the bobolink.",
+    "engagementQuestion": "What do you think about this rare bird sighting?",
+    "captionLead": "A half-male, half-female bird has birdwatchers in Chicago buzzing! This rare bobolink, named Black and Tan, was spotted at the Hill ‘N Dale Preserve and successfully nested and raised fledglings. Read more about this fascinating story at the link in my bio.",
+    "storyHashtag": "NatureWonders",
     "sources": [
-      "https://www.timeout.com/singapore/news/johor-bahrus-first-airplane-themed-luxury-hotel-lets-you-spend-a-night-in-a-retired-boeing-022226",
-      "https://thesmartlocal.com/read/1975-avenue-hotel-aeroplane-jb/",
-      "https://theiskandarian.com/tiong-nam-group-poised-to-launch-lifestyle-hub-with-redesigned-twin-aeroplanes-dubbed-as-1975-avenue-hotel/",
-      "https://www.laviezine.com/1594919/this-malaysian-hotel-lets-you-sleep-in-a-real-aircraft-travel-meet-asia-2026-starry-tee/"
+      "https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/",
+      "https://chicago.suntimes.com/animals/2026/08/12/rare-half-male-half-female-bird-spotted-at-suburban-chicago-preserve",
+      "https://news.wttw.com/2026/08/05/wicked-cool-half-female-half-male-bird-landed-suburban-chicago-offering-rare-glimpse-one",
+      "https://www.wbez.org/in-the-loop-with-sasha-ann-simons/2026/08/11/just-how-rare-is-this-half-female-half-male-bird-sighting"
     ],
-    "originalSource": "Time Out Singapore",
-    "researchBrief": "The 1975 Avenue & Hotel in Johor Bahru, Malaysia, has transformed two retired Boeing 747s into 18 luxury suites, each themed after different countries. The suites range from RM1,706 to RM2,786 per night and include amenities like freestanding bathtubs, living areas, and country-themed decor. The hotel also features a gym, spa, pools, and dining options. The suites are housed in two 747s, named Bove and Bey, which previously flew with Pan Am and JAL. The hotel's unique concept offers a blend of luxury and aviation history, providing a distinctive travel experience. All sources corroborate the basic facts about the hotel's concept, amenities, and pricing, with slight variations in details."
+    "originalSource": "Smithsonian Magazine",
+    "researchBrief": "The story of the half-male, half-female bobolink, named Black and Tan, was corroborated by multiple sources. The bird was first spotted by Luke Dahlberg, a conservation seed program manager, at the Hill ‘N Dale Preserve in Barrington Hills, Illinois. Ornithologists confirmed it was a bilateral gynandromorph, a rare genetic anomaly where the bird is half male and half female. This is the first documented case of a gynandromorphic bobolink. The bird behaved like a male, singing, flying, and establishing a breeding territory. It successfully nested and raised fledglings. The exact causes of bilateral gynandromorphism are not fully understood, but it is believed to result from a genetic anomaly during female meiosis. This phenomenon has been recorded in fewer than 100 individual birds across around 45 species. The bird has since left the preserve, but there is hope it will return next spring. The story highlights the importance of preserving natural habitats, which are crucial for the survival of species like the bobolink."
   },
-  "cover": {
-    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-22/cover.jpg"
-  },
+  "cover": null,
   "reel": {
-    "script": "Ever struggled to sleep on a plane? There's a hotel in Malaysia that's got you covered. Two old Boeing 747s have been turned into luxury suites. The 1975 Avenue & Hotel in Johor Bahru has 18 suites, each themed after a different country. Guests get pools, dining, and spa facilities. It's a unique way to experience travel. Plus, it's a great example of sustainable tourism. Would you stay in a hotel inside a Boeing 747?",
-    "hook": "Sleep in a Plane? Now You Can",
+    "script": "Imagine a bird that's half male and half female. Birdwatchers in Chicago just saw one! It's called bilateral gynandromorphism. Super rare. Luke Dahlberg spotted it at the Hill 'N Dale Preserve. Ornithologists confirmed it was a bobolink. They named it Black and Tan. It behaved like a male, even raised fledglings. This discovery shows nature's beauty and complexity. It also shows why we need to protect habitats. What do you think about this rare bird sighting?",
+    "hook": "A Bird Like No Other",
     "noMusic": false,
     "mood": "curious",
-    "wordCount": 75,
+    "wordCount": 76,
     "lines": [
       {
-        "text": "Ever struggled to sleep on a plane?"
+        "text": "Imagine a bird that's half male and half female."
       },
       {
-        "text": "There's a hotel in Malaysia that's got you covered."
+        "text": "Birdwatchers in Chicago just saw one!"
       },
       {
-        "text": "Two old Boeing 747s have been turned into luxury suites."
+        "text": "It's called bilateral gynandromorphism."
       },
       {
-        "text": "The 1975 Avenue & Hotel in Johor Bahru has 18 suites."
+        "text": "Super rare."
       },
       {
-        "text": "Each one is themed after a different country."
+        "text": "Luke Dahlberg spotted it at the Hill 'N Dale Preserve."
       },
       {
-        "text": "Guests get pools, dining, and spa facilities."
+        "text": "Ornithologists confirmed it was a bobolink."
       },
       {
-        "text": "It's a unique way to experience travel."
+        "text": "They named it Black and Tan."
       },
       {
-        "text": "Plus, it's a great example of sustainable tourism."
+        "text": "It behaved like a male, even raised fledglings."
       },
       {
-        "text": "Would you stay in a hotel inside a Boeing 747?"
+        "text": "This discovery shows nature's beauty and complexity."
+      },
+      {
+        "text": "It also shows why we need to protect habitats."
+      },
+      {
+        "text": "What do you think about this rare bird sighting?"
       }
     ],
     "shots": [
       {
         "line": 0,
-        "keywords": [
-          "clouds"
-        ],
-        "key": "videos/clouds.jpg",
-        "image": "clouds",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": true,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-22/cover.jpg",
-        "fallbackThumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clouds.jpg"
-      },
-      {
-        "line": 1,
-        "keywords": [
-          "city"
-        ],
-        "key": "videos/city.jpg",
-        "image": "city",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 1,
-        "keywords": [
-          "city"
-        ],
-        "key": "videos/allotment.jpg",
-        "image": "allotment",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 2,
         "keywords": [
           "aid",
           "allotment",
@@ -140,14 +135,14 @@
         ],
         "key": "videos/aid.jpg",
         "image": "aid",
-        "motion": "pan-right",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 2,
+        "line": 1,
         "keywords": [
           "aid",
           "allotment",
@@ -163,59 +158,7 @@
         "fallbackThumb": null
       },
       {
-        "line": 3,
-        "keywords": [
-          "city"
-        ],
-        "key": "videos/garden.jpg",
-        "image": "garden",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/garden.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "city"
-        ],
-        "key": "videos/skyline.jpg",
-        "image": "skyline",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "globe"
-        ],
-        "key": "videos/globe.jpg",
-        "image": "globe",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 4,
-        "keywords": [
-          "globe"
-        ],
-        "key": "videos/sunbeam.jpg",
-        "image": "sunbeam",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 5,
+        "line": 1,
         "keywords": [
           "aid",
           "allotment",
@@ -231,6 +174,99 @@
         "fallbackThumb": null
       },
       {
+        "line": 2,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/allotment.jpg",
+        "image": "allotment",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/harbour.jpg",
+        "image": "harbour",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/harbour.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "forest"
+        ],
+        "key": "videos/forest.jpg",
+        "image": "forest",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/cheering.jpg",
+        "image": "cheering",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cheering.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/park.jpg",
+        "image": "park",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/park.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/tears.jpg",
+        "image": "tears",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/tears.jpg",
+        "fallbackThumb": null
+      },
+      {
         "line": 6,
         "keywords": [
           "aid",
@@ -238,64 +274,115 @@
           "ambulance",
           "applause"
         ],
-        "key": "videos/robot.jpg",
-        "image": "robot",
-        "motion": "push-in",
+        "key": "videos/writing.jpg",
+        "image": "writing",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/teamwork.jpg",
+        "image": "teamwork",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teamwork.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "nest"
+        ],
+        "key": "videos/nest.jpg",
+        "image": "nest",
+        "motion": "pan-down",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nest.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "wildflowers"
+        ],
+        "key": "videos/wildflowers.jpg",
+        "image": "wildflowers",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wildflowers.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/relief.jpg",
+        "image": "relief",
+        "motion": "pan-right",
         "transition": "dissolve",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/robot.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/relief.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 7,
+        "line": 9,
         "keywords": [
           "forest"
         ],
-        "key": "videos/forest.jpg",
-        "image": "forest",
-        "motion": "pull-out",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "forest"
-        ],
-        "key": "videos/rain.jpg",
-        "image": "rain",
-        "motion": "pull-out",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rain.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "clouds"
-        ],
-        "key": "videos/roots.jpg",
-        "image": "roots",
+        "key": "videos/canopy.jpg",
+        "image": "canopy",
         "motion": "pan-up",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/roots.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/canopy.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 8,
+        "line": 9,
         "keywords": [
-          "clouds"
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
         ],
-        "key": "videos/drought.jpg",
-        "image": "drought",
-        "motion": "pan-up",
+        "key": "videos/wreath.jpg",
+        "image": "wreath",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/drought.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wreath.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 10,
+        "keywords": [
+          "aid",
+          "allotment",
+          "ambulance",
+          "applause"
+        ],
+        "key": "videos/prosthetic.jpg",
+        "image": "prosthetic",
+        "motion": "push-in",
+        "transition": "zoom-punch",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/prosthetic.jpg",
         "fallbackThumb": null
       }
     ],
