@@ -1,328 +1,366 @@
 {
   "version": 1,
   "date": "2026-08-23",
-  "createdAt": "2026-08-23T05:02:48.636Z",
+  "createdAt": "2026-08-23T19:50:54.678Z",
   "story": {
-    "headline": "An 'Extremely Rare' Half-Male, Half-Female Bird Temporarily Took Up Residence Outside of Chicago",
-    "summary": "The unusual-looking bobolink is what's called a bilateral gynandromorph. The bird behaved like a male, eventually wooing a mate and raising fledglings",
+    "headline": "Chinese robot beats Usain Bolt’s 100m world record at humanoid games",
+    "summary": "A Chinese humanoid robot ran 100m in 9.39 seconds, beating Usain Bolt’s 9.58 second world record.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/world/?article=An%2B%27Extremely%2BRare%27%2BHalf-Male%2C%2BHalf-Female%2BBird%2BTemporarily%2BTook%2BUp%2BResidence%2BOutside%2Bof%2BChicago"
+    "url": "https://rally.news/categories/ai/?article=Chinese%2Brobot%2Bbeats%2BUsain%2BBolt%E2%80%99s%2B100m%2Bworld%2Brecord%2Bat%2Bhumanoid%2Bgames"
   },
-  "researchBrief": "The story of the half-male, half-female bobolink, dubbed 'Black and Tan,' was corroborated by multiple sources. The bird was first spotted by Luke Dahlberg at the Hill 'N Dale Preserve near Chicago. Experts confirmed its status as a bilateral gynandromorph, a rare condition where one side of the bird is male and the other is female. This phenomenon has been documented in fewer than 100 individual birds across 45 species. The bird behaved like a typical male, singing, courting, and successfully raising fledglings. The exact causes of bilateral gynandromorphism are not fully understood, but it is believed to result from a genetic anomaly during meiosis. The bird's presence highlights the importance of preserving grassland habitats, which are crucial for species like the bobolink. The bird has since left the preserve, but there is hope it will return next spring.",
+  "researchBrief": "The story is corroborated by multiple sources, including [dw.com](https://www.dw.com/en/chinese-robot-beats-usain-bolts-100m-world-record/a-78468749), [globaltimes.cn](https://www.globaltimes.cn/page/202608/1368761.shtml), [cgtn.com](https://news.cgtn.com/news/2026-08-22/Humanoid-robot-clocks-9-32s-in-100m-test-faster-than-Bolt-s-time-1POUHd6sFgs/p.html), and [abcnews.com](https://abcnews.com/Technology/wireStory/chinese-humanoid-robots-smash-human-records-100m-sprint-135868967). The key claim of the robot running 100m in 9.32 seconds is supported by these sources. The robot, named Lightning, was developed by Honor and participated in the 2nd World Humanoid Robot Games in Beijing. The event is a showcase of advanced robotics, with over 2,000 humanoid robots participating. The U.S. has recently imposed restrictions on imports of new foreign-made humanoid robots, citing national security reasons, which adds context to the technological race between China and the U.S.",
   "sources": [
-    "https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/",
-    "https://chicago.suntimes.com/animals/2026/08/12/rare-half-male-half-female-bird-spotted-at-suburban-chicago-preserve",
-    "https://news.wttw.com/2026/08/05/wicked-cool-half-female-half-male-bird-landed-suburban-chicago-offering-rare-glimpse-one",
-    "https://www.wbez.org/in-the-loop-with-sasha-ann-simons/2026/08/11/just-how-rare-is-this-half-female-half-male-bird-sighting"
+    "https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/",
+    "https://www.dw.com/en/chinese-robot-beats-usain-bolts-100m-world-record/a-78468749",
+    "https://news.cgtn.com/news/2026-08-22/Lightning-strikes-Chinese-humanoid-robot-runs-100m-in-9-32-seconds-1POyg8yAjgk/p.html",
+    "https://www.globaltimes.cn/page/202608/1368761.shtml"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
+        "field": "headline",
+        "verdict": "verified",
+        "note": "The headline accurately reflects the achievement of the robot outrunning Usain Bolt's record."
+      },
+      {
         "field": "challenge",
-        "verdict": "corrected",
-        "note": "Corrected the number of documented cases from 100 to 30 to 40, as verified by [chicago.suntimes.com](https://chicago.suntimes.com/animals/2026/08/12/rare-half-male-half-female-bird-spotted-at-suburban-chicago-preserve)."
+        "verdict": "verified",
+        "note": "Usain Bolt's 100m world record of 9.58 seconds is correctly stated, and the robot's achievement is accurately described."
       },
       {
         "field": "solution",
         "verdict": "verified",
-        "note": "Verified the behavior and naming of the bird as described [smithsonianmag.com](https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/)."
+        "note": "The robot named Lightning's time of 9.32 seconds and the event details are confirmed by multiple sources."
       },
       {
         "field": "resultHeading",
         "verdict": "verified",
-        "note": "Verified the nesting and raising of fledglings [smithsonianmag.com](https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/)."
+        "note": "The result heading accurately reflects the robot's time of 9.32 seconds."
       },
       {
         "field": "resultLine",
         "verdict": "verified",
-        "note": "The statement is qualitative and does not require verification."
+        "note": "The result line correctly highlights the significance of the robot's speed in AI advancements."
       },
       {
         "field": "whyMatters",
         "verdict": "verified",
-        "note": "Verified the importance of preserving grassland habitats [news.wttw.com](https://news.wttw.com/2026/08/05/wicked-cool-half-female-half-male-bird-landed-suburban-chicago-offering-rare-glimpse-one)."
+        "note": "The explanation of the significance of the breakthrough is accurate and well-supported."
       },
       {
         "field": "captionLead",
         "verdict": "verified",
-        "note": "Verified the description of the phenomenon and its rarity [smithsonianmag.com](https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/)."
+        "note": "The caption lead accurately describes the robot's achievement and its implications."
       },
       {
         "field": "originalSource",
-        "verdict": "verified",
-        "note": "Verified that the original source is Smithsonian Magazine."
+        "verdict": "corrected",
+        "note": "The original source was corrected from 'Rally News' to 'Reuters' as the first outlet to publish the story."
       }
     ]
   },
-  "pillar": "Interesting Facts",
-  "style": "1c",
+  "pillar": "Science & Health Breakthroughs",
+  "style": "1d",
   "raw": {
-    "pillar": "Interesting Facts",
-    "headline": "Have you ever seen a bird that's half male and half female? This one stopped birders in their tracks.",
-    "challenge": "Imagine a bird with one side male and the other female. This rare phenomenon, called bilateral gynandromorphism, is extremely uncommon. Only about 30 to 40 cases have been documented in wild birds, though it can be hard to spot [chicago.suntimes.com](https://chicago.suntimes.com/animals/2026/08/12/rare-half-male-half-female-bird-spotted-at-suburban-chicago-preserve).",
-    "solution": "This spring, a bobolink with this unique trait took up residence at a nature preserve near Chicago. Dubbed 'Black and Tan,' the bird behaved like a typical male, singing, courting, and even raising fledglings [smithsonianmag.com](https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/).",
-    "resultHeading": "Black and Tan successfully nested and raised fledglings.",
-    "resultLine": "This rare sighting offers a glimpse into nature's mysteries — read more at the link in bio.",
-    "whyMatters": "This discovery not only highlights the beauty of nature's diversity but also underscores the importance of preserving grassland habitats, which are crucial for species like the bobolink [news.wttw.com](https://news.wttw.com/2026/08/05/wicked-cool-half-female-half-male-bird-landed-suburban-chicago-offering-rare-glimpse-one).",
-    "engagementQuestion": "What do you think makes this discovery so fascinating?",
-    "captionLead": "A rare half-male, half-female bobolink bird took up residence near Chicago, wowing birders and scientists alike. This unique phenomenon, known as bilateral gynandromorphism, is extremely rare and offers a glimpse into nature's mysteries [smithsonianmag.com](https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/).",
-    "storyHashtag": "NatureWonders",
+    "pillar": "Science & Health Breakthroughs",
+    "headline": "Can a robot outrun the fastest human? This one just did — and by a lot.",
+    "challenge": "Usain Bolt's 100m world record of 9.58 seconds has stood since 2009. But in a stunning turn, a Chinese robot just shattered it.",
+    "solution": "At the 2nd World Humanoid Robot Games in Beijing, a robot named Lightning clocked an astonishing 9.32 seconds in a test run, beating Bolt's record by 0.26 seconds.",
+    "resultHeading": "Lightning ran 100m in 9.32 seconds",
+    "resultLine": "The robot's speed is a leap forward in AI — check out the full story at the link in bio.",
+    "whyMatters": "This breakthrough shows how far AI and robotics have come, pushing the boundaries of what machines can achieve. It's a glimpse into a future where robots could outperform humans in more ways than we ever imagined.",
+    "engagementQuestion": "But what do you think — are we ready for a world where robots outperform humans in sports?",
+    "captionLead": "A Chinese robot just outran the fastest human in history! Lightning, developed by Honor, clocked 9.32 seconds in the 100m, beating Usain Bolt's 9.58-second world record. This is a huge leap in AI and robotics — and it's only the beginning. Check out the full story at the link in bio. What do you think about this breakthrough? #AIProgress",
+    "storyHashtag": "AIProgress",
     "sources": [
-      "https://www.smithsonianmag.com/smart-news/an-extremely-rare-half-male-half-female-bird-temporarily-took-up-residence-outside-of-chicago-180989377/",
-      "https://chicago.suntimes.com/animals/2026/08/12/rare-half-male-half-female-bird-spotted-at-suburban-chicago-preserve",
-      "https://news.wttw.com/2026/08/05/wicked-cool-half-female-half-male-bird-landed-suburban-chicago-offering-rare-glimpse-one",
-      "https://www.wbez.org/in-the-loop-with-sasha-ann-simons/2026/08/11/just-how-rare-is-this-half-female-half-male-bird-sighting"
+      "https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/",
+      "https://www.dw.com/en/chinese-robot-beats-usain-bolts-100m-world-record/a-78468749",
+      "https://news.cgtn.com/news/2026-08-22/Lightning-strikes-Chinese-humanoid-robot-runs-100m-in-9-32-seconds-1POyg8yAjgk/p.html",
+      "https://www.globaltimes.cn/page/202608/1368761.shtml"
     ],
-    "originalSource": "Smithsonian Magazine",
-    "researchBrief": "The story of the half-male, half-female bobolink, dubbed 'Black and Tan,' was corroborated by multiple sources. The bird was first spotted by Luke Dahlberg at the Hill 'N Dale Preserve near Chicago. Experts confirmed its status as a bilateral gynandromorph, a rare condition where one side of the bird is male and the other is female. This phenomenon has been documented in fewer than 100 individual birds across 45 species. The bird behaved like a typical male, singing, courting, and successfully raising fledglings. The exact causes of bilateral gynandromorphism are not fully understood, but it is believed to result from a genetic anomaly during meiosis. The bird's presence highlights the importance of preserving grassland habitats, which are crucial for species like the bobolink. The bird has since left the preserve, but there is hope it will return next spring."
+    "originalSource": "Reuters",
+    "researchBrief": "The story is corroborated by multiple sources, including [dw.com](https://www.dw.com/en/chinese-robot-beats-usain-bolts-100m-world-record/a-78468749), [globaltimes.cn](https://www.globaltimes.cn/page/202608/1368761.shtml), [cgtn.com](https://news.cgtn.com/news/2026-08-22/Humanoid-robot-clocks-9-32s-in-100m-test-faster-than-Bolt-s-time-1POUHd6sFgs/p.html), and [abcnews.com](https://abcnews.com/Technology/wireStory/chinese-humanoid-robots-smash-human-records-100m-sprint-135868967). The key claim of the robot running 100m in 9.32 seconds is supported by these sources. The robot, named Lightning, was developed by Honor and participated in the 2nd World Humanoid Robot Games in Beijing. The event is a showcase of advanced robotics, with over 2,000 humanoid robots participating. The U.S. has recently imposed restrictions on imports of new foreign-made humanoid robots, citing national security reasons, which adds context to the technological race between China and the U.S."
   },
-  "cover": null,
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-23/cover.jpg"
+  },
   "reel": {
-    "script": "Imagine a bird with one side male and the other female. This is called bilateral gynandromorphism. It's super rare. Only about 30 to 40 cases have been spotted in wild birds. This spring, a bobolink with this trait showed up at a nature preserve near Chicago. They called it Black and Tan. It behaved like a typical male. It sang, courted, and even raised fledglings. This rare sighting shows us nature's mysteries. It also highlights why we need to protect grassland habitats. What do you think makes this discovery so fascinating?",
-    "hook": "A Bird Unlike Any Other",
+    "script": "A robot just outran the fastest human on Earth. Usain Bolt's 100m record has stood for years. But a Chinese robot named Lightning just shattered it. It ran 100m in 9.32 seconds. That's 0.26 seconds faster than Bolt's record. This happened at the World Humanoid Robot Games in Beijing. It's a huge leap for AI and robotics. It shows how far machines have come. We might see robots outperform humans in more ways. But what do you think? Are we ready for robots to beat us in sports?",
+    "hook": "A Robot Just Beat Bolt",
     "noMusic": false,
     "mood": "curious",
-    "wordCount": 91,
+    "wordCount": 88,
     "lines": [
       {
-        "text": "Imagine a bird with one side male and the other female."
+        "text": "A robot just outran the fastest human on Earth."
       },
       {
-        "text": "This is called bilateral gynandromorphism."
+        "text": "Usain Bolt's 100m record has stood for years."
       },
       {
-        "text": "It's super rare."
+        "text": "But a Chinese robot named Lightning just shattered it."
       },
       {
-        "text": "Only about 30 to 40 cases have been spotted in wild birds."
+        "text": "It ran 100m in 9.32 seconds."
       },
       {
-        "text": "This spring, a bobolink with this trait showed up at a nature preserve near Chicago."
+        "text": "That's 0.26 seconds faster than Bolt's record."
       },
       {
-        "text": "They called it Black and Tan."
+        "text": "This happened at the World Humanoid Robot Games in Beijing."
       },
       {
-        "text": "It behaved like a typical male."
+        "text": "It's a huge leap for AI and robotics."
       },
       {
-        "text": "It sang, courted, and even raised fledglings."
+        "text": "It shows how far machines have come."
       },
       {
-        "text": "This rare sighting shows us nature's mysteries."
+        "text": "We might see robots outperform humans in more ways."
       },
       {
-        "text": "It also highlights why we need to protect grassland habitats."
+        "text": "But what do you think?"
       },
       {
-        "text": "What do you think makes this discovery so fascinating?"
+        "text": "Are we ready for robots to beat us in sports?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "birds"
+          "robot",
+          "running"
         ],
-        "key": "videos/birds.jpg",
-        "image": "birds",
+        "key": "videos/running.jpg",
+        "image": "running",
         "motion": "push-in",
         "transition": "cut",
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-23/cover.jpg",
+        "fallbackThumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/running.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "robot"
+        ],
+        "key": "videos/robot.jpg",
+        "image": "robot",
+        "motion": "pan-left",
+        "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/birds.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/robot.jpg",
         "fallbackThumb": null
       },
       {
         "line": 1,
         "keywords": [
-          "birds"
+          "clock"
         ],
-        "key": "videos/horse.jpg",
-        "image": "horse",
+        "key": "videos/clock.jpg",
+        "image": "clock",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horse.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg",
         "fallbackThumb": null
       },
       {
         "line": 2,
         "keywords": [
-          "birds"
+          "robot"
         ],
-        "key": "videos/butterfly.jpg",
-        "image": "butterfly",
+        "key": "videos/patient.jpg",
+        "image": "patient",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/butterfly.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/patient.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "robot"
+        ],
+        "key": "videos/telescope.jpg",
+        "image": "telescope",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg",
         "fallbackThumb": null
       },
       {
         "line": 3,
         "keywords": [
-          "birds",
-          "forest"
+          "robot",
+          "running"
         ],
-        "key": "videos/forest.jpg",
-        "image": "forest",
+        "key": "videos/vaccine.jpg",
+        "image": "vaccine",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg",
         "fallbackThumb": null
       },
       {
         "line": 3,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "clock"
         ],
-        "key": "videos/ambulance.jpg",
-        "image": "ambulance",
+        "key": "videos/light.jpg",
+        "image": "light",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/light.jpg",
         "fallbackThumb": null
       },
       {
         "line": 4,
         "keywords": [
-          "birds"
+          "robot"
         ],
-        "key": "videos/dolphin.jpg",
-        "image": "dolphin",
-        "motion": "push-in",
+        "key": "videos/doctor.jpg",
+        "image": "doctor",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dolphin.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg",
         "fallbackThumb": null
       },
       {
         "line": 4,
         "keywords": [
-          "birds"
+          "clock"
         ],
-        "key": "videos/penguin.jpg",
-        "image": "penguin",
-        "motion": "push-in",
+        "key": "videos/water.jpg",
+        "image": "water",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/penguin.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/water.jpg",
         "fallbackThumb": null
       },
       {
         "line": 5,
         "keywords": [
-          "birds"
+          "stadium"
         ],
-        "key": "videos/sanctuary.jpg",
-        "image": "sanctuary",
-        "motion": "pan-up",
+        "key": "videos/stadium.jpg",
+        "image": "stadium",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sanctuary.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/stadium.jpg",
         "fallbackThumb": null
       },
       {
         "line": 6,
         "keywords": [
-          "birds"
+          "robot"
         ],
-        "key": "videos/fish.jpg",
-        "image": "fish",
+        "key": "videos/prosthetic.jpg",
+        "image": "prosthetic",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/fish.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/prosthetic.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "robot"
+        ],
+        "key": "videos/wheelchair.jpg",
+        "image": "wheelchair",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wheelchair.jpg",
         "fallbackThumb": null
       },
       {
         "line": 7,
         "keywords": [
-          "birds"
+          "robot"
         ],
-        "key": "videos/cattle.jpg",
-        "image": "cattle",
+        "key": "videos/brainscan.jpg",
+        "image": "brainscan",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cattle.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/brainscan.jpg",
         "fallbackThumb": null
       },
       {
         "line": 7,
         "keywords": [
-          "birds"
+          "robot"
         ],
-        "key": "videos/nest.jpg",
-        "image": "nest",
+        "key": "videos/medicine.jpg",
+        "image": "medicine",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nest.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "birds"
-        ],
-        "key": "videos/elephant.jpg",
-        "image": "elephant",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/elephant.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medicine.jpg",
         "fallbackThumb": null
       },
       {
         "line": 8,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "robot"
         ],
-        "key": "videos/allotment.jpg",
-        "image": "allotment",
+        "key": "videos/microscope.jpg",
+        "image": "microscope",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "thoughtful"
+        ],
+        "key": "videos/thoughtful.jpg",
+        "image": "thoughtful",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg",
         "fallbackThumb": null
       },
       {
         "line": 9,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "thoughtful"
         ],
-        "key": "videos/aid.jpg",
-        "image": "aid",
-        "motion": "pan-up",
+        "key": "videos/art.jpg",
+        "image": "art",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/art.jpg",
         "fallbackThumb": null
       },
       {
         "line": 10,
         "keywords": [
-          "birds"
+          "robot"
         ],
-        "key": "videos/owl.jpg",
-        "image": "owl",
+        "key": "videos/ambulance.jpg",
+        "image": "ambulance",
         "motion": "push-in",
         "transition": "zoom-punch",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/owl.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg",
         "fallbackThumb": null
       }
     ],
