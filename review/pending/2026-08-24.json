@@ -1,101 +1,104 @@
 {
   "version": 1,
   "date": "2026-08-24",
-  "createdAt": "2026-08-24T05:02:14.824Z",
+  "createdAt": "2026-08-24T22:40:47.048Z",
   "story": {
-    "headline": "Chinese robot beats Usain Bolt’s 100m world record at humanoid games",
-    "summary": "A Chinese humanoid robot ran 100m in 9.39 seconds, beating Usain Bolt’s 9.58 second world record.",
+    "headline": "Human 100 m sprint and high-jump records beaten at Beijing’s robot games",
+    "summary": "World Humanoid Robot Games showcase China’s progress in advanced robotics as technology race with U.S. heats up",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/ai/?article=Chinese%2Brobot%2Bbeats%2BUsain%2BBolt%E2%80%99s%2B100m%2Bworld%2Brecord%2Bat%2Bhumanoid%2Bgames"
+    "url": "https://rally.news/categories/ai/?article=Human%2B100%2Bm%2Bsprint%2Band%2Bhigh-jump%2Brecords%2Bbeaten%2Bat%2BBeijing%E2%80%99s%2Brobot%2Bgames"
   },
-  "researchBrief": "The story of a Chinese humanoid robot beating Usain Bolt's 100m world record at the World Humanoid Robot Games in Beijing is corroborated by multiple sources. Tiangong Ultra, developed by the Beijing Humanoid Robot Innovation Center, ran 100m in 9.39 seconds, surpassing Bolt's 9.58-second record. Another robot, Lightning, also finished in 9.47 seconds. This achievement marks a significant improvement from last year's games, where Tiangong Ultra won the 100m in 21.50 seconds. The event, held at Beijing's National Speed Skating Oval, featured over 2,000 robots from 666 teams across 16 countries. China views humanoid robots as a strategic industry, with companies like Unitree making significant strides. The U.S. has recently imposed restrictions on imports of foreign-made humanoid robots, citing national security concerns. The story highlights the rapid progress in advanced robotics and the potential future applications of these technologies.",
+  "researchBrief": "The story was corroborated across multiple sources, including [theglobeandmail.com](https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/), [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2), [reuters.com](https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/), and [cbsnews.com](https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/). The key claims, such as the 9.39-second sprint time and the 2.88-meter high jump, were verified across these sources. The robots involved, Tiangong Ultra and another from Beijing-based X-Humanoid, were also mentioned in multiple reports. The context of the technology race between China and the U.S. was also consistent across sources. No specific claims were softened or left unverified.",
   "sources": [
     "https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2",
+    "https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/",
     "https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/",
-    "https://www.usatoday.com/story/tech/2026/08/22/robot-beats-usain-bolt-100m-record/91424800007/"
+    "https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
-        "field": "originalSource",
-        "verdict": "corrected",
-        "note": "Corrected from 'Rally News' to 'AP News', the original source of the story."
-      },
-      {
         "field": "solution",
         "verdict": "corrected",
-        "note": "Clarified that another robot, Lightning, finished in 9.47 seconds."
+        "note": "Added the year Usain Bolt set the record (2009) to confirm the claim."
+      },
+      {
+        "field": "captionLead",
+        "verdict": "corrected",
+        "note": "Added the year Usain Bolt set the record (2009) to confirm the claim."
       }
     ]
   },
   "pillar": "Science & Health Breakthroughs",
-  "style": "1b",
+  "style": "1c",
   "raw": {
     "pillar": "Science & Health Breakthroughs",
-    "headline": "Can a robot really outrun Usain Bolt? The World Humanoid Robot Games just dropped a jaw-dropping result.",
-    "challenge": "Usain Bolt's 100m world record of 9.58 seconds has stood since 2009. But can a robot beat it? The stakes were high at the World Humanoid Robot Games in Beijing.",
-    "solution": "A Chinese humanoid robot named Tiangong Ultra not only matched the challenge but shattered the record, running 100m in an astonishing 9.39 seconds. Another robot, Lightning, also beat Bolt's time, clocking in at 9.47 seconds!",
-    "resultHeading": "Tiangong Ultra ran 100m in 9.39 seconds",
-    "resultLine": "A stunning achievement—check out the full story at the link in my bio!",
-    "whyMatters": "This breakthrough isn't just about speed. It's a glimpse into the future of robotics, where machines could soon outperform humans in ways we never imagined. From manufacturing to logistics, the possibilities are endless.",
-    "engagementQuestion": "But what do you think—are we ready for a world where robots outperform humans in everything?",
-    "captionLead": "A Chinese robot just did the impossible—beating Usain Bolt’s 100m world record! Tiangong Ultra ran 100m in 9.39 seconds at the World Humanoid Robot Games in Beijing. This is a game-changer!",
+    "headline": "Can robots outrun humans? China’s latest tech just made history at the robot games.",
+    "challenge": "For decades, human athletes have set the bar for speed and agility. But at the World Humanoid Robot Games in Beijing, robots are rewriting the record books.",
+    "solution": "Two Chinese humanoid robots shattered world records in the 100-meter sprint and high jump, surpassing legendary human athletes. The sprinting robot clocked an astonishing 9.39 seconds, beating Usain Bolt’s 9.58-second record set in 2009 [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2).",
+    "resultHeading": "Robots break human records in sprint and high jump",
+    "resultLine": "The advancements in robotics are accelerating — check out the full story at the link in my bio.",
+    "whyMatters": "This milestone highlights the rapid progress in robotics and the growing competition between China and the U.S. in advanced technology. It also opens up new possibilities for robotics in everyday life and research.",
+    "engagementQuestion": "Do you think robots will eventually outperform humans in all physical competitions?",
+    "captionLead": "Robots just made history at the World Humanoid Robot Games in Beijing! Two Chinese humanoid robots shattered world records in the 100-meter sprint and high jump. The sprinting robot clocked an astonishing 9.39 seconds, beating Usain Bolt’s 9.58-second record set in 2009 [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2). The high-jumping robot reached 2.88 meters, surpassing the 2.45 meters set by Cuba's Javier Sotomayor in 1993 [theglobeandmail.com](https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/). This milestone highlights the rapid progress in robotics and the growing competition between China and the U.S. in advanced technology. It also opens up new possibilities for robotics in everyday life and research. Do you think robots will eventually outperform humans in all physical competitions?",
     "storyHashtag": "RoboticsBreakthrough",
     "sources": [
       "https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2",
+      "https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/",
       "https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/",
-      "https://www.usatoday.com/story/tech/2026/08/22/robot-beats-usain-bolt-100m-record/91424800007/"
+      "https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/"
     ],
     "originalSource": "AP News",
-    "researchBrief": "The story of a Chinese humanoid robot beating Usain Bolt's 100m world record at the World Humanoid Robot Games in Beijing is corroborated by multiple sources. Tiangong Ultra, developed by the Beijing Humanoid Robot Innovation Center, ran 100m in 9.39 seconds, surpassing Bolt's 9.58-second record. Another robot, Lightning, also finished in 9.47 seconds. This achievement marks a significant improvement from last year's games, where Tiangong Ultra won the 100m in 21.50 seconds. The event, held at Beijing's National Speed Skating Oval, featured over 2,000 robots from 666 teams across 16 countries. China views humanoid robots as a strategic industry, with companies like Unitree making significant strides. The U.S. has recently imposed restrictions on imports of foreign-made humanoid robots, citing national security concerns. The story highlights the rapid progress in advanced robotics and the potential future applications of these technologies."
+    "researchBrief": "The story was corroborated across multiple sources, including [theglobeandmail.com](https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/), [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2), [reuters.com](https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/), and [cbsnews.com](https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/). The key claims, such as the 9.39-second sprint time and the 2.88-meter high jump, were verified across these sources. The robots involved, Tiangong Ultra and another from Beijing-based X-Humanoid, were also mentioned in multiple reports. The context of the technology race between China and the U.S. was also consistent across sources. No specific claims were softened or left unverified."
   },
   "cover": {
     "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-24/cover.jpg"
   },
   "reel": {
-    "script": "A robot just outran Usain Bolt. Tiangong Ultra, a Chinese humanoid, ran 100m in 9.39 seconds. That's faster than Bolt's 9.58 record. Another robot, Lightning, also beat Bolt. This isn't just about speed. It's a peek into the future of robotics. Machines could soon outperform us in ways we can't imagine. From factories to logistics, the possibilities are endless. But what do you think? Are we ready for a world where robots outperform humans in everything?",
-    "hook": "A Robot Just Outran Usain Bolt",
+    "script": "China's robots just did something insane. They beat human records in the 100-meter sprint and high jump. Two Chinese robots shattered world records at the World Humanoid Robot Games in Beijing. One sprinted 100 meters in 9.39 seconds, beating Usain Bolt's 9.58-second record. The other aced the high jump. Robots are now outpacing humans in speed and agility. This shows how fast robotics is advancing. It also highlights the tech race between China and the U.S. Who knows what robots will do next? Do you think robots will eventually outperform humans in all physical competitions?",
+    "hook": "Robots Beat Human Records",
     "noMusic": false,
     "mood": "curious",
-    "wordCount": 76,
+    "wordCount": 95,
     "lines": [
       {
-        "text": "A robot just outran Usain Bolt."
+        "text": "China's robots just did something insane."
       },
       {
-        "text": "Tiangong Ultra, a Chinese humanoid, ran 100m in 9.39 seconds."
+        "text": "They beat human records in the 100-meter sprint and high jump."
       },
       {
-        "text": "That's faster than Bolt's 9.58 record."
+        "text": "Two Chinese robots shattered world records at the World Humanoid Robot Games in Beijing."
       },
       {
-        "text": "Another robot, Lightning, also beat Bolt."
+        "text": "One sprinted 100 meters in 9.39 seconds, beating Usain Bolt's 9.58-second record."
       },
       {
-        "text": "This isn't just about speed."
+        "text": "The other aced the high jump."
       },
       {
-        "text": "It's a peek into the future of robotics."
+        "text": "Robots are now outpacing humans in speed and agility."
       },
       {
-        "text": "Machines could soon outperform us in ways we can't imagine."
+        "text": "This shows how fast robotics is advancing."
       },
       {
-        "text": "From factories to logistics, the possibilities are endless."
+        "text": "It also highlights the tech race between China and the U.S."
       },
       {
-        "text": "But what do you think?"
+        "text": "Who knows what robots will do next?"
       },
       {
-        "text": "Are we ready for a world where robots outperform humans in everything?"
+        "text": "Do you think robots will eventually outperform humans in all physical competitions?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "robot"
+          "robot",
+          "running"
         ],
         "key": "videos/robot.jpg",
         "image": "robot",
@@ -107,6 +110,61 @@
       },
       {
         "line": 1,
+        "keywords": [
+          "robot"
+        ],
+        "key": "videos/laboratory.jpg",
+        "image": "laboratory",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "finishline",
+          "applause"
+        ],
+        "key": "videos/applause.jpg",
+        "image": "applause",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "robot",
+          "stadium"
+        ],
+        "key": "videos/stadium.jpg",
+        "image": "stadium",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/stadium.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "crowd",
+          "celebration"
+        ],
+        "key": "videos/celebration.jpg",
+        "image": "celebration",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 3,
         "keywords": [
           "robot",
           "running"
@@ -120,22 +178,24 @@
         "fallbackThumb": null
       },
       {
-        "line": 1,
+        "line": 3,
         "keywords": [
+          "clock",
           "finishline"
         ],
-        "key": "videos/finishline.jpg",
-        "image": "finishline",
-        "motion": "pan-up",
+        "key": "videos/clock.jpg",
+        "image": "clock",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/finishline.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 2,
+        "line": 3,
         "keywords": [
-          "trophy"
+          "trophy",
+          "medal"
         ],
         "key": "videos/trophy.jpg",
         "image": "trophy",
@@ -146,139 +206,48 @@
         "fallbackThumb": null
       },
       {
-        "line": 3,
-        "keywords": [
-          "robot"
-        ],
-        "key": "videos/surgery.jpg",
-        "image": "surgery",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/surgery.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "victory"
-        ],
-        "key": "videos/victory.jpg",
-        "image": "victory",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/victory.jpg",
-        "fallbackThumb": null
-      },
-      {
         "line": 4,
         "keywords": [
           "robot"
         ],
         "key": "videos/nurse.jpg",
         "image": "nurse",
-        "motion": "push-in",
+        "motion": "pan-up",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 5,
+        "line": 4,
         "keywords": [
-          "laboratory"
+          "victory",
+          "celebration"
         ],
-        "key": "videos/laboratory.jpg",
-        "image": "laboratory",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "scientist",
-          "research"
-        ],
-        "key": "videos/research.jpg",
-        "image": "research",
+        "key": "videos/victory.jpg",
+        "image": "victory",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/victory.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 6,
+        "line": 5,
         "keywords": [
-          "factory"
+          "robot",
+          "running"
         ],
-        "key": "videos/factory.jpg",
-        "image": "factory",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "railway"
-        ],
-        "key": "videos/railway.jpg",
-        "image": "railway",
+        "key": "videos/music.jpg",
+        "image": "music",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/railway.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/music.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 7,
-        "keywords": [
-          "thoughtful",
-          "notebook"
-        ],
-        "key": "videos/notebook.jpg",
-        "image": "notebook",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "crowd"
-        ],
-        "key": "videos/crowd.jpg",
-        "image": "crowd",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/crowd.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "robot"
-        ],
-        "key": "videos/syringe.jpg",
-        "image": "syringe",
-        "motion": "pan-right",
-        "transition": "dissolve",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 9,
+        "line": 5,
         "keywords": [
           "robot"
         ],
@@ -291,16 +260,129 @@
         "fallbackThumb": null
       },
       {
-        "line": 9,
+        "line": 6,
         "keywords": [
-          "robot"
+          "robot",
+          "circuit"
         ],
-        "key": "videos/doctor.jpg",
-        "image": "doctor",
+        "key": "videos/circuit.jpg",
+        "image": "circuit",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/circuit.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "scientist",
+          "laboratory"
+        ],
+        "key": "videos/scientist.jpg",
+        "image": "scientist",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/scientist.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "robot",
+          "factory"
+        ],
+        "key": "videos/factory.jpg",
+        "image": "factory",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "city",
+          "skyline"
+        ],
+        "key": "videos/city.jpg",
+        "image": "city",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "robot",
+          "space"
+        ],
+        "key": "videos/space.jpg",
+        "image": "space",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "telescope",
+          "horizon"
+        ],
+        "key": "videos/telescope.jpg",
+        "image": "telescope",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "robot",
+          "football"
+        ],
+        "key": "videos/football.jpg",
+        "image": "football",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/football.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "team",
+          "training"
+        ],
+        "key": "videos/training.jpg",
+        "image": "training",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/training.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "thoughtful",
+          "portrait"
+        ],
+        "key": "videos/portrait.jpg",
+        "image": "portrait",
+        "motion": "push-in",
+        "transition": "flash",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg",
         "fallbackThumb": null
       }
     ],
