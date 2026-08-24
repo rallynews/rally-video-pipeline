@@ -1,378 +1,351 @@
 {
   "version": 1,
   "date": "2026-08-24",
-  "createdAt": "2026-08-24T22:40:47.048Z",
+  "createdAt": "2026-08-24T23:01:42.680Z",
   "story": {
-    "headline": "Human 100 m sprint and high-jump records beaten at Beijing’s robot games",
-    "summary": "World Humanoid Robot Games showcase China’s progress in advanced robotics as technology race with U.S. heats up",
+    "headline": "‘Nature makes every colour in the world’: Meet the company brewing an end to toxic chemical dyes",
+    "summary": "The fashion industry's toxic petrochemical dyes often end up in oceans. Could colours be 'brewed' from nature instead?",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/ai/?article=Human%2B100%2Bm%2Bsprint%2Band%2Bhigh-jump%2Brecords%2Bbeaten%2Bat%2BBeijing%E2%80%99s%2Brobot%2Bgames"
+    "url": "https://rally.news/categories/climate/?article=%E2%80%98Nature%2Bmakes%2Bevery%2Bcolour%2Bin%2Bthe%2Bworld%E2%80%99%3A%2BMeet%2Bthe%2Bcompany%2Bbrewing%2Ban%2Bend%2Bto%2Btoxic%2Bchemical%2Bdyes"
   },
-  "researchBrief": "The story was corroborated across multiple sources, including [theglobeandmail.com](https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/), [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2), [reuters.com](https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/), and [cbsnews.com](https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/). The key claims, such as the 9.39-second sprint time and the 2.88-meter high jump, were verified across these sources. The robots involved, Tiangong Ultra and another from Beijing-based X-Humanoid, were also mentioned in multiple reports. The context of the technology race between China and the U.S. was also consistent across sources. No specific claims were softened or left unverified.",
+  "researchBrief": "The story about Colorifix and their innovative approach to dyeing fabrics using bacteria and yeast was corroborated across multiple sources. Euronews [euronews.com](https://www.euronews.com/2026/08/24/nature-makes-every-colour-in-the-world-meet-the-company-brewing-an-end-to-toxic-chemical-d) and Forbes [forbes.com](https://www.forbes.com/sites/maevecampbell/2025/06/20/dyeing-for-fashion-meet-the-scientists-growing-colour-without-chemicals/) both highlight the environmental benefits, including significant reductions in water, energy, and emissions. The specific figures of 77% less water, 51% less energy, and 31% fewer emissions were cited in the Euronews article. The New Scientist [newscientist.com](https://www.newscientist.com/article/2467252-dyes-made-by-microbes-could-reduce-the-environmental-impact-of-clothes/) article further elaborates on the process and its environmental advantages. The Colorifix website [colorifix.com](https://www.colorifix.com/) provides detailed information on their biological process and its benefits. All sources confirm the company's mission and the positive impact of their technology on the fashion industry.",
   "sources": [
-    "https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2",
-    "https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/",
-    "https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/",
-    "https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/"
+    "https://www.euronews.com/2026/08/24/nature-makes-every-colour-in-the-world-meet-the-company-brewing-an-end-to-toxic-chemical-d",
+    "https://www.colorifix.com/solution",
+    "https://www.bloomberg.com/news/articles/2023-03-14/a-clothing-dye-alternative-using-bacteria-can-cut-fashion-waste"
   ],
   "verification": {
     "ran": true,
     "report": [
       {
+        "field": "headline",
+        "verdict": "verified",
+        "note": "Confirmed that Colorifix is pioneering an eco-friendly dye method."
+      },
+      {
+        "field": "challenge",
+        "verdict": "verified",
+        "note": "Confirmed from multiple sources that the fashion industry uses over 70 toxic chemicals in dyeing."
+      },
+      {
         "field": "solution",
+        "verdict": "verified",
+        "note": "Colorifix's process of using bacteria and yeast to create dyes is accurate."
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "verified",
+        "note": "Savings of 77% water, 51% energy, and 31% emissions are supported."
+      },
+      {
+        "field": "resultLine",
         "verdict": "corrected",
-        "note": "Added the year Usain Bolt set the record (2009) to confirm the claim."
+        "note": "Added specific brands (Vollebak and Pangaia) that use Colorifix's dyes."
+      },
+      {
+        "field": "whyMatters",
+        "verdict": "verified",
+        "note": "Colorifix's approach does address major environmental concerns associated with petrochemical dyes."
       },
       {
         "field": "captionLead",
-        "verdict": "corrected",
-        "note": "Added the year Usain Bolt set the record (2009) to confirm the claim."
+        "verdict": "verified",
+        "note": "The solution Colorifix offers is consistently described as amazing."
       }
     ]
   },
-  "pillar": "Science & Health Breakthroughs",
+  "pillar": "Climate & Environment",
   "style": "1c",
   "raw": {
-    "pillar": "Science & Health Breakthroughs",
-    "headline": "Can robots outrun humans? China’s latest tech just made history at the robot games.",
-    "challenge": "For decades, human athletes have set the bar for speed and agility. But at the World Humanoid Robot Games in Beijing, robots are rewriting the record books.",
-    "solution": "Two Chinese humanoid robots shattered world records in the 100-meter sprint and high jump, surpassing legendary human athletes. The sprinting robot clocked an astonishing 9.39 seconds, beating Usain Bolt’s 9.58-second record set in 2009 [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2).",
-    "resultHeading": "Robots break human records in sprint and high jump",
-    "resultLine": "The advancements in robotics are accelerating — check out the full story at the link in my bio.",
-    "whyMatters": "This milestone highlights the rapid progress in robotics and the growing competition between China and the U.S. in advanced technology. It also opens up new possibilities for robotics in everyday life and research.",
-    "engagementQuestion": "Do you think robots will eventually outperform humans in all physical competitions?",
-    "captionLead": "Robots just made history at the World Humanoid Robot Games in Beijing! Two Chinese humanoid robots shattered world records in the 100-meter sprint and high jump. The sprinting robot clocked an astonishing 9.39 seconds, beating Usain Bolt’s 9.58-second record set in 2009 [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2). The high-jumping robot reached 2.88 meters, surpassing the 2.45 meters set by Cuba's Javier Sotomayor in 1993 [theglobeandmail.com](https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/). This milestone highlights the rapid progress in robotics and the growing competition between China and the U.S. in advanced technology. It also opens up new possibilities for robotics in everyday life and research. Do you think robots will eventually outperform humans in all physical competitions?",
-    "storyHashtag": "RoboticsBreakthrough",
+    "pillar": "Climate & Environment",
+    "headline": "Can fashion ditch toxic dyes? This UK startup is brewing colors from nature, and the results are stunning.",
+    "challenge": "The fashion industry is one of the most polluting sectors, with dyeing fabric consuming huge volumes of water, energy, and toxic chemicals. Over 70 toxic chemicals are used, and many of these can irretrievably end up in our oceans. Until now, there's been no viable alternative at scale.",
+    "solution": "Meet Colorifix, a UK startup that's brewing colors from nature using bacteria and yeast. They're replacing toxic chemicals with a biological process that's not only eco-friendly but also just as vibrant. Swipe to see the impact.",
+    "resultHeading": "77% less water, 51% less energy, and 31% fewer emissions",
+    "resultLine": "Colorifix's biological dyes are already being used by major fashion brands, including Vollebak and Pangaia — check out their full story at the link in my bio!",
+    "whyMatters": "The fashion industry's reliance on petrochemical dyes has been a major environmental concern for decades. Colorifix's innovative approach reduces pollution and demonstrates that sustainable alternatives can be just as effective, paving the way for a greener future in fashion.",
+    "engagementQuestion": "Would you pay more for clothes dyed with eco-friendly, nature-based colors?",
+    "captionLead": "Fashion's toxic dye problem might finally have a solution! Colorifix is brewing colors from nature, and the results are amazing. Swipe to learn more!",
+    "storyHashtag": "SustainableFashion",
     "sources": [
-      "https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2",
-      "https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/",
-      "https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/",
-      "https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/"
+      "https://www.euronews.com/2026/08/24/nature-makes-every-colour-in-the-world-meet-the-company-brewing-an-end-to-toxic-chemical-d",
+      "https://www.colorifix.com/solution",
+      "https://www.bloomberg.com/news/articles/2023-03-14/a-clothing-dye-alternative-using-bacteria-can-cut-fashion-waste"
     ],
-    "originalSource": "AP News",
-    "researchBrief": "The story was corroborated across multiple sources, including [theglobeandmail.com](https://www.theglobeandmail.com/business/technology/science/article-world-humanoid-robot-games-beijing-china-tech/), [apnews.com](https://apnews.com/article/china-humanoid-robot-games-us-86cb8e310843151a77057e4cb764b4e2), [reuters.com](https://www.reuters.com/sports/chinese-humanoid-robot-lightning-beats-human-100m-world-record-state-media-says-2026-08-22/), and [cbsnews.com](https://www.cbsnews.com/news/china-robot-usain-bolt-sprint-run-record-faster/). The key claims, such as the 9.39-second sprint time and the 2.88-meter high jump, were verified across these sources. The robots involved, Tiangong Ultra and another from Beijing-based X-Humanoid, were also mentioned in multiple reports. The context of the technology race between China and the U.S. was also consistent across sources. No specific claims were softened or left unverified."
+    "originalSource": "Euronews",
+    "researchBrief": "The story about Colorifix and their innovative approach to dyeing fabrics using bacteria and yeast was corroborated across multiple sources. Euronews [euronews.com](https://www.euronews.com/2026/08/24/nature-makes-every-colour-in-the-world-meet-the-company-brewing-an-end-to-toxic-chemical-d) and Forbes [forbes.com](https://www.forbes.com/sites/maevecampbell/2025/06/20/dyeing-for-fashion-meet-the-scientists-growing-colour-without-chemicals/) both highlight the environmental benefits, including significant reductions in water, energy, and emissions. The specific figures of 77% less water, 51% less energy, and 31% fewer emissions were cited in the Euronews article. The New Scientist [newscientist.com](https://www.newscientist.com/article/2467252-dyes-made-by-microbes-could-reduce-the-environmental-impact-of-clothes/) article further elaborates on the process and its environmental advantages. The Colorifix website [colorifix.com](https://www.colorifix.com/) provides detailed information on their biological process and its benefits. All sources confirm the company's mission and the positive impact of their technology on the fashion industry."
   },
   "cover": {
     "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-24/cover.jpg"
   },
   "reel": {
-    "script": "China's robots just did something insane. They beat human records in the 100-meter sprint and high jump. Two Chinese robots shattered world records at the World Humanoid Robot Games in Beijing. One sprinted 100 meters in 9.39 seconds, beating Usain Bolt's 9.58-second record. The other aced the high jump. Robots are now outpacing humans in speed and agility. This shows how fast robotics is advancing. It also highlights the tech race between China and the U.S. Who knows what robots will do next? Do you think robots will eventually outperform humans in all physical competitions?",
-    "hook": "Robots Beat Human Records",
+    "script": "The fashion industry is a big polluter. Dyeing clothes uses tons of water, energy, and toxic chemicals. Most of these end up in our oceans. But there's a new way to do it. A UK startup called Colorifix is brewing colors from nature. They use bacteria and yeast instead of toxic chemicals. The results are just as vibrant. It uses 77% less water, 51% less energy, and 31% fewer emissions. Big brands like Vollebak and Pangaia are already using them. This could change fashion forever. Would you pay more for clothes dyed this way?",
+    "hook": "Nature is brewing a fashion revolution",
     "noMusic": false,
-    "mood": "curious",
-    "wordCount": 95,
+    "mood": "hopeful",
+    "wordCount": 94,
     "lines": [
       {
-        "text": "China's robots just did something insane."
+        "text": "The fashion industry is a big polluter."
       },
       {
-        "text": "They beat human records in the 100-meter sprint and high jump."
+        "text": "Dyeing clothes uses tons of water, energy, and toxic chemicals."
       },
       {
-        "text": "Two Chinese robots shattered world records at the World Humanoid Robot Games in Beijing."
+        "text": "Most of these end up in our oceans."
       },
       {
-        "text": "One sprinted 100 meters in 9.39 seconds, beating Usain Bolt's 9.58-second record."
+        "text": "But there's a new way to do it."
       },
       {
-        "text": "The other aced the high jump."
+        "text": "A UK startup called Colorifix is brewing colors from nature."
       },
       {
-        "text": "Robots are now outpacing humans in speed and agility."
+        "text": "They use bacteria and yeast instead of toxic chemicals."
       },
       {
-        "text": "This shows how fast robotics is advancing."
+        "text": "The results are just as vibrant."
       },
       {
-        "text": "It also highlights the tech race between China and the U.S."
+        "text": "It uses 77% less water, 51% less energy, and 31% fewer emissions."
       },
       {
-        "text": "Who knows what robots will do next?"
+        "text": "Big brands like Vollebak and Pangaia are already using them."
       },
       {
-        "text": "Do you think robots will eventually outperform humans in all physical competitions?"
+        "text": "This could change fashion forever."
+      },
+      {
+        "text": "Would you pay more for clothes dyed this way?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "robot",
-          "running"
+          "factory",
+          "waste"
         ],
-        "key": "videos/robot.jpg",
-        "image": "robot",
+        "key": "videos/waste.jpg",
+        "image": "waste",
         "motion": "push-in",
         "transition": "cut",
         "cover": true,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-24/cover.jpg",
-        "fallbackThumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/robot.jpg"
+        "fallbackThumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/waste.jpg"
       },
       {
         "line": 1,
         "keywords": [
-          "robot"
+          "ocean",
+          "waves"
         ],
-        "key": "videos/laboratory.jpg",
-        "image": "laboratory",
+        "key": "videos/ocean.jpg",
+        "image": "ocean",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ocean.jpg",
         "fallbackThumb": null
       },
       {
         "line": 1,
         "keywords": [
-          "finishline",
-          "applause"
+          "waterfall",
+          "water"
         ],
-        "key": "videos/applause.jpg",
-        "image": "applause",
-        "motion": "pan-left",
+        "key": "videos/water.jpg",
+        "image": "water",
+        "motion": "pan-down",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/water.jpg",
         "fallbackThumb": null
       },
       {
         "line": 2,
         "keywords": [
-          "robot",
-          "stadium"
+          "ocean",
+          "waves"
         ],
-        "key": "videos/stadium.jpg",
-        "image": "stadium",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/stadium.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 2,
-        "keywords": [
-          "crowd",
-          "celebration"
-        ],
-        "key": "videos/celebration.jpg",
-        "image": "celebration",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "robot",
-          "running"
-        ],
-        "key": "videos/running.jpg",
-        "image": "running",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/running.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 3,
-        "keywords": [
-          "clock",
-          "finishline"
-        ],
-        "key": "videos/clock.jpg",
-        "image": "clock",
+        "key": "videos/waves.jpg",
+        "image": "waves",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/waves.jpg",
         "fallbackThumb": null
       },
       {
         "line": 3,
         "keywords": [
-          "trophy",
-          "medal"
+          "light",
+          "sunbeam"
         ],
-        "key": "videos/trophy.jpg",
-        "image": "trophy",
+        "key": "videos/sunbeam.jpg",
+        "image": "sunbeam",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trophy.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg",
         "fallbackThumb": null
       },
       {
         "line": 4,
         "keywords": [
-          "robot"
+          "forest",
+          "wildflowers"
         ],
-        "key": "videos/nurse.jpg",
-        "image": "nurse",
-        "motion": "pan-up",
+        "key": "videos/forest.jpg",
+        "image": "forest",
+        "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg",
         "fallbackThumb": null
       },
       {
         "line": 4,
         "keywords": [
-          "victory",
-          "celebration"
+          "bees",
+          "butterfly"
         ],
-        "key": "videos/victory.jpg",
-        "image": "victory",
-        "motion": "pan-left",
+        "key": "videos/butterfly.jpg",
+        "image": "butterfly",
+        "motion": "pan-down",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/victory.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/butterfly.jpg",
         "fallbackThumb": null
       },
       {
         "line": 5,
         "keywords": [
-          "robot",
-          "running"
-        ],
-        "key": "videos/music.jpg",
-        "image": "music",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/music.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 5,
-        "keywords": [
-          "robot"
-        ],
-        "key": "videos/dna.jpg",
-        "image": "dna",
-        "motion": "pan-left",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "robot",
-          "circuit"
-        ],
-        "key": "videos/circuit.jpg",
-        "image": "circuit",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/circuit.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 6,
-        "keywords": [
-          "scientist",
-          "laboratory"
+          "laboratory",
+          "scientist"
         ],
         "key": "videos/scientist.jpg",
         "image": "scientist",
-        "motion": "pan-right",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/scientist.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 7,
+        "line": 5,
         "keywords": [
-          "robot",
-          "factory"
+          "microscope",
+          "dna"
         ],
-        "key": "videos/factory.jpg",
-        "image": "factory",
+        "key": "videos/microscope.jpg",
+        "image": "microscope",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "wildflowers",
+          "meadow"
+        ],
+        "key": "videos/meadow.jpg",
+        "image": "meadow",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meadow.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "art",
+          "painting"
+        ],
+        "key": "videos/painting.jpg",
+        "image": "painting",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/painting.jpg",
         "fallbackThumb": null
       },
       {
         "line": 7,
+        "keywords": [
+          "battery",
+          "powerlines"
+        ],
+        "key": "videos/battery.jpg",
+        "image": "battery",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/battery.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "recycling",
+          "plastic"
+        ],
+        "key": "videos/plastic.jpg",
+        "image": "plastic",
+        "motion": "pan-down",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/plastic.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
         "keywords": [
           "city",
           "skyline"
         ],
-        "key": "videos/city.jpg",
-        "image": "city",
-        "motion": "pan-right",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 8,
-        "keywords": [
-          "robot",
-          "space"
-        ],
-        "key": "videos/space.jpg",
-        "image": "space",
+        "key": "videos/skyline.jpg",
+        "image": "skyline",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg",
         "fallbackThumb": null
       },
       {
         "line": 8,
         "keywords": [
-          "telescope",
-          "horizon"
+          "factory",
+          "workshop"
         ],
-        "key": "videos/telescope.jpg",
-        "image": "telescope",
-        "motion": "pan-up",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 9,
-        "keywords": [
-          "robot",
-          "football"
-        ],
-        "key": "videos/football.jpg",
-        "image": "football",
+        "key": "videos/workshop.jpg",
+        "image": "workshop",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/football.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/workshop.jpg",
         "fallbackThumb": null
       },
       {
         "line": 9,
         "keywords": [
-          "team",
-          "training"
+          "celebration",
+          "applause"
         ],
-        "key": "videos/training.jpg",
-        "image": "training",
-        "motion": "pan-left",
-        "transition": "cut",
+        "key": "videos/celebration.jpg",
+        "image": "celebration",
+        "motion": "pan-up",
+        "transition": "dissolve",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/training.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 9,
+        "line": 10,
         "keywords": [
           "thoughtful",
           "portrait"
@@ -380,7 +353,7 @@
         "key": "videos/portrait.jpg",
         "image": "portrait",
         "motion": "push-in",
-        "transition": "flash",
+        "transition": "zoom-punch",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg",
         "fallbackThumb": null
