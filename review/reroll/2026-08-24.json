@@ -1,6 +1,7 @@
 {
   "exclude": [
     "https://rally.news/categories/ai/?article=Chinese%2Brobot%2Bbeats%2BUsain%2BBolt%E2%80%99s%2B100m%2Bworld%2Brecord%2Bat%2Bhumanoid%2Bgames",
-    "https://rally.news/categories/ai/?article=Human%2B100%2Bm%2Bsprint%2Band%2Bhigh-jump%2Brecords%2Bbeaten%2Bat%2BBeijing%E2%80%99s%2Brobot%2Bgames"
+    "https://rally.news/categories/ai/?article=Human%2B100%2Bm%2Bsprint%2Band%2Bhigh-jump%2Brecords%2Bbeaten%2Bat%2BBeijing%E2%80%99s%2Brobot%2Bgames",
+    "https://rally.news/categories/climate/?article=%E2%80%98Nature%2Bmakes%2Bevery%2Bcolour%2Bin%2Bthe%2Bworld%E2%80%99%3A%2BMeet%2Bthe%2Bcompany%2Bbrewing%2Ban%2Bend%2Bto%2Btoxic%2Bchemical%2Bdyes"
   ]
 }
