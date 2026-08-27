@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 Aug 2026 20:07:13 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 04:42:26 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>This 15-Foot Python Is the First Known Snake to Receive Electrochemotherapy for Cancer. Now, She&apos;s Officially Free of the Disease</title>
+      <link>https://rally.news/categories/ai/?article=This%2B15-Foot%2BPython%2BIs%2Bthe%2BFirst%2BKnown%2BSnake%2Bto%2BReceive%2BElectrochemotherapy%2Bfor%2BCancer.%2BNow%2C%2BShe%27s%2BOfficially%2BFree%2Bof%2Bthe%2BDisease</link>
+      <description>The pioneering treatment makes it easier for traditional chemotherapy drugs to penetrate cancer cells. After the procedure, the reptile, named Jodie Foster, made a speedy recovery</description>
+      <pubDate>Thu, 27 Aug 2026 04:42:26 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=This%2B15-Foot%2BPython%2BIs%2Bthe%2BFirst%2BKnown%2BSnake%2Bto%2BReceive%2BElectrochemotherapy%2Bfor%2BCancer.%2BNow%2C%2BShe%27s%2BOfficially%2BFree%2Bof%2Bthe%2BDisease</guid>
+    </item>
+
+<item>
       <title>Chinese robot beats Usain Bolt’s 100m world record at humanoid games</title>
       <link>https://rally.news/categories/ai/?article=Chinese%2Brobot%2Bbeats%2BUsain%2BBolt%E2%80%99s%2B100m%2Bworld%2Brecord%2Bat%2Bhumanoid%2Bgames</link>
       <description>A Chinese humanoid robot ran 100m in 9.39 seconds, beating Usain Bolt’s 9.58 second world record.</description>
@@ -399,14 +407,6 @@
       <link>https://rally.news/categories/entertainment/?article=Sinner%2Boutlasts%2BZverev%2Bto%2Bwin%2Bsecond%2Bstraight%2BWimbledon%2Btitle</link>
       <description>24-year-old Jannik Sinner wore down French Open champion Alexander Zverev, securing a 6-7 (7/9), 7-6 (7/2), 6-3, 6-4 win on Sunday. &apos;You never know how many times you are going to come back,&apos; said the world No. 1. &apos;I never take it for granted.&apos;</description>
       <pubDate>Tue, 14 Jul 2026 08:57:44 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Sinner%2Boutlasts%2BZverev%2Bto%2Bwin%2Bsecond%2Bstraight%2BWimbledon%2Btitle</guid>
-    </item>
-
-<item>
-      <title>Sinner outlasts Zverev to win second straight Wimbledon title</title>
-      <link>https://rally.news/categories/entertainment/?article=Sinner%2Boutlasts%2BZverev%2Bto%2Bwin%2Bsecond%2Bstraight%2BWimbledon%2Btitle</link>
-      <description>24-year-old Jannik Sinner wore down French Open champion Alexander Zverev, securing a 6-7 (7/9), 7-6 (7/2), 6-3, 6-4 win on Sunday. &apos;You never know how many times you are going to come back,&apos; said the world No. 1. &apos;I never take it for granted.&apos;</description>
-      <pubDate>Mon, 13 Jul 2026 16:33:33 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Sinner%2Boutlasts%2BZverev%2Bto%2Bwin%2Bsecond%2Bstraight%2BWimbledon%2Btitle</guid>
     </item>
   </channel>
