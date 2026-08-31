@@ -1,19 +1,18 @@
 {
   "version": 1,
   "date": "2026-08-31",
-  "createdAt": "2026-08-31T05:01:45.514Z",
+  "createdAt": "2026-08-31T18:39:06.532Z",
   "story": {
-    "headline": "Isabelle Huppert: 'The way I enter the stage is fundamental'",
-    "summary": "In an interview with Le Monde, the acclaimed French actress discusses her approach to acting and the importance of the 'first gesture' in theater. She also reflects on some of the most significant memories from her film career, shaped by many long-standing collaborations.",
+    "headline": "The FDA Just Approved The First US Freeze-Dried Plasma, Ready in Minutes",
+    "summary": "For a patient losing blood, every minute without treatment can matter. But the plasma needed to help control bleeding isn't always available where the injury happens.",
     "publisher": "Rally News",
-    "url": "https://rally.news/categories/entertainment/?article=Isabelle%2BHuppert%3A%2B%27The%2Bway%2BI%2Benter%2Bthe%2Bstage%2Bis%2Bfundamental%27"
+    "url": "https://rally.news/categories/ai/?article=The%2BFDA%2BJust%2BApproved%2BThe%2BFirst%2BUS%2BFreeze-Dried%2BPlasma%2C%2BReady%2Bin%2BMinutes"
   },
-  "researchBrief": "The research corroborates Huppert's unique approach to acting, focusing on the 'first gesture' and her philosophy of embodying states rather than characters. Multiple sources discuss her collaborations with renowned directors and her reflections on her career. The key points are her emphasis on authenticity, the importance of the initial stage entrance, and her ability to connect with audiences. The sources provide a comprehensive view of her acting methodology and its impact on her performances.",
+  "researchBrief": "The FDA has approved Ezplaz Freeze-Dried Plasma, the first of its kind in the U.S. This product can be stored at room temperature and reconstituted in about 2.5 minutes, addressing a critical need in emergency care where conventional plasma is unavailable. The approval was reported by multiple sources, including ScienceAlert, Reuters, and the FDA's own press release. The product is indicated for adult patients who require plasma when other plasma products are not available, such as in combat zones, disaster-response operations, and rural areas with limited hospital infrastructure. The approval does not establish that freeze-dried plasma outperforms frozen plasma but highlights its logistical advantages. The safety profile of Ezplaz is consistent with other plasma products, and it is available in Group AB and Group A low-titer anti-B blood types for emergency use before a patient's blood type is known. The product is manufactured by Vascular Solutions, a subsidiary of Teleflex.",
   "sources": [
-    "https://www.lemonde.fr/en/",
-    "https://www.ft.com/content/3fa000ce-918e-4b1a-8bf1-d90ef6ed580c",
-    "http://www.theguardian.com/stage/2020/mar/24/isabelle-huppert-interview-french-film-industry-metoo",
-    "https://gagosian.com/quarterly/2025/02/07/interview-coup-de-theatre-isabelle-huppert-and-robert-wilson/"
+    "https://www.sciencealert.com/the-fda-just-approved-the-first-us-freeze-dried-plasma-ready-in-minutes",
+    "https://currently.att.yahoo.com/att/us-fda-approves-first-freeze-172440851.html",
+    "https://www.jems.com/ems-operations/fda-approves-first-freeze-dried-plasma-for-use-in-emergencies-remote-care/"
   ],
   "verification": {
     "ran": true,
@@ -21,122 +20,109 @@
       {
         "field": "headline",
         "verdict": "verified",
-        "note": "The headline accurately reflects the content of the interview with Isabelle Huppert in Le Monde."
+        "note": "Confirmed by ScienceAlert and other sources."
       },
       {
         "field": "challenge",
         "verdict": "verified",
-        "note": "The challenge accurately describes Huppert's unconventional approach to acting as discussed in the interview."
+        "note": "Confirmed by ScienceAlert and other sources."
       },
       {
         "field": "solution",
-        "verdict": "verified",
-        "note": "The solution accurately describes Huppert's focus on the 'first gesture' and its importance in her performances."
+        "verdict": "corrected",
+        "note": "Changed 'just 2.5 minutes' to 'about 2.5 minutes' for accuracy."
       },
       {
         "field": "resultHeading",
         "verdict": "verified",
-        "note": "The result heading accurately reflects Huppert's critical acclaim and devoted following."
+        "note": "Confirmed by ScienceAlert and other sources."
       },
       {
         "field": "resultLine",
         "verdict": "verified",
-        "note": "The result line accurately describes how Huppert's approach continues to inspire new generations of performers."
+        "note": "Confirmed by ScienceAlert and other sources."
       },
       {
         "field": "whyMatters",
         "verdict": "verified",
-        "note": "The whyMatters section accurately reflects the importance of Huppert's insights into the acting process."
+        "note": "Confirmed by ScienceAlert and other sources."
       },
       {
         "field": "captionLead",
-        "verdict": "verified",
-        "note": "The caption lead accurately describes Huppert's unique approach to acting and her legendary stage presence."
+        "verdict": "corrected",
+        "note": "Changed 'in minutes' to 'in about 2.5 minutes' for accuracy."
       },
       {
         "field": "originalSource",
-        "verdict": "verified",
-        "note": "The original source is correctly identified as Le Monde."
+        "verdict": "corrected",
+        "note": "Changed from 'Rally News' to 'ScienceAlert'."
       }
     ]
   },
-  "pillar": "Human Kindness Stories",
-  "style": "1d",
+  "pillar": "Science & Health Breakthroughs",
+  "style": "1b",
   "raw": {
-    "pillar": "Human Kindness Stories",
-    "headline": "What's the secret to Isabelle Huppert's legendary stage presence?",
-    "challenge": "Isabelle Huppert is one of the most celebrated actresses in the world, but her approach to acting is anything but conventional. In an interview with Le Monde, she reveals the unique philosophy that has guided her career for decades.",
-    "solution": "Huppert's secret lies in her focus on the 'first gesture'—the moment she enters the stage. This initial action sets the tone for her entire performance, allowing her to embody the character fully and connect with the audience on a deeper level.",
-    "resultHeading": "Huppert's method has earned her critical acclaim and a devoted following.",
-    "resultLine": "Her unique approach to acting continues to inspire new generations of performers. Read more about her philosophy and career at the link in my bio.",
-    "whyMatters": "Huppert's insights into the acting process offer a valuable perspective on the importance of authenticity and presence in performance. Her work serves as a reminder of the power of art to connect with others and evoke deep emotions.",
-    "engagementQuestion": "What do you think makes a great performance?",
-    "captionLead": "Isabelle Huppert, one of the most celebrated actresses in the world, has a unique approach to acting that sets her apart from her peers. In an interview with Le Monde, she reveals the secret to her legendary stage presence.",
-    "storyHashtag": "TheatreLife",
+    "pillar": "Science & Health Breakthroughs",
+    "headline": "What if you could stop bleeding in minutes? The FDA just approved a game-changer for emergency care.",
+    "challenge": "When severe bleeding occurs far from a hospital, conventional plasma isn't always accessible. Every minute counts, but frozen plasma requires thawing and specialized storage.",
+    "solution": "The FDA has approved Ezplaz Freeze-Dried Plasma, a product that can be stored at room temperature and reconstituted in about 2.5 minutes. This breakthrough could save lives in remote or disaster-stricken areas.",
+    "resultHeading": "Ezplaz Freeze-Dried Plasma is now FDA-approved",
+    "resultLine": "This innovation could revolutionize emergency care — learn more at the link in my bio.",
+    "whyMatters": "This approval addresses a critical gap in emergency medical care, especially in remote or disaster-stricken areas where access to conventional plasma is limited. It could save lives by providing a rapid, accessible treatment option for severe bleeding.",
+    "engagementQuestion": "How important is this breakthrough for emergency medicine?",
+    "captionLead": "Big news in emergency care! The FDA just approved the first freeze-dried plasma product, Ezplaz, which can be ready for transfusion in about 2.5 minutes. This could be a game-changer for treating severe bleeding in remote or disaster-stricken areas. Learn more about this breakthrough at the link in my bio!",
+    "storyHashtag": "EmergencyMedicine",
     "sources": [
-      "https://www.lemonde.fr/en/",
-      "https://www.ft.com/content/3fa000ce-918e-4b1a-8bf1-d90ef6ed580c",
-      "http://www.theguardian.com/stage/2020/mar/24/isabelle-huppert-interview-french-film-industry-metoo",
-      "https://gagosian.com/quarterly/2025/02/07/interview-coup-de-theatre-isabelle-huppert-and-robert-wilson/"
+      "https://www.sciencealert.com/the-fda-just-approved-the-first-us-freeze-dried-plasma-ready-in-minutes",
+      "https://currently.att.yahoo.com/att/us-fda-approves-first-freeze-172440851.html",
+      "https://www.jems.com/ems-operations/fda-approves-first-freeze-dried-plasma-for-use-in-emergencies-remote-care/"
     ],
-    "originalSource": "Le Monde",
-    "researchBrief": "The research corroborates Huppert's unique approach to acting, focusing on the 'first gesture' and her philosophy of embodying states rather than characters. Multiple sources discuss her collaborations with renowned directors and her reflections on her career. The key points are her emphasis on authenticity, the importance of the initial stage entrance, and her ability to connect with audiences. The sources provide a comprehensive view of her acting methodology and its impact on her performances."
+    "originalSource": "ScienceAlert",
+    "researchBrief": "The FDA has approved Ezplaz Freeze-Dried Plasma, the first of its kind in the U.S. This product can be stored at room temperature and reconstituted in about 2.5 minutes, addressing a critical need in emergency care where conventional plasma is unavailable. The approval was reported by multiple sources, including ScienceAlert, Reuters, and the FDA's own press release. The product is indicated for adult patients who require plasma when other plasma products are not available, such as in combat zones, disaster-response operations, and rural areas with limited hospital infrastructure. The approval does not establish that freeze-dried plasma outperforms frozen plasma but highlights its logistical advantages. The safety profile of Ezplaz is consistent with other plasma products, and it is available in Group AB and Group A low-titer anti-B blood types for emergency use before a patient's blood type is known. The product is manufactured by Vascular Solutions, a subsidiary of Teleflex."
   },
   "cover": {
     "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-31/cover.jpg"
   },
   "reel": {
-    "script": "Isabelle Huppert's stage presence is legendary. She's one of the world's most celebrated actresses. But her approach to acting is anything but conventional. In an interview with Le Monde, she reveals her unique philosophy. Huppert's secret lies in her focus on the 'first gesture'—the moment she enters the stage. This initial action sets the tone for her entire performance. It allows her to embody the character fully and connect with the audience. Her method has earned her critical acclaim and a devoted following. Her unique approach continues to inspire new generations of performers. Huppert's insights offer a valuable perspective on authenticity and presence. Her work reminds us of the power of art to connect with others. What do you think makes a great performance?",
-    "hook": "The Secret to Isabelle's Magic",
+    "script": "What if you could stop bleeding in minutes? Conventional plasma isn’t always available in emergencies. Every minute counts. Frozen plasma takes time to thaw and needs special storage. But now, the FDA’s approved Ezplaz Freeze-Dried Plasma. It can be kept at room temperature and mixed in about two and a half minutes. This could really change emergency care. It’s huge for places that need it most. How important is this breakthrough for emergency medicine?",
+    "hook": "Game-Changer for Emergency Care",
     "noMusic": false,
-    "mood": "warm",
-    "wordCount": 124,
+    "mood": "uplifting",
+    "wordCount": 74,
     "lines": [
       {
-        "text": "Isabelle Huppert's stage presence is legendary."
+        "text": "What if you could stop bleeding in minutes?"
       },
       {
-        "text": "She's one of the world's most celebrated actresses."
+        "text": "Conventional plasma isn’t always available in emergencies."
       },
       {
-        "text": "But her approach to acting is anything but conventional."
+        "text": "Every minute counts."
       },
       {
-        "text": "In an interview with Le Monde, she reveals her unique philosophy."
+        "text": "Frozen plasma takes time to thaw and needs special storage."
       },
       {
-        "text": "Huppert's secret lies in her focus on the 'first gesture'—the moment she enters the stage."
+        "text": "But now, the FDA’s approved Ezplaz Freeze-Dried Plasma."
       },
       {
-        "text": "This initial action sets the tone for her entire performance."
+        "text": "It can be kept at room temperature and mixed in about two and a half minutes."
       },
       {
-        "text": "It allows her to embody the character fully and connect with the audience."
+        "text": "This could really change emergency care."
       },
       {
-        "text": "Her method has earned her critical acclaim and a devoted following."
+        "text": "It’s huge for places that need it most."
       },
       {
-        "text": "Her unique approach continues to inspire new generations of performers."
-      },
-      {
-        "text": "Huppert's insights offer a valuable perspective on authenticity and presence."
-      },
-      {
-        "text": "Her work reminds us of the power of art to connect with others."
-      },
-      {
-        "text": "What do you think makes a great performance?"
+        "text": "How important is this breakthrough for emergency medicine?"
       }
     ],
     "shots": [
       {
         "line": 0,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "ambulance"
         ],
         "key": "videos/ambulance.jpg",
         "image": "ambulance",
@@ -147,42 +133,55 @@
         "fallbackThumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
       },
       {
-        "line": 1,
+        "line": 0,
         "keywords": [
-          "celebration"
+          "doctor"
         ],
-        "key": "videos/celebration.jpg",
-        "image": "celebration",
+        "key": "videos/doctor.jpg",
+        "image": "doctor",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg",
         "fallbackThumb": null
       },
       {
         "line": 1,
         "keywords": [
-          "city"
+          "hospital"
         ],
-        "key": "videos/city.jpg",
-        "image": "city",
+        "key": "videos/hospital.jpg",
+        "image": "hospital",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hospital.jpg",
         "fallbackThumb": null
       },
       {
         "line": 2,
         "keywords": [
-          "thoughtful"
+          "clock"
         ],
-        "key": "videos/thoughtful.jpg",
-        "image": "thoughtful",
+        "key": "videos/clock.jpg",
+        "image": "clock",
         "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "nurse"
+        ],
+        "key": "videos/nurse.jpg",
+        "image": "nurse",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg",
         "fallbackThumb": null
       },
       {
@@ -195,7 +194,7 @@
         ],
         "key": "videos/allotment.jpg",
         "image": "allotment",
-        "motion": "pan-right",
+        "motion": "pan-up",
         "transition": "cut",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg",
@@ -204,31 +203,18 @@
       {
         "line": 3,
         "keywords": [
-          "journalist"
+          "patient"
         ],
-        "key": "videos/journalist.jpg",
-        "image": "journalist",
+        "key": "videos/patient.jpg",
+        "image": "patient",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/journalist.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/patient.jpg",
         "fallbackThumb": null
       },
       {
         "line": 4,
-        "keywords": [
-          "art"
-        ],
-        "key": "videos/art.jpg",
-        "image": "art",
-        "motion": "push-in",
-        "transition": "dissolve",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/art.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 5,
         "keywords": [
           "aid",
           "allotment",
@@ -237,26 +223,62 @@
         ],
         "key": "videos/applause.jpg",
         "image": "applause",
-        "motion": "pan-right",
-        "transition": "cut",
+        "motion": "pull-out",
+        "transition": "flash",
         "cover": false,
         "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg",
         "fallbackThumb": null
       },
       {
+        "line": 4,
+        "keywords": [
+          "vaccine"
+        ],
+        "key": "videos/vaccine.jpg",
+        "image": "vaccine",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg",
+        "fallbackThumb": null
+      },
+      {
         "line": 5,
         "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
+          "laboratory"
         ],
-        "key": "videos/aid.jpg",
-        "image": "aid",
+        "key": "videos/laboratory.jpg",
+        "image": "laboratory",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "syringe"
+        ],
+        "key": "videos/syringe.jpg",
+        "image": "syringe",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "ambulance"
+        ],
+        "key": "videos/rocket.jpg",
+        "image": "rocket",
         "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg",
         "fallbackThumb": null
       },
       {
@@ -267,93 +289,64 @@
           "ambulance",
           "applause"
         ],
-        "key": "videos/meeting.jpg",
-        "image": "meeting",
-        "motion": "push-in",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meeting.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 7,
-        "keywords": [
-          "applause"
-        ],
-        "key": "videos/letter.jpg",
-        "image": "letter",
+        "key": "videos/aid.jpg",
+        "image": "aid",
         "motion": "pan-right",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/letter.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg",
         "fallbackThumb": null
       },
       {
         "line": 7,
         "keywords": [
-          "celebration"
+          "aid"
         ],
-        "key": "videos/writing.jpg",
-        "image": "writing",
-        "motion": "pan-left",
+        "key": "videos/vigil.jpg",
+        "image": "vigil",
+        "motion": "push-in",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vigil.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "convoy"
+        ],
+        "key": "videos/convoy.jpg",
+        "image": "convoy",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/convoy.jpg",
         "fallbackThumb": null
       },
       {
         "line": 8,
         "keywords": [
-          "students"
+          "doctor"
         ],
-        "key": "videos/students.jpg",
-        "image": "students",
-        "motion": "push-in",
+        "key": "videos/dna.jpg",
+        "image": "dna",
+        "motion": "pan-left",
         "transition": "cut",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/students.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg",
         "fallbackThumb": null
       },
       {
-        "line": 9,
+        "line": 8,
         "keywords": [
-          "portrait"
+          "nurse"
         ],
-        "key": "videos/portrait.jpg",
-        "image": "portrait",
-        "motion": "push-in",
+        "key": "videos/research.jpg",
+        "image": "research",
+        "motion": "pan-right",
         "transition": "dissolve",
         "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 10,
-        "keywords": [
-          "art"
-        ],
-        "key": "videos/painting.jpg",
-        "image": "painting",
-        "motion": "pan-up",
-        "transition": "flash",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/painting.jpg",
-        "fallbackThumb": null
-      },
-      {
-        "line": 11,
-        "keywords": [
-          "aid",
-          "allotment",
-          "ambulance",
-          "applause"
-        ],
-        "key": "videos/garden.jpg",
-        "image": "garden",
-        "motion": "pan-down",
-        "transition": "cut",
-        "cover": false,
-        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/garden.jpg",
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg",
         "fallbackThumb": null
       }
     ],
