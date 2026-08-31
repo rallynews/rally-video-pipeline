@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2026 04:42:26 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 01:36:59 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>This common medication cuts heart-attack risk in older people</title>
+      <link>https://rally.news/categories/world/?article=This%2Bcommon%2Bmedication%2Bcuts%2Bheart-attack%2Brisk%2Bin%2Bolder%2Bpeople</link>
+      <description>A world-first clinical trial has found cholesterol-lowering medication significantly reduces the risk of a major cardiovascular event in older adults who live independently.</description>
+      <pubDate>Mon, 31 Aug 2026 01:36:59 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/world/?article=This%2Bcommon%2Bmedication%2Bcuts%2Bheart-attack%2Brisk%2Bin%2Bolder%2Bpeople</guid>
+    </item>
+
+<item>
       <title>This 15-Foot Python Is the First Known Snake to Receive Electrochemotherapy for Cancer. Now, She&apos;s Officially Free of the Disease</title>
       <link>https://rally.news/categories/ai/?article=This%2B15-Foot%2BPython%2BIs%2Bthe%2BFirst%2BKnown%2BSnake%2Bto%2BReceive%2BElectrochemotherapy%2Bfor%2BCancer.%2BNow%2C%2BShe%27s%2BOfficially%2BFree%2Bof%2Bthe%2BDisease</link>
       <description>The pioneering treatment makes it easier for traditional chemotherapy drugs to penetrate cancer cells. After the procedure, the reptile, named Jodie Foster, made a speedy recovery</description>
@@ -400,14 +408,6 @@
       <description>Solar was ahead of coal, gas, nuclear, wind and hydropower.</description>
       <pubDate>Wed, 15 Jul 2026 05:01:47 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/climate/?article=Solar%2Bgenerated%2Brecord%2B25%25%2Bof%2BEU%2Bpower%2Bin%2BJune%2Bwith%2BGermany%2C%2BSpain%2Band%2BPoland%2Bleading%2Bthe%2Brace</guid>
-    </item>
-
-<item>
-      <title>Sinner outlasts Zverev to win second straight Wimbledon title</title>
-      <link>https://rally.news/categories/entertainment/?article=Sinner%2Boutlasts%2BZverev%2Bto%2Bwin%2Bsecond%2Bstraight%2BWimbledon%2Btitle</link>
-      <description>24-year-old Jannik Sinner wore down French Open champion Alexander Zverev, securing a 6-7 (7/9), 7-6 (7/2), 6-3, 6-4 win on Sunday. &apos;You never know how many times you are going to come back,&apos; said the world No. 1. &apos;I never take it for granted.&apos;</description>
-      <pubDate>Tue, 14 Jul 2026 08:57:44 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Sinner%2Boutlasts%2BZverev%2Bto%2Bwin%2Bsecond%2Bstraight%2BWimbledon%2Btitle</guid>
     </item>
   </channel>
 </rss>
