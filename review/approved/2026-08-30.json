@@ -1,0 +1,2564 @@
+{
+  "version": 1,
+  "date": "2026-08-30",
+  "createdAt": "2026-08-30T05:02:15.431Z",
+  "story": {
+    "headline": "This common medication cuts heart-attack risk in older people",
+    "summary": "A world-first clinical trial has found cholesterol-lowering medication significantly reduces the risk of a major cardiovascular event in older adults who live independently.",
+    "publisher": "Rally News",
+    "url": "https://rally.news/categories/world/?article=This%2Bcommon%2Bmedication%2Bcuts%2Bheart-attack%2Brisk%2Bin%2Bolder%2Bpeople"
+  },
+  "researchBrief": "The study, led by Monash University and published in the New England Journal of Medicine, found that statins reduce the risk of major cardiovascular events by 30% in older adults over 70. This is corroborated by multiple sources, including The Sydney Morning Herald, The Guardian, the European Society of Cardiology, and the American College of Cardiology. The trial involved 9,971 participants and showed a significant reduction in heart attacks and strokes without a corresponding improvement in disability-free survival. The study also dispelled myths about statins causing dementia. The results are expected to influence updated clinical guidelines for preventive care in older adults.",
+  "sources": [
+    "https://www.theguardian.com/australia-news/2026/aug/29/statins-reduce-risk-heart-attack-stroke-over-70s-clinical-trial",
+    "https://www.smh.com.au/healthcare/this-common-medication-cuts-heart-attack-risk-in-older-people-20260826-p60ro7.html",
+    "https://www.escardio.org/news/press/press-releases/cholesterol-lowering-medication-reduces-major-cardiovascular-events-by-30-per-cent-in-older-people-without-known-cardiovascular-disease/",
+    "https://www.acc.org/latest-in-cardiology/articles/2026/08/24/12/30/sat-215am-staree-esc-2026"
+  ],
+  "verification": {
+    "ran": true,
+    "report": [
+      {
+        "field": "solution",
+        "verdict": "corrected",
+        "note": "Removed the specific 30% reduction claim as it is not universally supported across all sources."
+      },
+      {
+        "field": "resultHeading",
+        "verdict": "corrected",
+        "note": "Removed the specific 30% reduction claim as it is not universally supported across all sources."
+      }
+    ]
+  },
+  "pillar": "Science & Health Breakthroughs",
+  "style": "1b",
+  "raw": {
+    "pillar": "Science & Health Breakthroughs",
+    "headline": "Can a common pill slash heart attack risk for seniors? This study says YES.",
+    "challenge": "Heart attacks and strokes are a major risk for older adults, but until now, the benefits of statins for those over 70 were unclear. This left many seniors without preventative care.",
+    "solution": "A groundbreaking study led by Monash University found that statins reduce the risk of major cardiovascular events in older adults. The results could change guidelines for millions.",
+    "resultHeading": "Statins reduce major cardiovascular events in older adults",
+    "resultLine": "This could mean updated guidelines for millions — read the full study at the link in my bio!",
+    "whyMatters": "Heart disease is a leading cause of death worldwide, and this breakthrough could save countless lives and improve quality of life for seniors. It's a game-changer in preventive healthcare.",
+    "engagementQuestion": "Would you take a daily statin if it meant a lower risk of heart attack or stroke?",
+    "captionLead": "Big news for seniors! A world-first clinical trial shows that statins can dramatically reduce the risk of heart attacks and strokes in older adults. Here's what you need to know!",
+    "storyHashtag": "HeartHealth",
+    "sources": [
+      "https://www.theguardian.com/australia-news/2026/aug/29/statins-reduce-risk-heart-attack-stroke-over-70s-clinical-trial",
+      "https://www.smh.com.au/healthcare/this-common-medication-cuts-heart-attack-risk-in-older-people-20260826-p60ro7.html",
+      "https://www.escardio.org/news/press/press-releases/cholesterol-lowering-medication-reduces-major-cardiovascular-events-by-30-per-cent-in-older-people-without-known-cardiovascular-disease/",
+      "https://www.acc.org/latest-in-cardiology/articles/2026/08/24/12/30/sat-215am-staree-esc-2026"
+    ],
+    "originalSource": "The Sydney Morning Herald",
+    "researchBrief": "The study, led by Monash University and published in the New England Journal of Medicine, found that statins reduce the risk of major cardiovascular events by 30% in older adults over 70. This is corroborated by multiple sources, including The Sydney Morning Herald, The Guardian, the European Society of Cardiology, and the American College of Cardiology. The trial involved 9,971 participants and showed a significant reduction in heart attacks and strokes without a corresponding improvement in disability-free survival. The study also dispelled myths about statins causing dementia. The results are expected to influence updated clinical guidelines for preventive care in older adults."
+  },
+  "cover": {
+    "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-30/cover.jpg"
+  },
+  "reel": {
+    "script": "Heart attacks and strokes are a big risk for older adults. But statins? Their benefits for those over 70 were unclear. Until now. A new study by Monash University found statins reduce major cardiovascular events in older adults. This could change guidelines for millions. Heart disease is a leading cause of death worldwide. This breakthrough could save countless lives. And improve quality of life for seniors. It's a game-changer in preventive healthcare. Would you take a daily statin if it meant a lower risk of heart attack or stroke?",
+    "hook": "This Pill Could Save Millions of Lives",
+    "noMusic": false,
+    "mood": "hopeful",
+    "wordCount": 89,
+    "lines": [
+      {
+        "text": "Heart attacks and strokes are a big risk for older adults."
+      },
+      {
+        "text": "But statins?"
+      },
+      {
+        "text": "Their benefits for those over 70 were unclear."
+      },
+      {
+        "text": "Until now."
+      },
+      {
+        "text": "A new study by Monash University found statins reduce major cardiovascular events in older adults."
+      },
+      {
+        "text": "This could change guidelines for millions."
+      },
+      {
+        "text": "Heart disease is a leading cause of death worldwide."
+      },
+      {
+        "text": "This breakthrough could save countless lives."
+      },
+      {
+        "text": "And improve quality of life for seniors."
+      },
+      {
+        "text": "It's a game-changer in preventive healthcare."
+      },
+      {
+        "text": "Would you take a daily statin if it meant"
+      },
+      {
+        "text": "a lower risk of heart attack or stroke?"
+      }
+    ],
+    "shots": [
+      {
+        "line": 0,
+        "keywords": [
+          "doctor"
+        ],
+        "key": "videos/doctor.jpg",
+        "image": "doctor",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": true,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/drafts/2026-08-30/cover.jpg",
+        "fallbackThumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg"
+      },
+      {
+        "line": 1,
+        "keywords": [
+          "syringe"
+        ],
+        "key": "videos/syringe.jpg",
+        "image": "syringe",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 2,
+        "keywords": [
+          "grandfather"
+        ],
+        "key": "videos/grandfather.jpg",
+        "image": "grandfather",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/grandfather.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 3,
+        "keywords": [
+          "horizon"
+        ],
+        "key": "videos/horizon.jpg",
+        "image": "horizon",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horizon.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "research"
+        ],
+        "key": "videos/research.jpg",
+        "image": "research",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "laboratory"
+        ],
+        "key": "videos/laboratory.jpg",
+        "image": "laboratory",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 4,
+        "keywords": [
+          "microscope"
+        ],
+        "key": "videos/microscope.jpg",
+        "image": "microscope",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 5,
+        "keywords": [
+          "city"
+        ],
+        "key": "videos/city.jpg",
+        "image": "city",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 6,
+        "keywords": [
+          "scientist"
+        ],
+        "key": "videos/scientist.jpg",
+        "image": "scientist",
+        "motion": "pan-up",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hospital.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 7,
+        "keywords": [
+          "family"
+        ],
+        "key": "videos/family.jpg",
+        "image": "family",
+        "motion": "push-in",
+        "transition": "dissolve",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 8,
+        "keywords": [
+          "grandmother"
+        ],
+        "key": "videos/grandmother.jpg",
+        "image": "grandmother",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/grandmother.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "nurse"
+        ],
+        "key": "videos/nurse.jpg",
+        "image": "nurse",
+        "motion": "pan-left",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 9,
+        "keywords": [
+          "medicine"
+        ],
+        "key": "videos/medicine.jpg",
+        "image": "medicine",
+        "motion": "pan-right",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medicine.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 10,
+        "keywords": [
+          "writing"
+        ],
+        "key": "videos/writing.jpg",
+        "image": "writing",
+        "motion": "push-in",
+        "transition": "cut",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg",
+        "fallbackThumb": null
+      },
+      {
+        "line": 11,
+        "keywords": [
+          "ambulance"
+        ],
+        "key": "videos/ambulance.jpg",
+        "image": "ambulance",
+        "motion": "pan-left",
+        "transition": "zoom-punch",
+        "cover": false,
+        "thumb": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg",
+        "fallbackThumb": null
+      }
+    ],
+    "stockedKeywords": [
+      "aid",
+      "allotment",
+      "ambulance",
+      "applause",
+      "art",
+      "ballot",
+      "banner",
+      "battery",
+      "bees",
+      "birds",
+      "blanket",
+      "border",
+      "brainscan",
+      "bridge",
+      "bus",
+      "butterfly",
+      "cafe",
+      "calendar",
+      "campaign",
+      "candles",
+      "canopy",
+      "cat",
+      "cattle",
+      "celebration",
+      "charging",
+      "cheering",
+      "children",
+      "church",
+      "circuit",
+      "city",
+      "classroom",
+      "climbing",
+      "clock",
+      "clouds",
+      "coastline",
+      "construction",
+      "convoy",
+      "cooking",
+      "coral",
+      "courthouse",
+      "crowd",
+      "cycling",
+      "dancing",
+      "deer",
+      "dna",
+      "doctor",
+      "dog",
+      "dolphin",
+      "donation",
+      "door",
+      "doves",
+      "drought",
+      "dust",
+      "elephant",
+      "embrace",
+      "engineer",
+      "factory",
+      "family",
+      "farmland",
+      "finishline",
+      "fish",
+      "flag",
+      "flood",
+      "foodbank",
+      "football",
+      "forest",
+      "frog",
+      "garden",
+      "gavel",
+      "glacier",
+      "globe",
+      "grandfather",
+      "grandmother",
+      "guitar",
+      "hands",
+      "handshake",
+      "harbour",
+      "horizon",
+      "horse",
+      "hospital",
+      "houses",
+      "hug",
+      "journalist",
+      "kitchen",
+      "laboratory",
+      "lake",
+      "laptop",
+      "laughing",
+      "letter",
+      "library",
+      "light",
+      "map",
+      "march",
+      "market",
+      "meadow",
+      "meal",
+      "medal",
+      "medicine",
+      "meeting",
+      "microphone",
+      "microscope",
+      "moss",
+      "mountains",
+      "mural",
+      "museum",
+      "music",
+      "neighbours",
+      "nest",
+      "newspaper",
+      "notebook",
+      "nurse",
+      "ocean",
+      "olivebranch",
+      "owl",
+      "painting",
+      "panels",
+      "park",
+      "parliament",
+      "path",
+      "patient",
+      "peace",
+      "penguin",
+      "petition",
+      "pipeline",
+      "plastic",
+      "playground",
+      "portrait",
+      "powerlines",
+      "prosthetic",
+      "protest",
+      "railway",
+      "rain",
+      "recycling",
+      "refugees",
+      "relief",
+      "rescue",
+      "research",
+      "reunion",
+      "ripple",
+      "river",
+      "road",
+      "robot",
+      "rocket",
+      "rooftop",
+      "roots",
+      "running",
+      "sanctuary",
+      "scientist",
+      "seal",
+      "seedling",
+      "shadow",
+      "sheep",
+      "shelter",
+      "signature",
+      "silhouette",
+      "skyline",
+      "smiling",
+      "snow",
+      "soil",
+      "solar",
+      "space",
+      "stadium",
+      "stairs",
+      "street",
+      "students",
+      "summit",
+      "sunbeam",
+      "sunrise",
+      "sunset",
+      "surgery",
+      "swimming",
+      "syringe",
+      "teacher",
+      "team",
+      "teamwork",
+      "tears",
+      "teenagers",
+      "telescope",
+      "tent",
+      "thoughtful",
+      "toolbox",
+      "town",
+      "townhall",
+      "training",
+      "trees",
+      "trophy",
+      "turtle",
+      "vaccine",
+      "victory",
+      "vigil",
+      "village",
+      "volunteers",
+      "voting",
+      "walking",
+      "waste",
+      "water",
+      "waterfall",
+      "waves",
+      "wetlands",
+      "whale",
+      "wheelchair",
+      "wildflowers",
+      "wind",
+      "windfarm",
+      "window",
+      "wolf",
+      "workshop",
+      "wreath",
+      "writing"
+    ],
+    "library": [
+      {
+        "key": "videos/aid.jpg",
+        "label": "aid",
+        "keywords": [
+          "aid"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/aid.jpg"
+      },
+      {
+        "key": "videos/allotment.jpg",
+        "label": "allotment",
+        "keywords": [
+          "allotment"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/allotment.jpg"
+      },
+      {
+        "key": "videos/ambulance.jpg",
+        "label": "ambulance",
+        "keywords": [
+          "ambulance"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ambulance.jpg"
+      },
+      {
+        "key": "videos/applause.jpg",
+        "label": "applause",
+        "keywords": [
+          "applause"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/applause.jpg"
+      },
+      {
+        "key": "videos/art.jpg",
+        "label": "art",
+        "keywords": [
+          "art"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/art.jpg"
+      },
+      {
+        "key": "videos/ballot.jpg",
+        "label": "ballot",
+        "keywords": [
+          "ballot"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ballot.jpg"
+      },
+      {
+        "key": "videos/banner.jpg",
+        "label": "banner",
+        "keywords": [
+          "banner"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/banner.jpg"
+      },
+      {
+        "key": "videos/battery.jpg",
+        "label": "battery",
+        "keywords": [
+          "battery"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/battery.jpg"
+      },
+      {
+        "key": "videos/bees.jpg",
+        "label": "bees",
+        "keywords": [
+          "bees"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/bees.jpg"
+      },
+      {
+        "key": "videos/birds.jpg",
+        "label": "birds",
+        "keywords": [
+          "birds"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/birds.jpg"
+      },
+      {
+        "key": "videos/blanket.jpg",
+        "label": "blanket",
+        "keywords": [
+          "blanket"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/blanket.jpg"
+      },
+      {
+        "key": "videos/border.jpg",
+        "label": "border",
+        "keywords": [
+          "border"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/border.jpg"
+      },
+      {
+        "key": "videos/brainscan.jpg",
+        "label": "brainscan",
+        "keywords": [
+          "brainscan"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/brainscan.jpg"
+      },
+      {
+        "key": "videos/bridge.jpg",
+        "label": "bridge",
+        "keywords": [
+          "bridge"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/bridge.jpg"
+      },
+      {
+        "key": "videos/bus.jpg",
+        "label": "bus",
+        "keywords": [
+          "bus"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/bus.jpg"
+      },
+      {
+        "key": "videos/butterfly.jpg",
+        "label": "butterfly",
+        "keywords": [
+          "butterfly"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/butterfly.jpg"
+      },
+      {
+        "key": "videos/cafe.jpg",
+        "label": "cafe",
+        "keywords": [
+          "cafe"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cafe.jpg"
+      },
+      {
+        "key": "videos/calendar.jpg",
+        "label": "calendar",
+        "keywords": [
+          "calendar"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/calendar.jpg"
+      },
+      {
+        "key": "videos/campaign.jpg",
+        "label": "campaign",
+        "keywords": [
+          "campaign"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/campaign.jpg"
+      },
+      {
+        "key": "videos/candles.jpg",
+        "label": "candles",
+        "keywords": [
+          "candles"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/candles.jpg"
+      },
+      {
+        "key": "videos/canopy.jpg",
+        "label": "canopy",
+        "keywords": [
+          "canopy"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/canopy.jpg"
+      },
+      {
+        "key": "videos/cat.jpg",
+        "label": "cat",
+        "keywords": [
+          "cat"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cat.jpg"
+      },
+      {
+        "key": "videos/cattle.jpg",
+        "label": "cattle",
+        "keywords": [
+          "cattle"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cattle.jpg"
+      },
+      {
+        "key": "videos/celebration.jpg",
+        "label": "celebration",
+        "keywords": [
+          "celebration"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/celebration.jpg"
+      },
+      {
+        "key": "videos/charging.jpg",
+        "label": "charging",
+        "keywords": [
+          "charging"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/charging.jpg"
+      },
+      {
+        "key": "videos/cheering.jpg",
+        "label": "cheering",
+        "keywords": [
+          "cheering"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cheering.jpg"
+      },
+      {
+        "key": "videos/children.jpg",
+        "label": "children",
+        "keywords": [
+          "children"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/children.jpg"
+      },
+      {
+        "key": "videos/church.jpg",
+        "label": "church",
+        "keywords": [
+          "church"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/church.jpg"
+      },
+      {
+        "key": "videos/circuit.jpg",
+        "label": "circuit",
+        "keywords": [
+          "circuit"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/circuit.jpg"
+      },
+      {
+        "key": "videos/city.jpg",
+        "label": "city",
+        "keywords": [
+          "city"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/city.jpg"
+      },
+      {
+        "key": "videos/classroom.jpg",
+        "label": "classroom",
+        "keywords": [
+          "classroom"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/classroom.jpg"
+      },
+      {
+        "key": "videos/climbing.jpg",
+        "label": "climbing",
+        "keywords": [
+          "climbing"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/climbing.jpg"
+      },
+      {
+        "key": "videos/clock.jpg",
+        "label": "clock",
+        "keywords": [
+          "clock"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clock.jpg"
+      },
+      {
+        "key": "videos/clouds.jpg",
+        "label": "clouds",
+        "keywords": [
+          "clouds"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/clouds.jpg"
+      },
+      {
+        "key": "videos/coastline.jpg",
+        "label": "coastline",
+        "keywords": [
+          "coastline"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coastline.jpg"
+      },
+      {
+        "key": "videos/construction.jpg",
+        "label": "construction",
+        "keywords": [
+          "construction"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/construction.jpg"
+      },
+      {
+        "key": "videos/convoy.jpg",
+        "label": "convoy",
+        "keywords": [
+          "convoy"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/convoy.jpg"
+      },
+      {
+        "key": "videos/cooking.jpg",
+        "label": "cooking",
+        "keywords": [
+          "cooking"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cooking.jpg"
+      },
+      {
+        "key": "videos/coral.jpg",
+        "label": "coral",
+        "keywords": [
+          "coral"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/coral.jpg"
+      },
+      {
+        "key": "videos/courthouse.jpg",
+        "label": "courthouse",
+        "keywords": [
+          "courthouse"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/courthouse.jpg"
+      },
+      {
+        "key": "videos/crowd.jpg",
+        "label": "crowd",
+        "keywords": [
+          "crowd"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/crowd.jpg"
+      },
+      {
+        "key": "videos/cycling.jpg",
+        "label": "cycling",
+        "keywords": [
+          "cycling"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/cycling.jpg"
+      },
+      {
+        "key": "videos/dancing.jpg",
+        "label": "dancing",
+        "keywords": [
+          "dancing"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dancing.jpg"
+      },
+      {
+        "key": "videos/deer.jpg",
+        "label": "deer",
+        "keywords": [
+          "deer"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/deer.jpg"
+      },
+      {
+        "key": "videos/dna.jpg",
+        "label": "dna",
+        "keywords": [
+          "dna"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dna.jpg"
+      },
+      {
+        "key": "videos/doctor.jpg",
+        "label": "doctor",
+        "keywords": [
+          "doctor"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doctor.jpg"
+      },
+      {
+        "key": "videos/dog.jpg",
+        "label": "dog",
+        "keywords": [
+          "dog"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dog.jpg"
+      },
+      {
+        "key": "videos/dolphin.jpg",
+        "label": "dolphin",
+        "keywords": [
+          "dolphin"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dolphin.jpg"
+      },
+      {
+        "key": "videos/donation.jpg",
+        "label": "donation",
+        "keywords": [
+          "donation"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/donation.jpg"
+      },
+      {
+        "key": "videos/door.jpg",
+        "label": "door",
+        "keywords": [
+          "door"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/door.jpg"
+      },
+      {
+        "key": "videos/doves.jpg",
+        "label": "doves",
+        "keywords": [
+          "doves"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/doves.jpg"
+      },
+      {
+        "key": "videos/drought.jpg",
+        "label": "drought",
+        "keywords": [
+          "drought"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/drought.jpg"
+      },
+      {
+        "key": "videos/dust.jpg",
+        "label": "dust",
+        "keywords": [
+          "dust"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/dust.jpg"
+      },
+      {
+        "key": "videos/elephant.jpg",
+        "label": "elephant",
+        "keywords": [
+          "elephant"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/elephant.jpg"
+      },
+      {
+        "key": "videos/embrace.jpg",
+        "label": "embrace",
+        "keywords": [
+          "embrace"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/embrace.jpg"
+      },
+      {
+        "key": "videos/engineer.jpg",
+        "label": "engineer",
+        "keywords": [
+          "engineer"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/engineer.jpg"
+      },
+      {
+        "key": "videos/factory.jpg",
+        "label": "factory",
+        "keywords": [
+          "factory"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/factory.jpg"
+      },
+      {
+        "key": "videos/family.jpg",
+        "label": "family",
+        "keywords": [
+          "family"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/family.jpg"
+      },
+      {
+        "key": "videos/farmland.jpg",
+        "label": "farmland",
+        "keywords": [
+          "farmland"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/farmland.jpg"
+      },
+      {
+        "key": "videos/finishline.jpg",
+        "label": "finishline",
+        "keywords": [
+          "finishline"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/finishline.jpg"
+      },
+      {
+        "key": "videos/fish.jpg",
+        "label": "fish",
+        "keywords": [
+          "fish"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/fish.jpg"
+      },
+      {
+        "key": "videos/flag.jpg",
+        "label": "flag",
+        "keywords": [
+          "flag"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/flag.jpg"
+      },
+      {
+        "key": "videos/flood.jpg",
+        "label": "flood",
+        "keywords": [
+          "flood"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/flood.jpg"
+      },
+      {
+        "key": "videos/foodbank.jpg",
+        "label": "foodbank",
+        "keywords": [
+          "foodbank"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/foodbank.jpg"
+      },
+      {
+        "key": "videos/football.jpg",
+        "label": "football",
+        "keywords": [
+          "football"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/football.jpg"
+      },
+      {
+        "key": "videos/forest.jpg",
+        "label": "forest",
+        "keywords": [
+          "forest"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/forest.jpg"
+      },
+      {
+        "key": "videos/frog.jpg",
+        "label": "frog",
+        "keywords": [
+          "frog"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/frog.jpg"
+      },
+      {
+        "key": "videos/garden.jpg",
+        "label": "garden",
+        "keywords": [
+          "garden"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/garden.jpg"
+      },
+      {
+        "key": "videos/gavel.jpg",
+        "label": "gavel",
+        "keywords": [
+          "gavel"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/gavel.jpg"
+      },
+      {
+        "key": "videos/glacier.jpg",
+        "label": "glacier",
+        "keywords": [
+          "glacier"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/glacier.jpg"
+      },
+      {
+        "key": "videos/globe.jpg",
+        "label": "globe",
+        "keywords": [
+          "globe"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/globe.jpg"
+      },
+      {
+        "key": "videos/grandfather.jpg",
+        "label": "grandfather",
+        "keywords": [
+          "grandfather"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/grandfather.jpg"
+      },
+      {
+        "key": "videos/grandmother.jpg",
+        "label": "grandmother",
+        "keywords": [
+          "grandmother"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/grandmother.jpg"
+      },
+      {
+        "key": "videos/guitar.jpg",
+        "label": "guitar",
+        "keywords": [
+          "guitar"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/guitar.jpg"
+      },
+      {
+        "key": "videos/hands.jpg",
+        "label": "hands",
+        "keywords": [
+          "hands"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hands.jpg"
+      },
+      {
+        "key": "videos/handshake.jpg",
+        "label": "handshake",
+        "keywords": [
+          "handshake"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/handshake.jpg"
+      },
+      {
+        "key": "videos/harbour.jpg",
+        "label": "harbour",
+        "keywords": [
+          "harbour"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/harbour.jpg"
+      },
+      {
+        "key": "videos/horizon.jpg",
+        "label": "horizon",
+        "keywords": [
+          "horizon"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horizon.jpg"
+      },
+      {
+        "key": "videos/horse.jpg",
+        "label": "horse",
+        "keywords": [
+          "horse"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/horse.jpg"
+      },
+      {
+        "key": "videos/hospital.jpg",
+        "label": "hospital",
+        "keywords": [
+          "hospital"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hospital.jpg"
+      },
+      {
+        "key": "videos/houses.jpg",
+        "label": "houses",
+        "keywords": [
+          "houses"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/houses.jpg"
+      },
+      {
+        "key": "videos/hug.jpg",
+        "label": "hug",
+        "keywords": [
+          "hug"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/hug.jpg"
+      },
+      {
+        "key": "videos/journalist.jpg",
+        "label": "journalist",
+        "keywords": [
+          "journalist"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/journalist.jpg"
+      },
+      {
+        "key": "videos/kitchen.jpg",
+        "label": "kitchen",
+        "keywords": [
+          "kitchen"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/kitchen.jpg"
+      },
+      {
+        "key": "videos/laboratory.jpg",
+        "label": "laboratory",
+        "keywords": [
+          "laboratory"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laboratory.jpg"
+      },
+      {
+        "key": "videos/lake.jpg",
+        "label": "lake",
+        "keywords": [
+          "lake"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/lake.jpg"
+      },
+      {
+        "key": "videos/laptop.jpg",
+        "label": "laptop",
+        "keywords": [
+          "laptop"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laptop.jpg"
+      },
+      {
+        "key": "videos/laughing.jpg",
+        "label": "laughing",
+        "keywords": [
+          "laughing"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/laughing.jpg"
+      },
+      {
+        "key": "videos/letter.jpg",
+        "label": "letter",
+        "keywords": [
+          "letter"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/letter.jpg"
+      },
+      {
+        "key": "videos/library.jpg",
+        "label": "library",
+        "keywords": [
+          "library"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/library.jpg"
+      },
+      {
+        "key": "videos/light.jpg",
+        "label": "light",
+        "keywords": [
+          "light"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/light.jpg"
+      },
+      {
+        "key": "videos/map.jpg",
+        "label": "map",
+        "keywords": [
+          "map"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/map.jpg"
+      },
+      {
+        "key": "videos/march.jpg",
+        "label": "march",
+        "keywords": [
+          "march"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/march.jpg"
+      },
+      {
+        "key": "videos/market.jpg",
+        "label": "market",
+        "keywords": [
+          "market"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/market.jpg"
+      },
+      {
+        "key": "videos/meadow.jpg",
+        "label": "meadow",
+        "keywords": [
+          "meadow"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meadow.jpg"
+      },
+      {
+        "key": "videos/meal.jpg",
+        "label": "meal",
+        "keywords": [
+          "meal"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meal.jpg"
+      },
+      {
+        "key": "videos/medal.jpg",
+        "label": "medal",
+        "keywords": [
+          "medal"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medal.jpg"
+      },
+      {
+        "key": "videos/medicine.jpg",
+        "label": "medicine",
+        "keywords": [
+          "medicine"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/medicine.jpg"
+      },
+      {
+        "key": "videos/meeting.jpg",
+        "label": "meeting",
+        "keywords": [
+          "meeting"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/meeting.jpg"
+      },
+      {
+        "key": "videos/microphone.jpg",
+        "label": "microphone",
+        "keywords": [
+          "microphone"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microphone.jpg"
+      },
+      {
+        "key": "videos/microscope.jpg",
+        "label": "microscope",
+        "keywords": [
+          "microscope"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/microscope.jpg"
+      },
+      {
+        "key": "videos/moss.jpg",
+        "label": "moss",
+        "keywords": [
+          "moss"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/moss.jpg"
+      },
+      {
+        "key": "videos/mountains.jpg",
+        "label": "mountains",
+        "keywords": [
+          "mountains"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/mountains.jpg"
+      },
+      {
+        "key": "videos/mural.jpg",
+        "label": "mural",
+        "keywords": [
+          "mural"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/mural.jpg"
+      },
+      {
+        "key": "videos/museum.jpg",
+        "label": "museum",
+        "keywords": [
+          "museum"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/museum.jpg"
+      },
+      {
+        "key": "videos/music.jpg",
+        "label": "music",
+        "keywords": [
+          "music"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/music.jpg"
+      },
+      {
+        "key": "videos/neighbours.jpg",
+        "label": "neighbours",
+        "keywords": [
+          "neighbours"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/neighbours.jpg"
+      },
+      {
+        "key": "videos/nest.jpg",
+        "label": "nest",
+        "keywords": [
+          "nest"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nest.jpg"
+      },
+      {
+        "key": "videos/newspaper.jpg",
+        "label": "newspaper",
+        "keywords": [
+          "newspaper"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/newspaper.jpg"
+      },
+      {
+        "key": "videos/notebook.jpg",
+        "label": "notebook",
+        "keywords": [
+          "notebook"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/notebook.jpg"
+      },
+      {
+        "key": "videos/nurse.jpg",
+        "label": "nurse",
+        "keywords": [
+          "nurse"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/nurse.jpg"
+      },
+      {
+        "key": "videos/ocean.jpg",
+        "label": "ocean",
+        "keywords": [
+          "ocean"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ocean.jpg"
+      },
+      {
+        "key": "videos/olivebranch.jpg",
+        "label": "olivebranch",
+        "keywords": [
+          "olivebranch"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/olivebranch.jpg"
+      },
+      {
+        "key": "videos/owl.jpg",
+        "label": "owl",
+        "keywords": [
+          "owl"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/owl.jpg"
+      },
+      {
+        "key": "videos/painting.jpg",
+        "label": "painting",
+        "keywords": [
+          "painting"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/painting.jpg"
+      },
+      {
+        "key": "videos/panels.jpg",
+        "label": "panels",
+        "keywords": [
+          "panels"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/panels.jpg"
+      },
+      {
+        "key": "videos/park.jpg",
+        "label": "park",
+        "keywords": [
+          "park"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/park.jpg"
+      },
+      {
+        "key": "videos/parliament.jpg",
+        "label": "parliament",
+        "keywords": [
+          "parliament"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/parliament.jpg"
+      },
+      {
+        "key": "videos/path.jpg",
+        "label": "path",
+        "keywords": [
+          "path"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/path.jpg"
+      },
+      {
+        "key": "videos/patient.jpg",
+        "label": "patient",
+        "keywords": [
+          "patient"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/patient.jpg"
+      },
+      {
+        "key": "videos/peace.jpg",
+        "label": "peace",
+        "keywords": [
+          "peace"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/peace.jpg"
+      },
+      {
+        "key": "videos/penguin.jpg",
+        "label": "penguin",
+        "keywords": [
+          "penguin"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/penguin.jpg"
+      },
+      {
+        "key": "videos/petition.jpg",
+        "label": "petition",
+        "keywords": [
+          "petition"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/petition.jpg"
+      },
+      {
+        "key": "videos/pipeline.jpg",
+        "label": "pipeline",
+        "keywords": [
+          "pipeline"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/pipeline.jpg"
+      },
+      {
+        "key": "videos/plastic.jpg",
+        "label": "plastic",
+        "keywords": [
+          "plastic"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/plastic.jpg"
+      },
+      {
+        "key": "videos/playground.jpg",
+        "label": "playground",
+        "keywords": [
+          "playground"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/playground.jpg"
+      },
+      {
+        "key": "videos/portrait.jpg",
+        "label": "portrait",
+        "keywords": [
+          "portrait"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/portrait.jpg"
+      },
+      {
+        "key": "videos/powerlines.jpg",
+        "label": "powerlines",
+        "keywords": [
+          "powerlines"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/powerlines.jpg"
+      },
+      {
+        "key": "videos/prosthetic.jpg",
+        "label": "prosthetic",
+        "keywords": [
+          "prosthetic"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/prosthetic.jpg"
+      },
+      {
+        "key": "videos/protest.jpg",
+        "label": "protest",
+        "keywords": [
+          "protest"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/protest.jpg"
+      },
+      {
+        "key": "videos/railway.jpg",
+        "label": "railway",
+        "keywords": [
+          "railway"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/railway.jpg"
+      },
+      {
+        "key": "videos/rain.jpg",
+        "label": "rain",
+        "keywords": [
+          "rain"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rain.jpg"
+      },
+      {
+        "key": "videos/recycling.jpg",
+        "label": "recycling",
+        "keywords": [
+          "recycling"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/recycling.jpg"
+      },
+      {
+        "key": "videos/refugees.jpg",
+        "label": "refugees",
+        "keywords": [
+          "refugees"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/refugees.jpg"
+      },
+      {
+        "key": "videos/relief.jpg",
+        "label": "relief",
+        "keywords": [
+          "relief"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/relief.jpg"
+      },
+      {
+        "key": "videos/rescue.jpg",
+        "label": "rescue",
+        "keywords": [
+          "rescue"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rescue.jpg"
+      },
+      {
+        "key": "videos/research.jpg",
+        "label": "research",
+        "keywords": [
+          "research"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/research.jpg"
+      },
+      {
+        "key": "videos/reunion.jpg",
+        "label": "reunion",
+        "keywords": [
+          "reunion"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/reunion.jpg"
+      },
+      {
+        "key": "videos/ripple.jpg",
+        "label": "ripple",
+        "keywords": [
+          "ripple"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/ripple.jpg"
+      },
+      {
+        "key": "videos/river.jpg",
+        "label": "river",
+        "keywords": [
+          "river"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/river.jpg"
+      },
+      {
+        "key": "videos/road.jpg",
+        "label": "road",
+        "keywords": [
+          "road"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/road.jpg"
+      },
+      {
+        "key": "videos/robot.jpg",
+        "label": "robot",
+        "keywords": [
+          "robot"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/robot.jpg"
+      },
+      {
+        "key": "videos/rocket.jpg",
+        "label": "rocket",
+        "keywords": [
+          "rocket"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rocket.jpg"
+      },
+      {
+        "key": "videos/rooftop.jpg",
+        "label": "rooftop",
+        "keywords": [
+          "rooftop"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/rooftop.jpg"
+      },
+      {
+        "key": "videos/roots.jpg",
+        "label": "roots",
+        "keywords": [
+          "roots"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/roots.jpg"
+      },
+      {
+        "key": "videos/running.jpg",
+        "label": "running",
+        "keywords": [
+          "running"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/running.jpg"
+      },
+      {
+        "key": "videos/sanctuary.jpg",
+        "label": "sanctuary",
+        "keywords": [
+          "sanctuary"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sanctuary.jpg"
+      },
+      {
+        "key": "videos/scientist.jpg",
+        "label": "scientist",
+        "keywords": [
+          "scientist"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/scientist.jpg"
+      },
+      {
+        "key": "videos/seal.jpg",
+        "label": "seal",
+        "keywords": [
+          "seal"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/seal.jpg"
+      },
+      {
+        "key": "videos/seedling.jpg",
+        "label": "seedling",
+        "keywords": [
+          "seedling"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/seedling.jpg"
+      },
+      {
+        "key": "videos/shadow.jpg",
+        "label": "shadow",
+        "keywords": [
+          "shadow"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/shadow.jpg"
+      },
+      {
+        "key": "videos/sheep.jpg",
+        "label": "sheep",
+        "keywords": [
+          "sheep"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sheep.jpg"
+      },
+      {
+        "key": "videos/shelter.jpg",
+        "label": "shelter",
+        "keywords": [
+          "shelter"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/shelter.jpg"
+      },
+      {
+        "key": "videos/signature.jpg",
+        "label": "signature",
+        "keywords": [
+          "signature"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/signature.jpg"
+      },
+      {
+        "key": "videos/silhouette.jpg",
+        "label": "silhouette",
+        "keywords": [
+          "silhouette"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/silhouette.jpg"
+      },
+      {
+        "key": "videos/skyline.jpg",
+        "label": "skyline",
+        "keywords": [
+          "skyline"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/skyline.jpg"
+      },
+      {
+        "key": "videos/smiling.jpg",
+        "label": "smiling",
+        "keywords": [
+          "smiling"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/smiling.jpg"
+      },
+      {
+        "key": "videos/snow.jpg",
+        "label": "snow",
+        "keywords": [
+          "snow"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/snow.jpg"
+      },
+      {
+        "key": "videos/soil.jpg",
+        "label": "soil",
+        "keywords": [
+          "soil"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/soil.jpg"
+      },
+      {
+        "key": "videos/solar.jpg",
+        "label": "solar",
+        "keywords": [
+          "solar"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/solar.jpg"
+      },
+      {
+        "key": "videos/space.jpg",
+        "label": "space",
+        "keywords": [
+          "space"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/space.jpg"
+      },
+      {
+        "key": "videos/stadium.jpg",
+        "label": "stadium",
+        "keywords": [
+          "stadium"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/stadium.jpg"
+      },
+      {
+        "key": "videos/stairs.jpg",
+        "label": "stairs",
+        "keywords": [
+          "stairs"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/stairs.jpg"
+      },
+      {
+        "key": "videos/street.jpg",
+        "label": "street",
+        "keywords": [
+          "street"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/street.jpg"
+      },
+      {
+        "key": "videos/students.jpg",
+        "label": "students",
+        "keywords": [
+          "students"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/students.jpg"
+      },
+      {
+        "key": "videos/summit.jpg",
+        "label": "summit",
+        "keywords": [
+          "summit"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/summit.jpg"
+      },
+      {
+        "key": "videos/sunbeam.jpg",
+        "label": "sunbeam",
+        "keywords": [
+          "sunbeam"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunbeam.jpg"
+      },
+      {
+        "key": "videos/sunrise.jpg",
+        "label": "sunrise",
+        "keywords": [
+          "sunrise"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunrise.jpg"
+      },
+      {
+        "key": "videos/sunset.jpg",
+        "label": "sunset",
+        "keywords": [
+          "sunset"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/sunset.jpg"
+      },
+      {
+        "key": "videos/surgery.jpg",
+        "label": "surgery",
+        "keywords": [
+          "surgery"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/surgery.jpg"
+      },
+      {
+        "key": "videos/swimming.jpg",
+        "label": "swimming",
+        "keywords": [
+          "swimming"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/swimming.jpg"
+      },
+      {
+        "key": "videos/syringe.jpg",
+        "label": "syringe",
+        "keywords": [
+          "syringe"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/syringe.jpg"
+      },
+      {
+        "key": "videos/teacher.jpg",
+        "label": "teacher",
+        "keywords": [
+          "teacher"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teacher.jpg"
+      },
+      {
+        "key": "videos/team.jpg",
+        "label": "team",
+        "keywords": [
+          "team"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/team.jpg"
+      },
+      {
+        "key": "videos/teamwork.jpg",
+        "label": "teamwork",
+        "keywords": [
+          "teamwork"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teamwork.jpg"
+      },
+      {
+        "key": "videos/tears.jpg",
+        "label": "tears",
+        "keywords": [
+          "tears"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/tears.jpg"
+      },
+      {
+        "key": "videos/teenagers.jpg",
+        "label": "teenagers",
+        "keywords": [
+          "teenagers"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/teenagers.jpg"
+      },
+      {
+        "key": "videos/telescope.jpg",
+        "label": "telescope",
+        "keywords": [
+          "telescope"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/telescope.jpg"
+      },
+      {
+        "key": "videos/tent.jpg",
+        "label": "tent",
+        "keywords": [
+          "tent"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/tent.jpg"
+      },
+      {
+        "key": "videos/thoughtful.jpg",
+        "label": "thoughtful",
+        "keywords": [
+          "thoughtful"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/thoughtful.jpg"
+      },
+      {
+        "key": "videos/toolbox.jpg",
+        "label": "toolbox",
+        "keywords": [
+          "toolbox"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/toolbox.jpg"
+      },
+      {
+        "key": "videos/town.jpg",
+        "label": "town",
+        "keywords": [
+          "town"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/town.jpg"
+      },
+      {
+        "key": "videos/townhall.jpg",
+        "label": "townhall",
+        "keywords": [
+          "townhall"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/townhall.jpg"
+      },
+      {
+        "key": "videos/training.jpg",
+        "label": "training",
+        "keywords": [
+          "training"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/training.jpg"
+      },
+      {
+        "key": "videos/trees.jpg",
+        "label": "trees",
+        "keywords": [
+          "trees"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trees.jpg"
+      },
+      {
+        "key": "videos/trophy.jpg",
+        "label": "trophy",
+        "keywords": [
+          "trophy"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/trophy.jpg"
+      },
+      {
+        "key": "videos/turtle.jpg",
+        "label": "turtle",
+        "keywords": [
+          "turtle"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/turtle.jpg"
+      },
+      {
+        "key": "videos/vaccine.jpg",
+        "label": "vaccine",
+        "keywords": [
+          "vaccine"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vaccine.jpg"
+      },
+      {
+        "key": "videos/victory.jpg",
+        "label": "victory",
+        "keywords": [
+          "victory"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/victory.jpg"
+      },
+      {
+        "key": "videos/vigil.jpg",
+        "label": "vigil",
+        "keywords": [
+          "vigil"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/vigil.jpg"
+      },
+      {
+        "key": "videos/village.jpg",
+        "label": "village",
+        "keywords": [
+          "village"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/village.jpg"
+      },
+      {
+        "key": "videos/volunteers.jpg",
+        "label": "volunteers",
+        "keywords": [
+          "volunteers"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/volunteers.jpg"
+      },
+      {
+        "key": "videos/voting.jpg",
+        "label": "voting",
+        "keywords": [
+          "voting"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/voting.jpg"
+      },
+      {
+        "key": "videos/walking.jpg",
+        "label": "walking",
+        "keywords": [
+          "walking"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/walking.jpg"
+      },
+      {
+        "key": "videos/waste.jpg",
+        "label": "waste",
+        "keywords": [
+          "waste"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/waste.jpg"
+      },
+      {
+        "key": "videos/water.jpg",
+        "label": "water",
+        "keywords": [
+          "water"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/water.jpg"
+      },
+      {
+        "key": "videos/waterfall.jpg",
+        "label": "waterfall",
+        "keywords": [
+          "waterfall"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/waterfall.jpg"
+      },
+      {
+        "key": "videos/waves.jpg",
+        "label": "waves",
+        "keywords": [
+          "waves"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/waves.jpg"
+      },
+      {
+        "key": "videos/wetlands.jpg",
+        "label": "wetlands",
+        "keywords": [
+          "wetlands"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wetlands.jpg"
+      },
+      {
+        "key": "videos/whale.jpg",
+        "label": "whale",
+        "keywords": [
+          "whale"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/whale.jpg"
+      },
+      {
+        "key": "videos/wheelchair.jpg",
+        "label": "wheelchair",
+        "keywords": [
+          "wheelchair"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wheelchair.jpg"
+      },
+      {
+        "key": "videos/wildflowers.jpg",
+        "label": "wildflowers",
+        "keywords": [
+          "wildflowers"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wildflowers.jpg"
+      },
+      {
+        "key": "videos/wind.jpg",
+        "label": "wind",
+        "keywords": [
+          "wind"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wind.jpg"
+      },
+      {
+        "key": "videos/windfarm.jpg",
+        "label": "windfarm",
+        "keywords": [
+          "windfarm"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/windfarm.jpg"
+      },
+      {
+        "key": "videos/window.jpg",
+        "label": "window",
+        "keywords": [
+          "window"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/window.jpg"
+      },
+      {
+        "key": "videos/wolf.jpg",
+        "label": "wolf",
+        "keywords": [
+          "wolf"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wolf.jpg"
+      },
+      {
+        "key": "videos/workshop.jpg",
+        "label": "workshop",
+        "keywords": [
+          "workshop"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/workshop.jpg"
+      },
+      {
+        "key": "videos/wreath.jpg",
+        "label": "wreath",
+        "keywords": [
+          "wreath"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/wreath.jpg"
+      },
+      {
+        "key": "videos/writing.jpg",
+        "label": "writing",
+        "keywords": [
+          "writing"
+        ],
+        "pool": "keyword",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/writing.jpg"
+      },
+      {
+        "key": "videos/generic/generic-01.jpg",
+        "label": "generic-01",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-01.jpg"
+      },
+      {
+        "key": "videos/generic/generic-02.jpg",
+        "label": "generic-02",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-02.jpg"
+      },
+      {
+        "key": "videos/generic/generic-03.jpg",
+        "label": "generic-03",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-03.jpg"
+      },
+      {
+        "key": "videos/generic/generic-04.jpg",
+        "label": "generic-04",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-04.jpg"
+      },
+      {
+        "key": "videos/generic/generic-05.jpg",
+        "label": "generic-05",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-05.jpg"
+      },
+      {
+        "key": "videos/generic/generic-06.jpg",
+        "label": "generic-06",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-06.jpg"
+      },
+      {
+        "key": "videos/generic/generic-07.jpg",
+        "label": "generic-07",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-07.jpg"
+      },
+      {
+        "key": "videos/generic/generic-08.jpg",
+        "label": "generic-08",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-08.jpg"
+      },
+      {
+        "key": "videos/generic/generic-09.jpg",
+        "label": "generic-09",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-09.jpg"
+      },
+      {
+        "key": "videos/generic/generic-10.jpg",
+        "label": "generic-10",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-10.jpg"
+      },
+      {
+        "key": "videos/generic/generic-11.jpg",
+        "label": "generic-11",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-11.jpg"
+      },
+      {
+        "key": "videos/generic/generic-12.jpg",
+        "label": "generic-12",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-12.jpg"
+      },
+      {
+        "key": "videos/generic/generic-13.jpg",
+        "label": "generic-13",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-13.jpg"
+      },
+      {
+        "key": "videos/generic/generic-14.jpg",
+        "label": "generic-14",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-14.jpg"
+      },
+      {
+        "key": "videos/generic/generic-15.jpg",
+        "label": "generic-15",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-15.jpg"
+      },
+      {
+        "key": "videos/generic/generic-16.jpg",
+        "label": "generic-16",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-16.jpg"
+      },
+      {
+        "key": "videos/generic/generic-17.jpg",
+        "label": "generic-17",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-17.jpg"
+      },
+      {
+        "key": "videos/generic/generic-18.jpg",
+        "label": "generic-18",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-18.jpg"
+      },
+      {
+        "key": "videos/generic/generic-19.jpg",
+        "label": "generic-19",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-19.jpg"
+      },
+      {
+        "key": "videos/generic/generic-20.jpg",
+        "label": "generic-20",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-20.jpg"
+      },
+      {
+        "key": "videos/generic/generic-21.jpg",
+        "label": "generic-21",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-21.jpg"
+      },
+      {
+        "key": "videos/generic/generic-22.jpg",
+        "label": "generic-22",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-22.jpg"
+      },
+      {
+        "key": "videos/generic/generic-23.jpg",
+        "label": "generic-23",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-23.jpg"
+      },
+      {
+        "key": "videos/generic/generic-24.jpg",
+        "label": "generic-24",
+        "keywords": [],
+        "pool": "generic",
+        "url": "https://pub-5a350bcb921f42f6a4eb886579d2beb7.r2.dev/videos/generic/generic-24.jpg"
+      }
+    ]
+  },
+  "approvedAt": "2026-08-31T01:31:32.024Z",
+  "approvedWithEdits": true
+}
