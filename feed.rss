@@ -7,10 +7,18 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2026 01:36:59 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 03:16:56 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>The FDA Just Approved The First US Freeze-Dried Plasma, Ready in Minutes</title>
+      <link>https://rally.news/categories/ai/?article=The%2BFDA%2BJust%2BApproved%2BThe%2BFirst%2BUS%2BFreeze-Dried%2BPlasma%2C%2BReady%2Bin%2BMinutes</link>
+      <description>For a patient losing blood, every minute without treatment can matter. But the plasma needed to help control bleeding isn&apos;t always available where the injury happens.</description>
+      <pubDate>Wed, 02 Sep 2026 03:16:56 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/ai/?article=The%2BFDA%2BJust%2BApproved%2BThe%2BFirst%2BUS%2BFreeze-Dried%2BPlasma%2C%2BReady%2Bin%2BMinutes</guid>
+    </item>
+
+<item>
       <title>This common medication cuts heart-attack risk in older people</title>
       <link>https://rally.news/categories/world/?article=This%2Bcommon%2Bmedication%2Bcuts%2Bheart-attack%2Brisk%2Bin%2Bolder%2Bpeople</link>
       <description>A world-first clinical trial has found cholesterol-lowering medication significantly reduces the risk of a major cardiovascular event in older adults who live independently.</description>
@@ -400,14 +408,6 @@
       <description>Mikel Oyarzabal and Pedro Porro score as Spain reaches the FIFA World Cup title match for only the second time and denies 2018 champion France a third straight final appearance</description>
       <pubDate>Wed, 15 Jul 2026 15:27:00 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</guid>
-    </item>
-
-<item>
-      <title>Solar generated record 25% of EU power in June with Germany, Spain and Poland leading the race</title>
-      <link>https://rally.news/categories/climate/?article=Solar%2Bgenerated%2Brecord%2B25%25%2Bof%2BEU%2Bpower%2Bin%2BJune%2Bwith%2BGermany%2C%2BSpain%2Band%2BPoland%2Bleading%2Bthe%2Brace</link>
-      <description>Solar was ahead of coal, gas, nuclear, wind and hydropower.</description>
-      <pubDate>Wed, 15 Jul 2026 05:01:47 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/climate/?article=Solar%2Bgenerated%2Brecord%2B25%25%2Bof%2BEU%2Bpower%2Bin%2BJune%2Bwith%2BGermany%2C%2BSpain%2Band%2BPoland%2Bleading%2Bthe%2Brace</guid>
     </item>
   </channel>
 </rss>
