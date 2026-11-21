@@ -7,10 +7,20 @@
     <link>https://rallynews.com</link>
     <description>The most uplifting and viral positive news stories, curated daily by Rally News.</description>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2026 03:16:56 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2026 14:47:46 GMT</lastBuildDate>
     <atom:link href="https://raw.githubusercontent.com/rallynews/rally-video-pipeline/main/feed.rss" rel="self" type="application/rss+xml"/>
 
     <item>
+      <title>See the Rare Baby Rhinoceros Born at England&apos;s Chester Zoo, an Adorable Boost for Its Vulnerable Species</title>
+      <link>https://rally.news/categories/climate/?article=See%2Bthe%2BRare%2BBaby%2BRhinoceros%2BBorn%2Bat%2BEngland%27s%2BChester%2BZoo%2C%2Ban%2BAdorable%2BBoost%2Bfor%2BIts%2BVulnerable%2BSpecies&amp;id=13928&amp;utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=carousel&amp;utm_content=b1-v1</link>
+      <description>A rare greater one-horned rhino calf was born at Chester Zoo, offering hope for its vulnerable species. The healthy baby is bonding with its mother in a secluded paddock, a small but meaningful step toward conservation. The birth brings joy to animal care teams and a positive sign for wildlife protection.</description>
+      <pubDate>Sat, 21 Nov 2026 14:47:46 GMT</pubDate>
+      <guid isPermaLink="true">https://rally.news/categories/climate/?article=See%2Bthe%2BRare%2BBaby%2BRhinoceros%2BBorn%2Bat%2BEngland%27s%2BChester%2BZoo%2C%2Ban%2BAdorable%2BBoost%2Bfor%2BIts%2BVulnerable%2BSpecies&amp;id=13928</guid>
+      <enclosure url="https://th-thumbnailer.cdn-si-edu.com/54UpjHsl6deLW3s7uDKpYPALl9I=/420x240/filters:focal(2250x1500:2251x1501)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/7d/e2/7de290c2-869b-4a3e-bd45-d286188b2263/amazing_moment_of_rare_rhino_birth_caught_on_cctv_at_chester_zoo_14.jpg" type="image/jpeg" length="0"/>
+      <media:content url="https://th-thumbnailer.cdn-si-edu.com/54UpjHsl6deLW3s7uDKpYPALl9I=/420x240/filters:focal(2250x1500:2251x1501)/https://tf-cmsv2-smithsonianmag-media.s3.amazonaws.com/filer_public/7d/e2/7de290c2-869b-4a3e-bd45-d286188b2263/amazing_moment_of_rare_rhino_birth_caught_on_cctv_at_chester_zoo_14.jpg" medium="image"/>
+    </item>
+
+<item>
       <title>The FDA Just Approved The First US Freeze-Dried Plasma, Ready in Minutes</title>
       <link>https://rally.news/categories/ai/?article=The%2BFDA%2BJust%2BApproved%2BThe%2BFirst%2BUS%2BFreeze-Dried%2BPlasma%2C%2BReady%2Bin%2BMinutes</link>
       <description>For a patient losing blood, every minute without treatment can matter. But the plasma needed to help control bleeding isn&apos;t always available where the injury happens.</description>
@@ -399,14 +409,6 @@
       <link>https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</link>
       <description>Mikel Oyarzabal and Pedro Porro score as Spain reaches the FIFA World Cup title match for only the second time and denies 2018 champion France a third straight final appearance</description>
       <pubDate>Thu, 16 Jul 2026 05:01:41 GMT</pubDate>
-      <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</guid>
-    </item>
-
-<item>
-      <title>Spain blanks favored France to advance to FIFA World Cup final</title>
-      <link>https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</link>
-      <description>Mikel Oyarzabal and Pedro Porro score as Spain reaches the FIFA World Cup title match for only the second time and denies 2018 champion France a third straight final appearance</description>
-      <pubDate>Wed, 15 Jul 2026 15:27:00 GMT</pubDate>
       <guid isPermaLink="true">https://rally.news/categories/entertainment/?article=Spain%2Bblanks%2Bfavored%2BFrance%2Bto%2Badvance%2Bto%2BFIFA%2BWorld%2BCup%2Bfinal</guid>
     </item>
   </channel>
