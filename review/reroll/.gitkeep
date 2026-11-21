@@ -1,1 +1,0 @@
-# The review app writes review/reroll/<date>.json here; each write re-runs the draft with that story excluded

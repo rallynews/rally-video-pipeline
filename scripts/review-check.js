@@ -329,7 +329,7 @@ driveGenerateReel(approvedReel).then(seen => {
     console.error(`\n❌ ${failures} check(s) failed.\n`);
     process.exit(1);
   }
-  console.log('\n✅ The review app and the reel builder agree: what you see is what plays.\n');
+  console.log('\n✅ Studio’s script editor and the reel builder agree: what you see is what plays.\n');
 }).catch(err => {
   console.error(`\n❌ The generateReel harness failed: ${err.message}\n`);
   process.exit(1);

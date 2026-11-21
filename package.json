@@ -1,17 +1,16 @@
 {
   "name": "rally-video-pipeline",
   "version": "1.0.0",
-  "description": "Rally News daily video pipeline",
+  "description": "Rally News reels: batches driven from Rally Studio ▸ Promotion ▸ Carousel, plus the talking-head video pipeline",
   "main": "index.js",
   "scripts": {
-    "carousel": "node carousel.js",
+    "batch": "node batch.js",
     "video": "node index.js",
     "reel-check": "node scripts/reel-check.js",
     "reel-assets": "node scripts/reel-assets.js",
     "voice-check": "node scripts/voice-check.js",
-    "delivery-check": "node scripts/delivery-check.js",
     "review-check": "node scripts/review-check.js",
-    "review-app-check": "node scripts/review-app-check.js"
+    "batch-check": "node scripts/batch-check.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",

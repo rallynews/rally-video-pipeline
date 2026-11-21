@@ -30,7 +30,7 @@ const OUTRO_PREFIX = () => normalizePrefix(process.env.R2_REELS_OUTRO_PREFIX, 'o
 
 // Folders the pipeline WRITES. They're full of images (carousel slides) and
 // MP4s (yesterday's reels), so they'd poison any scan of the bucket.
-const OUTPUT_PREFIXES = ['carousels/', 'reels/'];
+const OUTPUT_PREFIXES = ['carousels/', 'reels/', 'drafts/'];
 
 const IMAGE_EXT = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const AUDIO_EXT = new Set(['.mp3', '.m4a', '.aac', '.wav', '.ogg', '.opus', '.flac']);

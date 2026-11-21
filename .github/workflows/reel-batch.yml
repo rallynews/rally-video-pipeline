@@ -1,0 +1,158 @@
+name: Rally Studio Carousel (reel batch)
+
+# Started by Rally Studio ▸ Promotion ▸ Carousel, never on a schedule. Studio
+# sends a batch number and a mode, and the workflow fetches the work from
+# Studio itself (api/carousel.php, with CAROUSEL_API_KEY) — so nothing an
+# editor typed ever reaches a shell here.
+#
+#   script   research, fact-check and script every chosen story, in parallel,
+#            and post each draft back to Studio for review
+#   produce  voice and cut every confirmed script, in parallel, upload the
+#            MP4s to R2, and post each finished video back to Studio
+#
+# Either way the last job sends ONE "ready" message to Slack and Telegram with
+# the batch's Studio link. `item` limits a run to one slot — Studio's Retry.
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: script = write the scripts · produce = make the videos
+        type: choice
+        options: [script, produce]
+        required: true
+      batch:
+        description: Studio batch number
+        type: string
+        required: true
+      item:
+        description: One slot id only (a retry). Leave empty for the whole batch.
+        type: string
+        required: false
+        default: ''
+
+# Runs of the same batch queue rather than overlap, so a retry can never race
+# the run it is retrying.
+concurrency:
+  group: reel-batch-${{ inputs.batch }}
+  cancel-in-progress: false
+
+env:
+  MODE: ${{ inputs.mode }}
+  BATCH: ${{ inputs.batch }}
+  ITEM: ${{ inputs.item }}
+  STUDIO_API_URL: ${{ vars.STUDIO_API_URL }}
+  CAROUSEL_API_KEY: ${{ secrets.CAROUSEL_API_KEY }}
+  TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+  TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+  SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+  SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+  RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+
+permissions:
+  contents: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      items: ${{ steps.job.outputs.items }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Ask Studio which slots to work on
+        id: job
+        run: |
+          case "$MODE" in script|produce) ;; *) echo "bad mode" >&2; exit 1 ;; esac
+          [[ "$BATCH" =~ ^[0-9]+$ ]] || { echo "bad batch" >&2; exit 1; }
+          [[ -z "$ITEM" || "$ITEM" =~ ^[0-9]+$ ]] || { echo "bad item" >&2; exit 1; }
+          node batch.js job "$MODE" "$BATCH" "$ITEM"
+
+  work:
+    needs: plan
+    if: needs.plan.outputs.items != '[]' && needs.plan.outputs.items != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    strategy:
+      fail-fast: false
+      max-parallel: 7
+      matrix:
+        item: ${{ fromJSON(needs.plan.outputs.items) }}
+    name: ${{ inputs.mode }} slot ${{ matrix.item }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      # The reel is cut with ffmpeg; writing a script doesn't need it.
+      - name: Install ffmpeg
+        if: inputs.mode == 'produce'
+        run: |
+          if ! command -v ffmpeg >/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y -qq ffmpeg
+          fi
+          ffmpeg -version | head -1
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run slot
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          ALERT_EMAIL: ${{ secrets.ALERT_EMAIL }}
+          R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_PUBLIC_URL: ${{ secrets.R2_PUBLIC_URL }}
+          R2_VIDEO_BUCKET: ${{ vars.R2_VIDEO_BUCKET }}
+          R2_VIDEO_PUBLIC_URL: ${{ vars.R2_VIDEO_PUBLIC_URL }}
+          R2_REELS_IMAGE_PREFIX: ${{ vars.R2_REELS_IMAGE_PREFIX }}
+          R2_REELS_GENERIC_PREFIX: ${{ vars.R2_REELS_GENERIC_PREFIX }}
+          R2_REELS_AUDIO_PREFIX: ${{ vars.R2_REELS_AUDIO_PREFIX }}
+          R2_REELS_OUTRO_PREFIX: ${{ vars.R2_REELS_OUTRO_PREFIX }}
+          REELS_VOICE: ${{ vars.REELS_VOICE }}
+          REELS_TTS_MODEL: ${{ vars.REELS_TTS_MODEL }}
+          REELS_VOICE_PROVIDER: ${{ vars.REELS_VOICE_PROVIDER }}
+          AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
+          AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS_VOICE_ID: ${{ secrets.ELEVENLABS_VOICE_ID }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          SLOT: ${{ matrix.item }}
+        run: node batch.js "$MODE" "$SLOT"
+
+  finish:
+    needs: [plan, work]
+    # Always, so a slot whose job died without reporting is still marked
+    # failed in Studio, and the message still goes out for the rest.
+    if: always() && needs.plan.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Tell Studio this run is over, and send the ready message
+        env:
+          ITEMS: ${{ needs.plan.outputs.items }}
+        run: node batch.js finish "$MODE" "$BATCH" "$ITEMS"
+
+      - name: Commit the RSS feed
+        if: inputs.mode == 'produce'
+        run: |
+          git config user.name "Rally News Bot"
+          git config user.email "pipeline@rallynews.com"
+          git add feed.rss
+          git diff --cached --quiet && exit 0
+          git commit -m "chore: RSS feed (carousel batch $BATCH) [skip ci]"
+          git pull --rebase origin main
+          git push origin HEAD:main

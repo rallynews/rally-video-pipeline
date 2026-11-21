@@ -13,7 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 const { generateReel, missingPrerequisite } = require('../src/reels');
-const { getCoverImage } = require('../src/carousel/cover-image');
+const { getCoverImage } = require('../src/story/cover-image');
 
 // Stands in for a fact-checked carousel: same shape, same fields.
 const STORY = {

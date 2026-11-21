@@ -52,6 +52,14 @@ function updateRSSFeed(story) {
     existingItems = parsedItemsToXml(existing);
   }
 
+  // A story is in the feed once. Carousel can make a second reel of a story,
+  // and a retried batch reports its finished videos again.
+  const guid = `<guid isPermaLink="true">${escapeXml(story.url)}</guid>`;
+  if (existingItems.some(item => item.includes(guid))) {
+    console.log(`   RSS feed already has ${story.url} — unchanged`);
+    return;
+  }
+
   // Prepend the new item; keep at most 50 items to prevent unbounded growth
   const items = [newItem, ...existingItems].slice(0, 50);
 

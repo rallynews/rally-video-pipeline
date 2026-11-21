@@ -1,9 +1,8 @@
 # rally-video-pipeline
 
-Two independent content pipelines that pick the day's most viral positive
-story from the Rally RSS feed and turn it into ready-to-post social content.
-Each runs as its own GitHub Actions workflow, so you can enable/disable one
-without touching the other.
+Two independent content pipelines that turn Rally's positive stories into
+ready-to-post social video. Each runs as its own GitHub Actions workflow, so
+you can enable/disable one without touching the other.
 
 ## 1. Video pipeline (`index.js`)
 
@@ -11,149 +10,59 @@ Picks a story → writes a short UGC script + caption + tweet with Mistral →
 generates a talking-head video → delivers it to Telegram. Workflow:
 `.github/workflows/video-pipeline.yml`.
 
-## 2. Carousel pipeline (`carousel.js`) — slides **and** the 9:16 reel
+## 2. Studio Carousel — batches of 9:16 reels (`batch.js`)
 
-**By default the daily run does not post anything.** It researches, writes,
-fact-checks and plans everything, then stops and sends you a link to review it
-— see **Human review** below. Production happens when you approve. Set the
-repository variable `REVIEW_MODE=off` to skip the review and run straight
-through (the vacation switch).
+**Driven entirely from Rally Studio ▸ Promotion ▸ Carousel** (source:
+`rallynews/rally-frontend`, `studio/pages/carousel.js` + `api/carousel.php`).
+Nothing runs on a schedule; nothing is posted anywhere automatically.
 
-Picks the **same-logic** story → **researches and corroborates it on the web**
-→ writes a 5-part carousel with Mistral → **fact-checks that copy in a second
-pass** (cross-references every claim against the article and other sources,
-demands positive proof, rewrites anything unproven) → renders 6 branded PNG
-slides (1080×1350, @2x) in one of four randomly chosen styles (1a–1d) → uploads
-them to Cloudflare R2 → delivers everything to **Telegram and Slack**. The
-cover photo is the article's featured image (`<img class="rv-figure-img">` on
-the story's rally.news page). Workflow:
-`.github/workflows/carousel-pipeline.yml` (runs daily at 14:00 UTC and can be
-triggered manually).
-
-The six slides map to: **1** Intro (cover photo + content pillar + grippy
-headline) · **2** The Challenge · **3** The Solution · **4** Results & Impact ·
-**5** Why It Matters (closes on an engagement question) · **6** Follow Rally
-News closer. Every slide carries Rally branding: the mark top-right on the
-cover, and the mark + `rally.news` wordmark bottom-left on the rest.
-
-Delivery to both Telegram and Slack (so captions paste cleanly on a phone or
-desktop). On each platform:
-
-1. The 6 slides with an info/header (story, source, pillar, style, R2 links,
-   sources) — on Telegram a header message then the album; on Slack the images
-   shared with the header as their comment.
-2. The **Facebook** caption — its own message, plain text, nothing else. This
-   is the long one: the whole carousel as short paragraphs (hook question →
-   lead → challenge → solution → result → why it matters → engagement
-   question), so the post stands on its own for someone who never swipes. It
-   opens and closes on a question, the same shape the carousel has — the cover
-   hooks, the last slide asks. The opening question is lifted off the front of
-   the cover headline; the rest of that headline is cover-slide scaffolding and
-   is left on the slide.
-3. The **Instagram** caption — its own message, plain text, nothing else. Short
-   on purpose: Instagram collapses a caption behind "more" after a couple of
-   lines, and the slides carry the story there. Lead, the same question, "link
-   in bio", hashtags.
-4. The **article link** — its own message, the bare URL and nothing else, for
-   pasting as the **first comment**. Neither caption contains the link, so a
-   reach-throttled link never sits in the post body. Instagram still says "link
-   in bio", which is where its link genuinely lives.
-
-Both captions end on the same question and carry `#goodnews #positivenews` plus
-one popular story-specific hashtag. Any "read more at the link in bio" call to
-action the writer put in the slide copy is stripped out of the Facebook
-caption, so it never points somewhere the link isn't. Slack delivery is skipped
-gracefully if its secrets aren't set.
-
-### Human review — the morning draft
-
-The daily run has three modes (`node carousel.js [draft|full|produce <file>]`):
-
-| Mode | When | What happens |
+| Step | Where | What happens |
 | --- | --- | --- |
-| `draft` | default | Research → copy → fact-check → cover photo → reel script + shot plan, then **stop**. The outline is committed to `review/pending/<date>.json` and a review link goes to Telegram and Slack. Nothing is rendered, voiced, or posted. |
-| `produce` | on approval | Builds and delivers everything from the approved file — your edits included. Triggered automatically by the approval commit. |
-| `full` | `REVIEW_MODE=off`, or manual dispatch with mode `full` | The original unreviewed pipeline, end to end. |
+| **1 · Stories** | Studio | Pick 1–7 videos and give each a theme (a prompt or a few keywords, typed or filled from a saved theme). Studio searches Rally's own articles from the last 72 hours — widening to 7, then 14 days for a thin theme — and an AI pass suggests 5 per video, never the same story twice in a batch. You pick one per video. |
+| **2 · Scripts** | this repo, `reel-batch.yml` mode `script` | Every story in parallel: web research → story outline → fact-check pass → captions → article photo → reel script + shot plan. Each draft goes back to Studio. When the last one lands, **Slack and Telegram get "N scripts ready" with the batch's Studio link**. |
+| **Review** | Studio | Edit anything: the opening headline, every spoken line, every shot's image (searchable library picker), motion and transition, the music switch, both captions. **Confirm each script.** |
+| **3 · Videos** | this repo, mode `produce` | Only once every script is confirmed: proofread (edited scripts only) → voice → cuts → music → MP4 + poster frame to R2, back to Studio. **Slack and Telegram get "N videos ready"** with the same link. The RSS feed (`feed.rss`) gets each finished story. |
+| **Use** | Studio | Each video with copy buttons for the Facebook caption, Instagram caption and first-comment link; a **Used** toggle; a **Joyscroll** checkbox that puts it in the app's video feed. |
 
-**The review app** (`review/index.html`) is a single static page committed to
-this repo; every draft run copies it to the videos bucket, so it's served at
-`<R2_VIDEO_PUBLIC_URL>/review/index.html` with zero extra hosting. The morning
-message links to `…/review/index.html?d=<date>`. It shows the article, the
-model's **research brief**, the fact-check verdicts, the cover photo, every
-carousel field, the style pick, and the reel script line by line with the
-planned shots as 9:16 thumbnails. Everything is editable — copy, style, the
-reel's **opening hook headline**, its spoken lines (each line's text is also
-its on-screen caption), motions and transitions, and each shot's **image via a
-searchable picker**, thumbnail included, pre-filled with the image actually
-resolved for that shot. Blanking a line's text drops that line and its shots.
+### How Studio and this repo talk
 
-**What you see is what plays.** The shots on the page are the shots in the
-finished reel — all of them, in that order, on those files. The picker offers
-the **whole library**, one entry per file: every keyworded still (including two
-files claiming the same word) and the **generic fallback pool** as well, since
-the reel can cut to either. Picking one pins that shot to that exact object
-key, and the builder honours it verbatim — no substitution, no "that photo is
-already spent, have another", no re-roll, even if the same photo is used twice.
-Nothing is added afterwards either: an approved cut is never re-paced with
-extra images, because the only images that may reach the reel are the ones that
-were on the page. The one image that isn't chosen this way is the opening
-article photo, which is fixed — but the library still-frame that opens the reel
-*if that photo turns out to be unusable* is shown and editable underneath it,
-so there is no frame in the finished video that wasn't reviewed. If a chosen
-file has been renamed or deleted from the bucket since the morning draft, that
-one shot falls back to its keywords and the run says so in the log.
+Studio dispatches `.github/workflows/reel-batch.yml` with only `mode`, `batch`
+and (for a Retry) `item`. The workflow then **fetches its work from Studio**
+(`src/studio.js` → `api/carousel.php`, authenticated with `CAROUSEL_API_KEY`)
+and posts each result back the same way. So nothing typed in Studio — themes,
+scripts, captions — is ever interpolated into a workflow or shell command, and
+the key can do nothing but read the slots it was dispatched for and write their
+results.
 
-Edits are only carried by **Approve with my edits** — that is what "as-is"
-means. So the page says as soon as anything has been touched, and **Approve
-as-is** asks before throwing those changes away. A **🎲 Re-roll story** button throws today's story back entirely:
-it records the rejection in `review/reroll/<date>.json`, which re-runs the
-draft with that story excluded — new story, new research, new copy, fresh
-review link in a few minutes. Re-rolls stack, so you can throw back several in
-a row and never see the same one twice in a day.
+```
+plan     node batch.js job <mode> <batch> [item]   → which slots to run
+work     node batch.js <mode> <slot>                 one job per slot, in parallel (max 7)
+finish   node batch.js finish <mode> <batch> <slots> → one ready message; RSS for produce
+```
 
-**Sign-in**: the page asks once for a GitHub **fine-grained personal access
-token** and keeps it in your browser. Create it at GitHub → Settings →
-Developer settings → Fine-grained tokens: resource = this repository only,
-permission = **Contents: Read and write**, expiry of your choosing. The token
-is the password *and* the pen: the app reads the draft with it and, on
-approve, commits `review/approved/<date>.json` with it. That commit is what
-triggers the produce workflow (`.github/workflows/carousel-produce.yml`) — no
-server, no webhook, and the approval itself is version-controlled with your
-edits in the diff.
+A slot that fails tells Studio why, and Studio shows it with a **Retry**
+button; the other slots are unaffected. A slot whose job dies without reporting
+(timeout, cancellation) is marked failed by the `finish` job, so nothing sits
+"running" forever. Runs for the same batch queue rather than overlap.
 
-**Proofreading**: when you approve *with edits*, the produce run makes one
-extra pass over everything you could have typed into (`src/review/proofreader.js`)
-and fixes **only** spelling, grammar and punctuation — voice, facts, structure
-and informality are explicitly off limits. Because a model told "just fix the
-grammar" will sometimes rewrite anyway, every correction is diffed against your
-text at word level and **rejected** if it moved further than a proofread
-plausibly would; real fixes score 0–2 word-edits, rewrites score 8+, and the
-threshold sits at 3. Anything it changed (or refused to change) is listed in the
-Telegram/Slack header. Approving as-is skips the pass entirely — nothing new was
-introduced to check.
+### The Studio link
 
-**No music**: the checkbox at the foot of the reel card mutes the bed for that
-day's reel. It's a setting rather than copy, so it's honoured on *both* buttons
-— tick it and approve as-is and the reel still comes back dry.
+Every message carries `https://rally.news/studio/promotion/carousel/?batch=N`.
+It always opens the batch **as it is now**, at the step that needs a person —
+so the "scripts ready" link and the "videos ready" link are the same URL, and
+an old one never goes stale. Signing in from it lands back on the batch.
 
-**Approve as-is** is one click when the draft needs nothing. **Vacation
-bypass**: set the repository variable `REVIEW_MODE` to `off` (Settings →
-Secrets and variables → Actions → Variables) and the daily run produces and
-posts directly, exactly as before the review stage existed; delete the
-variable (or set anything else) to get review back. A manual run can also
-force either mode via the workflow_dispatch `mode` input. To re-produce a past
-day, dispatch the produce workflow with its `review/approved/<date>.json`.
+### The reel
 
-### 2b. The 9:16 reel (part of the same run)
+Output is a **1080×1920 MP4**, 25–35 seconds, uploaded to
+`rally-news-videos/reels/<date>/<slug>-b<batch>-<slot>.mp4` with a `.jpg`
+poster frame beside it, so the back catalogue is browsable by date and two
+videos of the same story never overwrite each other. (The carousel *slides*
+this pipeline used to render are retired; the fact-checked story outline they
+were written from is still produced, because the reel script and captions are
+written from it.)
 
-The carousel run also cuts a **Reels / Shorts video** telling the same story,
-and posts it to Telegram and Slack alongside the slides. Output is a
-**1080×1920 MP4**, 25–35 seconds, archived daily to
-`rally-news-videos/reels/<date>/<slug>.mp4` — one file per run, mirroring how
-the carousel archives its slides to `carousels/<date>/<slug>/`, so the back
-catalogue is browsable by date and yesterday's is never overwritten.
-
-The five steps, once the carousel copy has been written and fact-checked:
+The five steps, once the story outline has been written and fact-checked:
 
 1. **Script** (`src/reels/script-writer.js`) — Mistral rewrites the *same*
    fact-checked story arc as a 55–78 word spoken script (≈20–30s), casual and
@@ -227,7 +136,7 @@ scans the bucket, finds the folder that actually holds keyword-named photos,
 uses it for that run and logs the variable that would pin it. Only folders left
 at their default are substituted this way — a prefix you set by hand is
 reported but never overridden — and the pipeline's own `carousels/` and
-`reels/` output is ignored, so yesterday's slides can never be mistaken for
+`reels/` output is ignored, so yesterday's reels can never be mistaken for
 b-roll.
 
 **`images/`** — `.jpg`, `.jpeg`, `.png` or `.webp`, all in the one folder,
@@ -260,8 +169,8 @@ Two consecutive shots are never the same photo at any rung. So a partial
 library still produces a watchable reel; it just leans harder on `generic/`.
 
 This ladder is for the **planner** — the model asking for a subject it can't
-have. It is never applied to a choice made in review: an image picked on the
-review page names one exact file, and that file plays. The only time a reviewed
+have. It is never applied to a choice made in review: an image picked in
+Studio's script editor names one exact file, and that file plays. The only time a reviewed
 shot goes back down the ladder is when its file is no longer in the bucket.
 
 **`generic/`** — the fallback pool, and the thing that carries the reel while
@@ -283,9 +192,9 @@ folder is empty a plain rendered card is used, so a run never ends mid-sentence.
 
 #### The opening shot is always the article's own photo
 
-The reel opens on the same featured image the carousel puts on its cover, with
+The reel opens on the article's own featured image, with
 a **`Photo: <outlet>`** credit in the bottom-right for the first ~2.4 seconds,
-crediting the outlet that published it (the same name the carousel credits).
+crediting the outlet that published it.
 Everything after that comes from the library. If the article has no usable
 photo, the reel opens on library footage instead and no credit is shown.
 
@@ -295,8 +204,8 @@ photo, the reel opens on library footage instead and no credit is shown.
 npm run reel-assets         # what's in the bucket and what the builder sees
 npm run voice-check         # which speech model/voice the key can actually use
 npm run reel-check          # builds reel-check.mp4 from canned copy
-npm run review-check        # the review page and the builder agree (no network)
-npm run review-app-check    # drives the review page in a browser (no network)
+npm run review-check        # Studio's editor and the builder agree (no network)
+npm run batch-check         # the Studio half: drafts, messages, client (no network)
 ```
 
 `reel-assets` reads the bucket and prints every folder in it, which folder each
@@ -340,7 +249,7 @@ Shared with the video pipeline:
 | `RALLY_RSS_URL` | Source feed |
 | `BREVO_API_KEY` / `ALERT_EMAIL` | Failure alerts (optional) |
 
-New, carousel-only (Cloudflare R2):
+Cloudflare R2 (where the library lives and the reels go):
 
 | Secret | Where to find it |
 | --- | --- |
@@ -350,14 +259,29 @@ New, carousel-only (Cloudflare R2):
 | `R2_BUCKET` | your bucket name |
 | `R2_PUBLIC_URL` | the bucket's public URL or custom domain (no trailing slash) |
 
-If the R2 secrets are missing the run still completes and delivers via
-Telegram — it just skips the upload and logs a warning.
+R2 is required for Carousel: the image library, music and outro live there,
+and so do the finished reels Studio plays.
 
-Slack (optional — carousel posts to Slack too when set):
+Studio (Carousel):
+
+| Secret / variable | Purpose |
+| --- | --- |
+| `CAROUSEL_API_KEY` (secret) | Lets the workflow read its slots from Studio and post results back. The **same value** as `CAROUSEL_API_KEY` in rally-frontend's `api/config.php` on the server. Generate with `openssl rand -hex 32`. |
+| `STUDIO_API_URL` (variable, optional) | Defaults to `https://rally.news/api/carousel.php`. |
+
+On the Studio side (rally-frontend, on the server — never in either repo):
+`CAROUSEL_API_KEY` in `api/config.php`; `CAROUSEL_OPENROUTER_KEY` (its own
+OpenRouter key with a low credit limit, for step 1's story suggestions) in
+`rally_admin_credentials.php` outside the webroot; and the existing
+`RALLY_GITHUB_DISPATCH_TOKEN` there needs **Actions: Read and write** on this
+repository added to it. Grant people the **Make reels in Carousel**
+permission in Studio ▸ Admin ▸ Access.
+
+Slack (optional — the ready messages go to Slack too when set):
 
 | Secret | Where to find it |
 | --- | --- |
-| `SLACK_BOT_TOKEN` | a Slack app Bot User OAuth Token (`xoxb-…`) with `chat:write` + `files:write` scopes |
+| `SLACK_BOT_TOKEN` | a Slack app Bot User OAuth Token (`xoxb-…`) with the `chat:write` scope |
 | `SLACK_CHANNEL_ID` | the target channel's ID (the bot must be invited to it) |
 
 If the Slack secrets are missing, Slack delivery is skipped and the run still
@@ -415,28 +339,20 @@ Reel tuning (repository **variables**, not secrets — all optional):
 
 ### Run it
 
-Runs automatically every day at **14:00 UTC** (change the `schedule` cron in
-the workflow to your preferred time). To run on demand: GitHub → Actions →
-**Rally News Carousel Pipeline** → Run workflow.
+From Studio ▸ Promotion ▸ Carousel. The workflow can also be dispatched by
+hand (GitHub → Actions → **Rally Studio Carousel (reel batch)**) with a batch
+number Studio already holds — that is exactly what Studio's buttons do.
 
-### Delivery is plain text on purpose
+### Messages are plain text on purpose
 
-Telegram messages are sent with **no `parse_mode`**. Its legacy Markdown parser
-rejects an entire message with HTTP 400 when an emphasis character is
-unbalanced, and the header interpolates arbitrary text — story headlines, URLs,
-proofread diffs, and voice names like `casual_female`, whose single underscore
-once lost a full day's delivery. The emphasis was cosmetic; correctness is not.
-Messages over Telegram's 4096-character limit are split rather than refused.
-Slack keeps its `*bold*`, since its mrkdwn renders an unmatched character
-literally instead of failing the request.
-
-`npm run delivery-check` asserts this: nothing the pipeline can send is
-rejectable by Telegram, across five header shapes including one whose copy is
-deliberately full of Markdown metacharacters.
+Telegram messages are sent with **no `parse_mode`**: its legacy Markdown parser
+rejects an entire message with HTTP 400 over one unbalanced emphasis character,
+and the messages interpolate story headlines. The Studio link rides along as an
+inline button. Slack gets the same text, escaped, plus a button block.
 
 ## Network resilience
 
-A daily pipeline gets one shot at the wire, so the calls a run cannot continue
+A run gets one shot at the wire, so the calls it cannot continue
 without are retried (`src/http.js`):
 
 | Call | Behaviour |
@@ -449,19 +365,21 @@ TLS handshake alerts (`EPROTO`, the class that once killed a run outright), and
 `429`/`5xx`. A `400`, `401` or `404` will fail identically every time, so those
 raise immediately instead of padding the run with pointless waiting.
 
-## Cost per run (approx.)
+## Cost per video (approx.)
 
-| | Video | Carousel | Carousel + reel |
-| --- | --- | --- | --- |
-| Text (Mistral) | ~$0.001 | ~$0.003–0.007 | ~$0.005–0.010 |
-| Web research (write) | – | ~$0.01–0.04 | ~$0.01–0.04 |
-| Web research (fact-check pass) | – | ~$0.01–0.02 | ~$0.01–0.02 |
-| Text-to-speech | – | – | ~$0.001–0.003 |
-| Media | video model ~$0.20–0.50 | HTML→PNG on Actions: $0 | + ffmpeg on Actions: $0 |
-| Storage | – | R2 ~$0 (free tier) | R2 ~$0 (free tier) |
-| **Total** | **~$0.20–0.50** | **~$0.03–0.07** | **~$0.03–0.08** |
+| | Talking-head video | Carousel reel |
+| --- | --- | --- |
+| Story suggestions (Studio, per batch) | – | ~$0.001–0.005 |
+| Text (Mistral) | ~$0.001 | ~$0.005–0.010 |
+| Web research (write + fact-check) | – | ~$0.02–0.06 |
+| Text-to-speech | – | ~$0.001–0.003 |
+| Media | video model ~$0.20–0.50 | ffmpeg on Actions: $0 |
+| Storage | – | R2 ~$0 (free tier) |
+| **Total** | **~$0.20–0.50** | **~$0.03–0.08** |
 
-The reel adds **well under a cent a day**. The two extra Mistral calls (script
+Studio shows the upper estimate on the **Make videos** button.
+
+The reel itself is **well under a cent**: the two Mistral calls (script
 + shot plan) run without web search, so they're a few tenths of a cent of text
 tokens. The narration is ~450–650 characters, which is a fraction of a cent on
 any of the OpenRouter speech models. Azure's free F0 tier (500,000
@@ -479,21 +397,16 @@ free and a month of daily reels is a few hundred MB.
 npm install
 sudo apt-get install -y ffmpeg    # reels only; macOS: brew install ffmpeg
 
-npm run carousel                  # full daily run — requires the env vars above
 npm run reel-check                # just the reel, from canned copy
-npm run delivery-check            # both senders, network stubbed — no credentials needed
 npm run review-check              # the editor/builder contract, stubbed library
-npm run review-app-check          # the review page itself, in puppeteer's Chromium
+npm run batch-check               # the Studio half, Studio stubbed — no credentials needed
+node batch.js script <slot>       # one real slot — needs the secrets above and a Studio slot waiting
 ```
 
-`review-check` and `review-app-check` are the two halves of one promise: that
-every image in the finished reel was on the review page, and that an image
-picked there is the image that plays. `review-check` asserts the builder side
-against a stubbed library — including through `generateReel` itself, so the
-guard is checked where it's actually wired rather than where it's convenient.
-`review-app-check` loads `review/index.html` in a browser with the GitHub API
-stubbed, picks images, approves, and reads back the JSON the page would commit.
-Neither needs credentials, a network, or ffmpeg.
+`review-check` holds the promise that matters most in review: every image in
+the finished reel was on Studio's page, and an image picked there is the image
+that plays. It asserts the builder side against a stubbed library — including
+through `generateReel` itself. It needs no credentials, network, or ffmpeg.
 
 Rendering uses puppeteer's bundled Chromium, which `npm install` fetches; in CI
 it's picked up automatically.
