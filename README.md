@@ -45,6 +45,32 @@ button; the other slots are unaffected. A slot whose job dies without reporting
 (timeout, cancellation) is marked failed by the `finish` job, so nothing sits
 "running" forever. Runs for the same batch queue rather than overlap.
 
+### Tracked links
+
+Every link the pipeline hands out carries UTM tags (`src/tracking.js`), so
+Google Analytics on rally.news shows which platform and which reel a visit came
+from — Reports → Acquisition → Traffic acquisition, by *Session source / medium*
+and *Session manual ad content*:
+
+| Link | utm_source | utm_medium | utm_campaign | utm_content |
+| --- | --- | --- | --- | --- |
+| Facebook first comment | `facebook` | `social` | `carousel` | `b<batch>-v<video>` |
+| Instagram link in bio | `instagram` | `social` | `carousel` | `b<batch>-v<video>` |
+| `feed.rss` `<link>` (Carousel) | `rss` | `rss` | `carousel` | `b<batch>-v<video>` |
+| `feed.rss` `<link>` (talking-head run) | `rss` | `rss` | `daily-video` | – |
+
+The story's own `?article=…&id=…` is untouched; the feed's `<guid>` stays the
+clean URL. rally.news keeps the tags on the page for analytics and leaves them
+out of its canonical URL, so search is unaffected.
+
+### When a video fails
+
+A slot that fails while its **script** is written shows a Retry. A video that
+fails while being **made** shows two choices: *Retry as is*, or *Edit script* —
+which puts that one script back in the editor, unconfirmed. Confirm it and
+*Make 1 video* re-makes only that one; the videos already finished stay as they
+are.
+
 ### The Studio link
 
 Every message carries `https://rally.news/studio/promotion/carousel/?batch=N`.

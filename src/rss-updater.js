@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { XMLParser } = require('fast-xml-parser');
+const { feedLink } = require('./tracking');
 
 const FEED_PATH = path.join(__dirname, '..', 'feed.rss');
 
@@ -17,11 +17,13 @@ function escapeXml(str) {
     .replace(/'/g, '&apos;');
 }
 
-function buildItem(story, pubDate) {
+// The <link> readers follow is tagged for analytics (src/tracking.js); the
+// <guid> stays the story's clean URL, so it still identifies the story.
+function buildItem(story, pubDate, tracking) {
   const lines = [
     '    <item>',
     `      <title>${escapeXml(story.headline)}</title>`,
-    `      <link>${escapeXml(story.url)}</link>`,
+    `      <link>${escapeXml(feedLink(story.url, tracking.campaign, tracking.content))}</link>`,
     `      <description>${escapeXml(story.summary)}</description>`,
     `      <pubDate>${pubDate}</pubDate>`,
     `      <guid isPermaLink="true">${escapeXml(story.url)}</guid>`,
@@ -42,9 +44,10 @@ function parsedItemsToXml(existingXml) {
   return matches || [];
 }
 
-function updateRSSFeed(story) {
+// `tracking` names the run in the link's UTM tags: { campaign, content }.
+function updateRSSFeed(story, tracking = { campaign: 'daily-video' }) {
   const pubDate = new Date().toUTCString();
-  const newItem = buildItem(story, pubDate);
+  const newItem = buildItem(story, pubDate, tracking);
 
   let existingItems = [];
   if (fs.existsSync(FEED_PATH)) {

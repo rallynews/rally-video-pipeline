@@ -27,6 +27,7 @@
 const fs = require('fs');
 const studio = require('./src/studio');
 const notify = require('./src/batch/notify');
+const { captionLinks } = require('./src/tracking');
 
 function slugify(text) {
   return String(text || 'story')
@@ -78,6 +79,7 @@ async function runScript(id) {
     console.log(`   Checked ${verified.report.length} field(s); ${corrected.length} rewritten.`);
   }
   const { pillar, slideCopy, captions } = buildFromRaw(verified.raw, story);
+  captions.links = captionLinks(story.url, work.batch_id, work.slot);
   const verification = { ran: verified.ran, report: verified.report };
 
   console.log('\n🖼️  Fetching the article photo...');
@@ -147,12 +149,15 @@ async function runProduce(id) {
   }
 
   const captions = draft.captions || {};
+  // Re-tagged here rather than trusted from the draft, so every finished
+  // video carries this batch and slot whatever the draft was written with.
+  const links = captionLinks(story.url, work.batch_id, work.slot);
   await studio.produceDone(id, {
     video_url: videoUrl,
     video_key: `${base}.mp4`,
     poster_url: posterUrl,
     duration_s: reel.duration,
-    captions: { facebook: captions.facebook || '', instagram: captions.instagram || '', link: captions.link || story.url },
+    captions: { facebook: captions.facebook || '', instagram: captions.instagram || '', link: links.facebook, links },
     proofreading,
     voice: reel.voice,
     track: reel.track || (reel.musicMuted ? 'no music' : ''),
@@ -176,7 +181,10 @@ async function runFinish(mode, batch, itemsJson) {
     const { updateRSSFeed } = require('./src/rss-updater');
     for (const it of summary.items) {
       if (it.status !== 'ready' || !it.url) continue;
-      updateRSSFeed({ headline: it.headline, url: it.url, summary: it.summary || it.headline, thumbnail: it.thumbnail || null });
+      updateRSSFeed(
+        { headline: it.headline, url: it.url, summary: it.summary || it.headline, thumbnail: it.thumbnail || null },
+        { campaign: 'carousel', content: `b${batch}-v${it.slot}` }
+      );
     }
   }
 }

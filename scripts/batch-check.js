@@ -11,6 +11,7 @@
 //       editor type into: the opening headline, the lines, both captions
 //   (c) the ready messages say what happened and carry the batch's link
 //   (d) a batch run against a stubbed Studio: job → finish, one message only
+//   (e) every link handed out is UTM-tagged without disturbing the story URL
 
 const assert = require('assert');
 const http = require('http');
@@ -19,6 +20,7 @@ process.env.R2_VIDEO_PUBLIC_URL = 'https://videos.example';
 const { buildDraft } = require('../src/batch/draft');
 const { collectFields } = require('../src/batch/proofreader');
 const notify = require('../src/batch/notify');
+const { captionLinks, feedLink } = require('../src/tracking');
 
 let failures = 0;
 async function check(name, fn) {
@@ -41,7 +43,7 @@ const reelPlan = {
     { key: 'generic/sun.jpg', label: 'sun', keywords: [], pool: 'generic' },
   ],
 };
-const captions = { facebook: 'FB', instagram: 'IG', link: story.url };
+const captions = { facebook: 'FB', instagram: 'IG', link: story.url, links: captionLinks(story.url, 3, 2) };
 
 (async () => {
   console.log('\nbatch-check');
@@ -51,7 +53,9 @@ const captions = { facebook: 'FB', instagram: 'IG', link: story.url };
       captions, reelPlan, coverUrl: 'https://videos.example/drafts/cover.jpg' });
     assert.strictEqual(d.reel.hook, 'Otters Are Back');
     assert.strictEqual(d.reel.noMusic, false);
-    assert.deepStrictEqual(d.captions, captions);
+    assert.strictEqual(d.captions.facebook, 'FB');
+    assert.deepStrictEqual(d.captions.links, captions.links);
+    assert.strictEqual(d.captions.link, captions.links.facebook, 'the plain link is the tracked Facebook one');
     assert.strictEqual(d.researchBrief, 'notes');
     assert.strictEqual(d.reel.shots[0].cover, true);
     assert.strictEqual(d.reel.shots[0].thumb, 'https://videos.example/drafts/cover.jpg');
@@ -77,6 +81,13 @@ const captions = { facebook: 'FB', instagram: 'IG', link: story.url };
     const p = notify.compose({ ...base, mode: 'produce', items: [base.items[0]] });
     assert.strictEqual(p.title, 'Carousel: 1 video ready');
     assert.match(p.body, /1\. A \(Animals\) · 27s/);
+  });
+
+  await check('(e) tracked links keep the story URL and name the platform and video', () => {
+    const l = captionLinks('https://rally.news/categories/world/?article=A%2BB&id=5&utm_source=old', 7, 3);
+    assert.strictEqual(l.facebook, 'https://rally.news/categories/world/?article=A%2BB&id=5&utm_source=facebook&utm_medium=social&utm_campaign=carousel&utm_content=b7-v3');
+    assert.ok(l.instagram.includes('utm_source=instagram'));
+    assert.strictEqual(feedLink('https://rally.news/?article=X&id=1', 'daily-video'), 'https://rally.news/?article=X&id=1&utm_source=rss&utm_medium=rss&utm_campaign=daily-video');
   });
 
   await check('(d) job and finish against a stubbed Studio', async () => {

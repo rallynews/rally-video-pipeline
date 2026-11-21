@@ -63,7 +63,10 @@ function buildDraft({ story, raw, pillar, sources, verification, captions, reelP
     captions: {
       facebook: captions.facebook,
       instagram: captions.instagram,
-      link: captions.link,
+      // Tracked links (src/tracking.js): Facebook's first comment, Instagram's
+      // link in bio. `link` is the Facebook one, kept for older readers.
+      link: (captions.links && captions.links.facebook) || captions.link,
+      links: captions.links || null,
     },
     reel: {
       script: reelPlan.script,
