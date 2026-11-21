@@ -87,7 +87,7 @@ const captions = { facebook: 'FB', instagram: 'IG', link: story.url, links: capt
     const l = captionLinks('https://rally.news/categories/world/?article=A%2BB&id=5&utm_source=old', 7, 3);
     assert.strictEqual(l.facebook, 'https://rally.news/categories/world/?article=A%2BB&id=5&utm_source=facebook&utm_medium=social&utm_campaign=carousel&utm_content=b7-v3');
     assert.ok(l.instagram.includes('utm_source=instagram'));
-    assert.strictEqual(feedLink('https://rally.news/?article=X&id=1', 'daily-video'), 'https://rally.news/?article=X&id=1&utm_source=rss&utm_medium=rss&utm_campaign=daily-video');
+    assert.strictEqual(feedLink('https://rally.news/?article=X&id=1', 'daily-video'), 'https://rally.news/?article=X&id=1&utm_source=instagram&utm_medium=link_in_bio&utm_campaign=daily-video');
   });
 
   await check('(d) job and finish against a stubbed Studio', async () => {

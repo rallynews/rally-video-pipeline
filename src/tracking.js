@@ -1,8 +1,8 @@
 // UTM tags on every link the pipeline hands out, so Google Analytics on
 // rally.news can tell which post, platform and reel a visit came from.
 //
-//   utm_source    facebook | instagram | rss
-//   utm_medium    social | rss
+//   utm_source    facebook | instagram
+//   utm_medium    social | link_in_bio (feed.rss, which rally.news/links lists)
 //   utm_campaign  carousel (Studio batches) | daily-video (the talking-head run)
 //   utm_content   b<batch>-v<slot> — one reel, so each video's traffic is its own row
 //
@@ -37,8 +37,10 @@ function captionLinks(storyUrl, batch, slot) {
   };
 }
 
+// feed.rss is what rally.news/links — Instagram's link in bio — lists, so a
+// visit through it is Instagram traffic, and is tagged as such.
 function feedLink(storyUrl, campaign, content) {
-  return tagUrl(storyUrl, { source: 'rss', medium: 'rss', campaign, content });
+  return tagUrl(storyUrl, { source: 'instagram', medium: 'link_in_bio', campaign, content });
 }
 
 module.exports = { tagUrl, captionLinks, feedLink };

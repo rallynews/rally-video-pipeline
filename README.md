@@ -56,12 +56,19 @@ and *Session manual ad content*:
 | --- | --- | --- | --- | --- |
 | Facebook first comment | `facebook` | `social` | `carousel` | `b<batch>-v<video>` |
 | Instagram link in bio | `instagram` | `social` | `carousel` | `b<batch>-v<video>` |
-| `feed.rss` `<link>` (Carousel) | `rss` | `rss` | `carousel` | `b<batch>-v<video>` |
-| `feed.rss` `<link>` (talking-head run) | `rss` | `rss` | `daily-video` | – |
+| `feed.rss` `<link>` (Carousel) | `instagram` | `link_in_bio` | `carousel` | `b<batch>-v<video>` |
+| `feed.rss` `<link>` (talking-head run) | `instagram` | `link_in_bio` | `daily-video` | – |
 
-The story's own `?article=…&id=…` is untouched; the feed's `<guid>` stays the
+`feed.rss` is what `rally.news/links` — Instagram's link in bio — lists, so its
+links count as Instagram traffic. The story's own `?article=…&id=…` is untouched; the feed's `<guid>` stays the
 clean URL. rally.news keeps the tags on the page for analytics and leaves them
 out of its canonical URL, so search is unaffected.
+
+### Posting to Instagram and Facebook
+
+Finished reels are scheduled and posted from Studio itself (rally-frontend's
+`api/_carousel_social.php`, through Meta's Graph API) — this repo isn't
+involved. See `.github/CAROUSEL-POSTING-SETUP.md` in rally-frontend.
 
 ### When a video fails
 
