@@ -82,6 +82,34 @@ const VOICE_PREFERENCE = [
   /^(alloy|verse|aria)$/i,
 ];
 
+// Joyscroll Game videos want a happy woman's voice: female voices first,
+// cheerful ones before the rest, then the reels' own order.
+const GAME_VOICE_PREFERENCE = [
+  /^en[_-].*(female|woman|girl).*(happy|cheer|excit|joy|bright)/i,
+  /^en[_-].*(happy|cheer|excit|joy|bright).*(female|woman|girl)/i,
+  /(happy|cheer|excit|joy|bright)[_-]?(female|woman|girl)/i,
+  /^en[_-].*(female|woman|girl)/i,
+  /female/i,
+  /^(nova|shimmer|coral)$/i,
+  ...VOICE_PREFERENCE,
+];
+
+let voicePreference = VOICE_PREFERENCE;
+let fallbackVoice = 'alloy';
+
+// Switch this run to the game voice. A run makes one kind of video, so this is
+// set once, before the first line is voiced. GAME_VOICE (repository variable)
+// pins one by name, as REELS_VOICE does for reels; the reels' REELS_VOICE is
+// not used here, since it may well be a man's.
+function useGameVoice() {
+  voicePreference = GAME_VOICE_PREFERENCE;
+  fallbackVoice = 'nova';
+  if (process.env.GAME_VOICE) process.env.REELS_VOICE = process.env.GAME_VOICE;
+  else delete process.env.REELS_VOICE;
+  process.env.REELS_VOICE_STYLE = process.env.GAME_VOICE_STYLE || 'cheerful';
+  if (process.env.GAME_ELEVENLABS_VOICE_ID) process.env.ELEVENLABS_VOICE_ID = process.env.GAME_ELEVENLABS_VOICE_ID;
+}
+
 function rank(value, patterns) {
   const hit = patterns.findIndex(p => p.test(value));
   return hit === -1 ? patterns.length : hit;
@@ -90,7 +118,7 @@ function rank(value, patterns) {
 function pickVoice(voices) {
   const usable = (voices || []).filter(v => typeof v === 'string' && v);
   if (!usable.length) return null;
-  return [...usable].sort((a, b) => rank(a, VOICE_PREFERENCE) - rank(b, VOICE_PREFERENCE))[0];
+  return [...usable].sort((a, b) => rank(a, voicePreference) - rank(b, voicePreference))[0];
 }
 
 // Ask OpenRouter what this key can actually use. Returns [] on any failure —
@@ -163,7 +191,7 @@ const openrouter = {
     // from the listing when one wasn't named too.
     if (forcedModel) {
       const known = models.find(m => m.id === forcedModel);
-      const voice = forcedVoice || (known && pickVoice(known.voices)) || 'alloy';
+      const voice = forcedVoice || (known && pickVoice(known.voices)) || fallbackVoice;
       if (known && forcedVoice && known.voices.length && !known.voices.includes(forcedVoice)) {
         console.warn(
           `  [reel] REELS_VOICE=${forcedVoice} isn't in ${forcedModel}'s voice list ` +
@@ -192,12 +220,13 @@ const openrouter = {
     }
     const discovered = [...takesForced, ...rest];
 
-    if (!discovered.length) return OPENROUTER_FALLBACK;
+    const fallbacks = OPENROUTER_FALLBACK.map(c => ({ ...c, voice: fallbackVoice }));
+    if (!discovered.length) return fallbacks;
 
     // Keep the static pairs on the end: a model can be listed and still refuse
     // the request, and one of these may yet answer.
     const seen = new Set(discovered.map(c => `${c.model}/${c.voice}`));
-    return [...discovered, ...OPENROUTER_FALLBACK.filter(c => !seen.has(`${c.model}/${c.voice}`))];
+    return [...discovered, ...fallbacks.filter(c => !seen.has(`${c.model}/${c.voice}`))];
   },
 
   async speak(text) {
@@ -399,6 +428,7 @@ async function narrateLines(lines) {
 
 module.exports = {
   narrateLines,
+  useGameVoice,
   isConfigured,
   selectProvider,
   describeProvider,

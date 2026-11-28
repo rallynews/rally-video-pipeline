@@ -119,6 +119,11 @@ jobs:
           REELS_VOICE: ${{ vars.REELS_VOICE }}
           REELS_TTS_MODEL: ${{ vars.REELS_TTS_MODEL }}
           REELS_VOICE_PROVIDER: ${{ vars.REELS_VOICE_PROVIDER }}
+          # Joyscroll Game videos: a happy woman's voice is picked by default;
+          # these pin one instead (GAME_VOICE takes the same names REELS_VOICE does).
+          GAME_VOICE: ${{ vars.GAME_VOICE }}
+          GAME_VOICE_STYLE: ${{ vars.GAME_VOICE_STYLE }}
+          GAME_ELEVENLABS_VOICE_ID: ${{ vars.GAME_ELEVENLABS_VOICE_ID }}
           AZURE_SPEECH_KEY: ${{ secrets.AZURE_SPEECH_KEY }}
           AZURE_SPEECH_REGION: ${{ secrets.AZURE_SPEECH_REGION }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--
+  The Joyscroll Game video, drawn one frame at a time. index.js loads this page
+  at 360×640 (×3 = 1080×1920), hands it the script plan.js wrote with
+  window.setScript(), then calls window.renderAt(t) for every frame and takes a
+  screenshot. Everything on screen is a function of t alone — no CSS
+  transitions, no timers — so every frame is exact and the film is the same
+  every time it is made.
+
+  A stripped-back copy of the app's three game cards (joyscroll/src/components/
+  feed/JoywordCard, CrossjoyCard, TriviaCard): the app's colours, fonts, tiles
+  and keyboard, without its rail, photo backdrop or result links.
+-->
+<style>
+  @font-face { font-family: Outfit; font-weight: 400; src: url(../../assets/joyscroll/fonts/Outfit_400Regular.ttf); }
+  @font-face { font-family: Outfit; font-weight: 500; src: url(../../assets/joyscroll/fonts/Outfit_500Medium.ttf); }
+  @font-face { font-family: Outfit; font-weight: 600; src: url(../../assets/joyscroll/fonts/Outfit_600SemiBold.ttf); }
+  @font-face { font-family: Outfit; font-weight: 700; src: url(../../assets/joyscroll/fonts/Outfit_700Bold.ttf); }
+  @font-face { font-family: Lora; font-weight: 600; src: url(../../assets/joyscroll/fonts/Lora_600SemiBold.ttf); }
+  @font-face { font-family: Lora; font-weight: 600; font-style: italic; src: url(../../assets/joyscroll/fonts/Lora_600SemiBold_Italic.ttf); }
+  @font-face { font-family: Lora; font-weight: 400; font-style: italic; src: url(../../assets/joyscroll/fonts/Lora_400Regular_Italic.ttf); }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 360px; height: 640px; overflow: hidden; background: #14110F; }
+  body { font-family: Outfit, sans-serif; color: #fff; -webkit-font-smoothing: antialiased; }
+  #stage { position: absolute; inset: 0; overflow: hidden; }
+  #bg, #game, #cap, #end { position: absolute; inset: 0; }
+  .abs { position: absolute; }
+  .title { font-family: Lora; font-style: italic; font-weight: 600; font-size: 38px; line-height: 1.1; }
+  .sub { font-size: 14px; color: rgba(255,255,255,0.74); margin-top: 2px; }
+  .tile { position: absolute; display: flex; align-items: center; justify-content: center; border-radius: 10px; border: 2px solid rgba(255,255,255,0.22); font-weight: 700; overflow: hidden; }
+  .stripes { position: absolute; inset: 0; background: repeating-linear-gradient(135deg, transparent 0 5px, #E7AFC5 5px 7px); opacity: .55; }
+  .key { position: absolute; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-weight: 600; font-size: 16px; background: #3F2D37; overflow: hidden; }
+  .key.wide { font-size: 10.5px; font-weight: 700; letter-spacing: .5px; }
+  .cell { position: absolute; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: 700; }
+  .num { position: absolute; top: 2px; left: 4px; font-size: 8.5px; font-weight: 600; }
+  .clue { position: absolute; left: 16px; right: 16px; border-radius: 22px; background: rgba(20,17,15,0.58); display: flex; align-items: center; gap: 8px; padding: 8px 12px; }
+  .clue .head { font-size: 10.5px; font-weight: 700; letter-spacing: 1.2px; color: #E889AE; }
+  .clue .txt { font-size: 14px; font-weight: 500; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .chev { width: 20px; height: 20px; flex: none; }
+  .panel { position: absolute; left: 16px; right: 16px; border-radius: 22px; background: rgba(20,17,15,0.62); padding: 18px 20px; }
+  .panel .big { font-family: Lora; font-style: italic; font-weight: 600; font-size: 34px; }
+  .panel .cheer { font-family: Lora; font-style: italic; font-weight: 400; font-size: 16px; color: rgba(255,255,255,0.8); margin-top: 6px; }
+  .chip { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 1px; color: #14110F; }
+  .q { position: absolute; left: 24px; right: 24px; font-family: Lora; font-weight: 600; font-size: 24px; line-height: 1.25; }
+  .opt { position: absolute; left: 24px; right: 24px; min-height: 50px; border-radius: 999px; border: 1.5px solid rgba(255,255,255,0.28); display: flex; align-items: center; gap: 8px; padding: 10px 20px; font-size: 15.5px; font-weight: 500; overflow: hidden; }
+  .opt .t { flex: 1; line-height: 1.25; }
+  .opt .mark { font-size: 12.5px; font-weight: 600; white-space: nowrap; }
+  .verdict { position: absolute; left: 24px; font-family: Lora; font-style: italic; font-weight: 600; font-size: 24px; }
+  #cap .line { position: absolute; left: 50%; max-width: 316px; transform: translateX(-50%); text-align: center; font-weight: 600; font-size: 18.5px; line-height: 1.3; padding: 8px 14px; border-radius: 14px; background: rgba(20,17,15,0.66); white-space: normal; width: max-content; }
+  #end { background: #FD6F27; display: none; }
+  #end .icon { position: absolute; left: 50%; width: 118px; height: 118px; border-radius: 27px; box-shadow: 0 12px 30px rgba(120,40,0,.35); }
+  #end .name { position: absolute; left: 0; right: 0; text-align: center; font-family: Lora; font-style: italic; font-weight: 600; font-size: 52px; color: #FFF7EE; }
+  #end .tag { position: absolute; left: 0; right: 0; text-align: center; font-size: 20px; font-weight: 600; color: rgba(255,255,255,0.94); letter-spacing: .3px; }
+  #end .cta { position: absolute; left: 50%; padding: 14px 36px; border-radius: 999px; background: #fff; color: #FD6F27; font-size: 19px; font-weight: 700; letter-spacing: .3px; white-space: nowrap; box-shadow: 0 8px 22px rgba(120,40,0,.25); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="bg"></div>
+  <div id="game"></div>
+  <div id="cap"></div>
+  <div id="end">
+    <img class="icon" src="../../assets/joyscroll/icon.png" alt="">
+    <div class="name">Joyscroll</div>
+    <div class="tag">Good News Games</div>
+    <div class="cta">Play Now</div>
+  </div>
+</div>
+<script>
+(function () {
+'use strict';
+const C = {
+  bg: '#14110F', text: '#FFFFFF', text2: 'rgba(255,255,255,0.74)', text3: 'rgba(255,255,255,0.5)', dark: '#14110F',
+  games: { accent: '#E889AE', field: '#2A1820' }, trivia: { accent: '#9FC0EA', field: '#121D30' },
+  correct: '#E889AE', present: '#F8E1EA', absent: '#4A3440', tile: '#3A2832', tileBorder: 'rgba(255,255,255,0.22)',
+  key: '#3F2D37', block: '#160D12', activeWord: '#6E3A56', wrong: '#F0A08C',
+};
+let S = null;          // the script
+const esc = s => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const prog = (t, start, dur) => clamp((t - start) / dur, 0, 1);
+const easeOut = p => 1 - Math.pow(1 - p, 3);
+const easeBack = p => { const c = 1.7; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); };
+// An animation that lasts `sec` at the game's natural pace, on this video's clock.
+const D = sec => sec * (S ? S.pace : 1);
+
+window.setScript = function (script) { S = script; };
+
+// ── backdrop: the card's field with a slow glow wandering through it ──
+function drawBg(t) {
+  const tone = S.type === 'trivia' ? C.trivia : C.games;
+  const x = 50 + 28 * Math.sin(t / 3.1), y = 18 + 10 * Math.sin(t / 2.3 + 1);
+  document.getElementById('bg').style.background =
+    `radial-gradient(circle at ${x}% ${y}%, ${tone.accent}38 0%, transparent 48%),` +
+    `linear-gradient(180deg, ${tone.field} 0%, ${tone.field} 38%, ${C.bg} 100%)`;
+}
+
+// ── the keyboard (Joyword and Crossjoy) ──
+const ROWS = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm'];
+function keyboard(top, states, presses, t, actionLabel) {
+  const W = 360, side = 8, gap = 5, kw = (W - side * 2 - gap * 9) / 10, kh = 44, rowGap = 6;
+  let html = '';
+  ROWS.forEach((row, i) => {
+    const keys = [...row];
+    const wide = kw * 1.55;
+    const width = keys.length * kw + (keys.length - 1) * gap + (i === 2 ? 2 * (wide + gap) : 0);
+    let x = (W - width) / 2;
+    const y = top + i * (kh + rowGap);
+    const keyAt = (label, w, k, inner, wideCls) => {
+      const pressed = presses[k] !== undefined && t - presses[k] < D(0.13) && t >= presses[k];
+      const st = states[k];
+      const bg = st === 'correct' ? C.correct : st === 'present' ? C.present : st === 'absent' ? C.absent : C.key;
+      const fg = st === 'correct' || st === 'present' ? C.dark : st === 'absent' ? C.text3 : C.text;
+      html += `<div class="key${wideCls ? ' wide' : ''}" style="left:${x}px;top:${y}px;width:${w}px;height:${kh}px;background:${bg};color:${fg};` +
+        `transform:scale(${pressed ? 0.92 : 1});filter:brightness(${pressed ? 1.45 : 1})">${st === 'present' ? '<div class="stripes"></div>' : ''}<span style="position:relative">${inner}</span></div>`;
+      x += w + gap;
+    };
+    if (i === 2) keyAt(actionLabel, wide, '#action', actionLabel, true);
+    keys.forEach(ch => keyAt(ch, kw, ch, ch.toUpperCase()));
+    if (i === 2) keyAt('del', wide, '#del', '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M21 5H9l-6 7 6 7h12z"/><path d="M12 9l6 6M18 9l-6 6"/></svg>', true);
+  });
+  return html;
+}
+
+function header(title, sub, top) {
+  return `<div class="abs" style="left:24px;top:${top}px"><div class="title">${esc(title)}</div><div class="sub">${esc(sub)}</div></div>`;
+}
+
+function resultPanel(t, at, top, big, cheer, color) {
+  // Starts once the keyboard has mostly faded, so the two never cross.
+  const p = easeOut(prog(t, at + D(0.28), D(0.45)));
+  if (p <= 0) return '';
+  return `<div class="panel" style="top:${top + (1 - p) * 30}px;opacity:${p}"><div class="big" style="color:${color}">${esc(big)}</div><div class="cheer">${esc(cheer)}</div></div>`;
+}
+
+// ── Joyword ──
+function drawJoyword(t) {
+  const tile = 44, gap = 6, left = (360 - (5 * tile + 4 * gap)) / 2, top = 112;
+  const rows = [];           // { letters, typedAt[], submitAt, scores }
+  let draft = [], presses = {}, shakeAt = null, resultAt = null;
+  for (const e of S.events) {
+    if (e.t > t) break;
+    if (e.k === 'key') { draft.push({ ch: e.ch, at: e.t }); presses[e.ch] = e.t; }
+    else if (e.k === 'enter') presses['#action'] = e.t;
+    else if (e.k === 'submit') { rows.push({ letters: draft, submitAt: e.t, scores: e.scores }); draft = []; }
+    else if (e.k === 'shake') shakeAt = e.t;
+    else if (e.k === 'result') resultAt = e.t;
+  }
+  const FLIP = D(0.32), STAG = D(0.13);
+  // The keyboard learns a row's colours once its last tile has turned.
+  const states = {};
+  const rank = { absent: 0, present: 1, correct: 2 };
+  rows.forEach(r => {
+    if (t < r.submitAt + STAG * 4 + FLIP) return;
+    r.letters.forEach((l, i) => { const s = r.scores[i]; if (!states[l.ch] || rank[s] > rank[states[l.ch]]) states[l.ch] = s; });
+  });
+  let html = header('Joyword', 'Six tries to find the happy word.', 30);
+  for (let r = 0; r < 6; r++) {
+    const row = rows[r];
+    const live = !row && r === rows.length ? draft : null;
+    const shake = row && r === 5 && shakeAt !== null ? Math.sin(prog(t, shakeAt, D(0.45)) * Math.PI * 6) * 7 * (1 - prog(t, shakeAt, D(0.45))) : 0;
+    for (let c = 0; c < 5; c++) {
+      const x = left + c * (tile + gap) + shake, y = top + r * (tile + gap);
+      let ch = '', bg = 'transparent', fg = C.text, border = C.tileBorder, sy = 1, sc = 1, stripes = false;
+      if (row) {
+        ch = row.letters[c].ch;
+        const p = prog(t, row.submitAt + c * STAG, FLIP);
+        border = 'rgba(255,255,255,0.74)';
+        if (p >= 0.5) {
+          const s = row.scores[c];
+          bg = s === 'correct' ? C.correct : s === 'present' ? C.present : C.absent;
+          fg = s === 'absent' ? C.text3 : C.dark; border = 'transparent'; stripes = s === 'present';
+        }
+        sy = p > 0 && p < 1 ? Math.abs(1 - 2 * p) : 1;
+      } else if (live && live[c]) {
+        ch = live[c].ch; border = 'rgba(255,255,255,0.74)';
+        const p = prog(t, live[c].at, D(0.12));
+        sc = p < 1 ? 1 + 0.12 * Math.sin(p * Math.PI) : 1;
+      }
+      html += `<div class="tile" style="left:${x}px;top:${y}px;width:${tile}px;height:${tile}px;background:${bg};border-color:${border};color:${fg};` +
+        `font-size:${tile * 0.46}px;transform:scaleY(${sy.toFixed(3)}) scale(${sc.toFixed(3)})">${stripes ? '<div class="stripes"></div>' : ''}<span style="position:relative">${esc(ch.toUpperCase())}</span></div>`;
+    }
+  }
+  const kbTop = 486;
+  const fade = resultAt !== null ? 1 - prog(t, resultAt, D(0.35)) : 1;
+  html += `<div style="opacity:${fade}">${keyboard(kbTop, states, presses, t, 'ENTER')}</div>`;
+  if (resultAt !== null) html += resultPanel(t, resultAt, 500, 'So close!', 'The next one is yours.', C.games.accent);
+  document.getElementById('game').innerHTML = html;
+  return 424;   // where captions sit
+}
+
+// ── Crossjoy ──
+function drawCrossjoy(t) {
+  const grid = S.game.grid.map(r => String(r).toLowerCase());
+  const n = grid.length, gap = 4, top = 106;
+  const kbTop = 486, clueH = 58, capH = 50;
+  const avail = kbTop - top - 10 - clueH - 8 - capH - 4;
+  const cell = Math.min(46, (avail - gap * (n - 1)) / n);
+  const width = n * cell + (n - 1) * gap, left = (360 - width) / 2;
+  const entries = S.extra.entries;
+  const fills = {}, locked = new Map(), presses = {};
+  let active = 0, cursor = null, wrong = [], checkAt = null, resultAt = null;
+  for (const e of S.events) {
+    if (e.t > t) break;
+    if (e.k === 'select') { active = e.entry; const en = entries[e.entry]; cursor = en.cells.find(([r, c]) => !fills[`${r},${c}`]) || en.cells[0]; }
+    else if (e.k === 'key') presses[e.ch] = e.t;
+    else if (e.k === 'type') {
+      fills[`${e.r},${e.c}`] = e.ch;
+      const en = entries[active];
+      const i = en.cells.findIndex(([r, c]) => r === e.r && c === e.c);
+      const next = en.cells.slice(i + 1).find(([r, c]) => !fills[`${r},${c}`]);
+      cursor = next || en.cells[Math.min(i + 1, en.cells.length - 1)];
+    }
+    else if (e.k === 'lock') entries[e.entry].cells.forEach(([r, c], i) => locked.set(`${r},${c}`, e.t + i * D(0.05)));
+    else if (e.k === 'check') { wrong = e.wrong.map(([r, c]) => `${r},${c}`); checkAt = e.t; }
+    else if (e.k === 'result') resultAt = e.t;
+  }
+  const en = entries[active];
+  const activeCells = new Set(en.cells.map(([r, c]) => `${r},${c}`));
+  let html = header('Crossjoy', 'Find clues in the good news', 30);
+  const numAt = {};
+  entries.forEach(e => { numAt[`${e.row},${e.col}`] = e.num; });
+  for (let r = 0; r < n; r++) for (let c = 0; c < grid[r].length; c++) {
+    const x = left + c * (cell + gap), y = top + r * (cell + gap), k = `${r},${c}`;
+    if (grid[r][c] === '#') { html += `<div class="cell" style="left:${x}px;top:${y}px;width:${cell}px;height:${cell}px;background:${C.block}"></div>`; continue; }
+    const here = resultAt === null && cursor && cursor[0] === r && cursor[1] === c;
+    const inWord = resultAt === null && activeCells.has(k);
+    const bad = wrong.includes(k);
+    let hop = 0;
+    if (locked.has(k)) { const p = prog(t, locked.get(k), D(0.35)); hop = p > 0 && p < 1 ? -7 * Math.sin(p * Math.PI) : 0; }
+    let shake = 0;
+    if (bad && checkAt !== null) { const p = prog(t, checkAt, D(0.45)); shake = Math.sin(p * Math.PI * 6) * 4 * (1 - p); }
+    const bg = here ? C.correct : inWord ? C.activeWord : C.tile;
+    const fg = bad ? C.wrong : here ? C.dark : locked.has(k) && t >= locked.get(k) ? C.correct : C.text;
+    const ch = fills[k] || '';
+    let pop = 1;
+    html += `<div class="cell" style="left:${x + shake}px;top:${y}px;width:${cell}px;height:${cell}px;background:${bg}">` +
+      (numAt[k] ? `<span class="num" style="color:${here ? C.dark : C.text2}">${numAt[k]}</span>` : '') +
+      `<span style="font-size:${cell * 0.48}px;color:${fg};transform:translateY(${hop}px) scale(${pop})">${esc(ch.toUpperCase())}</span></div>`;
+  }
+  const gridBottom = top + n * cell + (n - 1) * gap;
+  const fade = resultAt !== null ? 1 - prog(t, resultAt, D(0.35)) : 1;
+  const chev = d => `<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="${d}"/></svg>`;
+  html += `<div style="opacity:${fade}"><div class="clue" style="top:${gridBottom + 10}px;min-height:${clueH}px">${chev('M15 5l-7 7 7 7')}` +
+    `<div style="flex:1"><div class="head">${en.num} ${en.dir.toUpperCase()}</div><div class="txt">${esc(en.clue)}</div></div>${chev('M9 5l7 7-7 7')}</div>` +
+    keyboard(kbTop, {}, presses, t, en.dir === 'across' ? 'DOWN' : 'ACROSS') + `</div>`;
+  if (resultAt !== null) html += resultPanel(t, resultAt, 500, 'So close!', 'One letter off — can you finish it?', C.games.accent);
+  document.getElementById('game').innerHTML = html;
+  return gridBottom + 10 + clueH + 8;
+}
+
+// ── Trivia ──
+function drawTrivia(t) {
+  const qs = S.game.questions;
+  let qi = -1, qAt = 0, tap = null, reveal = null, nextAt = null, score = 0, resultAt = null;
+  for (const e of S.events) {
+    if (e.t > t) break;
+    if (e.k === 'question') { qi = e.i; qAt = e.t; tap = null; reveal = null; nextAt = null; }
+    else if (e.k === 'tap') tap = e;
+    else if (e.k === 'reveal') { reveal = e; if (e.right) score++; }
+    else if (e.k === 'next') nextAt = e.t;
+    else if (e.k === 'result') resultAt = e.t;
+  }
+  let html = `<div class="abs" style="left:24px;top:34px;display:flex;align-items:center;gap:10px">` +
+    `<span class="chip" style="background:${C.trivia.accent}">TRIVIA</span>` +
+    `<span style="font-size:13px;color:${C.text2}">${qi >= 0 ? `Question ${qi + 1} of 5` : 'Five questions'}</span></div>` +
+    `<div class="abs" style="right:24px;top:34px;height:24px;display:flex;align-items:center;gap:6px;padding:0 10px;border-radius:999px;border:1.5px solid rgba(255,255,255,0.28);font-size:12.5px;font-weight:600">Score ${score}/5</div>`;
+  if (qi >= 0 && resultAt === null) {
+    const q = qs[qi];
+    const out = nextAt !== null ? prog(t, nextAt, D(0.3)) : 0;
+    const inP = easeOut(prog(t, qAt, D(0.3)));
+    const op = inP * (1 - out);
+    html += `<div class="q" id="q" style="top:${84 + (1 - inP) * 6}px;opacity:${op}">${esc(q.question)}</div>`;
+    document.getElementById('game').innerHTML = html;
+    const qh = document.getElementById('q').offsetHeight;
+    let y = 84 + qh + 18;
+    (q.options || []).forEach((opt, i) => {
+      const oP = easeOut(prog(t, qAt + D(0.3) + i * D(0.1), D(0.3)));
+      const picked = tap && tap.opt === i;
+      const shown = reveal && reveal.opt === i;
+      let border = 'rgba(255,255,255,0.28)', bg = 'transparent', fg = C.text, mark = '', dim = 1;
+      if (picked && !reveal) bg = 'rgba(255,255,255,0.10)';
+      if (reveal) {
+        if (shown && reveal.right) { bg = C.trivia.accent; border = C.trivia.accent; fg = C.dark; mark = '✓ Your pick'; }
+        else if (shown) { bg = 'rgba(255,255,255,0.10)'; border = '#fff'; mark = '✕ Your pick'; }
+        else dim = 0.55;
+      }
+      let ripple = '';
+      if (tap && tap.opt === i) {
+        const p = prog(t, tap.t, D(0.4));
+        if (p > 0 && p < 1) ripple = `<div style="position:absolute;left:50%;top:50%;width:${40 + 260 * p}px;height:${40 + 260 * p}px;border-radius:50%;background:rgba(255,255,255,${0.22 * (1 - p)});transform:translate(-50%,-50%)"></div>`;
+      }
+      html += `<div class="opt" style="top:${y + (1 - oP) * 10}px;opacity:${oP * dim * (1 - out)};border-color:${border};background:${bg};color:${fg}">${ripple}` +
+        `<span class="t" style="position:relative">${esc(opt)}</span>${mark ? `<span class="mark" style="position:relative">${mark}</span>` : ''}</div>`;
+      y += 50 + 10 + (String(opt).length > 32 ? 18 : 0);
+    });
+    if (reveal) {
+      const vp = easeOut(prog(t, reveal.t, D(0.3)));
+      html += `<div class="verdict" style="top:${y + 6}px;opacity:${vp * (1 - out)};color:${reveal.right ? C.trivia.accent : C.text}">${reveal.right ? 'Right!' : 'Not quite'}</div>`;
+    }
+  }
+  if (resultAt !== null) {
+    const p = easeOut(prog(t, resultAt, D(0.45)));
+    html += `<div class="abs" style="left:24px;right:24px;top:${150 + (1 - p) * 24}px;opacity:${p}">` +
+      `<div style="font-family:Lora;font-style:italic;font-weight:600;font-size:46px;color:${C.trivia.accent}">4 out of 5</div>` +
+      `<div style="font-family:Lora;font-style:italic;font-size:19px;color:${C.text2};margin-top:8px">So close — can you get all five?</div></div>`;
+  }
+  document.getElementById('game').innerHTML = html;
+  return 512;
+}
+
+// ── captions ──
+function drawCaptions(t, top) {
+  const cap = (S.captions || []).find(c => t >= c.start && t < c.end);
+  const el = document.getElementById('cap');
+  if (!cap) { el.innerHTML = ''; return; }
+  const p = prog(t, cap.start, 0.12);
+  const y = t >= S.endAt ? 520 : top;
+  el.innerHTML = `<div class="line" style="top:${y}px;opacity:${p};transform:translateX(-50%) scale(${0.96 + 0.04 * p})">${esc(cap.text)}</div>`;
+}
+
+// ── the end card ──
+function drawEnd(t) {
+  const end = document.getElementById('end');
+  if (t < S.endAt) { end.style.display = 'none'; return; }
+  const s = t - S.endAt;
+  end.style.display = 'block';
+  end.style.opacity = easeOut(clamp(s / 0.5, 0, 1));
+  const icon = end.querySelector('.icon'), name = end.querySelector('.name'), tag = end.querySelector('.tag'), cta = end.querySelector('.cta');
+  const pi = clamp((s - 0.2) / 0.5, 0, 1);
+  icon.style.top = '170px';
+  icon.style.opacity = pi;
+  icon.style.transform = `translateX(-50%) scale(${0.75 + 0.25 * easeBack(pi)})`;
+  const rise = (el, at, top) => { const p = easeOut(clamp((s - at) / 0.45, 0, 1)); el.style.top = `${top + (1 - p) * 16}px`; el.style.opacity = p; };
+  rise(name, 0.4, 304);
+  rise(tag, 0.55, 368);
+  const pc = easeOut(clamp((s - 0.75) / 0.45, 0, 1));
+  const pulse = s > 1.3 ? 1 + 0.035 * Math.sin((s - 1.3) * Math.PI * 1.6) : 1;
+  cta.style.top = `${426 + (1 - pc) * 16}px`;
+  cta.style.opacity = pc;
+  cta.style.transform = `translateX(-50%) scale(${(0.9 + 0.1 * pc) * pulse})`;
+}
+
+window.renderAt = function (t) {
+  drawBg(t);
+  const capTop = S.type === 'joyword' ? drawJoyword(t) : S.type === 'crossjoy' ? drawCrossjoy(t) : drawTrivia(t);
+  // The game fades out under the orange.
+  document.getElementById('game').style.opacity = t >= S.endAt ? 1 - clamp((t - S.endAt) / 0.5, 0, 1) : 1;
+  drawCaptions(t, capTop);
+  drawEnd(t);
+};
+})();
+</script>
+</body>
+</html>

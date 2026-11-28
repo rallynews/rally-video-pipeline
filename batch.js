@@ -114,6 +114,7 @@ async function runProduce(id) {
 
   const work = await studio.work(id, 'produce');
   const draft = work.draft;
+  if (draft && draft.kind === 'game') return runProduceGame(id, work);
   const story = work.story || (draft && draft.story);
   if (!draft || !draft.reel || !draft.raw) throw new Error('Studio sent no confirmed draft for this slot');
   console.log(`🎬 Video ${work.slot} of batch ${work.batch_id}: "${story.headline}"`);
@@ -165,6 +166,39 @@ async function runProduce(id) {
   console.log(`\n✅ ${videoUrl} sent to Studio.`);
 }
 
+// ── produce, Joyscroll Game: the confirmed game and narration to MP4 ───────
+async function runProduceGame(id, work) {
+  const { buildGameVideo } = require('./src/joyscroll');
+  const { uploadObject, posterFrame } = require('./src/batch/upload');
+  const draft = work.draft;
+  console.log(`🎮 Video ${work.slot} of batch ${work.batch_id}: ${draft.title} (${draft.narration ? 'narrated' : 'no narration'})`);
+
+  const video = await buildGameVideo(draft);
+  const base = `reels/${today()}/joyscroll-${draft.game.type}-b${work.batch_id}-${work.slot}`;
+  const videoUrl = await uploadObject(video.buffer, `${base}.mp4`, 'video/mp4');
+  if (!videoUrl) throw new Error('The video was built but R2_VIDEO_PUBLIC_URL / R2_PUBLIC_URL is not set, so it has no address');
+  let posterUrl = null;
+  try {
+    const poster = await posterFrame(video.buffer);
+    if (poster) posterUrl = await uploadObject(poster, `${base}.jpg`, 'image/jpeg');
+  } catch (e) {
+    console.warn(`   Poster frame failed (${e.message}) — the video still plays`);
+  }
+  const caps = draft.captions || {};
+  await studio.produceDone(id, {
+    video_url: videoUrl,
+    video_key: `${base}.mp4`,
+    poster_url: posterUrl,
+    duration_s: video.duration,
+    // Studio wrote these links, already tagged for this video.
+    captions: { facebook: caps.facebook || '', instagram: caps.instagram || '', link: caps.link || '', links: caps.links || null },
+    proofreading: { ran: false, changes: [], rejected: [] },
+    voice: video.voice,
+    track: video.track || (video.musicMuted ? 'no music' : ''),
+  });
+  console.log(`\n✅ ${videoUrl} sent to Studio.`);
+}
+
 // ── finish: the stage's "ready" message, once ──────────────────────────────
 async function runFinish(mode, batch, itemsJson) {
   let items = [];
@@ -180,7 +214,8 @@ async function runFinish(mode, batch, itemsJson) {
   if (mode === 'produce') {
     const { updateRSSFeed } = require('./src/rss-updater');
     for (const it of summary.items) {
-      if (it.status !== 'ready' || !it.url) continue;
+      // Game videos aren't stories, so they stay off the link-in-bio feed.
+      if (it.status !== 'ready' || !it.url || it.game) continue;
       updateRSSFeed(
         { headline: it.headline, url: it.url, summary: it.summary || it.headline, thumbnail: it.thumbnail || null },
         { campaign: 'carousel', content: `b${batch}-v${it.slot}` }

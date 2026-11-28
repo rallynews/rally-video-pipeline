@@ -10,7 +10,8 @@
     "reel-assets": "node scripts/reel-assets.js",
     "voice-check": "node scripts/voice-check.js",
     "review-check": "node scripts/review-check.js",
-    "batch-check": "node scripts/batch-check.js"
+    "batch-check": "node scripts/batch-check.js",
+    "game-check": "node scripts/game-check.js"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.600.0",
