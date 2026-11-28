@@ -45,6 +45,46 @@ button; the other slots are unaffected. A slot whose job dies without reporting
 (timeout, cancellation) is marked failed by the `finish` job, so nothing sits
 "running" forever. Runs for the same batch queue rather than overlap.
 
+### Joyscroll Game videos
+
+The second kind of Carousel batch (choose **Joyscroll Game** instead of **Rally
+Reel** in Studio). Each video is a game from the Joyscroll app playing itself —
+a **Joyword**, a **Crossjoy**, or **five Trivia questions** — that always comes
+up just short, then an orange end card: **Joyscroll** · *Good News Games* ·
+**Play Now**. 1080×1920, between 20 and 30 seconds.
+
+| Step | Where | What happens |
+| --- | --- | --- |
+| **Games** | Studio | Each video gets a game type and a theme; Studio suggests puzzles from the scraper's `game_words`, `crosswords` and `trivia` tables (the same cheap ranking as Reels). Pick one Joyword or Crossjoy, or five Trivia questions in play order. |
+| **Narration** | Studio | Type the narration yourself — no AI writes it — or reuse a saved one, or leave it empty. Studio refuses one too long for 30 seconds (about 70 words). The post captions come from a template, editable here, with tracked joyscroll.life links. |
+| **Videos** | this repo, mode `produce` | `src/joyscroll/`: the game is played out (`plan.js`) and filmed frame by frame in a browser (`page.html`, a stripped-back copy of the app's game screens in its own colours, fonts, tiles and keyboard); the narration is voiced line by line in a happy female voice and captioned in time; a random music bed and the app's own game sounds go under it. |
+
+**Never a win**, by design:
+
+- **Joyword** — six guesses of everyday words, each closer; the sixth is one
+  letter off. The word is never shown.
+- **Crossjoy** — about 80% of the grid is filled in, answer by answer; the next
+  answer goes in one letter wrong and Check marks it. The rest is never shown.
+- **Trivia** — four right, the fifth wrong; its right answer is never shown.
+
+The game's pace stretches or squeezes so the whole video lands in 20–30
+seconds around the narration. Game videos stay out of `feed.rss` (they aren't
+stories), and are scheduled on Studio's Schedule calendar like reels. The
+fonts (Outfit, Lora — open licence), the game sounds (synthesized for the app)
+and the icon are copied from the app into `assets/joyscroll/`; the word list
+into `src/joyscroll/words.js`.
+
+```bash
+npm run game-check -- --offline   # one of each game, no network (a tone stands in for the voice)
+npm run game-check                # with the real voice and music (needs the secrets)
+```
+
+The voice: OpenRouter's speech models are searched for a happy female voice
+first (`useGameVoice()` in `src/reels/voice.js`); Azure, ElevenLabs and OpenAI
+default to female voices already. Pin one with the repository variable
+`GAME_VOICE` (and `GAME_VOICE_STYLE` for Azure, `GAME_ELEVENLABS_VOICE_ID` for
+ElevenLabs).
+
 ### Tracked links
 
 Every link the pipeline hands out carries UTM tags (`src/tracking.js`), so
